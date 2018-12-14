@@ -57,12 +57,12 @@ Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역�
 ```
 ## JSP 구성 요소 
 
-1. 디렉티브 
+1. <strong>디렉티브</strong> <br> 
 - page : jsp 페이지에 대한 정보를 지정한다. (문서 타입, 출력버퍼의 크기, 에러 페이지 등)
 - taglib: jsp 페이지에서 사용할 태그 라이브러리 지정 (코어태그)
 - include: jsp 페이지의 특정 영역에 다른 문서를 포함시킨다. 
 
-2. 스크립트<br>
+2. <strong>스크립트</strong> <br>
 스크립트 기반 태그들은 <strong><%로 시작해서 %></strong>로 끝나는 것이 특징입니다.
 - 주석문(comment) <br>
   jsp 주석문 <%- -%> <br>
