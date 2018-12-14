@@ -12,7 +12,7 @@ comments: true
 ---
 # Jsp & Servlet 
 > 책을 바탕으로 이해하기 쉽게 재구성 하였습니다. <br>
-목차 <br> 
+<strong>목차</strong> <br> 
 1. Jsp와 Servlet 이란?
 2. Jsp 구성 요소
 - 디렉티브 
