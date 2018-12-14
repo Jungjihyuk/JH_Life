@@ -62,12 +62,12 @@ Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역�
 - taglib: jsp 페이지에서 사용할 태그 라이브러리 지정 (코어태그)
 - include: jsp 페이지의 특정 영역에 다른 문서를 포함시킨다. 
 
-2. 스크립트
+2. 스크립트<br>
 스크립트 기반 태그들은 <strong><%로 시작해서 %></strong>로 끝나는 것이 특징입니다.
-- 주석문(comment) 
+- 주석문(comment) <br>
   jsp 주석문 <%- -%> <br>
   html 주석문 <!- ->
-- 지시자(directive)
+- 지시자(directive) <br>
   page: jsp 페이지에 종속적인 설정 정보를 알려준다. <br>
   contentType: 웹 브라우저에 전송되는 문서의 타입과 문자코드를 지정한다. <br>
   import: 내장 패키지를 사용할 때 해당 패키지를 사용할 수 있게 불러온다. <br>
@@ -76,13 +76,13 @@ Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역�
   session: 해당 jsp 페이지의 세션 관리 처리 여부를 지정할 때 사용된다. <br>
   include: 다른 jsp 파일을 삽입한다. <br>
   language: 페이지에서 사용되는 스크립트 언어를 지정한다.<br>
-- 스크립트릿(scriptlet) 
+- 스크립트릿(scriptlet) <br>
   <% %> <br>
   jsp 페이지 내에서 자바코드를 실행 하고 싶을 때 사용한다.
-- 표현식(expression)
+- 표현식(expression) <br>
   <%= %> <br>
   동적 데이터를 응답 결과에 포함 시키기 위해 사용한다. 
-- 선언문(declaration) 
+- 선언문(declaration) <br>
   <%! %> <br>
   jsp 페이지 내에서 사용할 멤버 변수를 선언하고 메소드를 정의하고자 할 때 사용된다. 
 
