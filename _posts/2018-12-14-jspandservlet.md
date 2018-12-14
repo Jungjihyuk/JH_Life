@@ -11,7 +11,7 @@ tag:
 comments: true
 ---
 ## Jsp & Servlet 
-> 책을 바탕으로 이해하기 쉽게 재구성 하였습니다. 
+> 책을 바탕으로 이해하기 쉽게 재구성 하였습니다. <br>
 목차 <br> 
 1. Jsp와 Servlet 이란?
 2. Jsp 구성 요소
@@ -33,6 +33,7 @@ comments: true
 5. EL(Expression Language)
 6. JSTL(Java Standard Tag Library)
 7. JDBC(Java Database Connectivity)
+
 ---
 
 ## Jsp와 Servlet 
