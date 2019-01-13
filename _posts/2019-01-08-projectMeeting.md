@@ -47,14 +47,6 @@ tag:
 3. 아이디어 제목 생각해보기.<br>
 4. 특징(키워드)찾기.<br>
 
+> ---------
 
-### To do list by 1/12 
-아이디어 구체화 및 개발 시작하기.
-<br>
-
-
-### python django  
-django web programming 개발 환경 갖추기.<br>
-[Django](https://tutorial.djangogirls.org/ko/django)
-
-#Git 
+### aaa
