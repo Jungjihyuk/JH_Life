@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 프로젝트 회의 내용 및 공부 발자취
+title: 프로젝트 회의 내용
 date: 2019-01-08
-excerpt: "졸업작품 회의 내용과 프로젝트에 필요한 공부 및 참고 자료 등.."
+excerpt: "졸업작품 회의 내용을 기록하는 곳."
 tag: 
 - project 
 - 참고 
