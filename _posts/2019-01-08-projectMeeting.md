@@ -45,12 +45,12 @@ tag:
 1. 각자 아이디어 추가로 생각해보기.<br>
 2. 오늘 회의에 나온 아이디어 디테일하게 생각해보고 쓰기.<br>
 3. 아이디어 제목 생각해보기.<br>
-- 내가 가는 길 
-- MW(My way)
-- 너디야(너 어디야?)
+- 내가 가는 길 <br>
+- MW(My way) <br>
+- 너디야(너 어디야?)<br>
 4. 특징(키워드)찾기.<br>
-- track your life 
-- record your life 
-구글 RYL App : <https://play.google.com/store/apps/details?id=com.backintime&hl=en>
-- 일상을 기록하고 더 나은 선택을 하도록 도와주는 어플.
+- track your life <br>
+- record your life <br>
+구글 RYL App : <https://play.google.com/store/apps/details?id=com.backintime&hl=en> <br>
+- 일상을 기록하고 더 나은 선택을 하도록 도와주는 어플. <br>
 
