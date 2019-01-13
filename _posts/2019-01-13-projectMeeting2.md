@@ -22,6 +22,6 @@ ciokorea 홈페이지: <https://www.ciokorea.com>
 공공데이터 포털 홈페이지: <http://www.data.go.kr>
 
 ### Python Django
-[출처 바로가기](https://tutorial.djangogils.org/ko/django)
+[출처 바로가기](https://tutorial.djangogirls.org/ko/django)
 깃헙 블로그(초보몽키의 개발공부로그): <https://wayhome25.github.io>
 
