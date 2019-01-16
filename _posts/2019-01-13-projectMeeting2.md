@@ -26,5 +26,10 @@ ciokorea 홈페이지: <https://www.ciokorea.com>
 깃헙 블로그(초보몽키의 개발공부로그): <https://wayhome25.github.io>
 
 ### Github git bass 터미널 계정 변경
-[출처바로가기](https://meaownworld.tistory.com/78)
+[출처 바로가기](https://meaownworld.tistory.com/78)
 tistory(git bash 사용법): <https://meaownworld.tistory.com/78>
+
+### 개발자의 입장에서 바라본 안드로이드 vs iOS
+[출처 바로가기](https://www.itworld.co.kr/print/70216)
+IT world 홈페이지: <https://www.itworld.co.kr/main>
+
