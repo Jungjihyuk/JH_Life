@@ -25,3 +25,6 @@ ciokorea 홈페이지: <https://www.ciokorea.com>
 [출처 바로가기](https://tutorial.djangogirls.org/ko/django)<br>
 깃헙 블로그(초보몽키의 개발공부로그): <https://wayhome25.github.io>
 
+### Github git bass 터미널 계정 변경
+[출처바로가기](https://meaownworld.tistory.com/78)
+tistory(git bash 사용법): <https://meaownworld.tistory.com/78>
