@@ -54,3 +54,31 @@ tag:
 구글 RYL App : <https://play.google.com/store/apps/details?id=com.backintime&hl=en> <br>
 - 일상을 기록하고 더 나은 선택을 하도록 도와주는 어플. <br>
 
+
+## 2019-01-17-목요일 2ed meeting 
+
+> 11시 강남역 '카페올로에서 두번째 회의를 했다(난 30분 지각..) 
+
+### 회의 내용 
+
+1. 지난 한주 동안 서로 한 일 브리핑
+2. 유진이 git 개념 설명 
+- git init 부터 git push 까지 
+* 총 4시간
+
+### 다음 회의까지 할 일 
+
+<지혁> <br>
+1. gitlab 알아보기 및 git 추가 공부(유진이한테 master 설명해주기)
+2. Django 공부하기 
+3. 기타 등등.. 
+
+<유진><br>
+1. project 보고서
+2. javascript 공부(vue.js) 
+3. 기타 등등..
+
+<같이><br>
+1. 아이디어 도움될만한 구체적 내용 생각해오기.
+2. 1/18 협업 시뮬레이션 
+
