@@ -56,5 +56,8 @@ Git에서는 프로젝트 관리를 효과적으로 관리하기 위해서 branc
 
 다음 그림은 통합브랜치와 토픽브랜치를 그림으로 표현한 것입니다.
 ![vvvvvv](https://user-images.githubusercontent.com/33630505/51373209-03adee80-1b43-11e9-9e40-ae10d77129be.JPG)
+다음 그림은 head(현재 사용중인 브랜치의 선두 부분)위치를 변경하는 checkout을 그림으로 표현한 것입니다.
+![checkout](https://user-images.githubusercontent.com/33630505/51373843-82eff200-1b44-11e9-99ec-72fef8dc27b2.JPG)
 
+그림 출처 : <https://backlog.com/git-tutorial/kr/stepup/stepup1_3.html>
 
