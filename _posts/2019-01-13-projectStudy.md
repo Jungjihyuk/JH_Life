@@ -75,8 +75,15 @@ victolee Tistory: <https://www.victorydntmd.tistory.com>
 [출처 바로가기](https://www.stechstar.com/user/wordpress/python-django-개요-다이어그램)<br>
 stechstar wordpress: <https://www.stechstar.com>
 
+<hr>
+
 ### CGI & WAS & WSGI
 [출처 바로가기](https://www.brownbears.tistory.com/350)<br>
 불곰 tistory: <https://www.brownbears.tistory.com>
 
+<hr>
+
+### ORM(Object Relational Mapping)
+[출처 바로가기](https://www.incodom.kr/ORM)<br>
+인coDOM 홈페이지: <https://www.incodm.kr>
 
