@@ -1,6 +1,6 @@
-# Moon Jekyll Theme [![Donate](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.me/taylantatli/0usd)  
+# My blog forked 'Moon Jekyll Theme' [![Donate](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.me/taylantatli/0usd)  
   
-## `Sorry guys but there will be no update until I buy a new laptop.`
+## `I have renovated 'Moon Theme' as my style `
     
 ######(If you like this theme or using it, please give a :star: for motivation.)
 
@@ -20,10 +20,9 @@
 
 ## Preview
 
-![screenshot of Moon](https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png)    
-![screenshot of Moon](https://cloud.githubusercontent.com/assets/754514/14509716/61ac6c8e-01d6-11e6-879f-8308883de790.png)
+![myblog](https://user-images.githubusercontent.com/33630505/51456614-b83d4f80-1d91-11e9-9ccd-48c60e66d3ba.JPG)
 
-See a [live version of Moon](https://taylantatli.github.io/Moon) hosted on GitHub.
+See a [live version of My blog](https://jungjihyuk.github.io/JH_Life) hosted on GitHub.
 
 ## Getting Started
 
