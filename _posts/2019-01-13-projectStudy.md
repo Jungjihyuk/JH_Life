@@ -74,5 +74,8 @@ victolee Tistory: <https://victorydntmd.tistory.com>
 [출처 바로가기](https://www.stechstar.com/user/wordpress/python-django-개요-다이어그램)
 stechstar wordpress: <https://www.stechstar.com>
 
+### CGI & WAS & WSGI
+[출처 바로가기](https://www.brownbears.tistory.com/350)
+불곰 tistory: <https://www.brownbears.tistory.com>
 
 
