@@ -67,7 +67,8 @@ Git에서는 프로젝트 관리를 효과적으로 관리하기 위해서 branc
 [출처 바로가기](https://victorydntmd.tistory.com/258)
 victolee Tistory: <https://victorydntmd.tistory.com>
 
-
+[출처 바로가기](https://www.stechstar.com/user/wordpress/python-django-개요-다이어그램)
+stechstar wordpress: <https://www.stechstar.com>
 
 
 
