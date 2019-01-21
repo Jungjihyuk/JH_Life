@@ -61,3 +61,13 @@ Git에서는 프로젝트 관리를 효과적으로 관리하기 위해서 branc
 
 그림 출처 : <https://backlog.com/git-tutorial/kr/stepup/stepup1_3.html>
 
+<hr>
+
+### Django Structure 
+[출처 바로가기](https://victorydntmd.tistory.com/258)
+victolee Tistory: <https://victorydntmd.tistory.com>
+
+
+
+
+
