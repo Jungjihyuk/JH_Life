@@ -67,6 +67,10 @@ Git에서는 프로젝트 관리를 효과적으로 관리하기 위해서 branc
 [출처 바로가기](https://victorydntmd.tistory.com/258)
 victolee Tistory: <https://victorydntmd.tistory.com>
 
+* 다음에 나올 그림의 출처는 그림 밑에 있습니다. 
+
+![django structure](https://user-images.githubusercontent.com/33630505/51454555-a4412000-1d88-11e9-9b8d-f1d279cdac6e.JPG)
+
 [출처 바로가기](https://www.stechstar.com/user/wordpress/python-django-개요-다이어그램)
 stechstar wordpress: <https://www.stechstar.com>
 
