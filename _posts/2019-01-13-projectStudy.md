@@ -15,6 +15,7 @@ ciokorea 홈페이지: <https://www.ciokorea.com>
 
 ### Pycon korean
 [출처 바로가기](https://www.pycon.kr/2018/program/list)<br>
+Pycon korean 홈페이지: <https://www.pycon.kr/2018>
 
 ### 공공데이터 포털 활용 사례
 [출처 바로가기](https://www.data.go.kr/useCase/exam/index.do)<br>
@@ -25,15 +26,15 @@ ciokorea 홈페이지: <https://www.ciokorea.com>
 깃헙 블로그(초보몽키의 개발공부로그): <https://wayhome25.github.io>
 
 ### Github git bash 터미널 계정 변경
-[출처 바로가기](https://meaownworld.tistory.com/78)
+[출처 바로가기](https://meaownworld.tistory.com/78)<br>
 tistory(git bash 사용법): <https://meaownworld.tistroy.com/78>
 
 ### 개발자의 입장에서 바라본 안드로이드 vs iOS
-[출처 바로가기](https://www.itworld.co.kr/print/70216)
+[출처 바로가기](https://www.itworld.co.kr/print/70216)<br>
 IT world 홈페이지: <https://www.itworld.co.kr/main>
 
 ### 프로그래밍 강의 사이트
-[출처 바로가기](https://www.programmers.co.kr)
+[출처 바로가기](https://www.programmers.co.kr)<br>
 programmers 홈페이지: <https://www.programmers.co.kr>
 
 <hr>
@@ -56,7 +57,7 @@ Git에서는 프로젝트 관리를 효과적으로 관리하기 위해서 branc
 
 다음 그림은 통합브랜치와 토픽브랜치를 그림으로 표현한 것입니다.
 ![vvvvvv](https://user-images.githubusercontent.com/33630505/51373209-03adee80-1b43-11e9-9e40-ae10d77129be.JPG)
-다음 그림은 head(현재 사용중인 브랜치의 선두 부분)위치를 변경하는 checkout을 그림으로 표현한 것입니다.
+* 다음 그림은 head(현재 사용중인 브랜치의 선두 부분)위치를 변경하는 checkout을 그림으로 표현한 것입니다.
 ![checkout](https://user-images.githubusercontent.com/33630505/51373843-82eff200-1b44-11e9-99ec-72fef8dc27b2.JPG)
 
 그림 출처 : <https://backlog.com/git-tutorial/kr/stepup/stepup1_3.html>
@@ -64,18 +65,18 @@ Git에서는 프로젝트 관리를 효과적으로 관리하기 위해서 branc
 <hr>
 
 ### Django Structure 
-[출처 바로가기](https://victorydntmd.tistory.com/258)
-victolee Tistory: <https://victorydntmd.tistory.com>
+[출처 바로가기](https://www.victorydntmd.tistory.com/258)<br>
+victolee Tistory: <https://www.victorydntmd.tistory.com>
 
 * 다음에 나올 그림의 출처는 그림 밑에 있습니다. 
 
 ![django structure](https://user-images.githubusercontent.com/33630505/51454555-a4412000-1d88-11e9-9b8d-f1d279cdac6e.JPG)
 
-[출처 바로가기](https://www.stechstar.com/user/wordpress/python-django-개요-다이어그램)
+[출처 바로가기](https://www.stechstar.com/user/wordpress/python-django-개요-다이어그램)<br>
 stechstar wordpress: <https://www.stechstar.com>
 
 ### CGI & WAS & WSGI
-[출처 바로가기](https://www.brownbears.tistory.com/350)
+[출처 바로가기](https://www.brownbears.tistory.com/350)<br>
 불곰 tistory: <https://www.brownbears.tistory.com>
 
 
