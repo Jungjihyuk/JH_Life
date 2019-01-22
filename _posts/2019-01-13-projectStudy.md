@@ -37,6 +37,17 @@ IT world 홈페이지: <https://www.itworld.co.kr/main>
 [출처 바로가기](https://www.programmers.co.kr)<br>
 programmers 홈페이지: <https://www.programmers.co.kr>
 
+### 대세로 자리잡은 빅데이터 분석 플랫폼, "아파치 스파크"의 이해 
+[출처 바로가기](https://www.itworld.co.kr/news/107192)
+IT world 홈페이지: <https://www.itworld.co.kr/main>
+
+### 빅데이터 분석에 스파크를 이용해야 하는 5가지 이유 
+[출처 바로가기](https://www.itworld.co.kr/news/92492)
+IT world 홈페이지: <https://www.itworld.co.kr/main>
+
+* 스파크를 다루는 기술 Spark in Action -저자: 페타 제체비치, 마르코 보나치/출판사: 길벗-
+
+
 <hr>
 
 ### master(git에서의 의미)
