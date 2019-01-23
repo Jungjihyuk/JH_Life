@@ -6,6 +6,7 @@ excerpt: 'Do it! 점프 투 파이썬' 책
 tag:
 - python
 - 한눈에 정리
+comments: true
 ---
 
 # Python
