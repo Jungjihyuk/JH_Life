@@ -1,7 +1,6 @@
 ---
 layout: post
 title: python 문법 정리(자주 까먹는 것들)
-date: 2019-01-23
 excerpt: 'Do it! 점프 투 파이썬' 책
 tag:
 - python
