@@ -52,7 +52,7 @@ IT world 홈페이지: <https://www.itworld.co.kr/main>
 
 ### master(git에서의 의미)
 
-Git에서는 프로젝트 관리를 효과적으로 관리하기 위해서 branch라는 개념을 사용합니다.
+Git에서는 프로젝트 관리를 효과적으로 관리하기 위해서<span style="background-color: #e1e1e1"> branch<span>라는 개념을 사용합니다.
 팀 프로젝트를 할때 동일한 소스코드 기반으로 서로 다른 작업을 동시에 하는 일이 발생합니다.
 이렇게 독립적인 작업을 위한 개념이 branch입니다. 
 필요에 의해 만들어진 각각의 branch들은 서로 영향을 주지 않습니다.
