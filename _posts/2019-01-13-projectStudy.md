@@ -97,4 +97,8 @@ stechstar wordpress: <https://www.stechstar.com>
 ### ORM(Object Relational Mapping)
 [출처 바로가기](https://www.incodom.kr/ORM)<br>
 인coDOM 홈페이지: <https://www.incodm.kr>
+ORM 개념<br>
+[출처 바로가기](https://m.blog.naver.com/PostView.nhn?blogId=my0biho&logNo=40146063900&proxyReferer=https%3A%2F%2Fwww.google.com%2F)<br>
+
+
 
