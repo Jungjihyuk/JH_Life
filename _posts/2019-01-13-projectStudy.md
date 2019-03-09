@@ -96,16 +96,18 @@ stechstar wordpress: <https://www.stechstar.com>
 
 ### ORM(Object Relational Mapping)
 [출처 바로가기](https://www.incodom.kr/ORM)<br>
-인coDOM 홈페이지: <https://www.incodm.kr>
-ORM 개념<br>
+인coDOM 홈페이지: <https://www.incodm.kr><br>
+#### ORM 개념<br>
+
 [출처 바로가기](https://m.blog.naver.com/PostView.nhn?blogId=my0biho&logNo=40146063900&proxyReferer=https%3A%2F%2Fwww.google.com%2F)<br>
+
 #### 굳이 ORM을 사용하는 이유는?
-<span style="background-color: #e1e1e1">객체 지향 프로그래밍다운 프로그래밍을 하자는데서 출발한다.</span><br>
+<span style="background-color: #ffe187">객체 지향 프로그래밍다운 프로그래밍을 하자는데서 출발한다.</span><br>
 ORM을 사용하기 이전에는 객체 모델과 관계형 모델 간의 불일치가 존재했기 때문에 불일치를 해결하고 <br>
 좀 더 oop에 가까운 개발을 하자는데 의미를 갖는다. 
 
 #### ORM이란
-<span style="background-color: #e1e1e1">객체-관계 매핑</span>
+<span style="background-color: #fdbb5d">객체-관계 매핑</span>
 * 객체와 관계형 데이터베이스의 데이터를 <span style="background-color: #ffe187">자동으로 매핑(연결)해주는 것</span>을 말한다.
 * 객체 지향 프로그래밍은 <strong>클래스</strong>를 사용하고, 관계형 데이터베이스는 <strong>테이블</strong>을 사용한다.
 * ORM은 객체를 table에 저장해 주고, table에 저장된 data로 부터 객체를 생성해주는 기능을 제공한다.
@@ -135,7 +137,7 @@ ORM을 사용하기 이전에는 객체 모델과 관계형 모델 간의 불일
 ### Procedure VS Function
 Procedure는 return address를 남기지 않지만 Function은 남깁니다.<br>
 Procedure는 스택에 필요한 값만 저장을 하고 이동하지만, Function은 전부다 플래그를 남긴다음 이동을 합니다.<br>
-Procedure는 함수 내에서 처리가 끝나지만 Function은 처리가 끝나고 return되는 값이 있거나 없거나 하는 경우가 있습니다. 
+Procedure는 함수 내에서 처리가 끝나지만 Function은 처리가 끝나고 return되는 값이 있거나 없거나 하는 경우가 있습니다. <br>
 [출처 바로가기](https://www.hackerschool.org/HS_Boards/view.php?id=QNA_programming&no=6480)
 
 ### RESTful 이란? 
@@ -161,8 +163,6 @@ Procedure는 함수 내에서 처리가 끝나지만 Function은 처리가 끝�
 6. 계층형 구조
 - 클라이언트 입장에서는 REST API 서버만 호출한다.
 - REST 서버는 다중 계층으로 구성될 수 있다. (예를 들어 보안, 로드 밸런싱, 암호화, 사용자 인증 등 추가하여 구조상의 유연성을 줄 수 있다.) 
-
-
 
 [출처 바로가기](https://nesoy.github.io/articles/2017-02/REST)
 
