@@ -58,6 +58,33 @@ for test in range(int(input())):
 ```
 * 테스트 갯수 입력후 숫자 n 입력하면 factorial 결과에서 0이 아닌 가장 마지막 숫자 출력.<br> 
   이를 테스트 갯수만큼 실행. (실행은 되지만 백준online에서 오답이라고 표시함)<br>
-  왜 틀렸을까...?
+  왜 틀렸을까..?
 
+## 10828번(정답)
+### 스택
+```python
+n = int(input())
+stack = []
+
+for x in range(n):
+	order = input().split()
+	if order[0] == 'push':
+		stack.append(int(order[1]))
+	elif order[0] == 'pop':
+		if len(stack) == 0:
+			print(-1)
+		else:
+			print(stack[-1])
+			stack.pop()
+	elif order[0] == 'empty':
+		if len(stack) == 0:
+			print(1)
+		else:
+			print(0)
+	elif order[0] == 'top':
+		if len(stack) == 0:
+			print(-1)
+		else:
+			print(stack[-1])
+```
 
