@@ -32,3 +32,6 @@ tage:
 - 꺾인 모양일때, 자식-자식-부모 형태라고 한다면 맨 밑 자식을 부모 노드로 올려 놓는다.
 
 
+
+정렬 알고리즘 애니메이션 => [toptal](https://www.toptal.com/developers/sorting-algorithms)
+
