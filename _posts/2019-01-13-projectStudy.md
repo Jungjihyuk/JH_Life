@@ -168,6 +168,6 @@ Procedure는 함수 내에서 처리가 끝나지만 Function은 처리가 끝�
 
 [출처 바로가기](https://medium.com/@whj2013123218/django-rest-api%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95-a95c6dd195fd)
 
-#### vue.js를 Django 템플릿에 사용하기
+### vue.js를 Django 템플릿에 사용하기
 
 [출처 바로가기](https://holywater-jeong.github.io/blog/vue-django)
