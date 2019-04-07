@@ -89,7 +89,7 @@ stechstar wordpress: <https://www.stechstar.com>
 <hr>
 
 ### CGI & WAS & WSGI
-[출처 바로가기](https://www.brownbears.tistory.com/350)<br>
+[출처 바로가기](https://brownbears.tistory.com/350)<br>
 불곰 tistory: <https://www.brownbears.tistory.com>
 
 <hr>
