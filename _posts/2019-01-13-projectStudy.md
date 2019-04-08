@@ -171,3 +171,7 @@ Procedure는 함수 내에서 처리가 끝나지만 Function은 처리가 끝�
 ### vue.js를 Django 템플릿에 사용하기
 
 [출처 바로가기](https://holywater-jeong.github.io/blog/vue-django)
+
+### NoSQL 
+[samaung sds](https://www.samsungsds.com/global/ko/support/insights/1195843_2284.html)
+
