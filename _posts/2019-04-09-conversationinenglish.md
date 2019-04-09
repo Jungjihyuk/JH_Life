@@ -12,4 +12,4 @@ tag:
 
 ### 영어 회화는 일상대화에서 영어로 번역하자 
 
-{% include siwonschoollecture.html id="ivD8H3NIdaRcAxy" %}
+{% include siwonschoollecture.html id="71N_rnzeKO0&t=1274s" %}
