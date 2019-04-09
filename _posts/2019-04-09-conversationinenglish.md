@@ -10,12 +10,12 @@ tag:
 ---
 
 
-### 영어 회화는 일상대화에서 영어로 번역하자 
+## 영어 회화는 일상대화에서 영어로 번역하자 
 
 **중요!!** 일상에서 자주 쓰는 표현들 위주로, 한국어 -> 영어 로 바꾸고 싶은 표현이 생각날 때, 궁금할 때 영어가 더 재밌어 진다!!
 {: .notice}
 
-#### 동사 어휘 
+### 동사 어휘 
 
 1. 청구하다 
 - charge
@@ -73,85 +73,85 @@ tag:
 - ex2) 내가 타는 
 - ex2) that i take 
 
-#### Today's conversation
+### Today's conversation
 
-##### 4월 7일 일요일 
+#### 4월 7일 일요일 
 
 1. 카드 가지고 오셨나요? <br>
-<kbd>me</kbd>: Did you bring your card? <br> 
-<kbd>papage</kbd>: Did you bring your card?<br>
+<kbd>me</kbd>:&nbsp;Did you bring your card? <br> 
+<kbd>papage</kbd>:&nbsp;Did you bring your card?<br>
  
 2. 이것도 좀 데워주세요 <br>
-<kbd>me</kbd>: Please 데우다 this. <br>
-    Would you please 데우다 this. <br> 
-<kbd>papage</kbd>: Could you heat this up for me?  <br>
-        Please warm this up.   <br>
+<kbd>me</kbd>:&nbsp;Please 데우다 this. <br>
+&nbsp;&nbsp;Would you please 데우다 this. <br> 
+<kbd>papage</kbd>:&nbsp;Could you heat this up for me?  <br>
+&nbsp;&nbsp;&nbsp;Please warm this up.   <br>
 
 3. 네? 뭐라구요? <br>
-<kbd>me</kbd>: what? come again? <br>
-    what? pardon me? <br>
-    what? what did you say? <br> 
-    Excuse me sir? <br>
-<kbd>papage</kbd>: pardom me? <br>
+<kbd>me</kbd>:&nbsp;what? come again? <br>
+&nbsp;&nbsp;what? pardon me? <br>
+&nbsp;&nbsp;what? what did you say? <br> 
+&nbsp;&nbsp;Excuse me sir? <br>
+<kbd>papage</kbd>:&nbsp;pardom me? <br>
 
 4. 나 지금 나가야해 <br>
-<kbd>me</kbd>: I have to go now <br>
-    I'm just going to go now <br>
-    I'm gonna go <br>
-<kbd>papage</kbd>: I have to go now <br>
+<kbd>me</kbd>:&nbsp;I have to go now <br>
+&nbsp;&nbsp;I'm just going to go now <br>
+&nbsp;&nbsp;I'm gonna go <br>
+<kbd>papage</kbd>:&nbsp;I have to go now <br>
 
 5. 응 지금 버스 있어 <br>
-<kbd>me</kbd>: yes, <br>
+<kbd>me</kbd>:&nbsp;yes, <br>
 
 6. 저랑 근무 시간 바꿔주실 수 있나요? <br>
-<kbd>me</kbd>: could you change the job schedule for me? <br>
+<kbd>me</kbd>:&nbsp;could you change the job schedule for me? <br>
 
 7. 네이버도 계속 발전해서 좋은 회사지만 조금 청렴했으면 좋겠어요.. <br>
-<kbd>me</kbd>: I'd like to be 청렴 for naver even good company that keep developing <br>
-<kbd>papage</kbd>: Naver is a good company because it has continued to develop, but i hope Naver will be a little integrity <br>
+<kbd>me</kbd>:&nbsp;I'd like to be 청렴 for naver even good company that keep developing <br>
+<kbd>papage</kbd>:&nbsp;Naver is a good company because it has continued to develop, but i hope Naver will be a little integrity <br>
 
 8. 그럴시간 있으면 밖에 나가서 뛰어 노는 걸 추천한다. (속마음) <br>
-<kbd>me</kbd>: I would recommand you to go out for playing a ground if you have many time. <br>
-<kbd>papage</kbd>: If you have time for that, i recommend you to go out and play. <br>
+<kbd>me</kbd>:&nbsp;I would recommand you to go out for playing a ground if you have many time. <br>
+<kbd>papage</kbd>:&nbsp;If you have time for that, i recommend you to go out and play. <br>
 
 9. 두 명의 학생이 왔어요. <br>
-<kbd>me</kbd>: Two students came. <br>
-<kbd>papage</kbd>: There are two students <br>
-        Two students showed up <br>
+<kbd>me</kbd>:&nbsp;Two students came. <br>
+<kbd>papage</kbd>:&nbsp;There are two students <br>
+&nbsp;&nbsp;&nbsp;Two students showed up <br>
 
-##### 4월 8일 월요일 
+#### 4월 8일 월요일 
 
 1. 밥 먹으러 가? (점심) <br>
-<kbd>me</kbd>: Do we go for a lunch? <br> 
-<kbd>papage</kbd>: Are we going to have lunch? <br>
+<kbd>me</kbd>:&nbsp;Do we go for a lunch? <br> 
+<kbd>papage</kbd>:&nbsp;Are we going to have lunch? <br>
 
 2. 네 시간 돼요, 가능합니다. <br> 
-<kbd>me</kbd>: yes, i can , it's possible <br>
-    yes, i do <br>
+<kbd>me</kbd>:&nbsp;yes, i can , it's possible <br>
+&nbsp;&nbsp;yes, i do <br>
 
 3. 시간 끌지마! (연관 검색..)  <br>
-blog: Don't stall for time  <br>
+<kdb>blog</kdb>:&nbsp;Don't stall for time  <br>
 
 4. 언제 시간 되세요? <br>
-blog: When are you available? <br>
-      When are you free?  <br>
-      When can we meet you? <br>
-      Do you have any plans for this weekend?  <br>
-      Are you free tonight? <br>
-      Do you have time for that day? 
+<kdb>blog</kdb>:&nbsp;When are you available? <br>
+&nbsp;&nbsp;&nbsp;When are you free?  <br>
+&nbsp;&nbsp;&nbsp;When can we meet you? <br>
+&nbsp;&nbsp;&nbsp;Do you have any plans for this weekend?  <br>
+&nbsp;&nbsp;&nbsp;Are you free tonight? <br>
+&nbsp;&nbsp;&nbsp;Do you have time for that day? 
  
 5. 언제든 괜찮습니다 x날 제외하고. <br>
-blog: Any day will be fine except x <br> 
+<kdb>blog</kdb>:&nbsp;Any day will be fine except x <br> 
 
 6. 이번주는 스케줄이 꽉 차있어. <br>
-blog: I'm all dated up this week. <br>
+<kdb>blog</kdb>:&nbsp;I'm all dated up this week. <br>
 
 7. 배가 불러서 밥 생각이 없어. <br>
-<kbd>me</kbd>: I'm full, so i don't want to eat. <br>
-<kbd>papage</kbd>: I'm so full that i don't want to eat. <br>
+<kbd>me</kbd>:&nbsp;I'm full, so i don't want to eat. <br>
+<kbd>papage</kbd>:&nbsp;I'm so full that i don't want to eat. <br>
 
 8. 저번에 말했던 밥집에서 가족들이랑 밥 먹었거든. <br>
-<kbd>me</kbd>: I have a lunch at restaurant that i told you with my family. <br> 
-<kbd>papage</kbd>: I ate with my family at the restaurant i told you last time <br>
+<kbd>me</kbd>:&nbsp;I have a lunch at restaurant that i told you with my family. <br> 
+<kbd>papage</kbd>:&nbsp;I ate with my family at the restaurant i told you last time <br>
 
 
