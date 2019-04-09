@@ -79,82 +79,82 @@ tag:
 #### 4월 7일 일요일 
 
 1. 카드 가지고 오셨나요? <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;Did you bring your card? <br> 
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;Did you bring your card?<br>
+<kbd>me</kbd>:&nbsp;&nbsp;Did you bring your card? <br> 
+<kbd>papage</kbd>:&nbsp;&nbsp;Did you bring your card?<br>
  
 2. 이것도 좀 데워주세요 <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;Please 데우다 this. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Would you please 데우다 this. <br> 
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;Could you heat this up for me?  <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please warm this up.   <br>
+<kbd>me</kbd>:&nbsp;&nbsp;Please 데우다 this. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Would you please 데우다 this. <br> 
+<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Could you heat this up for me?  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please warm this up.   <br>
 
 3. 네? 뭐라구요? <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;what? come again? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;what? pardon me? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;what? what did you say? <br> 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Excuse me sir? <br>
+<kbd>me</kbd>:&nbsp;&nbsp;what? come again? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;what? pardon me? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;what? what did you say? <br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Excuse me sir? <br>
 <kbd>papage</kbd>:&nbsp;pardom me? <br>
 
 4. 나 지금 나가야해 <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;I have to go now <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm just going to go now <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm gonna go <br>
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;I have to go now <br>
+<kbd>me</kbd>:&nbsp;&nbsp;I have to go now <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm just going to go now <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm gonna go <br>
+<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I have to go now <br>
 
 5. 응 지금 버스 있어 <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;yes, <br>
+<kbd>me</kbd>:&nbsp;&nbsp;yes, <br>
 
 6. 저랑 근무 시간 바꿔주실 수 있나요? <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;could you change the job schedule for me? <br>
+<kbd>me</kbd>:&nbsp;&nbsp;could you change the job schedule for me? <br>
 
 7. 네이버도 계속 발전해서 좋은 회사지만 조금 청렴했으면 좋겠어요.. <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;I'd like to be 청렴 for naver even good company that keep developing <br>
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;Naver is a good company because it has continued to develop, but i hope Naver will be a little integrity <br>
+<kbd>me</kbd>:&nbsp;&nbsp;I'd like to be 청렴 for naver even good company that keep developing <br>
+<kbd>papage</kbd>:&nbsp;&nbsp;Naver is a good company because it has continued to develop, but i hope Naver will be a little integrity <br>
 
 8. 그럴시간 있으면 밖에 나가서 뛰어 노는 걸 추천한다. (속마음) <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;I would recommand you to go out for playing a ground if you have many time. <br>
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;If you have time for that, i recommend you to go out and play. <br>
+<kbd>me</kbd>:&nbsp;&nbsp;I would recommand you to go out for playing a ground if you have many time. <br>
+<kbd>papage</kbd>:&nbsp;&nbsp;If you have time for that, i recommend you to go out and play. <br>
 
 9. 두 명의 학생이 왔어요. <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;Two students came. <br>
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;There are two students <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Two students showed up <br>
+<kbd>me</kbd>:&nbsp;&nbsp;Two students came. <br>
+<kbd>papage</kbd>:&nbsp;&nbsp;There are two students <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Two students showed up <br>
 
 <hr>
 
 #### 4월 8일 월요일 
 
 1. 밥 먹으러 가? (점심) <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;Do we go for a lunch? <br> 
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;Are we going to have lunch? <br>
+<kbd>me</kbd>:&nbsp;&nbsp;Do we go for a lunch? <br> 
+<kbd>papage</kbd>:&nbsp;&nbsp;Are we going to have lunch? <br>
 
 2. 네 시간 돼요, 가능합니다. <br> 
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;yes, i can , it's possible <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yes, i do <br>
+<kbd>me</kbd>:&nbsp;&nbsp;yes, i can , it's possible <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yes, i do <br>
 
 3. 시간 끌지마! (연관 검색..)  <br>
-<kbd>blog</kbd>:&nbsp;&nbsp;&nbsp;Don't stall for time  <br>
+<kbd>blog</kbd>:&nbsp;&nbsp;Don't stall for time  <br>
 
 4. 언제 시간 되세요? <br>
-<kbd>blog</kbd>:&nbsp;&nbsp;&nbsp;When are you available? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When are you free?  <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When can we meet you? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you have any plans for this weekend?  <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Are you free tonight? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you have time for that day? 
+<kbd>blog</kbd>:&nbsp;&nbsp;When are you available? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When are you free?  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When can we meet you? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you have any plans for this weekend?  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Are you free tonight? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you have time for that day? 
  
 5. 언제든 괜찮습니다 x날 제외하고. <br>
-<kbd>blog</kbd>:&nbsp;&nbsp;&nbsp;Any day will be fine except x <br> 
+<kbd>blog</kbd>:&nbsp;&nbsp;Any day will be fine except x <br> 
 
 6. 이번주는 스케줄이 꽉 차있어. <br>
-<kbd>blog</kbd>:&nbsp;&nbsp;&nbsp;I'm all dated up this week. <br>
+<kbd>blog</kbd>:&nbsp;&nbsp;I'm all dated up this week. <br>
 
 7. 배가 불러서 밥 생각이 없어. <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;I'm full, so i don't want to eat. <br>
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;I'm so full that i don't want to eat. <br>
+<kbd>me</kbd>:&nbsp;&nbsp;I'm full, so i don't want to eat. <br>
+<kbd>papage</kbd>:&nbsp;&nbsp;I'm so full that i don't want to eat. <br>
 
 8. 저번에 말했던 밥집에서 가족들이랑 밥 먹었거든. <br>
-<kbd>me</kbd>:&nbsp;&nbsp;&nbsp;I have a lunch at restaurant that i told you with my family. <br> 
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;I ate with my family at the restaurant i told you last time <br>
+<kbd>me</kbd>:&nbsp;&nbsp;I have a lunch at restaurant that i told you with my family. <br> 
+<kbd>papage</kbd>:&nbsp;&nbsp;I ate with my family at the restaurant i told you last time <br>
 
 
