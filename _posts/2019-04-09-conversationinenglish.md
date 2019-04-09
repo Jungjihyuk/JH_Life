@@ -201,6 +201,9 @@ tag:
 - ex) 저 핸드폰 이미 껐는데요 
 - ex) I have turned off my cell phone 
 
+<br>
+[시원스쿨 강의](https://www.youtube.com/watch?v=yMwOU7u--h8&&t=52s)
+
 <hr>
 
 ### Today's conversation
