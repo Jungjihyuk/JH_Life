@@ -72,6 +72,135 @@ tag:
 - ex1) that i like 
 - ex2) 내가 타는 
 - ex2) that i take 
+
+11. 해보다 
+- try
+
+12. 이미 해봤다 
+- have tried 
+
+13. 끝내다 
+- finish
+
+* has 역시 연습해야함
+
+14. 이미 끝냈다
+- have finished
+- have done
+
+15. 보내다 
+- send 
+
+16. 벌써 보냈다
+- have sent 
+
+17. 계산하다 
+- pay
+
+18. 벌써 계산 했어요
+- have paid 
+
+19. 받는다, 구하다
+- get
+
+20. 벌써 받았어요
+- have got 
+- ex1) 저 잔돈 받았어요 
+- ex1) I have got the change  
+- ex2) 아이폰 이미 구했어요
+- ex2) I have got I-phone
+- ex3) 그는 이미 답을 알고 있어요 
+- ex3) He has got the answer
+
+21. 모으다
+- gather
+
+22. 이미 모았어요
+- have gathered
+- ex) 이미 여권들을 모았어요 
+- ex) I have gatherd the passport 
+
+23. 달라고 하다 
+- ask for 
+
+24. 이미 달라고 했어요 
+- have asked for 
+- ex) 그가 정답을 달라고 했어요 
+- ex) He has asked for the answer
+
+25. 산다
+- buy
+
+26. 이미 샀다 
+- have bought
+
+27. 먹는다 
+- eat
+
+28. 이미 먹었어요
+- have had 
+- ex) 저 이미 먹었어요 
+- ex) I have had 
+
+29. 본다
+- see 
+
+30. 이미 봤다
+- have seen
+- ex) 그는 이미 봤대 
+- ex) He has seen 
+
+31. 다녀온다 
+- go
+
+32. 이미 갔다 왔어요
+- have been 
+- ex1) 저 전에 거기 다녀왔어요
+- ex1) I have been there before 
+- ex2) 저 일본 갔다 왔어요 
+- ex2) I have been to Japan
+
+33. 바꾸다 
+- change
+
+34. 이미 바꿨어요 
+- have changed 
+
+35. 내려 놓는다 
+- put down
+
+36. 이미 내려 놨어요 
+- have put down 
+- ex) 저 이미 총 내려 놨어요 
+- ex) I have put the gun down 
+
+37. 꺼내 놓는다 
+- take out
+
+38. 미리 꺼내 놨어요
+- have taken out 
+- ex) 내 돈 전부다 꺼내 놨어요 
+- ex) I have taken out all my money 
+
+39. 왔다 
+- come 
+
+40. 이미 왔다(와서 계속 있는 상태)
+- have come 
+
+41. 이미 떠났어요 
+- have left 
+- ex) 저 이미 출발 했어요 
+- ex) I have left 
+
+42. 끄다 
+- turn off 
+
+43. 이미 꺼두다 
+- have turned off 
+- ex) 저 핸드폰 이미 껐는데요 
+- ex) I have turned off my cell phone 
+
 <hr>
 
 ### Today's conversation
