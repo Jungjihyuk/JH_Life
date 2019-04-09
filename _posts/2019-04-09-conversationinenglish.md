@@ -133,10 +133,10 @@ tag:
 &nbsp;&nbsp;yes, i do <br>
 
 3. 시간 끌지마! (연관 검색..)  <br>
-<kdb>blog</kdb>:&nbsp;Don't stall for time  <br>
+<kbd>blog</kbd>:&nbsp;Don't stall for time  <br>
 
 4. 언제 시간 되세요? <br>
-<kdb>blog</kdb>:&nbsp;When are you available? <br>
+<kbd>blog</kbd>:&nbsp;When are you available? <br>
 &nbsp;&nbsp;&nbsp;When are you free?  <br>
 &nbsp;&nbsp;&nbsp;When can we meet you? <br>
 &nbsp;&nbsp;&nbsp;Do you have any plans for this weekend?  <br>
@@ -144,10 +144,10 @@ tag:
 &nbsp;&nbsp;&nbsp;Do you have time for that day? 
  
 5. 언제든 괜찮습니다 x날 제외하고. <br>
-<kdb>blog</kdb>:&nbsp;Any day will be fine except x <br> 
+<kbd>blog</kbd>:&nbsp;Any day will be fine except x <br> 
 
 6. 이번주는 스케줄이 꽉 차있어. <br>
-<kdb>blog</kdb>:&nbsp;I'm all dated up this week. <br>
+<kbd>blog</kbd>:&nbsp;I'm all dated up this week. <br>
 
 7. 배가 불러서 밥 생각이 없어. <br>
 <kbd>me</kbd>:&nbsp;I'm full, so i don't want to eat. <br>
