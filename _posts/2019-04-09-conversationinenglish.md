@@ -206,6 +206,16 @@ tag:
 - ex) 저 핸드폰 이미 껐는데요 
 - ex) I have turned off my cell phone 
 
+45. 완화되게 하다 
+- ease 
+
+46. 완화 시킬 것이다
+- will ease 
+- ex) 고속도로가 공항으로 가는 길의 교통체증을 완화 시킬 것이다
+- ex) The highway will ease traffic congestion on routes leading to the airport 
+
+
+
 <br>
 [시원스쿨 강의](https://www.youtube.com/watch?v=yMwOU7u--h8&&t=52s)
 
