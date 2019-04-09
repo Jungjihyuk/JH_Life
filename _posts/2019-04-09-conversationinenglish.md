@@ -188,15 +188,20 @@ tag:
 40. 이미 왔다(와서 계속 있는 상태)
 - have come 
 
-41. 이미 떠났어요 
+41. ~이 딸려오다 
+- come with
+- ex) 저녁 식사에 샐러드가 나오나요?
+- ex) Does the dinner come with a salad?
+
+42. 이미 떠났어요 
 - have left 
 - ex) 저 이미 출발 했어요 
 - ex) I have left 
 
-42. 끄다 
+43. 끄다 
 - turn off 
 
-43. 이미 꺼두다 
+44. 이미 꺼두다 
 - have turned off 
 - ex) 저 핸드폰 이미 껐는데요 
 - ex) I have turned off my cell phone 
