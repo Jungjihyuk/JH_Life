@@ -72,6 +72,7 @@ tag:
 - ex1) that i like 
 - ex2) 내가 타는 
 - ex2) that i take 
+<hr>
 
 ### Today's conversation
 
@@ -118,6 +119,8 @@ tag:
 <kbd>me</kbd>:&nbsp;Two students came. <br>
 <kbd>papage</kbd>:&nbsp;There are two students <br>
 &nbsp;&nbsp;&nbsp;Two students showed up <br>
+
+<hr>
 
 #### 4월 8일 월요일 
 
