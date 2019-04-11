@@ -231,22 +231,22 @@ tag:
  
 2. 이것도 좀 데워주세요 <br>
 <kbd>me</kbd>:&nbsp;&nbsp;Please 데우다 this. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;Would you please 데우다 this. <br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Would you please 데우다 this. <br> 
 <kbd>papage</kbd>:&nbsp;&nbsp;Could you heat this up for me?  <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please warm this up.   <br>
 
 3. 네? 뭐라구요? <br>
 <kbd>me</kbd>:&nbsp;&nbsp;what? come again? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;what? pardon me? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;what? what did you say? <br> 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;Excuse me sir? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;what? pardon me? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;what? what did you say? <br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Excuse me sir? <br>
 <kbd>papage</kbd>:&nbsp;pardom me? <br>
 
 4. 나 지금 나가야해 <br>
 <kbd>me</kbd>:&nbsp;&nbsp;I have to go now <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;I'm just going to go now <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;I'm gonna go <br>
-<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;I have to go now <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm just going to go now <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm gonna go <br>
+<kbd>papage</kbd>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I have to go now <br>
 
 5. 응 지금 버스 있어 <br>
 <kbd>me</kbd>:&nbsp;&nbsp;yes, <br>
@@ -265,30 +265,30 @@ tag:
 9. 두 명의 학생이 왔어요. <br>
 <kbd>me</kbd>:&nbsp;&nbsp;Two students came. <br>
 <kbd>papage</kbd>:&nbsp;&nbsp;There are two students <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;Two students showed up <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Two students showed up <br>
 
 <hr>
 
 #### 4월 8일 월요일 
 
 1. 밥 먹으러 가? (점심) <br>
-<kbd>me</kbd>:&nbsp;&nbsp;Do we go for a lunch? <br> 
-<kbd>papage</kbd>:&nbsp;&nbsp;Are we going to have lunch? <br>
+<kbd>me</kbd>:&nbsp;&nbsp; Do we go for a lunch? <br> 
+<kbd>papage</kbd>:&nbsp;&nbsp; Are we going to have lunch? <br>
 
 2. 네 시간 돼요, 가능합니다. <br> 
-<kbd>me</kbd>:&nbsp;&nbsp;yes, i can , it's possible <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;yes, i do <br>
+<kbd>me</kbd>:&nbsp;&nbsp; yes, i can , it's possible <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; yes, i do <br>
 
 3. 시간 끌지마! (연관 검색..)  <br>
-<kbd>blog</kbd>:&nbsp;&nbsp;Don't stall for time  <br>
+<kbd>blog</kbd>:&nbsp;&nbsp; Don't stall for time  <br>
 
 4. 언제 시간 되세요? <br>
-<kbd>blog</kbd>:&nbsp;&nbsp;When are you available? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;When are you free?  <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;When can we meet you? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;Do you have any plans for this weekend?  <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;Are you free tonight? <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&npsp;Do you have time for that day? 
+<kbd>blog</kbd>:&nbsp;&nbsp; When are you available? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When are you free?  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When can we meet you? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Do you have any plans for this weekend?  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Are you free tonight? <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Do you have time for that day? 
  
 5. 언제든 괜찮습니다 x날 제외하고. <br>
 <kbd>blog</kbd>:&nbsp;&nbsp;Any day will be fine except x <br> 
