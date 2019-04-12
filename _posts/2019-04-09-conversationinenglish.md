@@ -214,7 +214,39 @@ tag:
 - ex) 고속도로가 공항으로 가는 길의 교통체증을 완화 시킬 것이다
 - ex) The highway will ease traffic congestion on routes leading to the airport 
 
+47. 변화/이동 관련 동사 (get 동사의 여러가지 의미)
+- 사다
+- buy
+- 얻다
+- obtain
+- 받다
+- receive
+- 가져오다
+- bring
+- ~한 상태가 되다
+- become 
+- 도착하다, 이동하다
+- arrive/move
+- 이해하다
+- understand 
 
+48. have 동사의 여러 가지 의미
+- 소유
+- own 
+- 먹다/마시다
+- eat/dring
+- 경험하다
+- experience
+- 병이들다
+- disease
+- ex) 나 감기 걸렸어
+- ex) I've got a cold
+- 생각이 들다 
+- idea 
+- ex1) 나도 몰라
+- ex1) I have no idea
+- ex2) 나 이번주에 계획 없어
+- ex2) I don't have any plans for the week 
 
 <br>
 [시원스쿨 강의](https://www.youtube.com/watch?v=yMwOU7u--h8&&t=52s)
@@ -303,5 +335,17 @@ tag:
 8. 저번에 말했던 밥집에서 가족들이랑 밥 먹었거든. <br>
 <kbd>me</kbd>:&nbsp;&nbsp;I have a lunch at restaurant that i told you with my family. <br> 
 <kbd>papage</kbd>:&nbsp;&nbsp;I ate with my family at the restaurant i told you last time <br>
+
+4월 12일 금요일
+
+1. 너 이거 해볼래? <br>
+<kbd>blog</kbd>: &nbsp;&nbsp; Do you wanna try this? <br>
+
+2. 응, 하고 싶어<br>
+<kbd>blog</kbd>: &nbsp;&nbsp; I'm down with it(that)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm down for it
+
+3. 나 지금 기분 안좋아 <br>
+<kbd>blog</kbd>: &nbsp;&nbsp; I'm feeling down 
 
 
