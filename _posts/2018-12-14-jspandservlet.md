@@ -55,6 +55,9 @@ Servlet을 사용하면 클라이언트가 웹 브라우저를 통해 요청을 
 Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역할을 한다. 
 
 ```
+**Watch out!** This paragraph of text has been [why](#) with the `{: .notice--info}` class.
+{: .notice--info}
+
 **Watch out!** JSP도 controller 역할을 할 수 있는데 굳이 Servlet을 이용해서 MVC 패턴을 구성하는가? 
 {: .notice--info}
 
