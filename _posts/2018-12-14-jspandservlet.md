@@ -44,7 +44,7 @@ comments: true
 Jsp(Java Server Page)는 자바로 서버 페이지를 작성하기 위한 언어 및 파일. 
 동적 데이터를 처리할 수 있는 HTML + Java 페이지 또는 언어라고 볼 수도 있다. 
 Jsp는 웹 어플리케이션의 관점에서 봤을 때 View의 역할을 한다. 
-
+물론! JSP도 Controller 역할을 할 수 있다.
 ```
 ## Servlet
 
@@ -55,6 +55,10 @@ Servlet을 사용하면 클라이언트가 웹 브라우저를 통해 요청을 
 Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역할을 한다. 
 
 ```
+
+<span style="color:red">Why</span><br>
+JSP도 controller 역할을 할 수 있는데 **왜** 굳이 Servlet을 이용해서 MVC 패턴을 구성하는가?{: .notice}
+
 ## JSP 구성 요소 
 
 1. <kbd><strong>디렉티브</strong></kbd> <br> 
@@ -62,7 +66,7 @@ Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역�
 - taglib: jsp 페이지에서 사용할 태그 라이브러리 지정 (코어태그)
 - include: jsp 페이지의 특정 영역에 다른 문서를 포함시킨다. 
 
-2. <strong>스크립트</strong> <br>
+2. <kdb><strong>스크립트</strong></kdb> <br>
 스크립트 기반 태그들은 <strong><%로 시작해서 %></strong>로 끝나는 것이 특징입니다.
 - 주석문(comment) <br>
   jsp 주석문 <%- -%> <br>
