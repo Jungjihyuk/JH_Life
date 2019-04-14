@@ -55,6 +55,10 @@ Servlet을 사용하면 클라이언트가 웹 브라우저를 통해 요청을 
 Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역할을 한다. 
 
 ```
+
+**Watch out!** This paragraph of text has been [emphasized](#) with the `{: .notice--warning}` class.
+{: .notice--warning}
+
 **Watch out!** This paragraph of text has been [why](#) with the `{: .notice--info}` class.
 {: .notice--info}
 
