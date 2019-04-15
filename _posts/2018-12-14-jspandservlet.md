@@ -56,7 +56,7 @@ Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역�
 
 ```
 
-**잠깐!!**  JSP도 controller 역할을 할 수 있는데 굳이 Servlet을 이용해서 MVC 패턴을 구성하는가? 
+**<h1>잠깐!!</h1>**  <h1>JSP도 controller 역할을 할 수 있는데 굳이 Servlet을 이용해서 MVC 패턴을 구성하는가?</h1> 
 {: .notice}
 ```
 좋은 프로그래밍이란 무엇일까?
