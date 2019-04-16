@@ -11,3 +11,8 @@ comments: true
 
 ### 목차 
 
+
+
+
+
+트랜지스터 원리, 기능 => [blog](https://m.blog.naver.com/PostView.nhn?blogId=leeneer&logNo=220924999825&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
