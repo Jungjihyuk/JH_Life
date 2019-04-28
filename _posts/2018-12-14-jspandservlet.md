@@ -56,7 +56,7 @@ Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역�
 
 ```
 
-**<h1>잠깐!!</h1>**  <h1>JSP도 controller 역할을 할 수 있는데 굳이 Servlet을 이용해서 MVC 패턴을 구성하는가?</h1> 
+**잠깐!!** JSP도 controller 역할을 할 수 있는데 굳이 Servlet을 이용해서 MVC 패턴을 구성하는가? (MVC 패턴이 익숙하지 않다면 model1 & model2 파트를 읽어보세요!)
 {: .notice}
 ```
 좋은 프로그래밍이란 무엇일까?
@@ -106,6 +106,34 @@ Servlet은 웹 어플리케이션의 관점에서 봤을 때 Controller의 역�
   jsp 페이지 내에서 사용할 멤버 변수를 선언하고 메소드를 정의하고자 할 때 사용된다. 
 
 ## Model 1 & Model 2 
+JSP로 구성된 웹 어플리케이션을 개발하다 보면 빠질 수 없는 개념이 있다. <br>
+바로 Model 1, Model 2 그리고 MVC 패턴. <br>
+Model1, 2은 웹 어플리케이션의 아키텍쳐이다. <br>
+브라우저와 서버, 그리고 데이터베이스 간의 소통을 어떤 패턴으로 하는지에 대한 정형화된 방식이라고 생각하면 된다.<br>
+이해가 가지 않는다면 Model1과 2는 각각의 프로그래밍하는 방식이라고만 생각해도 된다.<br> 
+<br>
+MVC 패턴은 Model, View, Controller의 약자로 Model 1과 2방식에서 사용되는 패턴이다.<br>
+브라우저에서 url로 특정 어플리케이션을 요청하면 Controller가 어떤 행위인지 판단하고, 처리를 담당하는데 처리에 필요한 데이터를 <br>
+Model에서 꺼내와 다시 Controller가 처리를 마치면 View를 통해 결과를 보여준다.<br>
+<br>
+
+그렇다면 MVC패턴이 적용된 Model 1과 2는 정확히 무엇일까? <br>
+
+#### Model 1
+![model1](https://user-images.githubusercontent.com/33630505/56863468-84597200-69f1-11e9-84e7-45fcfd0d04d3.JPG)
+
+#### Model 2
+![model2](https://user-images.githubusercontent.com/33630505/56863469-86233580-69f1-11e9-84a4-de7c0952a9bd.JPG)
+
+위 그림을 보면 Model 1방식은 JSP가 View와 Controller의 역할을 하고 JavaBean이 Model역할을 한다. <br>
+그리고 Model 2방식은 Servlet이 Controller역할을, JSP가 View 역할을 하고 JavaBean이 Model역할을 한다.<br>
+<br>
+여기서 Database를 공부해 본사람이라면 의문이 들수 있다. <br>
+Model에서 데이터를 갖고 온다면 Database가 Model인거 아닐까? 라고 생각할 수 있다. <br>
+그런데 Database에서 매번 데이터를 직접 꺼내오게되면 문제가 생긴다. <br>
+보안상의 문제가 될수 있고, 처리 속도측면에서 저하될 가능성이 있다. (확인되지 않은 추측이므로 이부분은 그냥 넘어가도 좋다. 확실히 하고 싶다면 추가적으로 공부하도록 하자!) <br>
+따라서 Model은 Database에서 필요한 데이터만 미리 저장해두고 이용하는 부분이라고 생각하면 된다.<br>
+
 
 ## 내장객체 & 메소드
 
