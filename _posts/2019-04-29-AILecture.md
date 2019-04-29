@@ -10,11 +10,11 @@ tag:
 ---
 
 # 2019년 4월 29일 월요일 첫 수업
-<kbd>fundamental</kbd>
-
+이 수업은 기본반이라고 되어 있지만 사실상 <kbd>fundamental</kbd> 즉, 핵심적이고, 근본적인, 필수적인 것들을 다루기 때문에 어려운 내용도 포함 하고 있다. 
+<br>
 ## 왜 프로그래밍 언어가 많은 걸까?? <br>
 : 언어마다 각각의 장단점이 있다. <br> 
-
+<br>
 ## 왜 AI에는 파이썬인가?
 ```
 Life is short, you need! 
@@ -27,7 +27,7 @@ Life is short, you need!
 세번째 데이터 사이언스 
 ```
 * 이 수업은 Data Science분야를 집중해서 다뤄볼 것이다. <br>
-
+<br>
 ## Python의 특징 
 1. 다양한 패러다임을 지원한다. 
 2. 글루 언어다. 
@@ -39,21 +39,22 @@ Life is short, you need!
 6. 모바일 지원에 대해 약하다. (이는 절대 개선될 수 없다. 왜냐하면 apple과 google에서 swift, 및 자사 언어를 사용하기 때문에) 
 - 그러나 DS분야에서는 그나마 낫다.
 7. 속도가 엄청 느리다. (Dynamic language) 
-
+<br>
 * 이번 수업은 c로 만든 python으로 사용한다 <br>
 
 * python3.3 부터 유니코드로 인한 속도가 개선되었다. <br>
-
+<br>
 ## Interpreter vs Compiler 
 
 ![interpreter vs compiler](https://user-images.githubusercontent.com/33630505/56888295-93eac080-6aae-11e9-977b-2db7ce9cd580.JPG)
-
+<br>
 ## REPL vs IDE vs Text Editor 
 <kbd>REPL</kbd>: &nbsp; Read-Eval-Print loop의 약자로 컴파일 과정없이 즉석으로 코드를 입력하고 실행결과를 바로 보는 대화형 환경을 말한다.<br>
 <kbd>IDE</Kbd>: &nbsp; Integrated Development Environment의 약자로 개발통합환경 즉, 코딩을 위한 편집기, 컴파일, 링크, 디버그 등... 실행 모듈 개발에 필요한 기능을 한곳에 모아둔 프로그램을 말한다. <br>
 <kbd>Text Editor</kbd>: &nbsp; 문서 편집기, 메모장이나 노트패드, atom 등을 text editor라고 하고 보통 코딩을 위한 text editor는 코딩을 더 편리하게 도와주는 기능이 탑재되어있다. <br>
 atom같은 경우에는 원하는 경우 설치하여 터미널창을 추가할 수도 있고 각 언어별 자동완성기능 등 여러가지 편리한 기능들을 사용할 수있도록 도와주는 프로그램이다. 
 
+<br>
 ## Jupyter notebook
 Python + Markdown 지원 REPL? <br>
 
@@ -64,6 +65,7 @@ IPython의 강점은 한 파일 내에서 쉽게 코드 cell 단위로 실행할
 Jupyter 이름에는 뜻이 숨어 있다. Ju는 Julia Py는 Python 그리고 R은 R 세 단어를 합친 단어이다. <br>
 Jupyter notebook은 특이한 점이 웹에서 사용한다는 것이다. <br>
 
+<hr>
 
-
+# 2019년 4월 30일 화요일 두번째 수업
 
