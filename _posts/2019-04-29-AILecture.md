@@ -189,17 +189,17 @@ w          str        ㅇㅇ
 ```
 
 ### Markdown 문법
-<span style="background-color: #fdbb5d">아주 기본적인 마크다운 문법을 배웠고 jupyter에서 작동하는 커멘드를 배웠다.</span>
+<span style="background-color: #fdbb5d">아주 기본적인 마크다운 문법을 배웠고 jupyter에서 작동하는 커멘드를 배웠다.</span><br>
 <kbd>ESC</kbd> : &nbsp; 명령 커멘드<br>
 <kbd>H</kbd>: &nbsp; Help (도움말)<br> 
 <kbd>ESC + Y</kbd>: &nbsp; Code mode<br> 
 <kbd>ESC + M</kbd>: &nbsp; Markdown mode<br> 
 <kbd>ESC + A</kbd> &nbsp; 현재 라인 위에 새로 추가하기<br>
 <kbd>ESC + B</kbd> &nbsp; 현재 라인 밑에 새로 추가하기<br>
-<kbd>ESC + L</kbd> : &nbsp; <br>
+<kbd>ESC + L</kbd> : &nbsp; 해당 줄에 숫자 <br>
 <kbd>Ctrl + Shift + P</kbd> : &nbsp; Help (도움말)<br> 
 
-**복습 시간**  18시 15분 ~ 19시 30분{: .notice}  
+**복습 시간**  18시 15분 ~ 19시 30분 {: .notice}  
 
 <hr>
 
