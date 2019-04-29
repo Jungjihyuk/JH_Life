@@ -87,6 +87,9 @@ Float는 부동소수로 숫자의 범위가 있다. 따라서 오버플로우�
 ※ 0.1 + 0.1 + 0.1 의 결과값은 0.3000000000000004로 나온다. 
 Why? --> 컴퓨터는 근사값을 계산하기 때문에 정확한 값을 출력하지 못한다. 
 
+※ a = 2e3  --> 2000.0
+   b = 2e-3 --> 0.002
+
 그리고 컴퓨터가 정수와 부동소수의 저장 방식의 차이 때문에 .의 유무로 정수인지 부동소수인지 판단한다.
 
 Boolean은 True / False 
@@ -157,6 +160,29 @@ keyword.kwlist
  'while',
  'with',
  'yield']
+```
+<br>
+```python
+%whos     # 여태까지 사용한 식별자를 보여줌
+ 
+Variable   Type       Data/Info
+-------------------------------
+a          int        1
+abc        bytes      b'abc'
+b          int        2
+c          int        3
+f          bool       False
+i          complex    (1+3j)
+keyword    module     <module 'keyword' from 'C<...>conda3\\lib\\keyword.py'>
+t          bool       True
+w          str        ㅇㅇ
+```
+
+```python
+'문근영' * 3 
+: 문근영문근영문근영 
+
+# 데이터 타입에 따라서 지원되는 연산이 다르다. 
 ```
 
 <hr>
