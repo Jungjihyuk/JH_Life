@@ -32,7 +32,7 @@ Life is short, you need!
 1. 다양한 패러다임을 지원한다. 
 2. 글루 언어다. 
 - 언어이면서 명세서이다. 
-- De facto -> 많이 쓰여서 표준이된것. 
+- CPython / De facto -> 많이 쓰여서 표준이된것. (사실상 표준)
 3. Library & Tool (많다) 
 4. General Purpose <-> domain specific
 5. 인터프리터 언어이다.
@@ -40,8 +40,29 @@ Life is short, you need!
 - 그러나 DS분야에서는 그나마 낫다.
 7. 속도가 엄청 느리다. (Dynamic language) 
 
-* 이번 수업은 c로 만든 python으로 사용한다
+* 이번 수업은 c로 만든 python으로 사용한다 <br>
+
+* python3.3 부터 유니코드로 인한 속도가 개선되었다. <br>
 
 #### Interpreter vs Compiler 
+
+![interpreter vs compiler](https://user-images.githubusercontent.com/33630505/56888295-93eac080-6aae-11e9-977b-2db7ce9cd580.JPG)
+
+#### REPL vs IDE vs Text Editor 
+<kbd>REPL</kbd>: Read-Eval-Print loop의 약자로 컴파일 과정없이 즉석으로 코드를 입력하고 실행결과를 바로 보는 대화형 환경을 말한다.<br>
+<kbd>IDE</Kbd>: Integrated Development Environment의 약자로 개발통합환경 즉, 코딩을 위한 편집기, 컴파일, 링크, 디버그 등... 실행 모듈 개발에 필요한 기능을 한곳에 모아둔 프로그램을 말한다. <br>
+<kbd>Text Editor</kdb>: 문서 편집기, 메모장이나 노트패드, atom 등을 text editor라고 하고 보통 코딩을 위한 text editor는 코딩을 더 편리하게 도와주는 기능이 탑재되어있다. atom같은 경우에는 원하는 경우 설치하여 터미널창을 추가할 수도 있고 각 언어별 자동완성기능 등 여러가지 편리한 기능들을 사용할 수있도록 도와주는 프로그램이다. 
+
+#### Jupyter notebook
+Python + Markdown 지원 REPL? <br>
+
+Python의 REPL에서 여러줄의 코드를 실행하기 편하고 편집하기 유용한 버전으로 업그레이드 한 것이 IPython Notebook. <br>
+IPython의 강점은 한 파일 내에서 쉽게 코드 cell 단위로 실행할 수 있다는 것이다. <br>
+다만 IPython는 파이썬 전용이다. 그리고 한 번 실행하고 Python 버전을 바꾸려면 로컬 서버를 내렸다가 다시 올려야 하는 불편함이 있다. <br>
+이러한 불편함을 극복하고 만들어진 것이 바로 Jupyter Notebook이다. <br>
+Jupyter 이름에는 뜻이 숨어 있다. Ju는 Julia Py는 Python 그리고 R은 R 세 단어를 합친 단어이다. <br>
+Jupyter notebook은 특이한 점이 웹에서 사용한다는 것이다. <br>
+
+
 
 
