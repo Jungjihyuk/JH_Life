@@ -199,7 +199,8 @@ w          str        ㅇㅇ
 <kbd>ESC + L</kbd> : &nbsp; 해당 줄에 숫자 <br>
 <kbd>Ctrl + Shift + P</kbd> : &nbsp; Help (도움말)<br> 
 
-**복습 시간**  18시 15분 ~ 19시 30분 {: .notice}  
+**복습 시간**  18시 15분 ~ 19시 30분 / 총 1시간 15
+{: .notice}
 
 <hr>
 
