@@ -32,6 +32,7 @@ Life is short, you need!
 * 이 수업은 Data Science분야를 집중해서 다뤄볼 것이다. <br>
 <br>
 ## Python의 특징 
+
 1. 다양한 패러다임을 지원한다. 
 2. 글루 언어다. 
 - 언어이면서 명세서이다. 
@@ -42,7 +43,9 @@ Life is short, you need!
 6. 모바일 지원에 대해 약하다. (이는 절대 개선될 수 없다. 왜냐하면 apple과 google에서 swift, 및 자사 언어를 사용하기 때문에) 
 - 그러나 DS분야에서는 그나마 낫다.
 7. 속도가 엄청 느리다. (Dynamic language) 
+
 <br>
+
 * 이번 수업은 c로 만든 python으로 사용한다 <br>
 
 * python3.3 부터 유니코드로 인한 속도가 개선되었다. <br>
