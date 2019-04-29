@@ -9,13 +9,13 @@ tag:
 - Python
 ---
 
-## 2019년 4월 29일 월요일 첫 수업
+# 2019년 4월 29일 월요일 첫 수업
 <kbd>fundamental</kbd>
 
-#### 왜 프로그래밍 언어가 많은 걸까?? <br>
+## 왜 프로그래밍 언어가 많은 걸까?? <br>
 : 언어마다 각각의 장단점이 있다. <br> 
 
-#### 왜 AI에는 파이썬인가?
+## 왜 AI에는 파이썬인가?
 ```
 Life is short, you need! 
 파이썬의 슬로건에서 보여주듯이 
@@ -28,7 +28,7 @@ Life is short, you need!
 ```
 * 이 수업은 Data Science분야를 집중해서 다뤄볼 것이다. <br>
 
-#### Python의 특징 
+## Python의 특징 
 1. 다양한 패러다임을 지원한다. 
 2. 글루 언어다. 
 - 언어이면서 명세서이다. 
@@ -44,16 +44,17 @@ Life is short, you need!
 
 * python3.3 부터 유니코드로 인한 속도가 개선되었다. <br>
 
-#### Interpreter vs Compiler 
+## Interpreter vs Compiler 
 
 ![interpreter vs compiler](https://user-images.githubusercontent.com/33630505/56888295-93eac080-6aae-11e9-977b-2db7ce9cd580.JPG)
 
-#### REPL vs IDE vs Text Editor 
-<kbd>REPL</kbd>: Read-Eval-Print loop의 약자로 컴파일 과정없이 즉석으로 코드를 입력하고 실행결과를 바로 보는 대화형 환경을 말한다.<br>
-<kbd>IDE</Kbd>: Integrated Development Environment의 약자로 개발통합환경 즉, 코딩을 위한 편집기, 컴파일, 링크, 디버그 등... 실행 모듈 개발에 필요한 기능을 한곳에 모아둔 프로그램을 말한다. <br>
-<kbd>Text Editor</kdb>: 문서 편집기, 메모장이나 노트패드, atom 등을 text editor라고 하고 보통 코딩을 위한 text editor는 코딩을 더 편리하게 도와주는 기능이 탑재되어있다. atom같은 경우에는 원하는 경우 설치하여 터미널창을 추가할 수도 있고 각 언어별 자동완성기능 등 여러가지 편리한 기능들을 사용할 수있도록 도와주는 프로그램이다. 
+## REPL vs IDE vs Text Editor 
+<kbd>REPL</kbd>: &nbsp; Read-Eval-Print loop의 약자로 컴파일 과정없이 즉석으로 코드를 입력하고 실행결과를 바로 보는 대화형 환경을 말한다.<br>
+<kbd>IDE</Kbd>: &nbsp; Integrated Development Environment의 약자로 개발통합환경 즉, 코딩을 위한 편집기, 컴파일, 링크, 디버그 등... 실행 모듈 개발에 필요한 기능을 한곳에 모아둔 프로그램을 말한다. <br>
+<kbd>Text Editor</kbd>: &nbsp; 문서 편집기, 메모장이나 노트패드, atom 등을 text editor라고 하고 보통 코딩을 위한 text editor는 코딩을 더 편리하게 도와주는 기능이 탑재되어있다. <br>
+atom같은 경우에는 원하는 경우 설치하여 터미널창을 추가할 수도 있고 각 언어별 자동완성기능 등 여러가지 편리한 기능들을 사용할 수있도록 도와주는 프로그램이다. 
 
-#### Jupyter notebook
+## Jupyter notebook
 Python + Markdown 지원 REPL? <br>
 
 Python의 REPL에서 여러줄의 코드를 실행하기 편하고 편집하기 유용한 버전으로 업그레이드 한 것이 IPython Notebook. <br>
