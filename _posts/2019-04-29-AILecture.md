@@ -20,6 +20,9 @@ tag:
 Life is short, you need! 
 파이썬의 슬로건에서 보여주듯이 
 파이썬은 개발 속도가 빠르기 때문에 생산성이 좋다! 
+생산성
+- Efficient  --> 빠르고 체계적인 일처리가 가능하다  
+- Effective  --> 원하는 결과를 가져다 준다
 
 그리고 이 파이썬은 크게 3가지 분야에서 유리하다. 
 첫번째 시스템 자동화 분야
@@ -64,6 +67,97 @@ IPython의 강점은 한 파일 내에서 쉽게 코드 cell 단위로 실행할
 이러한 불편함을 극복하고 만들어진 것이 바로 Jupyter Notebook이다. <br>
 Jupyter 이름에는 뜻이 숨어 있다. Ju는 Julia Py는 Python 그리고 R은 R 세 단어를 합친 단어이다. <br>
 Jupyter notebook은 특이한 점이 웹에서 사용한다는 것이다. <br>
+
+> 앞으로 이 수업은 파이썬 공식 문서를 이용할 것이다. 왜냐하면 정확한 정보를 제공하고 공식 문서를 보는 연습을 미리 해두면
+나중에 공부할때 필히 도움이 될 것이다. &nbsp; [공식 문서](https://docs.python.org/3/)
+
+## Jupyter을 이용하여 python, markdown 활용해보기 
+
+```
+자료형 중 숫자는 크게 4가지가 있다. 
+1. Integer
+2. Float
+3. Boolean
+4. Complex
+
+Integer는 정수형으로 숫자의 범위가 없다. 따라서 오버플로우가 없다. 
+그리고 python에서 정수의 종류는 한 가지
+
+Float는 부동소수로 숫자의 범위가 있다. 따라서 오버플로우가 있다. 
+※ 0.1 + 0.1 + 0.1 의 결과값은 0.3000000000000004로 나온다. 
+Why? --> 컴퓨터는 근사값을 계산하기 때문에 정확한 값을 출력하지 못한다. 
+
+그리고 컴퓨터가 정수와 부동소수의 저장 방식의 차이 때문에 .의 유무로 정수인지 부동소수인지 판단한다.
+
+Boolean은 True / False 
+True는 숫자 1에 대응되고 False는 숫자 0에 대응된다.
+※ True 처럼 bold채로 쓰인 것은 키워드이다. 
+
+Complex는 복소수로 j로 표시한다. 
+ex) i = 1 + 3j
+   : (1+3j)
+
+문자는 크게 3가지가 있다. 
+1. String
+2. Bytes
+3. Bytearray
+
+String은 python3 버전에서 unicode문자에 해당한다. 
+Byte는 문자 앞에 b를 붙이면 byte문자로 인식하고 ASCII코드에 해당한다. 
+ex) a = b'안녕'
+    type(a) 
+    bytes
+    
+※ Python에서는 변수를 식별자라고 명칭한다. 
+이때 식별자는 생성 규칙이 정해져 있다. 
+1. 영문으로 써야한다.
+2. 첫번째문자는 특수문자를 사용할 수 없다.
+3. 미리 정의되어있는 문자는 사용할 수 없다. 
+
+※ 파이썬은 동적타입, 즉 타입을 지정해주지 않아도 자동으로 지정해주기 때문에 정수형인지 
+부동소수점인지 문자인지 등을 명시하지 않아도 타입이 지정된다.
+```
+
+```python
+import keyword 
+keyword.kwlist
+
+['False',
+ 'None',
+ 'True',
+ 'and',
+ 'as',
+ 'assert',
+ 'async',
+ 'await',
+ 'break',
+ 'class',
+ 'continue',
+ 'def',
+ 'del',
+ 'elif',
+ 'else',
+ 'except',
+ 'finally',
+ 'for',
+ 'from',
+ 'global',
+ 'if',
+ 'import',
+ 'in',
+ 'is',
+ 'lambda',
+ 'nonlocal',
+ 'not',
+ 'or',
+ 'pass',
+ 'raise',
+ 'return',
+ 'try',
+ 'while',
+ 'with',
+ 'yield']
+```
 
 <hr>
 
