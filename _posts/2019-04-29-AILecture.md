@@ -346,7 +346,6 @@ type(y)
 y = (1,)
 ```
 
-
 ### Set vs Dictionary 
 **공통점** 둘다 집합의 성질을 띄어 중복허용이 불가능하고, 순서가 없다. 
 {: .notice}
@@ -380,12 +379,80 @@ type(s)
 <kbd>Expression</kbd>: 연산결과가 하나의 값으로 만들 수 있는 것 <br>
 ex) 3 + 1 , float('inf') 등 ...  
 
+### Expression vs Statement 
+
+Expression은 값 또는 값들과 연산자를 함께 사용해서 표현해 하나의 값으로 수렴하는 것 <br>
+이때 함수, 식별자, 할당 연산자 [], 등을 포함한다. <br>
+그리고 Expression은 평가가 가능하기 때문에 하나의 값으로 수렴한다. <br>
+
+* 여기서 평가라른 의미를 정확하게 알고 있어야 한다. 평가란 컴퓨터가 이해할 수 있는 기계 이진 코드로 값을 변환하면 리터럴의 형태가 달라도 그 평가값은 같게 되는 것을 말한다. 
+
+ex)
+```python
+a, b = 4, 5
+eval('1+2+3')
+eval('a+b')
+:6
+:9
+```
+<br>
+[참고](https://shoark7.github.io/programming/knowledge/expression-vs-statement.html)<br>
+
+<br>
+Statement는 예약어와 표현식을 결합한 패턴이다. <br>
+그리고 실행가능한 최소의 독립적인 코드 조각을 일컫는다. <br>
+Statement는 총 5가지 경우가 있다. <br>
+1. 할당 (Assignment)
+2. 선언 (Declaration)
+3. 조건 (if)
+4. 반복문 (for, while)
+5. 예외처리
+
+<br>
+ex)
+```python
+for i in range(1, 20+1):
+   exec('r' + str(i) + '=' +str(i))
+```
+**결론적으로** 모든 Expression은 Statement지만 어떤 Statement는 expression이지 않다. retrun 3 이런 구문은 평가를 통해 3의 값이 나오는 것이 아니기 때문이다.
+{: .notice}
+
+
 ### 기타 내장 함수 
 ```
 dir(obejct) : 어떠한 객체를 인자로 넣어주면 해당 객체가 어떤 변수와 메소드를 가지고 있는지 출력을 합니다. 
 type(object) : 어떠한 객체를 인자로 넣어주면 해당 객체의 타입을 반환한다.
 len(object) : 어떠한 객체를 인자로 넣어주면 해당 객체의 요소 갯수를 반환한다.
+id(object) : 해당 객체가 저장되어 있는 메모리 위치를 반환한다. 
 ```
+
+* id함수로 보는 메모리 할당 
+
+```python
+x = 10 
+y = 10 
+hex(id(x))
+:'0x7ffb006b9460'
+hex(id(y))
+:'0x7ffb006b9460'
+# -5 ~ 256사이 숫자이기 때문에 재할당을 해도 메모리 주소가 변하지 않는다. 
+
+x = 1000
+y = 1000
+hex(id(x))
+: '0x1bc813b7650'
+hex(id(y))
+: '0x1bc813b73d0'
+
+x = 2000 
+hex(id(x))
+: '0x1bc813b7db0'
+
+# 새로운 식별자로 같은 값에 binding을 하거나 reassignment를 하게되면 메모리 주소값이 변경된다.  
+```
+<br>
+※ 메모리 잘 쓰는 방법: [wikidocs](https://wikidocs.net/21057)
+<br>
 
 ### Error
 1. NameError
