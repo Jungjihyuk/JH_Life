@@ -426,7 +426,7 @@ len(object) : 어떠한 객체를 인자로 넣어주면 해당 객체의 요소
 id(object) : 해당 객체가 저장되어 있는 메모리 위치를 반환한다. 
 ```
 
-* id함수로 보는 메모리 할당 
+#### id함수로 보는 메모리 할당 
 
 ```python
 x = 10 
@@ -451,8 +451,8 @@ hex(id(x))
 # 새로운 식별자로 같은 값에 binding을 하거나 reassignment를 하게되면 메모리 주소값이 변경된다.  
 ```
 <br>
-※ 메모리 잘 쓰는 방법: [wikidocs](https://wikidocs.net/21057)
-<br>
+※ 메모리 잘 쓰는 방법: &nbps; [wikidocs](https://wikidocs.net/21057)
+<br><br>
 
 ### 비교 연산자 
 
