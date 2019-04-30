@@ -381,7 +381,7 @@ ex) 3 + 1 , float('inf') 등 ...
 
 ### Expression vs Statement 
 
-Expression은 값 또는 값들과 연산자를 함께 사용해서 표현해 하나의 값으로 수렴하는 것 <br>
+<kbd>Expression</kbd>은 값 또는 값들과 연산자를 함께 사용해서 표현해 하나의 값으로 수렴하는 것 <br>
 이때 함수, 식별자, 할당 연산자 [], 등을 포함한다. <br>
 그리고 Expression은 평가가 가능하기 때문에 하나의 값으로 수렴한다. <br>
 
@@ -399,7 +399,7 @@ eval('a+b')
 [참고](https://shoark7.github.io/programming/knowledge/expression-vs-statement.html)<br>
 
 <br>
-Statement는 예약어와 표현식을 결합한 패턴이다. <br>
+<kbd>Statement</kbd>는 예약어와 표현식을 결합한 패턴이다. <br>
 그리고 실행가능한 최소의 독립적인 코드 조각을 일컫는다. <br>
 Statement는 총 5가지 경우가 있다. <br>
 1. 할당 (Assignment)
