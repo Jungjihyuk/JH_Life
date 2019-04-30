@@ -208,6 +208,18 @@ w          str        ㅇㅇ
 
 ## 자료형은 총 20가지가 있지만 13가지를 배울 것이다.
 
+### 자료형
+```
+1. 숫자형 [Integer, Float, Boolean, Complex]
+2. 문자형 [String, Bytes, Bytearray]
+3. List
+4. Tuple
+5. Set
+6. Frozenset
+7. Dictionary
+8. Range 
+```
+
 ### 정수형을 표현하는 4가지 방법 
 
 1. 2진수 
@@ -234,14 +246,28 @@ sys.int_info(bits_per_digit=30, sizeof_digit=4)
 32비트 python인 경우, 정수는 최대 30비트까지 허용된다? 
 ```
 <br>
+
+### 진법 변환 builtin
 bin() => 2진법으로 변환 <br>
 oct() => 8진법으로 변환 <br>
 hex() => 16진법으로 변환 <br>
 2, 8, 16진법의 숫자를 입력하면 자동으로 10진수로 변환<br>
 <br>
+* bold채가 아닌데 색이 변하는 것은 builtin함수
+<br>
 
 ### float 
 
+<span style="background-color: skyblue">부동소수는 소수점이 존재하는 수</span><br>
+<span style="background-color: skyblue">예외적으로 무한대와 숫자가 아닌 경우도 포함한다.</span><br>
+```python
+float('inf')
+=> inf (infinity)
+float('nan')
+=> nan (not a number)
+# 무한대 개념은 딥러닝에서 미분의 개념을 꼭 알아야 하는데 이때 중요하게 작용한다.
+  파이썬은 이처럼 숫자 체계가 범위가 넓기 때문에 인공지능에 이용되는 장점이 있다.
+```
 .(점)은 부동소수점을 결정하는 리터럴 <br>
 * 리터럴은 데이터 타입을 결정하는 문자를 일컫는 말이다. 
 
@@ -254,12 +280,118 @@ sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.
 
 
 ### float형 숫자의 연산 
-<kbd>+</kbd> , <kbd>-</kbd> ,<kbd> *</kbd> ,<kbd> /</kbd>, <kbd>//</kbd>,<kbd> %</kbd> 가 있다.  
+<kbd>+</kbd> , <kbd>-</kbd> ,<kbd> *</kbd> ,<kbd> /</kbd>, <kbd>//</kbd>,<kbd> %</kbd>, <kbd>**</kbd>가 있다.  
 
-단, 음수 나눗셈은 주의 해야 한다. <br>
-ex) <br>
-10 // -3 <br>
-=> -4 <br>
-why? --> -4 + 0.66667 이런식으로 간주하기 때문에 <br>
+```
+단, 음수 나눗셈은 주의 해야 한다. 
+ex) 
+10 // -3
+=> -4 
+why? --> -4 + 0.66667 이런식으로 간주하기 때문에 
+```
+
+### 자료형을 구별하는 기준 
+
+```
+┌─ Mutable    # 추가, 삭제가 가능한 경우 / 특징 : 메모리 번지 안바뀜, 재할당할 필요없음
+└─ Immutable  # 추가, 삭제가 불가능한 경우 / 특징 : 재할당으로 메모리 번지 바뀜
+
+Container ┌─ Homogeneous    # 요소들이 서로 같은 타입인 경우
+          └─ Heterogeneous  # 요소들이 서로 다른 타입이 가능한 경우 
+(요소가 1개 이상)
+
+Sequence ┌─ Indexing   # 요소를 하나씩 출력
+         └─ Slicing    # 요소를 한번에 여러개 출력
+(순서가 있음)         
+Mapping hash    # key값과 value를 갖는 Dictinary가 갖는 특징      
+```
+
+### Indexing
+
+```python
+a = '정지혁'
+a[0]
+: 정
+```
+
+### Slicing
+
+```python
+a = '정지혁'
+a[0:3] or a[:3]
+: 정지혁
+a[-3:] or a[-0:]
+:정지혁 
+a[0:3:2]  # 양수일때 (맨 뒤에 오는 숫자 - 1) 을 하면 건너 뛰는 문자의 개수를 나타낸다
+:정혁 
+a[0:-4:-1]  # 음수일때 |맨 뒤에 오는 숫자 + 1|을 하면 건너 뛰는 문자의 개수를 나타내고 거꾸로 출력한다. 
+:혁지정
+a[:70] # 슬라이싱은 범위가 벗어나도 에러가 나지 않는다
+:정지혁
+```
+
+### List vs Tuple 
+**차이점** List는 수정, 삭제, 추가가 가능하고 인덱싱, 슬라이싱이 가능하지만, Tuple은 수정, 삭제, 추가가 불가능하고 인덱싱, 카운팅만 가능하다. 
+{: .notice}
+
+```python
+x = [1]
+type(x)
+: list
+y = (1)
+type(y)
+: int 
+
+하나의 요소를 갖는 튜플을 생성하려면 콤마를 적어줘야한다.
+y = (1,)
+```
+
+
+### Set vs Dictionary 
+**공통점** 둘다 집합의 성질을 띄어 중복허용이 불가능하고, 순서가 없다. 
+{: .notice}
+
+**차이점** set은 key값만 있는 반면 dictionary는 key, value쌍을 이뤄 mapping hash 타입을 이룬다.
+{: .notice}
+
+```python
+s = {}
+type(s)
+:dict
+# python이 처음 만들었을 때는 set이 없었기 때문에 공집합을 만들면 Dictionary로 간주한다.
+ 
+# 그렇다면 set은 공집합을 어떻게 만드나?
+s = set()
+type(s)
+: set 
+```
+
+**Internals** Python은 -5부터 256까지 숫자는 재할당을 해도 메모리 번지가 바뀌지 않도록 인터널 기법을 사용한다. 많이 쓰이는 작은 정수들을 미리 할당해 놓음으로써 메모리 공간과 연산비용을 많이 아낄 수 있게된다. 
+{: .notice}
+
+[참고](https://mingrammer.com/translation-cpython-internals-arbitrary-precision-integer-implementation/)<br>
+
+* Garbage Collection은 메모리 관리 기법 중 하나로, 프로그램이 동적으로 할당했던 메모리 영역 중에서 필요 없게 된 영역을 해제하는 기능이다.
+
+### xxx = xxx 
+<span style="background: orange">식별자 or 변수 = 식(Expression) </span><br>
+<kbd>Expression</kbd>: 연산결과가 하나의 값으로 만들 수 있는 것 <br>
+ex) 3 + 1 , float('inf') 등 ...  
+
+### 기타 내장 함수 
+```
+dir(obejct) : 어떠한 객체를 인자로 넣어주면 해당 객체가 어떤 변수와 메소드를 가지고 있는지 출력을 합니다. 
+type(object) : 어떠한 객체를 인자로 넣어주면 해당 객체의 타입을 반환한다.
+len(object) : 어떠한 객체를 인자로 넣어주면 해당 객체의 요소 갯수를 반환한다.
+```
+
+### Error
+1. NameError
+- 값을 할당하지 않은 식별자를 사용했을 때 발생하는 에러 
+2. IndexError
+- 인덱스 값에서 벗어난 인덱스를 사용했을 때 발생하는 에러 
+
+**복습 시간**   18시 35분 ~ 20시 5분/ 총 1시간 30분  
+{: .notice}
 
 
