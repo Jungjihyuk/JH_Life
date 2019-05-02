@@ -624,11 +624,66 @@ python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.c
 > 여기서 개념 하나 추가 Iterable! Iterable은 순회, 반복 가능한 것을 말한다. 그래서 for문에 쓸 수 있다
 보통 container이면 Iterable ※ 아닌것도 있지만 아주 나중에 배운다
 
+```python
+# for # 
+
+for i in {'a':1,'b':2}.values():
+   print(i)
+
+for i, j in {'a':1,'b':2}.items():
+   print(i,j) 
+
+# in 뒤에 오는 것은 Container, 여러개의 요소를 갖고 있는것은 반복문이 가능하다
+
+# while # 
+
+i = 0 
+while i < 10:
+   i+=1
+   print(i)
+   if i == 5:
+      break   # 탈출문   
+else: 
+   print("완료")
+
+# continue는 continue 밑은 실행하지 않고 넘어간다 
+
+```
+* for문은 반복횟수를 알때 주로 사용하고, while문은 반복횟수가 정해지지 않았을 때, 모를때 주로 사용한다. 
+
+* 모든 for문은 while문으로 바꿀수 있지만, 모든 while문은 for문으로 바꾸기 어렵다.
+
+#### else문 3가지 쓰임 
+1. 조건문에서     => 조건에 맞지 않는 경우  
+2. 반복문에서     => 반복문이 정상 완료 되고나서 실행
+- 0번도 수행이라고 간주하기 때문에 else문이 실행될 수 있다
+3. 예외처리할 때  
+
+#### Dictionary view
+
+1. key
+2. values
+3. items 
 
 
+#### 구문 실행시 실행시간 알아보기 
 
+```python
+%%timeit 
 
-**복습 시간**   17시 45분 ~ / 총  
+for i in range(3,10,2):
+    for j in range(1,10):
+        print(i,"*",j,"=", i*j)
+    print()
+
+# 391 µs ± 31.8 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+```
+
+#### Python에서 중요한 두 가지 (Two A) 
+1. Abstraction
+2. Automation 
+
+**복습 시간**   17시 45분 ~ / 18시 43분 총 58 
 {: .notice}
 
 
