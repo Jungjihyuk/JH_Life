@@ -684,7 +684,7 @@ for i in range(3,10,2):
 
 python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.com)
 
-**복습 시간**   17시 45분 ~ / 18시 43분 총 58 
+**복습 시간**   17시 45분~ 18시 43분/ 총 58분 
 {: .notice}
 
 
