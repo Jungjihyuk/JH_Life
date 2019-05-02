@@ -513,7 +513,7 @@ a is b
 
 ### 할당문의 종류 6가지 
 ```
-1. 기본 할당문 <kbd>=</kbd>
+1. 기본 할당문 
 - a = 1
 2. Chain assignment 
 - a = b = 1
@@ -611,8 +611,6 @@ else:
 - A가 참이면 B 체크 X => A 반환 
 - A가 거짓이면 B 체크 => B 반환 
 
-python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.com)
-
 
 ### 반복문 2가지 
 
@@ -621,8 +619,9 @@ python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.c
 2. while 
 ```
 
-> 여기서 개념 하나 추가 Iterable! Iterable은 순회, 반복 가능한 것을 말한다. 그래서 for문에 쓸 수 있다
-보통 container이면 Iterable ※ 아닌것도 있지만 아주 나중에 배운다
+> 여기서 개념 하나 추가 Iterable! Iterable은 순회, 반복 가능한 것을 말한다. 
+그래서 for문에 쓸 수 있다.
+보통 container이면 Iterable ※ 아닌것도 있지만 아주 나중에 배운다.
 
 ```python
 # for # 
@@ -682,6 +681,8 @@ for i in range(3,10,2):
 #### Python에서 중요한 두 가지 (Two A) 
 1. Abstraction
 2. Automation 
+
+python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.com)
 
 **복습 시간**   17시 45분 ~ / 18시 43분 총 58 
 {: .notice}
