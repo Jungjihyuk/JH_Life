@@ -508,4 +508,132 @@ a is b
 **복습 시간**   18시 35분 ~ 20시 5분/ 총 1시간 30분  
 {: .notice}
 
+# 2019년 5월 02일 목요일 세번째 수업
+
+
+### 할당문의 종류 6가지 
+```
+1. 기본 할당문 <kbd>=</kbd>
+- a = 1
+2. Chain assignment 
+- a = b = 1
+3. Augmentation 
+- a += 1 
+4. Pakcing
+5. Unpacking 
+- Container 쪼개기
+6. Global not local 
+```
+
+* Unpacking 방법은 빅데이터 처리시 많이 쓰인다.
+
+```python
+# Chain assignment #
+
+a = b = 2 
+a
+: 2
+b
+: 2 
+
+b = 3 
+a
+: 2 
+# 변수 어느 하나 재할당 한다고 같이 바뀌지 않는다
+
+-- 주의 --
+x = y = [1000,2000]
+y.append(3000)
+x
+: [1000,2000,3000]
+y
+: [1000,2000,3000]
+# 그러나 mutable일때는 같이 변하므로 주의해야 한다! 
+
+# Augmentation #
+a = 0
+a += 1  # (재할당) 
+
+# 다른 언어처럼 선증가, 후증가가 지원되지 않는다
+++a  (X)
+a++  (X)
+그러나 # ++a는 에러가 나지 않는다 
+Why?
+# 앞에 있는 플러스를 문자열 취급하기 때문에??? 사실 잘 이해가 안됨...
+
+# Packing 
+
+x = 1,2,3
+y = 1,
+
+# Unpacking # 
+
+x,y = 1,2  (O) 
+x,y,*z = 1,2,3,4 (O)
+*x, = 1,2,3 (O)
+*a, = '정지혁' (O)
+*u, = {'a':1,'b':2,'c':3,'d':4,'e':1} (O)  # 단, 키 값만 리스트 형태로 반환
+*x, y = range(10) (O)
+
+x, = 1,2 (X) # 왼쪽 식별자와 오른쪽 식의 갯수를 맞춰줘야 함
+*x, y, *z = 1,2,3,4,5 (X)
+
+# 오른쪽에 오는 식은 Container면 모두 가능 
+# * (별표)는 나머지를 리스트로 반환, 그리고 * 두 개이상 못씀
+
+```
+Packing & Unpacking: &nbsp; [blog](https://python.bakyeono.net/chapter-5-5.html)
+
+
+### 조건의 형태 3가지 
+
+```
+1. if, else & and, or 
+2. if, elif, else
+3. 중첩 if 
+```
+<hr>
+```python
+a = 6 
+if 0 < a < 10:
+   print(True)
+else:
+   print(False)
+
+```
+
+#### AND & OR
+
+1. A and B  
+- A가 참(Truely)이면 B 체크 => B 반환 
+- A가 거짓(Fasly)이면 B 체크 X => A 반환 
+2. A or B
+- A가 참이면 B 체크 X => A 반환 
+- A가 거짓이면 B 체크 => B 반환 
+
+python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.com)
+
+
+### 반복문 2가지 
+
+```
+1. for 
+2. while 
+```
+
+> 여기서 개념 하나 추가 Iterable! Iterable은 순회, 반복 가능한 것을 말한다. 그래서 for문에 쓸 수 있다
+보통 container이면 Iterable ※ 아닌것도 있지만 아주 나중에 배운다
+
+
+
+
+
+**복습 시간**   17시 45분 ~ / 총  
+{: .notice}
+
+
+
+
+
+
 
