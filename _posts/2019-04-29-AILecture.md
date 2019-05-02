@@ -451,7 +451,7 @@ hex(id(x))
 # 새로운 식별자로 같은 값에 binding을 하거나 reassignment를 하게되면 메모리 주소값이 변경된다.  
 ```
 <br>
-※ 메모리 잘 쓰는 방법: &nbps; [wikidocs](https://wikidocs.net/21057)
+※ 메모리 잘 쓰는 방법: &nbsp; [wikidocs](https://wikidocs.net/21057)
 <br><br>
 
 ### 비교 연산자 
