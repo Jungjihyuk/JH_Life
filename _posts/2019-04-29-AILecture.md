@@ -508,7 +508,7 @@ a is b
 **복습 시간**   18시 35분 ~ 20시 5분/ 총 1시간 30분  
 {: .notice}
 
-# 2019년 5월 02일 목요일 세번째 수업
+# 2019년 05월 02일 목요일 세번째 수업
 
 
 ### 할당문의 종류 6가지 
@@ -523,6 +523,7 @@ a is b
 5. Unpacking 
 - Container 쪼개기
 6. Global not local 
+- global 이용하여 전역번수 접근, 변경하기 # 추천하지 않는 기능
 ```
 
 * Unpacking 방법은 빅데이터 처리시 많이 쓰인다.
@@ -580,6 +581,24 @@ x, = 1,2 (X) # 왼쪽 식별자와 오른쪽 식의 갯수를 맞춰줘야 함
 
 # 오른쪽에 오는 식은 Container면 모두 가능 
 # * (별표)는 나머지를 리스트로 반환, 그리고 * 두 개이상 못씀
+
+#Global not local#
+
+a = 1 
+
+def name():
+   global a 
+   a += 1 
+   return a
+name()
+: 2
+
+def name(): 
+   a = 1 
+   a += 1
+   return a
+# 위 함수와는 같지 않음 / Why? 밑 함수에서는 a를 그냥 재할당한 것임
+
 
 ```
 Packing & Unpacking: &nbsp; [blog](https://python.bakyeono.net/chapter-5-5.html)
@@ -690,6 +709,172 @@ python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.c
 
 
 
+# 2019년 05월 03일 금요일 네번째 수업
+
+
+### 선언문 2가지
+
+```
+1. 함수선언 
+2. 클래스 선언
+```
+
+```python
+def name(arg1, arg2 = 2):
+   pass       # 에러가 나지 않게 형태만 갖추기
+   
+name(3)       # 함수 호출(콜)
+: (3,2)
+```
+
+**Argument**  인자로 어떤 데이터 타입도 올 수 있다. 단 튜플을 넣을 때 괄호를 꼭 써줘야 한다  
+{: .notice}
+
+> Python의 또다른 장점 'return'문은 생략 가능하다
+
+
+### Parameter vs Argument 
+
+Parameter | Argument 
+--------|-------
+선언문에서 괄호 안 | 호출문에서 괄호안
+
+
+### Argument 사용법 
+
+```
+1. Positional + keyword
+2. Only Positional 
+3. Only Keyword
+4. Variable Positional
+5. Variable keyword 
+6. Variable Positional + Variable keyword
+```
+
+```python 
+# Only Positional #
+def name(a,b):
+   ''' 함수 설명 '''   # Docs String => Shift + Tab 하면 설명이 그대로 나온다
+   return a, b        #                참고로 함수 설명에 ( / )가 있을 경우 Positional 방식이라는 뜻
+name(1,2)
+:(1,2)
+ 
+name(b=3, a=4)
+:(4,3)
+
+# Only Keyword #
+def name(*,a,b):   
+   return a + b 
+
+# Variable Positional#
+def name(*a):
+   return a[0],a[1:3],a[3:]
+name()
+:()
+name([1,2,3],(4,5,6),{'a':1,'b':2})
+:([1, 2, 3], ((4, 5, 6), {'a': 1, 'b': 2}), ())
+
+# !주의! 할당할때 *는 list를 반환하고 함수에서 *는 tuple로 반환한다
+
+# Variable Keyword #
+def name(**a):
+   return a
+
+name(a = ['a',2], b = {'a':'a','b':2}, c = range(3),d = 5)
+:{'a': ['a', 2], 'b': {'a': 'a', 'b': 2}, 'c': range(0, 3), 'd': 5}
+
+
+# Variable Positional + Variable Keyword #
+def name(*b, **a):
+   return b, a 
+name(2,3,4,5, a = 9, b = 3, c = [1,2])    # !주의! keyword를 쓰기 시작하면 끝까지 keyword를 써야한다 
+:((2, 3, 4, 6), {'a': 9, 'b': 3, 'c': [1, 2]})
+```
+
+> Python에서는 Parameter로 받아 올때 Type을 지정해주지 않는다.
+Why? Python 철학중 EAFP라는 것이 있는데 이는 '허락보다는 용서를 구하기 쉽다'로 
+부부관계를 예시로 설명하면 이해하기 쉽다. 
+결혼하고 나면 보통 남자든 여자든 비싼 사치품을 사는 것이 쉽지 않다. 
+이때 사치품을 사려고 하는 입장의 사람은 결정해야한다. 
+사고 혼날 것인가. 
+허락을 받을 것인가.
+전자가 더 실행하기 쉽고 빠르다는 것이 Python의 철학인 것이다. 
+
+**Python Tip1** 파이썬은 오버로딩이 안된다. 즉 같은 함수 이름을 여러개 정의하여 매개변수를 달리하여 사용하는 기법이 허용이 되지 않는다. 파이썬은 오버로딩을 지원하지 않음으로써 속도를 개선했다. 단, 오버라이딩은 사용 가능하다. (매소드 재정의)
+{: .notice}
+
+
+* 오늘의 명언 
+<span style="color: orange">자동이 많으면 제약이 많다.</span>
+
+
+### 함수의 특징 3가지 
+
+```
+1. return이 반드시 있어야 한다 
+- python에서는 return을 생략하면 None을 반환하도록 되어 있다 
+2. 함수 안에 또 다른 함수를 선언할 수 있다 
+3. Global, Local 
+- 함수 안에 없는 값을 return 하게 될 경우 가까운 Global 식별자를 return 
+- Global 식별자이름 하게 되면 접근, 수정이 가능하다
+- 함수 밖에서 함수 안의 식별자에 접근, 수정이 불가능하다 
+```
+#### 함수안의 함수 
+```python
+def a():
+   def b():
+      return 3
+   return b
+   
+a()
+:<function __main__.a.<locals>.b()>
+a()()
+:3
+
+def a():
+   def b():
+      return 3
+   return b() 
+
+a()
+:3
+
+# 둘의 차이가 있다 위에것은 함수를 리턴하는 것이고 밑에꺼는 함수 안에서 함수를 호출하여 값을 리턴 
+```
+
+
+**Python Tip2**  return 값이 있는지 없는지 확인하는 방법 1. type() 2. 값을 저장해서 확인하기 
+{: .notice}
+
+**Python Tip3**  함수를 리스트에 넣어서 계산을 편리하게 할 수도 있다.
+{: .notice}
+
+**Python Tip4**  jupyter에서는 두 가지로 호출할 수 있는 함수인지 판단 가능 1. callable 2. 출력 
+{: .notice}
+
+**Python Tip5**  Python keyword는 총 35개다.
+{: .notice}
+
+```python
+import keyword
+
+cnt = 0 
+for x in keyword.kwlist:
+   cnt += 1
+print(cnt)
+:35
+```
+
+### 신기한 함수 
+```python
+import matplotlib.pyplot as plt 
+
+plt.plot([1,2,3,4,5],[9,3,7,3,9])
+
+# 설명에서 plot[x] => 여기서 [] 대괄호는 리스트가 아니고 옵션이라는 뜻
+```
 
 
 
+**복습 시간**   17시 28분 ~ / 총  
+{: .notice}
