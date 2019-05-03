@@ -401,7 +401,7 @@ eval('a+b')
 <br>
 <kbd>Statement</kbd>는 예약어와 표현식을 결합한 패턴이다. <br>
 그리고 실행가능한 최소의 독립적인 코드 조각을 일컫는다. <br>
-Statement는 총 5가지 경우가 있다. <br>
+<span style="color: orange">Statement</span>는 총 5가지 경우가 있다. <br>
 1. 할당 (Assignment)
 2. 선언 (Declaration)
 3. 조건 (if)
