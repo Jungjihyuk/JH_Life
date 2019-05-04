@@ -143,3 +143,35 @@ Model에서 데이터를 갖고 온다면 Database가 Model인거 아닐까? 라
 
 ## JDBC(Java Database Connectivity)
 
+<hr>
+
+## SAMSUNG NOTE에 필기했던 내용
+
+![jsp1](https://user-images.githubusercontent.com/33630505/57175044-45f50480-6e82-11e9-964e-f389813bba62.JPG)
+![jsp2](https://user-images.githubusercontent.com/33630505/57175045-4a212200-6e82-11e9-9131-88069ca324bb.JPG)
+![jsp3](https://user-images.githubusercontent.com/33630505/57175051-50af9980-6e82-11e9-8554-d769099ebcd7.JPG)
+![jsp4](https://user-images.githubusercontent.com/33630505/57175052-50af9980-6e82-11e9-815f-bb4f9279867e.JPG)
+![jsp5](https://user-images.githubusercontent.com/33630505/57175054-51483000-6e82-11e9-96bb-55dd648c4f9b.JPG)
+![jsp6](https://user-images.githubusercontent.com/33630505/57175055-51483000-6e82-11e9-9c28-784e860ab86e.JPG)
+![jsp7](https://user-images.githubusercontent.com/33630505/57175060-61600f80-6e82-11e9-9fbf-daea33ac62b9.JPG)
+![jsp8](https://user-images.githubusercontent.com/33630505/57175062-61600f80-6e82-11e9-9669-1d0359c08a43.JPG)
+![jsp9](https://user-images.githubusercontent.com/33630505/57175063-61600f80-6e82-11e9-9a8b-e64f2c030c7f.JPG)
+![jsp10](https://user-images.githubusercontent.com/33630505/57175064-61600f80-6e82-11e9-94ea-a04d40061843.JPG)
+![jsp11](https://user-images.githubusercontent.com/33630505/57175065-61f8a600-6e82-11e9-9656-117629675076.JPG)
+![jsp12](https://user-images.githubusercontent.com/33630505/57175066-61f8a600-6e82-11e9-9565-46c862493e29.JPG)
+![jsp13](https://user-images.githubusercontent.com/33630505/57175067-61f8a600-6e82-11e9-99a8-9fc40d8c7003.JPG)
+![jsp14](https://user-images.githubusercontent.com/33630505/57175068-62913c80-6e82-11e9-86ea-a3ab50294a84.JPG)
+![jsp15](https://user-images.githubusercontent.com/33630505/57175069-62913c80-6e82-11e9-9277-9e421b0c229d.JPG)
+![jsp16](https://user-images.githubusercontent.com/33630505/57175070-62913c80-6e82-11e9-8ea6-5fa26773b7bc.JPG)
+![jsp17](https://user-images.githubusercontent.com/33630505/57175071-6755f080-6e82-11e9-94d0-c349c61fe57b.JPG)
+![jsp18](https://user-images.githubusercontent.com/33630505/57175089-805ea180-6e82-11e9-8e2f-17a58f21c3fb.JPG)
+![jsp19](https://user-images.githubusercontent.com/33630505/57175072-6755f080-6e82-11e9-8eef-47c9b6f06871.JPG)
+![jsp20](https://user-images.githubusercontent.com/33630505/57175073-6755f080-6e82-11e9-9958-a3c491ff6be1.JPG)
+![jsp21](https://user-images.githubusercontent.com/33630505/57175074-67ee8700-6e82-11e9-88dc-9cdee7b6be15.JPG)
+![jsp22](https://user-images.githubusercontent.com/33630505/57175075-67ee8700-6e82-11e9-88e5-74350e518ef6.JPG)
+![jsp23](https://user-images.githubusercontent.com/33630505/57175076-67ee8700-6e82-11e9-9c72-edb65759c585.JPG)
+![jsp24](https://user-images.githubusercontent.com/33630505/57175077-67ee8700-6e82-11e9-951e-9415d0980efa.JPG)
+![jsp25](https://user-images.githubusercontent.com/33630505/57175078-68871d80-6e82-11e9-9df9-097804d17cf3.JPG)
+![jsp26](https://user-images.githubusercontent.com/33630505/57175079-68871d80-6e82-11e9-80a7-52afd8159389.JPG)
+![jsp27](https://user-images.githubusercontent.com/33630505/57175091-8e142700-6e82-11e9-8f2b-227318b19f6a.JPG)
+![jsp28](https://user-images.githubusercontent.com/33630505/57175080-68871d80-6e82-11e9-8953-507aca693401.JPG)
