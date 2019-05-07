@@ -598,8 +598,6 @@ def name():
    a += 1
    return a
 # 위 함수와는 같지 않음 / Why? 밑 함수에서는 a를 그냥 재할당한 것임
-
-
 ```
 Packing & Unpacking: &nbsp; [blog](https://python.bakyeono.net/chapter-5-5.html)
 
@@ -889,9 +887,131 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 
 # 2019년 05월 07일 화요일 다섯번째 수업
 
+![function](https://user-images.githubusercontent.com/33630505/57298063-3d176380-710c-11e9-9e09-169a91bb4f3c.png)
+
+### First class function 
+
+> 함수를 값처럼 사용할 수 있다. 
+
+### Higher-Order-Function
+
+> 함수를 리턴값으로 쓰는 함수, 함수를 인자로 쓰는 함수
 
 
+### 함수의 인자로 함수가 들어가는 경우 
 
+```python
+def a(x):
+   return x + 1
+   
+list(map(a,[1,2,3]))
+:[2,3,4]
 
-**복습 시간**  19시 10분 ~  / 총 
+temp = []
+for i in [1,2,3]:
+   temp.append(i+1)
+else:
+   print(temp)
+:[2,3,4]
+
+def b(x):
+   return x > 3
+   
+list(filter(b,[1,2,3,4,5,6]))) 
+:[4,5,6]
+
+```
+
+> filter는 predicate function => True or False를 되돌려 주는 함수 
+
+**Python Tip1**  
+{: .notice}
+
+### Annotation
+
+```python
+def xx(x:int) -> int:
+   return x 
+   
+xx.__annotations__ 
+{'x': int, 'return': int}
+# 타입을 표시해줌 
+
+xx(3.0)
+xx('hi') 
+# 둘다 가능 
+```
+
+Parameter | Argument 
+--------|-------
+키워드 방식이 온다 | 식이 들어갈 수 있다(Expression)
+
+```python
+n = 0 
+def a(n):
+   return n
+a(n or 3)
+# 인자에 디폴트를 사용할 수는 없지만 이렇게 흉내는 낼 수 있다
+```
+### 식의 종류 
+
+1. 조건식 
+- 3 if a > 0 else 6 
+- a(3 if a > 0 else 6)
+2. 함수식 
+- 
+3. 반복식 
+
+**Python Tip2**  Local, Argumentation은 stack에 저장되고 Parameter는 heep영역에 들어간다
+{: .notice}
+
+**Python Tip3**  default값에 mutable값을 넣으면 값을 공유한다?, 값이 고정된다?
+{: .notice}
+
+```python
+import time 
+time.time()
+1557232234.682229 # 수행할 때마다 값이 변한다
+
+def a(t=time.time()):
+   return t 
+a()
+1557232228.6397958 # 값이 고정된다 
+```
+
+**Python Tip4**  bytearray와 frozenset은 리터럴이 없다
+{: .notice}
+
+### Return의 3가지 형태 
+
+1. 자기는 변하지만 return이 None
+2. 자기 자신이 변하지 않고 return 값이 있다 
+3. 자기 자신도 변하고 return 값도 있다
+
+```python 
+# 1 
+
+def xx(y, x=[]):
+   return x.append(y)
+# 사실 엉터리 코딩 x.append(y)는 None을 리턴하고, 
+# 함수 밖에서 x 리스트에 접근도 할 수 없기 때문에
+
+# 2 
+def xx(y, x=[]):
+   x.append(y)
+   return x 
+# xx함수를 호출 할때마다 x 리스트가 계속 변한다 
+
+def xx(y):
+   x = []
+   x.append(y)
+   return x
+# xx함수를 호출하면 원소가 하나인 리스트 반환
+```
+
+일급 객체: [git blog](https://gyukebox.github.io/blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9D%BC%EA%B8%89-%EA%B0%9D%EC%B2%B4first-class-citizen/), [tistory](https://rednooby.tistory.com/113)<br>
+
+클로저: [git blog](https://nachwon.github.io/closure/)
+
+**복습 시간**  19시 10분 ~ 21시 40분 / 총 2시간 30분  
 {: .notice}
