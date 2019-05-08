@@ -508,7 +508,7 @@ a is b
 **복습 시간**   18시 35분 ~ 20시 5분/ 총 1시간 30분  
 {: .notice}
 
-# 2019년 05월 02일 목요일 세번째 수업
+# 2019년 5월 2일 목요일 세번째 수업
 
 
 ### 할당문의 종류 6가지 
@@ -707,7 +707,7 @@ python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.c
 
 
 
-# 2019년 05월 03일 금요일 네번째 수업
+# 2019년 5월 3일 금요일 네번째 수업
 
 
 ### 선언문 2가지
@@ -885,7 +885,7 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 {: .notice}
 
 
-# 2019년 05월 07일 화요일 다섯번째 수업
+# 2019년 5월 7일 화요일 다섯번째 수업
 
 ![function](https://user-images.githubusercontent.com/33630505/57298063-3d176380-710c-11e9-9e09-169a91bb4f3c.png)
 
@@ -924,8 +924,20 @@ list(filter(b,[1,2,3,4,5,6])))
 
 > filter는 predicate function => True or False를 되돌려 주는 함수 
 
-**Python Tip1**  
+**Python Tip1**  shift + tab 했을 때 나오는 *iterables와 iterable는 차이가 있다. 별표가 있는 것은 iterable 여러개가 오고 별표가 없는 것은 한개만 온다
 {: .notice}
+
+### 별표(*)의 총 7가지 방법 
+
+```
+1. Unpacking 방법에서 나머지 
+2. Only keyword
+3. Variable Positional
+4. Variable Keyword
+5. Unpacking (벗겨내기, 리스트 쪼개기)
+6. 
+7. 
+```
 
 ### Annotation
 
@@ -1012,6 +1024,59 @@ def xx(y):
 일급 객체: [git blog](https://gyukebox.github.io/blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9D%BC%EA%B8%89-%EA%B0%9D%EC%B2%B4first-class-citizen/), [tistory](https://rednooby.tistory.com/113)<br>
 
 클로저: [git blog](https://nachwon.github.io/closure/)
+
+### 파이썬 변수의 유효 범위(Scope)
+
+> 유효 범위 규칙(Scope Rule)은 변수에 접근 가능한 범위, 변수가 유효한 문맥범위를 정하는 규칙 
+
+#### LEGB 
+
+```
+1. Local : 함수 내 정의된 지역변수 
+2. Enclosing Function Local : 함수를 내포하는 또다른 함수 영역 
+- 함수 안의 함수가 있는 경우 함수와 함수 사이
+3. Global : 함수 영역에 
+4. Built-in : 내장 영역 
+- 함수 안의 함수가 있는 경우 함수안의 함수에서 함수 밖의 변수를 사용?
+
+우선순위 => L > E > G > B 
+```
+
+#### LEGB 우선순위 확인 예제 
+```python
+x = 'global'
+def outer():
+    #x = "local"
+    
+    def inner():
+        #nonlocal x
+        #x = "nonlocal"
+        #print("inner:", x)
+        return x
+    
+    inner()
+    #print("outer:", x)
+    return x
+
+outer()
+```
+
+**Python Tip5**  함수 중첩은 3번 이상 하지 않는 것이 좋다.
+{: .notice}
+
+
+### 신기한 기능 
+
+```python
+import seaborn as sns
+tips = sns.load_dataset('tips')
+
+tips.head(10) # 앞에 10개만 보여줘
+tips.tail(10) # 뒤에 10개만 보여줘 
+tips.sample(10, replace = True) # 랜덤으로 10개 보여줘
+```
+#### 랜덤 10개 
+![python](https://user-images.githubusercontent.com/33630505/57372344-584ba700-71d0-11e9-86f1-21da17a4fc73.JPG)
 
 **복습 시간**  19시 10분 ~ 21시 40분 / 총 2시간 30분  
 {: .notice}
