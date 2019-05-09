@@ -199,7 +199,7 @@ w          str        ㅇㅇ
 <kbd>ESC + L</kbd> : &nbsp; 해당 줄에 숫자 <br>
 <kbd>Ctrl + Shift + P</kbd> : &nbsp; Help (도움말)<br> 
 
-**복습 시간**   18시 15분 ~ 19시 30분 / 총 1시간 15
+**복습 시간**   18시 15분 ~ 19시 30분 / 총 1시간 15분
 {: .notice}
 
 <hr>
@@ -953,11 +953,11 @@ xx(3.0)
 xx('hi') 
 # 둘다 가능 
 ```
-
+<br>
 Parameter | Argument 
 --------|-------
 키워드 방식이 온다 | 식이 들어갈 수 있다(Expression)
-
+<br>
 ```python
 n = 0 
 def a(n):
@@ -1088,7 +1088,7 @@ tips.sample(10, replace = True) # 랜덤으로 10개 보여줘
 
 멀티 프로세싱 기법에 최적화된 패러다임 
 
-### 반복을 줄이는 5가지 방법 
+## 반복을 줄이는 5가지 방법 
 (for문을 최대한 쓰지 않고) 
 
 ```
@@ -1167,7 +1167,7 @@ next(y)
 
 ### Iterator vs Generator & Generator vs Function 
 
-1. <span style="color: skyblue">Iterator vs Generator</span>
+<span style="color: skyblue">Iterator vs Generator</span>
 
 Iterator는 반복가능한 객체 그리고 데이터 스트림을 표현하는 객체라고 한다. <br>
 예를 들어 list는 반복가능한 자료형 즉 iterable이지만 iterator는 아니다. <br>
@@ -1186,9 +1186,9 @@ Generator는 iterator를 생성해주는 Function <br>
 하지만 역할이 다르기 때문에 명칭도 다른것!<br>
 <br>
 <span style="background-color: orange">생성 방식에서 차이가 있고 Iterator는 객체 Generator는 함수</span><br>
-Generator는 tuple, yield로 만들고 Iterator는 liter() 함수로 만든다
-
-2. <span style="color: skyblue">Generator vs Function</span>
+<span style="background-color: orange">Generator는 tuple, yield로 만들고 Iterator는 liter() 함수로 만든다</span>
+<br>
+<span style="color: skyblue">Generator vs Function</span>
 
 Generator <br>
 
@@ -1218,7 +1218,8 @@ generator를 사용하면 호출한 값만 메모리에 할당되므로 메모�
 이러한 기법을 <span style="color: orange">Lazy Evaluation</span>이라고 한다 <br>
 계산 결과 값이 필요할 때까지 계산을 늦추는 방식 <br>
 
-참고: [tistory](https://bluese05.tistory.com/56)
+참고: [tistory](https://bluese05.tistory.com/56)<br>
+
 ### Comprehension
 
 <span style="background-color:orange">Iterable한 객체를 생성하기 위한 방법</span>
