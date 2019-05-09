@@ -508,7 +508,7 @@ a is b
 **복습 시간**   18시 35분 ~ 20시 5분/ 총 1시간 30분  
 {: .notice}
 
-# 2019년 05월 02일 목요일 세번째 수업
+# 2019년 5월 2일 목요일 세번째 수업
 
 
 ### 할당문의 종류 6가지 
@@ -598,8 +598,6 @@ def name():
    a += 1
    return a
 # 위 함수와는 같지 않음 / Why? 밑 함수에서는 a를 그냥 재할당한 것임
-
-
 ```
 Packing & Unpacking: &nbsp; [blog](https://python.bakyeono.net/chapter-5-5.html)
 
@@ -709,7 +707,7 @@ python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.c
 
 
 
-# 2019년 05월 03일 금요일 네번째 수업
+# 2019년 5월 3일 금요일 네번째 수업
 
 
 ### 선언문 2가지
@@ -884,4 +882,223 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 5. Python 철학 처음부터 끝까지 정독해보기 
 
 **복습 시간**   17시 28분 ~ 19시/ 총 1시간 32분   
+{: .notice}
+
+
+# 2019년 5월 7일 화요일 다섯번째 수업
+
+![function](https://user-images.githubusercontent.com/33630505/57440852-b6859200-7283-11e9-92fd-6b7b59ca7de9.png)
+
+### First class function 
+
+> 함수를 값처럼 사용할 수 있다. 
+
+### Higher-Order-Function
+
+> 함수를 리턴값으로 쓰는 함수, 함수를 인자로 쓰는 함수
+
+
+### 함수의 인자로 함수가 들어가는 경우 
+
+```python
+def a(x):
+   return x + 1
+   
+list(map(a,[1,2,3]))
+:[2,3,4]
+
+temp = []
+for i in [1,2,3]:
+   temp.append(i+1)
+else:
+   print(temp)
+:[2,3,4]
+
+def b(x):
+   return x > 3
+   
+list(filter(b,[1,2,3,4,5,6]))) 
+:[4,5,6]
+
+```
+
+> filter는 predicate function => True or False를 되돌려 주는 함수 
+
+**Python Tip1**  shift + tab 했을 때 나오는 *iterables와 iterable는 차이가 있다. 별표가 있는 것은 iterable 여러개가 오고 별표가 없는 것은 한개만 온다
+{: .notice}
+
+### 별표(*)의 총 7가지 방법 
+
+```
+1. Unpacking 방법에서 나머지 
+2. Only keyword
+3. Variable Positional
+4. Variable Keyword
+5. Unpacking (벗겨내기, 리스트 쪼개기)
+6. 
+7. 
+```
+
+### Annotation
+
+```python
+def xx(x:int) -> int:
+   return x 
+   
+xx.__annotations__ 
+{'x': int, 'return': int}
+# 타입을 표시해줌 
+
+xx(3.0)
+xx('hi') 
+# 둘다 가능 
+```
+
+Parameter | Argument 
+--------|-------
+키워드 방식이 온다 |
+식이 들어갈 수 있다(Expression)
+
+```python
+n = 0 
+def a(n):
+   return n
+a(n or 3)
+# 인자에 디폴트를 사용할 수는 없지만 이렇게 흉내는 낼 수 있다
+```
+### 식의 종류 
+
+1. 조건식 
+- 3 if a > 0 else 6 
+- a(3 if a > 0 else 6)
+2. 함수식 
+- 
+3. 반복식 
+
+**Python Tip2**  Local, Argumentation은 stack에 저장되고 Parameter는 heep영역에 들어간다
+{: .notice}
+
+**Python Tip3**  default값에 mutable값을 넣으면 값을 공유한다?, 값이 고정된다?
+{: .notice}
+
+```python
+import time 
+time.time()
+1557232234.682229 # 수행할 때마다 값이 변한다
+
+def a(t=time.time()):
+   return t 
+a()
+1557232228.6397958 # 값이 고정된다 
+```
+
+**Python Tip4**  bytearray와 frozenset은 리터럴이 없다
+{: .notice}
+
+### Return의 3가지 형태 
+
+1. 자기는 변하지만 return이 None
+2. 자기 자신이 변하지 않고 return 값이 있다 
+3. 자기 자신도 변하고 return 값도 있다
+
+```python 
+# 1 
+
+def xx(y, x=[]):
+   return x.append(y)
+# 사실 엉터리 코딩 x.append(y)는 None을 리턴하고, 
+# 함수 밖에서 x 리스트에 접근도 할 수 없기 때문에
+
+# 2 
+def xx(y, x=[]):
+   x.append(y)
+   return x 
+# xx함수를 호출 할때마다 x 리스트가 계속 변한다 
+
+def xx(y):
+   x = []
+   x.append(y)
+   return x
+# xx함수를 호출하면 원소가 하나인 리스트 반환
+```
+
+일급 객체: [git blog](https://gyukebox.github.io/blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9D%BC%EA%B8%89-%EA%B0%9D%EC%B2%B4first-class-citizen/), [tistory](https://rednooby.tistory.com/113)<br>
+
+클로저: [git blog](https://nachwon.github.io/closure/)
+
+### 파이썬 변수의 유효 범위(Scope)
+
+> 유효 범위 규칙(Scope Rule)은 변수에 접근 가능한 범위, 변수가 유효한 문맥범위를 정하는 규칙 
+
+#### LEGB 
+
+```
+1. Local : 함수 내 정의된 지역변수 
+2. Enclosing Function Local : 함수를 내포하는 또다른 함수 영역 
+- 함수 안의 함수가 있는 경우 함수와 함수 사이
+3. Global : 함수 영역에 
+4. Built-in : 내장 영역 
+- 함수 안의 함수가 있는 경우 함수안의 함수에서 함수 밖의 변수를 사용?
+
+우선순위 => L > E > G > B 
+```
+
+#### LEGB 우선순위 확인 예제 
+```python
+x = 'global'
+def outer():
+    #x = "local"
+    
+    def inner():
+        #nonlocal x
+        #x = "nonlocal"
+        #print("inner:", x)
+        return x
+    
+    inner()
+    #print("outer:", x)
+    return x
+
+outer()
+```
+
+**Python Tip5**  함수 중첩은 3번 이상 하지 않는 것이 좋다.
+{: .notice}
+
+
+### 신기한 기능 
+
+```python
+import seaborn as sns
+tips = sns.load_dataset('tips')
+
+tips.head(10) # 앞에 10개만 보여줘
+tips.tail(10) # 뒤에 10개만 보여줘 
+tips.sample(10, replace = True) # 랜덤으로 10개 보여줘
+```
+#### 랜덤 10개 
+![python](https://user-images.githubusercontent.com/33630505/57372344-584ba700-71d0-11e9-86f1-21da17a4fc73.JPG)
+
+**복습 시간**  19시 10분 ~ 21시 40분 / 총 2시간 30분  
+{: .notice}
+
+
+# 2019년 5월 9일 목요일 여섯번째 수업
+
+
+### 함수형 패러다임 
+
+멀티 프로세싱 기법에 최적화된 패러다임 
+
+#### 반복을 줄이는 5가지 방법 
+
+* for문을 최대한 쓰지 않고 
+
+1. iterator 
+
+
+**iterable** 1. iterator로 바꿀 수 있는 2. 순회, 반복가능 (요소 하나씩 뽑아냄) 3. for 뒤에 사용할 수 있는 container 
+{: .notice}
+
+**복습 시간**   / 총 
 {: .notice}
