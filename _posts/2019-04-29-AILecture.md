@@ -887,7 +887,7 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 
 # 2019년 5월 7일 화요일 다섯번째 수업
 
-![function](https://user-images.githubusercontent.com/33630505/57298063-3d176380-710c-11e9-9e09-169a91bb4f3c.png)
+![function](https://user-images.githubusercontent.com/33630505/57440852-b6859200-7283-11e9-92fd-6b7b59ca7de9.png)
 
 ### First class function 
 
@@ -956,7 +956,8 @@ xx('hi')
 
 Parameter | Argument 
 --------|-------
-키워드 방식이 온다 | 식이 들어갈 수 있다(Expression)
+키워드 방식이 온다 |
+식이 들어갈 수 있다(Expression)
 
 ```python
 n = 0 
@@ -1079,4 +1080,25 @@ tips.sample(10, replace = True) # 랜덤으로 10개 보여줘
 ![python](https://user-images.githubusercontent.com/33630505/57372344-584ba700-71d0-11e9-86f1-21da17a4fc73.JPG)
 
 **복습 시간**  19시 10분 ~ 21시 40분 / 총 2시간 30분  
+{: .notice}
+
+
+# 2019년 5월 9일 목요일 여섯번째 수업
+
+
+### 함수형 패러다임 
+
+멀티 프로세싱 기법에 최적화된 패러다임 
+
+#### 반복을 줄이는 5가지 방법 
+
+* for문을 최대한 쓰지 않고 
+
+1. iterator 
+
+
+**iterable** 1. iterator로 바꿀 수 있는 2. 순회, 반복가능 (요소 하나씩 뽑아냄) 3. for 뒤에 사용할 수 있는 container 
+{: .notice}
+
+**복습 시간**   / 총 
 {: .notice}
