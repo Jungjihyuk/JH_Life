@@ -199,7 +199,7 @@ w          str        ㅇㅇ
 <kbd>ESC + L</kbd> : &nbsp; 해당 줄에 숫자 <br>
 <kbd>Ctrl + Shift + P</kbd> : &nbsp; Help (도움말)<br> 
 
-**복습 시간**   18시 15분 ~ 19시 30분 / 총 1시간 15분
+**복습 시간**   18시 15분 ~ 19시 30분 / 총 1시간 15
 {: .notice}
 
 <hr>
@@ -956,8 +956,7 @@ xx('hi')
 
 Parameter | Argument 
 --------|-------
-키워드 방식이 온다 |
-식이 들어갈 수 있다(Expression)
+키워드 방식이 온다 | 식이 들어갈 수 있다(Expression)
 
 ```python
 n = 0 
@@ -971,8 +970,7 @@ a(n or 3)
 1. 조건식 
 - 3 if a > 0 else 6 
 - a(3 if a > 0 else 6)
-2. 함수식 
-- 
+2. 함수식  
 3. 반복식 
 
 **Python Tip2**  Local, Argumentation은 stack에 저장되고 Parameter는 heep영역에 들어간다
@@ -1086,19 +1084,182 @@ tips.sample(10, replace = True) # 랜덤으로 10개 보여줘
 # 2019년 5월 9일 목요일 여섯번째 수업
 
 
-### 함수형 패러다임 
+## 함수형 패러다임 
 
 멀티 프로세싱 기법에 최적화된 패러다임 
 
-#### 반복을 줄이는 5가지 방법 
+### 반복을 줄이는 5가지 방법 
+(for문을 최대한 쓰지 않고) 
 
-* for문을 최대한 쓰지 않고 
-
-1. iterator 
-
+```
+1. Iterator 
+- 메모리 효율적, 속도 빠름 
+- 실행시에 메모리 할당 
+2. Generator
+3. Comprehension 
+- for를 쓰지만 for를 쓰지 않는 기법
+4. Recursive function
+- 메모리 효율, 속도면에서 성능이 좋지않아 사용안함 
+```
 
 **iterable** 1. iterator로 바꿀 수 있는 2. 순회, 반복가능 (요소 하나씩 뽑아냄) 3. for 뒤에 사용할 수 있는 container 
 {: .notice}
 
-**복습 시간**   / 총 
+## 왜 함수형 패러다임에서 반복을 줄여야 하는가? 
+
+<span style="background-color: orange">for문 처럼 대입하는 것은 함수형 패러다임에 맞지 않고 수학적 증명과는 거리가 있기 때문이다. </span>
+
+### Iterator 
+
+<span style="background-color:orange">데이터 스트림을 표현하는 객체, next()메소드를 사용하여 다음 요소를 가져온다</span>
+
+```python
+a = [1,2,3]
+b = iter(a)
+next(b)
+
+:1 
+# 실행할 때마다 index 0번지 부터 하나씩 뽑아낸다
+```
+
+### 함수형 프로그래밍의 특징 
+
+```
+1. 코드가 간결해진다 
+- 내부 구조를 몰라도 input, output만 알면 사용 가능
+2. 수학적으로 증명이 가능하다
+3. for, while문을 자제하고 iter를 사용한다 
+4. 수학적 증명이 필요하기 때문에 구현이 어렵다 
+- 단, python에서는 multi paradiam이기 때문에 적절히 혼용 가능
+5. 디버깅, 테스트가 용이하다 
+6. 모듈성, 결합성이 있다.
+7. mutable은 처리하지 않는다 
+```
+
+### Generator 
+
+<span style="background-color:orange">Iterator를 생성해주는 Function, 그리고 일반 함수와 비슷해 보이지만 Generator는 yield를 포함한다는 점에서 차이가 있다</span>
+
+두 가지 방법으로 만들 수 있다
+1. tuple
+2. yield 
+
+```python
+# tuple로 만들기 
+a = (x for x in range(10))
+a 
+
+: <generator object <genexpr> at 0x000001EBD55D0DE0>
+
+# yield로 만들기 
+def x():
+   yield 1
+   yield 2 
+y = x()
+next(y)
+
+:1 
+```
+
+**주의** iterator와 generator는 scope를 초과하면 StopIteration 에러가 뜬다. 
+{: .notice}
+
+
+### Iterator vs Generator & Generator vs Function 
+
+1. <span style="color: skyblue">Iterator vs Generator</span>
+
+Iterator는 반복가능한 객체 그리고 데이터 스트림을 표현하는 객체라고 한다. <br>
+예를 들어 list는 반복가능한 자료형 즉 iterable이지만 iterator는 아니다. <br>
+
+```python
+for x in [1,2,3]:
+   print(x)
+```
+이처럼 in 다음에 iterable이 오면 반복해서 요소 하나씩 꺼낼 수 있긴 하다<br>
+<span style="color:red">하지만</span> list는 iterator는 아니라고 했다<br> 
+그렇다면 어떻게 list가 iterator처럼 처리되는가? <br>
+<span style="color:red">그 이유는</span> in 다음에 iterable이 오면 iter없이 iterator로 변환 해주기 때문이다
+<br>
+Generator는 iterator를 생성해주는 Function <br>
+따라서 Generator와 iterator는 비슷하다 <br>
+하지만 역할이 다르기 때문에 명칭도 다른것!<br>
+<br>
+<span style="background-color: orange">생성 방식에서 차이가 있고 Iterator는 객체 Generator는 함수</span><br>
+Generator는 tuple, yield로 만들고 Iterator는 liter() 함수로 만든다
+
+2. <span style="color: skyblue">Generator vs Function</span>
+
+Generator <br>
+
+Iterator를 만들어주는 것 <br>
+반복 가능한 객체를 만들어주는 함수<br>
+
+```python
+def generator():
+   while True:
+      yield from [1,2,3,4] # Cycling 기법 
+e = generator()
+next(e)
+:1       # 실행할 때마다 1부터 4까지 계속 반복해서 return
+
+# yield는 return과 비슷하다고 생각하면 된다
+```
+
+일반적으로 함수는 사용이 종료되면 결과값을 호출한 곳에 반환해주고 함수 자체를 종료 시킨 후 메모리상에서 사라진다 <br>
+하지만 yield를 사용할 경우 그 상태로 <span style="color:red">정지</span> 되며 반환 값을 next()를 호출한 쪽을 전달한다<br>
+함수 호출이 종료되면 메모리상의 내용이 사리지지 않고 다음 함수 호출까지 대기한다<br>
+다음 함수 호출이 발생할 경우 <span style="color:red">yield이후 구문부터 실행된다</span>
+<br>
+
+여기서 generator를 사용하는 이유를 알 수 있다 <br>
+generator를 사용하면 호출한 값만 메모리에 할당되므로 메모리를 효율적으로 사용할 수 있게된다
+<br>
+이러한 기법을 <span style="color: orange">Lazy Evaluation</span>이라고 한다 <br>
+계산 결과 값이 필요할 때까지 계산을 늦추는 방식 <br>
+
+참고: [tistory](https://bluese05.tistory.com/56)
+### Comprehension
+
+<span style="background-color:orange">Iterable한 객체를 생성하기 위한 방법</span>
+```
+1. List
+2. Set
+3. Dictionary
+```
+
+```python
+# list 
+
+# for 앞에는 식이 오면된다
+a = [(x,y) for x in range(10) for y in range(20)]
+: [(0,0),(0,1),(0,2),......(9,19)]
+
+b = {x+1 for x in range(10) if > 5}
+: {7, 8, 9, 10}
+
+c = {x:1 for x in range(10) if x>5}
+: {6: 1, 7: 1, 8: 1, 9: 1}
+
+d = (x for x in range(10))
+d
+: <generator object <genexpr> at 0x000001EBD5645DE0>
+```
+
+### Recursive function
+
+재귀함수 <br>
+
+```python
+def fib(num): 
+    if num < 3:
+        return 1
+    return fibB(num-1) + fibB(num-2)
+fib(10)  # 10번째 항   (1 1 2 3 5 8 13 21 34 55)
+: 55 
+```
+
+
+
+**복습 시간**  18시 ~  19시 50분/ 총 1시간 50
 {: .notice}
