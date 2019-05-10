@@ -1004,7 +1004,6 @@ a()
 
 ```python 
 # 1 
-
 def xx(y, x=[]):
    return x.append(y)
 # 사실 엉터리 코딩 x.append(y)는 None을 리턴하고, 
@@ -1264,6 +1263,54 @@ fib(10)  # 10번째 항   (1 1 2 3 5 8 13 21 34 55)
 ```
 
 
-
 **복습 시간**  18시 ~  19시 50분/ 총 1시간 50
+{: .notice}
+
+
+
+# 2019년 5월 10일 금요일 일곱번째 수업
+
+<span style="background-color:orange">함수의 중첩으로 가능한 것들</span>
+```
+1. Closure
+
+2. Decorator 
+```
+
+## Decorator
+
+
+
+
+## Closure
+
+
+Closure: [github blog](https://nachwon.github.io/closure/)
+
+
+## Decorator vs Closure 
+
+
+
+
+**Python Tip1** locals(), globals() 함수는 함수내에서 사용하면 메모리상에 올라간 local, global 변수를 각각 확인 할 수 있다
+{: .notice}
+
+```python
+x = 10
+def a():
+   y = 20
+   def b():
+      a = 1
+      print(locals())
+      b = 2
+   return b()
+a()
+:{'a':1}
+# b = 2는 print문 출력 이후에 있기 때문에 locals에 포함되있지 않다
+ 선언할 때는 모든 것이 메모리에 할당 되지만 실행할때는 순서대로 할당되기 때문이다
+```
+
+
+**복습 시간**  18시 22분 ~ 20시 / 총 1시간 38분
 {: .notice}
