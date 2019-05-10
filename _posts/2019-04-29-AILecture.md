@@ -954,10 +954,13 @@ xx('hi')
 # 둘다 가능 
 ```
 <br>
+
 Parameter | Argument 
 --------|-------
-키워드 방식이 온다 | 식이 들어갈 수 있다(Expression)
+키워드 방식이 온다 | 식이 들어갈 수 있다
+
 <br>
+
 ```python
 n = 0 
 def a(n):
