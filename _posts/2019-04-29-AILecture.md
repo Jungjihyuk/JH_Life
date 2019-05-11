@@ -1328,11 +1328,10 @@ a()
 2. from <module_name> import <name,>
 3. from <module_name> import *
 ```
-<br>
 
 ```python
 
-# 1. import <module_name>
+1. import <module_name>
 import sys 
 sys.path
 
@@ -1356,6 +1355,7 @@ path
 # 2번방법과 동일, 그러나 모듈에 있는 모든 name을 직접 현재 namespace로 가져오게된다 
 # 말할 것도 없이 전체를 import하면 name을 쓰는데 제약이 많이 생긴다
 ```
+Namespace Binding: [slideshare](https://www.slideshare.net/dahlmoon/binding-20160229-58415344)<br>
 
 > 그렇다면 import와 namespace를 알아보았으니 이젠 __name__을 알아보자 
  
@@ -1376,7 +1376,7 @@ sys.__dict__  # namespace 불러오기
 ```python
 __name__
 
-'__main__
+'__main__'
 ```
 <br>
 
@@ -1395,8 +1395,71 @@ else:
 __name__의 의미 : [tistory](https://pinocc.tistory.com/175)<br>
 
 
+## Python의 모든 것은 Object(객체)이다
+
+<span style="background-color: orange">Object</span>는 python이 data를 추상화 한 것이다<br>
+쉽게말해 프로그래밍으로 구현될 대상, 현실에 존재하거나 상상가능한 대상을 특징지어 구현될 대상이라고 할 수 있다<br>
+그리고 python 프로그램의 모든 data는 객체나 객체간의 관계로 표현된다<br>
+
+> John von neumann's stored program computer model을 따르고 또 그 관점에서 코드 역시 객체로 표현된다 
+
+### 객체를 구현하려면? 
+
+객체를 구현하기 위한 설계도 및 틀을 <span style="color:red">Class(클래스)</span>라고한다<br>
+<br>
+Class를 실제로 프로그래밍할때 사용하려면 클래스 선언, 메모리 할당, mapping 3가지 단계가 필요하다<br>
+이해를 돕기 위해 java의 경우를 예로 들겠다 <br>
+
+```java
+package test;
+
+import test.Add;       # 1. 선언된 클래스 import (클래스 선언) 
+
+public class Test{
+	public static void main(String[] args){
+		Add add = null;                  # 참조변수 선언 
+		add = new Add();                 # 참조변수에 인스턴스에 대한 참조(참조값) 할당
+	        //Add add = new Add(); 위와 동일  # 메모리에 생성되어 저장된 객체 처리 가능
+		                                 # add는 레퍼런스 변수, 인스턴스를 가리키는값
+						 # 참조변수를 사용하여 멤버변수, 메소드 접근가능
+		System.out.print(add.sum(3,4));
+	}
+}
+
+```
+```
+1. 클래스 사용을 위해 클래스 선언
+2. 클래스 사용시 메모리에 생성 
+3. Index table에 참조변수와 메모리 연결을 위한 주소를 매핑하는 참조값이 만들어진다
+4. 참조값은 JVM이 자동적으로 생성 
+5. 참조값을 사용하게되면 참조값에 연결된 메모리 즉, 인스턴스를 사용한다는 것 
+
+참조 ≒ 참조값(Hash code)
+```
+
+> 그렇다면 Python에서 객체의 의미를 살펴보자 
+
+```python
+a = 1
+print(type(a))
+a = 3.2 
+print(type(a))
+print(a)
+a.__class__
+
+: <type 'int'>
+  <type 'float'>
+  3.2
+  int
+
+# Python에서는 선언과 할당을 동시에 하면서 
+할당값에 의해 변수의 타입(객체의 타입)이 결정되고 naming된 변수 이름이 
+인스턴스가 되는 것이다
+```
+
 
 참조와 참조변수 : [tistory](https://dohe2014.tistory.com/entry/%EC%B0%B8%EC%A1%B0reference%EC%99%80-%EC%B0%B8%EC%A1%B0%EB%B3%80%EC%88%98reference-variable)<br>
+
 
 **복습 시간**  18시 22분 ~ 20시 / 총 1시간 38분
 {: .notice}
