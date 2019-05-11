@@ -1311,6 +1311,87 @@ a()
  선언할 때는 모든 것이 메모리에 할당 되지만 실행할때는 순서대로 할당되기 때문이다
 ```
 
+## name, namespace, module 그리고 __name__
+
+<kbd>name</kbd>은 말 그대로 이름을 붙여주는 즉, 변수명 혹은 식별자라고 생각하면 된다<br>
+<kbd>module</kbd>은 파이썬 코드를 담고 있는 파일이다, 좀 더 자세하게 말하면 클래스, 함수, 변수명의 리스트가 들어 있다고 보면 된다 <br>
+<kbd>namespace</kbd>는 names(변수명들)을 담을 수 있는 공간이다, 모듈은 자신의 유일한 namespace를 갖고 있으며 모듈의 namespace이름은 보통 모듈이름과 같다. 그래서 동일한 모듈내에서 동일한 이름을 가지는 클래스나 함수를 정의할 수 없다. 또한 모듈은 각각 독립적이기 때문에 동일한 이름을 갖는 모듈을 갖을 수 없다. <br>
+
+<br>
+> import를 통해 namespace와 __name__에 대해서 자세히 알아보자 
+
+### import 방법은 3가지가 있다
+
+```
+1. import <module_name>
+- 모듈의 name을 prefix로 사용함으로써 모듈의 namespace에 접근할 수 있다 
+2. from <module_name> import <name,>
+3. from <module_name> import *
+```
+<br>
+
+```python
+
+# 1. import <module_name>
+import sys 
+sys.path
+
+# sys는 모듈, path는 sys모듈의 namespace에 담겨 있는 name 
+# 모듈 prefix sys를 통해 namespace path에 접근
+
+2. from <module_name> import <name,>
+from sys import path
+path
+sys.path
+
+# 모듈 prefix를 사용하거나 사용하지 않고 둘다 접근 가능하다 
+# 단, del path를 하거나 name을 재정의 하게되면 모듈의 name을 사용할 수 없게된다
+# 몇개의 name만 필요하고 name를 명확하게 구분할 수 있는 상황에서는 써도 무관하다
+
+3. from <module_name> import *
+from sys import*
+sys.path
+path
+
+# 2번방법과 동일, 그러나 모듈에 있는 모든 name을 직접 현재 namespace로 가져오게된다 
+# 말할 것도 없이 전체를 import하면 name을 쓰는데 제약이 많이 생긴다
+```
+
+> 그렇다면 import와 namespace를 알아보았으니 이젠 __name__을 알아보자 
+ 
+import를 하면 해당 모듈의 names를 namespace에 dict타입으로 할당하는 것을 보았다<br>
+이때 import한 모듈의 __name__은 파일명이 된다 <br>
+<br>
+```python
+from sys import *
+sys.__dict__  # namespace 불러오기
+
+'__name__': 'sys',
+ '__doc__': "This module.......... 
+```
+<br>
+이번엔 import를 하지 않고 main script(최상위 스크립트 환경)에서 직접 shell에서 실행하는 경우에 python interpreter가 최초로 파일을 읽어 실행하는 경우를 생각해보자 <br>
+이때는 모듈이름 해당 파일 이름이 아닌 __main__가 된다 <br>
+
+```python
+__name__
+
+'__main__
+```
+<br>
+
+> 따라서 만약에 '이 파일이 interpreter에 의해 실행되는 경우라면' 이라는 의미를 갖는다
+
+```python
+if __name__ == '__main__':
+   main()
+```
+
+__name__의 의미 : [tistory](https://pinocc.tistory.com/175)<br>
+
+
+
+참조와 참조변수 : [tistory](https://dohe2014.tistory.com/entry/%EC%B0%B8%EC%A1%B0reference%EC%99%80-%EC%B0%B8%EC%A1%B0%EB%B3%80%EC%88%98reference-variable)<br>
 
 **복습 시간**  18시 22분 ~ 20시 / 총 1시간 38분
 {: .notice}
