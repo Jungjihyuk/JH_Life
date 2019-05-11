@@ -583,7 +583,7 @@ x, = 1,2 (X) # 왼쪽 식별자와 오른쪽 식의 갯수를 맞춰줘야 함
 # 오른쪽에 오는 식은 Container면 모두 가능 
 # * (별표)는 나머지를 리스트로 반환, 그리고 * 두 개이상 못씀
 
-#Global not local#
+#Global  nonlocal#
 
 a = 1 
 
@@ -599,6 +599,20 @@ def name():
    a += 1
    return a
 # 위 함수와는 같지 않음 / Why? 밑 함수에서는 a를 그냥 재할당한 것임
+
+def name(t):
+	a = t 
+	print(a)
+	def name2():
+		nonlocal a 
+		a = 2
+		print(a)
+	return name2()
+
+a(7)
+: 7
+  2
+
 ```
 Packing & Unpacking: &nbsp; [blog](https://python.bakyeono.net/chapter-5-5.html)
 
