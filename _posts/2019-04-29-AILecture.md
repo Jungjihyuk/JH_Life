@@ -1413,15 +1413,15 @@ Class를 실제로 프로그래밍할때 사용하려면 클래스 선언, 메�
 ```java
 package test;
 
-import test.Add;       # 1. 선언된 클래스 import (클래스 선언) 
+import test.Add;                                 // 1. 선언된 클래스 import (클래스 선언) 
 
 public class Test{
 	public static void main(String[] args){
-		Add add = null;                  # 참조변수 선언 
-		add = new Add();                 # 참조변수에 인스턴스에 대한 참조(참조값) 할당
-	        //Add add = new Add(); 위와 동일  # 메모리에 생성되어 저장된 객체 처리 가능
-		                                 # add는 레퍼런스 변수, 인스턴스를 가리키는값
-						 # 참조변수를 사용하여 멤버변수, 메소드 접근가능
+		Add add = null;                  // 참조변수 선언 
+		add = new Add();                 // 참조변수에 인스턴스에 대한 참조(참조값) 할당
+	        //Add add = new Add(); 위와 동일 // 메모리에 생성되어 저장된 객체 처리 가능
+		                                 // add는 레퍼런스 변수, 인스턴스를 가리키는값
+						 // 참조변수를 사용하여 멤버변수, 메소드 접근가능
 		System.out.print(add.sum(3,4));
 	}
 }
@@ -1453,7 +1453,7 @@ a.__class__
   int
 
 # Python에서는 선언과 할당을 동시에 하면서 
-할당값에 의해 변수의 타입(객체의 타입)이 결정되고 naming된 변수 이름이 
+# 할당값에 의해 변수의 타입(객체의 타입)이 결정되고 naming된 변수 이름이 
 인스턴스가 되는 것이다
 ```
 
