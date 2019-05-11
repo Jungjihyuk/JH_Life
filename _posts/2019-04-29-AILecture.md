@@ -1385,6 +1385,11 @@ __name__
 ```python
 if __name__ == '__main__':
    main()
+   
+if __name__ == '__main__':
+	print 'This program is being run by itself'
+else:
+	print 'I am being imported from another module'
 ```
 
 __name__의 의미 : [tistory](https://pinocc.tistory.com/175)<br>
