@@ -904,16 +904,16 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 
 ![function](https://user-images.githubusercontent.com/33630505/57440852-b6859200-7283-11e9-92fd-6b7b59ca7de9.png)
 
-### First class function 
+## First class function 
 
 > 함수를 값처럼 사용할 수 있다. 
 
-### Higher-Order-Function
+## Higher-Order-Function
 
 > 함수를 리턴값으로 쓰는 함수, 함수를 인자로 쓰는 함수
 
 
-### 함수의 인자로 함수가 들어가는 경우 
+## 함수의 인자로 함수가 들어가는 경우 
 
 ```python
 def a(x):
@@ -983,7 +983,7 @@ def a(n):
 a(n or 3)
 # 인자에 디폴트를 사용할 수는 없지만 이렇게 흉내는 낼 수 있다
 ```
-### 식의 종류 
+## 식의 종류 
 
 1. 조건식 
 - 3 if a > 0 else 6 
@@ -1093,6 +1093,12 @@ tips.sample(10, replace = True) # 랜덤으로 10개 보여줘
 ```
 #### 랜덤 10개 
 ![python](https://user-images.githubusercontent.com/33630505/57372344-584ba700-71d0-11e9-86f1-21da17a4fc73.JPG)
+
+
+#### 추가공부 
+
+1. 변수, 인자와 힙, 스택간의 관계
+
 
 **복습 시간**  19시 10분 ~ 21시 40분 / 총 2시간 30분  
 {: .notice}
