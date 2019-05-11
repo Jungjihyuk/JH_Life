@@ -522,8 +522,9 @@ a is b
 4. Pakcing
 5. Unpacking 
 - Container 쪼개기
-6. Global not local 
+6. Global , nonlocal 
 - global 이용하여 전역번수 접근, 변경하기 # 추천하지 않는 기능
+- nonlocal은 함수 중첩시 함수와 함수 사이 변수
 ```
 
 * Unpacking 방법은 빅데이터 처리시 많이 쓰인다.
@@ -1453,8 +1454,7 @@ a.__class__
   int
 
 # Python에서는 선언과 할당을 동시에 하면서 
-# 할당값에 의해 변수의 타입(객체의 타입)이 결정되고 naming된 변수 이름이 
-인스턴스가 되는 것이다
+# 할당값에 의해 변수의 타입(객체의 타입)이 결정되고 naming된 변수 이름이 인스턴스가 되는 것이다
 ```
 
 
