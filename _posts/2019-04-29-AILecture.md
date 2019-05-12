@@ -728,7 +728,7 @@ python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.c
 ### 선언문 2가지
 
 ```
-1. 함수선언 
+1. 함수 선언 
 2. 클래스 선언
 ```
 
