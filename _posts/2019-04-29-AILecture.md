@@ -1498,29 +1498,51 @@ a.__class__
 ```python 
 class A:
 	x = 1
-	def a(self):
-		return 3
-b = B()  # 인스턴스 생성 
-b.x      # 인스턴스 b로 x(클래스 변수)접근 
-b.a()    # 인스턴스 b로 b() (메소드) 접근 
+	def a(self, y):
+		self.y = y 
+		return y
+A.x      # 클래스로 클래스 변수 접근 
+a = A()  # 인스턴스 생성 
+a.x      # 인스턴스 a로 x(클래스 변수)접근 
+vars(a)  # 인스턴스 변수 확인 
+a.a(3)   # 인스턴스 a로 a() (메소드) 접근 
+vars(a)
+A.a(a,5) # 클래스로 인스턴스 b와, 3을 인자로 넘겨주고 
+vars(a)  # 인스턴스 변수는 인스턴스마다 고유로 갖을 수 있는 변수 이다 
 
 : 1 
+  1
+  {}
   3
+  {'y':3}
+  5
+  {'y':5}
   
-class B:
-	x = 1
-	def b(self, y):
-		self.y = y
-		return y
-c = C()
-c.x 
-vars(c)
-c.b(3)
-vars(c)
-:1
- {}
- 3
-{'y': 3}
+dir(A)
+dir(a)
+
+: ['__class__','__dict__',.......,'a','x'] 
+  ['__class__','__dict__',.......,'a','x','y']
+```
+
+#### 클래스 변수 vs 인스턴스 변수 
+
+인스턴스는 모든 것을 사용할 수 있지만 클래스는 인스턴스 변수를 사용할 수 없다 <br>
+
+```python
+class A: 
+	a = 1                  # class variable, attribute
+	def __init__(self, y):
+		self.y = y     # instance variable, attribute 
+```
+
+
+**실행 순서** 메소드와 변수가 이름이 같을때 변수를 먼저 접근하기 때문에 주의 해야 한다 
+{: .notice}
+
+```python 
+# ex)
+
 ```
 
 **인스턴스.메소드** 클래스안에 선언된 메소드를 사용하기 위해서는 인스턴스 생성을 한후 인스턴스.메소드() 하면 사용가능하다
@@ -1575,6 +1597,25 @@ a
 # 이는 init으로 바꿀 수 있게 해둔 것이다 
 ```
 
+### classmethod, staticmethod 
+
+```python 
+class A:
+    a = 1 
+    def __init__(self,y):
+        self.y = y   
+    def getx(self):
+        return self.y
+    
+    @classmethod
+    def getxx(cls):  # class method
+        print('a')  
+    
+    @staticmethod    # 똑같이 함수 처럼 사용 
+    def y(cls):
+        print('b')
+```
+
 ### 객체 지향의 특징 
 
 ```
@@ -1594,6 +1635,15 @@ a
 
 **Python Tip1** 유지보수를 해야 한다고 느끼면 객체지향 프로그래밍을, 멀티프로세스나 다양한 문제를 다양한 방식으로 풀고 디버깅을 편하게 해야 한다고 느끼면 함수형 프로그래밍을 하면 된다 
 {: .notice}
+
+**Python Tip2** 동적으로 인스턴스 변수, 메소드 추가 가능 but 좋지 않은 방식 
+{: .notice}
+
+```python 
+# ex) 
+
+
+```
 
 ### Naming 
 
@@ -1630,5 +1680,5 @@ c.f 패키지는 소문자로 구성한다
 
 
 
-**복습 시간**  18시 30분 ~  / 총
+**복습 시간**  18시 30분 ~ 20시 20분 / 총 1시간 50분 
 {: .notice}
