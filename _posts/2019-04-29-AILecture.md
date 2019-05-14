@@ -1507,7 +1507,7 @@ a.x      # 인스턴스 a로 x(클래스 변수)접근
 vars(a)  # 인스턴스 변수 확인 
 a.a(3)   # 인스턴스 a로 a() (메소드) 접근 
 vars(a)
-A.a(a,5) # 클래스로 인스턴스 b와, 3을 인자로 넘겨주고 
+A.a(a,5) # 클래스로 인스턴스 a와, 5을 인자로 넘겨주고 a함수 접근 
 vars(a)  # 인스턴스 변수는 인스턴스마다 고유로 갖을 수 있는 변수 이다 
 
 : 1 
@@ -1525,7 +1525,7 @@ dir(a)
   ['__class__','__dict__',.......,'a','x','y']
 ```
 
-#### 클래스 변수 vs 인스턴스 변수 
+### 클래스 변수 vs 인스턴스 변수 
 
 인스턴스는 모든 것을 사용할 수 있지만 클래스는 인스턴스 변수를 사용할 수 없다 <br>
 
@@ -1534,6 +1534,58 @@ class A:
 	a = 1                  # class variable, attribute
 	def __init__(self, y):
 		self.y = y     # instance variable, attribute 
+		
+
+# 접근 예제 
+
+class A: 
+	x = 1
+	y = 2 
+	def add(self, x, y):
+		sum = x + y 
+		self.sum = 20 
+		return sum 
+a = A()
+a.add(3,4)
+A.add(a, 10, 20)
+vars(a)
+a.sum
+A.sum
+
+: 7
+  30
+  {'sum':20}
+  20
+  AttributeError
+ 
+class B:
+    x = 1
+    y = 2 
+    def sum(self,x, y):
+        sum = x+y
+        self.sum = 20
+        return sum 
+b = B()
+b.sum(1,2)
+B.sum(b, 3, 4)
+b.sum
+B.sum
+vars(b)
+vars(B)
+dir(b)
+
+: 3 
+  7
+  20
+  <function __main__.B.sum(self,x,y)>
+  {'sum': 20}
+  mappingproxy({'__module__': '__main__',
+              'x': 1,
+              'y': 2,
+              'sum': <function __main__.B.sum(self, x, y)>,
+	      .....})
+  ['__class__', ......, 'sum','x','y']
+     
 ```
 
 
@@ -1676,4 +1728,112 @@ c.f 패키지는 소문자로 구성한다
 
 
 **복습 시간**  18시 30분 ~ 20시 20분 / 총 1시간 50분 
+{: .notice}
+
+
+
+# 2019년 5월 14일 화요일 아홉번째 수업
+
+
+## Design pattern 
+
+
+
+## 클래스 상속 
+
+
+## 예외처리문 
+
+> Python의 철학중 양해를 구하기보다 용서를 구하기가 더 쉽다라는 것이 있다. 이처럼 Python에서 예외처리는 빠질 수 없는 부분이다. 
+
+```
+하지만 DataScience 분야에서는 많이 사용하지는 않는다.
+웹이나 자동화 등 사용자로부터 입력을 받거나 외부 조건에 의해 오류가 많이 날 수밖에 없는 환경에서는 굉장히 중요하다
+따라서 오류가 나더라도 중단하지 않고 실행을 시켜야 하는 경우에 대비해서 예외처리문을 삽입하는 것이다 
+```
+
+### 예외처리 구조 
+
+```python
+a = {'a':1}
+try:
+    t = a['b']
+except:   # 에러가 나면 실행 / 에러종류에 따라 여러개 만들 수 있음 
+    print('except')
+else:     # 에러가 나지 않으면 실행 
+    print('else')
+finally:  # 에러 상관없이 실행 
+    print('finally')
+    
+# try, except가 예외처리의 필수   
+```
+
+### 응용 
+
+```python
+a = {'a':1}
+try:
+    t = a['n']
+except :
+    print('all')
+except KeyError:
+    print('except')
+    
+# SyntaxError => except 혼자 오는 것은 마지막에 와야 한다 
+
+a = {'a':1}
+try: 
+    t = a['n']
+except KeyError as f:   # 에러에 대한 상세 표시 
+    print(f)
+except:
+    print('except')
+    
+:'n'
+
+a = {'a':1}
+try: 
+    t = a['n']
+except Exception as f:   # Exception 상속(상위 에러)
+    print(f)
+except:
+    print('except')
+```
+
+**syntax error, runtime error** syntax error는 구문오류로 실행자체가 안된다, runtime error는 실행은 되지만 값이 나오지 않는다 
+{: .notice}
+
+### 에러를 강제로 발생시키는 방법 
+
+```python
+def x(a):
+	if a > 0 :
+		raise
+	else:
+		raise SyntaxError
+	
+x(3)
+x(-3)
+
+: RuntimeError
+  SyntaxError
+
+a = 3 
+assert a > 4
+
+AssertionError 
+# 해당 조건이 만족하지 않으면 에러 발생 
+```
+
+## 다른 사람 것을 고쳐 쓰는 방법 
+
+```
+1. 상속후 오버라이딩 
+2. 데코레이터
+
+# 오버로딩은 같은 이름의 메소드를 가지면서 매개변수 유형은 다를때 서로 다른 메소드로 간주하는 것 
+# 파이썬에서는 오버로딩이 지원되지 않아 같은 이름의 메소드를 정의할경우 재할당이 된다 
+```
+
+**복습 시간**  17시 30분 ~  19시/ 총  
 {: .notice}
