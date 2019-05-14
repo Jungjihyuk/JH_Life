@@ -1741,6 +1741,72 @@ c.f 패키지는 소문자로 구성한다
 
 ## 클래스 상속 
 
+```python
+class Door:
+    colour = 'brown'
+
+    def __init__(self, number, status):
+        self.number = number
+        self.status = status
+
+    @classmethod              
+    def knock(cls):       
+        print("Knock!")
+
+    @classmethod
+    def paint(cls, colour):  # 클래스, 인스턴스 모두 사용 가능하고 
+        cls.colour = colour  # 클래스 변수 바꾼다 
+                             # 클래스로 접근한다 / 클래스만 값에 접근 가능
+    @classmethod
+    def paint2(cls, number):  # number는 인스턴스 변수
+        cls.number = number   # classmethod는 클래스 변수만 바꿀 수 있다
+    def open(self):
+        self.status = 'open'
+        
+    def close(self):
+        self.status = 'closed'
+        
+class SecurityDoor(Door):      
+    pass
+
+
+Door.knock()
+door = Door(1, 'open')
+vars(door)
+door.knock()
+door.paint('red')  # 인스턴스로 클래스 변수 바꿀 수 있음 (@classmethod)
+door.colour
+Door.colour
+door.paint2(2)
+door.number
+Door.paint2(3)     # 클래스만 인스턴스 변수 바꿀 수 있음 (@classmethod)
+door.number
+Door.number
+
+: Knock!
+  {'number': 1, 'status': 'open'}
+  Knock!
+  'red'
+  'red'
+  1
+  1
+  3
+```
+
+### 클래스를 상속 받으면 원래 클래스 변수를 공유한다 
+
+**※ 메모리 번지를 공유 **
+
+```python
+sdoor = SecurityDoor(1, 'closed')
+
+print(SecurityDoor.colour is Door.colour)  
+print(sdoor.colour is Door.colour) 
+
+:True 
+ True 
+```
+
 
 ## 예외처리문 
 
@@ -1835,5 +1901,8 @@ AssertionError
 # 파이썬에서는 오버로딩이 지원되지 않아 같은 이름의 메소드를 정의할경우 재할당이 된다 
 ```
 
-**복습 시간**  17시 30분 ~  19시/ 총  
+**Mangling** 맹글링은 소스 코드에서 선언된 함수 또는 변수의 이름을 컴파일 단계에서 컴파일러가 일정한 규칙을 가지고 변형하는 것을 말한다. 이는 보통 객체 지향에서 오버로딩시 함수의 이름이 같고 파라미터만 다를때 알아서 구별할 수 있도록 하는데 사용된다.
+{: .notice}
+
+**복습 시간**  17시 30분 ~  19시, 20시 ~ / 총  
 {: .notice}
