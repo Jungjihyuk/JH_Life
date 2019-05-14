@@ -1737,9 +1737,11 @@ c.f 패키지는 소문자로 구성한다
 
 ## Design pattern 
 
+20 ~ 30가지가 있다 <br>
+주로 사용하는 coding 방식, 웹에서 주로 이용 (MVC 패턴 같은 것들) 
 
 
-## 클래스 상속 
+## Class inheritance
 
 ```python
 class Door:
@@ -1793,6 +1795,9 @@ Door.number
   3
 ```
 
+### mappingproxy 
+
+
 ### 클래스를 상속 받으면 원래 클래스 변수를 공유한다 
 
 **※ 메모리 번지를 공유 **
@@ -1807,6 +1812,49 @@ print(sdoor.colour is Door.colour)
  True 
 ```
 
+## Composition (합성)
+
+> 상속을 하지 않고 클래스내에 객체를 불러와 다른 클래스의 일부 기능을 사용하는 방법.
+  
+```python 
+class SecurityDoor:
+    locked = True
+    
+    def __init__(self, number, status):
+        self.door = Door(number, status) # Door의 객체를 갖게 한다
+        
+    def open(self):
+        if self.locked:
+            return
+        self.door.open()
+        
+    def __getattr__(self, attr):        # try except와 비슷 
+        return getattr(self.door, attr) # Door의 attr를 가져와라 (상속을 비슷하게 사용)
+
+
+class ComposedDoor:
+    def __init__(self, number, status):
+        self.door = Door(number, status)
+        
+    def __getattr__(self, attr): # 없으면 가져와라
+        return getattr(self.door, attr) # 바꾸지 않고 불러와서 사용할 때
+```
+
+```python 
+class A:
+	x = 1 
+	
+a = A()
+hasattr(a,'x')
+getattr(a,'x')
+
+:True 
+ 1 
+```
+
+**※ Design pattern에서는 상속대신 합성을 주로 사용한다**
+
+Composition : [blog](https://www.fun-coding.org/PL&OOP1-11.html)<br>
 
 ## 예외처리문 
 
@@ -1904,5 +1952,16 @@ AssertionError
 **Mangling** 맹글링은 소스 코드에서 선언된 함수 또는 변수의 이름을 컴파일 단계에서 컴파일러가 일정한 규칙을 가지고 변형하는 것을 말한다. 이는 보통 객체 지향에서 오버로딩시 함수의 이름이 같고 파라미터만 다를때 알아서 구별할 수 있도록 하는데 사용된다.
 {: .notice}
 
-**복습 시간**  17시 30분 ~  19시, 20시 ~ / 총  
+#### 추가 복습이 필요한 부분 
+
+1. Composition 
+2. Decorator  
+3. Closure
+4. Iterator 
+5. Genrator 
+6. Comprehension
+7. First class function 
+8. tatement 3가지 
+
+**복습 시간**  17시 30분 ~  19시, 20시 ~ 20시 30분 / 총 2시간 
 {: .notice}
