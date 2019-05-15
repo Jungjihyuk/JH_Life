@@ -987,9 +987,23 @@ a(n or 3)
 
 1. 조건식 
 - 3 if a > 0 else 6 
-- a(3 if a > 0 else 6)
 2. 함수식  
+- (lambda x: x + 1)(2)
+- (lambda x, y=1: x + y)(3)
+- (lambda *x: x)(4,1,2)
+- list(map(lambda a:a+8, [1,2,3,4,5]))
 3. 반복식 
+- (x for x in range(10))
+
+```python
+# 조건식 + 반복식 
+
+integer = [1,-1,4,0,44,-34,-42,14]
+['양수' if i > 0 else ('음수' if i < 0 else 0) for i in integer]
+list(map(lambda i: '양수' if i > 0 else ('음수' if i < 0 else 0), integer))
+
+: ['양수', '음수', '양수', 0, '양수', '음수', '음수', '양수']
+```
 
 **Python Tip2**  Local, Argumentation은 stack에 저장되고 Parameter는 heap영역에 들어간다
 {: .notice}
