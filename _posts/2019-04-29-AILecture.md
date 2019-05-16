@@ -961,7 +961,7 @@ list(filter(b,[1,2,3,4,5,6])))
 4. Variable Keyword
 5. Unpacking (벗겨내기, 리스트 쪼개기)
 6. 
-7. 
+7. import에서 모두 
 ```
 <br>
 ### Annotation
@@ -1399,9 +1399,10 @@ path
 # 말할 것도 없이 전체를 import하면 name을 쓰는데 제약이 많이 생긴다
 ```
 Namespace Binding: [slideshare](https://www.slideshare.net/dahlmoon/binding-20160229-58415344)<br>
+<br>
 
-> 그렇다면 import와 namespace를 알아보았으니 이젠 __name__을 알아보자 
- 
+**__name__**<br>
+
 import를 하면 해당 모듈의 names를 namespace에 dict타입으로 할당하는 것을 보았다<br>
 이때 import한 모듈의 __name__은 파일명이 된다 <br>
 <br>
@@ -1863,7 +1864,7 @@ Door.number
 
 ### 클래스를 상속 받으면 원래 클래스 변수를 공유한다 
 
-**※ 메모리 번지를 공유 **
+**※ 메모리 번지를 공유**
 
 ```python
 sdoor = SecurityDoor(1, 'closed')
@@ -2027,4 +2028,193 @@ AssertionError
 8. tatement 3가지 
 
 **복습 시간**  17시 30분 ~  19시, 20시 ~ 20시 30분 / 총 2시간 
+{: .notice}
+
+
+
+# 2019년 5월 16일 목요일 열번째 수업
+
+
+## Duck typing 
+
+**미운오리새끼 이야기에서 유래가 되어 오리가 아닌데 오리처럼 행동을 하면 오리라고 간주한다는 개념이다** <br>
+**타입을 미리 정하지 않고 실행되었을 때 해당 Method들을 확인하여 타입을 정한다**<br>
+
+### 장점 
+- 타입에 대해 자유롭다 
+- 상속을 하지 않아도 상속을 한것처럼 클래스의 메소드 사용이 가능하다 
+
+### 단점 
+- 원치 않는 타입이 들어 갈 경우 오류가 발생할 수 있다 
+- 오류 발생시 원인을 찾기 어려울수 있다  
+
+```python
+class Airplane:
+    def fly(self):
+        print("Airplane flying")
+
+class Whale:
+    def swim(self):
+        print("Whale swimming")
+
+def lift_off(entity):
+    entity.fly()
+    
+def lift_off2(entity):
+    if entity.swim():
+        entity.fly()    
+
+airplane = Airplane()
+whale = Whale()
+
+lift_off(airplane)
+lift_off2(airplane)
+lift_off(whale)
+lift_off2(whale)
+: Airplane flying
+  AttributeError 
+  Whale swimming
+  AttributeError
+```
+
+## Duck typing vs Inheritance
+
+
+## Polymorphism(다형성)
+
+```python
+
+```
+
+### Monkey patch 
+
+런타임상에서 함수, 메소드, 속성을 바꾸는 패치. <br>
+런타임 실행중 메모리상의 오브젝트에 적용된다. <br>
+
+```python 
+import matplotlib
+len(dir(matplotlib))
+: 109 
+
+import matplotlib.pyplot as plt
+len(dir(matplotlib))
+: 172
+
+# 사실 이 예제가 Monkey patch랑 무슨 연관이 있는지 잘 모르겠음 
+```
+
+### Runtime
+
+어떤 프로그램이 실행되는 동안의 시간 <br>
+그래서 런타임 에러는 '어떤 프로그램이 실행되는 동안 발생하는 에러를 말한다 
+
+**Python Tip1** 1.__dir__ (X) 1 .__dir__ or (1).__dir__ (O) / 연산자 우선순위 때문에 float로 인식하므로 띄어쓰기를 하거나 괄호를 써줘야 한다 
+{: .notice}
+
+## Meta class 
+
+**Type** <br>
+**Class 행동을 지정할 수 있다** <br>
+ex) 인스턴스를 한개만 만들 수 있게 지정 (싱글톤) 
+
+
+```python 
+class MyType(type): # type을 상속받아 메타클래스를 만듦
+    pass
+
+class MySpecialClass(metaclass=MyType): # 안적어주면 type 상속 
+    pass
+    
+msp = MySpecialClass()
+print(type(msp))
+print(type(MySpecialClass))
+print(type(MyType))
+
+: <class '__main__.MySpecialClass'>   # 인스턴스 msp의 클래스명은 MySpecialClass
+  <class '__main__.MyType'>           # 클래스 MySpecialClass의 메타클래스는 MyType 
+  <class 'type'>                      # 메타클래스 MyType의 메타클래스는 type 
+
+# 따라서 메타클래스를 만들기 위해서 type을 상속받아야 한다 
+```
+<br>
+**type, object** type은 최상위 metaclass, object는 최상위 class 
+{: .notice}
+<br>
+
+## Singleton
+
+```python 
+class Singleton(type):
+    instance = None
+    def __call__(cls, *args, **kw):
+        if not cls.instance:
+             cls.instance = super(Singleton, cls).__call__(*args, **kw)      
+	                    # super().__call__(*args, **kw) 동일 
+        return cls.instance
+
+class ASingleton(metaclass=Singleton):
+    pass
+
+a = ASingleton()
+b = ASingleton()
+a is b
+: True
+
+```
+
+## abc class(abstract class)
+
+추상적인 부분은 구현하지 않고 구체적인 부분에서 구현하도록 강제하는 기법 
+
+
+추상클래스: [wikidocs](https://wikidocs.net/16075)<br>
+
+**isinstance & issubclass** isinstance는 어떤 객체가 특정 클래스인치 판별하는 predicate issubclass는 어떤 클래스가 특정 클래스의 상속을 받았는지 판별하는 predicate 
+{: .notice}
+
+```python
+isinstance(1,(str,int))  # 두번째 인자는 tuple도 가능
+issubclass(bool,int)
+
+: True
+  True 
+```
+
+## __getattribute__ vs getattr vs __getattr__
+
+**__getattr__**
+
+```python
+
+```
+
+## as 
+
+1. import할때 명명법 바꾸기 
+2. 예외처리문에서 에러에 대한 상세표시 
+
+**__all__** import할때 포함시키고 싶은 범위를 지정해주는 special method
+{: .notice}
+
+special method : [slideshare](https://www.slideshare.net/dahlmoon/specialmethod-20160403-70272494)<br>
+
+## _ 3가지 활용 
+
+```
+1. _* 
+- from module import *에 의해 포함되지 않는 변수명명법 
+2. __*__
+- magic or special method 명명법 
+3. __*
+- 클래스내에 __를 사용하여 변수명을 바꿔주는 방법 
+- 이때 외부에서 해당 변수에 접근을 하지 못하는 private 기능을 하는 것처럼 눈속임을 한다 
+```
+
+##### 추가 복습 
+
+1. 다형성 
+2. 추상클래스 
+3. getattribute 
+
+**복습 시간**  20시 ~ 22시 30분/ 총 2시간 30분 
 {: .notice}
