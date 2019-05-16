@@ -725,7 +725,7 @@ python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.c
 # 2019년 5월 3일 금요일 네번째 수업
 
 
-### 선언문 2가지
+## 선언문 2가지
 
 ```
 1. 함수 선언 
@@ -745,14 +745,15 @@ name(3)       # 함수 호출(콜)
 
 > Python의 또다른 장점 'return'문은 생략 가능하다
 
-
-### Parameter vs Argument 
+<br>
+## Parameter vs Argument 
 
 Parameter | Argument 
 --------|-------
 선언문에서 괄호 안 | 호출문에서 괄호안
+키워드 방식이 온다 | 식이 들어갈 수 있다
 
-
+<br>
 ### Argument 사용법 
 
 ```
@@ -813,6 +814,8 @@ Why? Python 철학중 EAFP라는 것이 있는데 이는 '허락보다는 용서
 허락을 받을 것인가.
 전자가 더 실행하기 쉽고 빠르다는 것이 Python의 철학인 것이다. 
 
+
+<br>
 **Python Tip1** 파이썬은 오버로딩이 안된다. 즉 같은 함수 이름을 여러개 정의하여 매개변수를 달리하여 사용하는 기법이 허용이 되지 않는다. 파이썬은 오버로딩을 지원하지 않음으로써 속도를 개선했다. 단, 오버라이딩은 사용 가능하다. (매소드 재정의)
 {: .notice}
 
@@ -820,8 +823,8 @@ Why? Python 철학중 EAFP라는 것이 있는데 이는 '허락보다는 용서
 * 오늘의 명언 
 <span style="color: orange">자동이 많으면 제약이 많다.</span>
 
-
-### 함수의 특징 3가지 
+<br>
+## 함수의 특징 3가지 
 
 ```
 1. return이 반드시 있어야 한다 
@@ -832,7 +835,7 @@ Why? Python 철학중 EAFP라는 것이 있는데 이는 '허락보다는 용서
 - Global 식별자이름 하게 되면 접근, 수정이 가능하다
 - 함수 밖에서 함수 안의 식별자에 접근, 수정이 불가능하다 
 ```
-#### 함수안의 함수 
+### 함수안의 함수 
 ```python
 def a():
    def b():
@@ -904,15 +907,19 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 
 ![function](https://user-images.githubusercontent.com/33630505/57440852-b6859200-7283-11e9-92fd-6b7b59ca7de9.png)
 
+일급 객체: [git blog](https://gyukebox.github.io/blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9D%BC%EA%B8%89-%EA%B0%9D%EC%B2%B4first-class-citizen/), [tistory](https://rednooby.tistory.com/113)<br>
+
+
 ## First class function 
 
 > 함수를 값처럼 사용할 수 있다. 
 
+<br>
 ## Higher-Order-Function
 
 > 함수를 리턴값으로 쓰는 함수, 함수를 인자로 쓰는 함수
 
-
+<br>
 ## 함수의 인자로 함수가 들어가는 경우 
 
 ```python
@@ -939,9 +946,12 @@ list(filter(b,[1,2,3,4,5,6])))
 
 > filter는 predicate function => True or False를 되돌려 주는 함수 
 
+<br>
+
 **Python Tip1**  shift + tab 했을 때 나오는 *iterables와 iterable는 차이가 있다. 별표가 있는 것은 iterable 여러개가 오고 별표가 없는 것은 한개만 온다
 {: .notice}
 
+<br>
 ### 별표(*)의 총 7가지 방법 
 
 ```
@@ -953,7 +963,7 @@ list(filter(b,[1,2,3,4,5,6])))
 6. 
 7. 
 ```
-
+<br>
 ### Annotation
 
 ```python
@@ -970,12 +980,7 @@ xx('hi')
 ```
 <br>
 
-Parameter | Argument 
---------|-------
-키워드 방식이 온다 | 식이 들어갈 수 있다
-
-<br>
-
+### 인자에 default값 넣는 꼼수 
 ```python
 n = 0 
 def a(n):
@@ -983,6 +988,7 @@ def a(n):
 a(n or 3)
 # 인자에 디폴트를 사용할 수는 없지만 이렇게 흉내는 낼 수 있다
 ```
+<br>
 ## 식의 종류 
 
 1. 조건식 
@@ -1005,11 +1011,13 @@ list(map(lambda i: '양수' if i > 0 else ('음수' if i < 0 else 0), integer))
 : ['양수', '음수', '양수', 0, '양수', '음수', '음수', '양수']
 ```
 
+<br>
 **Python Tip2**  Local, Argumentation은 stack에 저장되고 Parameter는 heap영역에 들어간다
 {: .notice}
 
 **Python Tip3**  default값에 mutable값을 넣으면 값을 공유한다?, 값이 고정된다?
 {: .notice}
+<br>
 
 ```python
 import time 
@@ -1021,15 +1029,18 @@ def a(t=time.time()):
 a()
 1557232228.6397958 # 값이 고정된다 
 ```
-
+<br>
 **Python Tip4**  bytearray와 frozenset은 리터럴이 없다
 {: .notice}
+<br>
 
 ### Return의 3가지 형태 
 
+```
 1. 자기는 변하지만 return이 None
 2. 자기 자신이 변하지 않고 return 값이 있다 
 3. 자기 자신도 변하고 return 값도 있다
+```
 
 ```python 
 # 1 
@@ -1050,16 +1061,13 @@ def xx(y):
    return x
 # xx함수를 호출하면 원소가 하나인 리스트 반환
 ```
+<br>
 
-일급 객체: [git blog](https://gyukebox.github.io/blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9D%BC%EA%B8%89-%EA%B0%9D%EC%B2%B4first-class-citizen/), [tistory](https://rednooby.tistory.com/113)<br>
-
-클로저: [git blog](https://nachwon.github.io/closure/)
-
-### 파이썬 변수의 유효 범위(Scope)
+## 파이썬 변수의 유효 범위(Scope)
 
 > 유효 범위 규칙(Scope Rule)은 변수에 접근 가능한 범위, 변수가 유효한 문맥범위를 정하는 규칙 
 
-#### LEGB 
+### LEGB 
 
 ```
 1. Local : 함수 내 정의된 지역변수 
@@ -1312,18 +1320,18 @@ fib(10)  # 10번째 항   (1 1 2 3 5 8 13 21 34 55)
 2. Decorator 
 ```
 
-## Decorator
-
-
-
 
 ## Closure
+
+
+
+## Decorator
 
 
 Closure: [github blog](https://nachwon.github.io/closure/)
 
 
-## Decorator vs Closure 
+## Closure  vs  Decorator 
 
 
 
@@ -1537,6 +1545,32 @@ dir(a)
 
 : ['__class__','__dict__',.......,'a','x'] 
   ['__class__','__dict__',.......,'a','x','y']
+  
+  
+class B:
+	x = 2 
+	def b():
+		print('Access class')
+
+B.b()
+b = B()
+b.b()
+
+: Access class 
+  AttributeError
+
+class B:
+	x = 2 
+	def b(self):
+		print('Access instacne')
+B.b()
+b = B()
+b.b()
+B.b(b)
+
+: TypeError 
+  Access instance
+  Access instance
 ```
 
 ### 클래스 변수 vs 인스턴스 변수 
@@ -1702,8 +1736,23 @@ class A:
 
 ```python 
 # ex) 
+class Dyn():
+	name = 'jh'
+	def name(self):
+		print('nothing')
+dy = Dyn()
+dyn.d()
+vars(dy)
+dy.name
+dy.name = 'jane'
+dy.name
+vars(dy)
 
-
+: 'nothing'
+  {}
+  'jh'
+  'jane'
+  {'name': 'jane'}
 ```
 
 ### Naming 
