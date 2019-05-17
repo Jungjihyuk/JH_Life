@@ -1718,7 +1718,7 @@ class A:
 1. 캡슐화 
 - 재활용 가능 
 - 파이썬에서는 기본적으로 외부에서 클래스 접근 가능 
-- descripter로 클래스 접근을 막을 수도 있다 
+- descriptor로 클래스 접근을 막을 수도 있다 
 2. 추상화 
 - 구체적인것과 추상적인 것을 분리시킨다 
 - 특징을 뽑아 객체로 구현 
@@ -2161,13 +2161,7 @@ a is b
 : True
 
 ```
-
-## abc class(abstract class)
-
-추상적인 부분은 구현하지 않고 구체적인 부분에서 구현하도록 강제하는 기법 
-
-
-추상클래스: [wikidocs](https://wikidocs.net/16075)<br>
+<br>
 
 **isinstance & issubclass** isinstance는 어떤 객체가 특정 클래스인치 판별하는 predicate issubclass는 어떤 클래스가 특정 클래스의 상속을 받았는지 판별하는 predicate 
 {: .notice}
@@ -2182,12 +2176,15 @@ issubclass(bool,int)
 
 ## __getattribute__ vs getattr vs __getattr__
 
-**__getattr__**
+instance.attribute(method) <br>
+1. __getattribute__ 실행 (getattr)
+2. attribute가 없으면 attribute error 
+3. __getattr__가 정의 되어 있으면 실행 
+<br>
+instance.attribute(variable) <br>
 
-```python
 
-```
-
+참고 : [tistory](https://brownbears.tistory.com/187)
 ## as 
 
 1. import할때 명명법 바꾸기 
@@ -2213,7 +2210,7 @@ special method : [slideshare](https://www.slideshare.net/dahlmoon/specialmethod-
 - 숫자에 쓰는 언더바 
 - ex) a = 100_000
 5. _ (이름이 중요하지 않지만 관례상 쓸때)
-```python
+
 for i,_,k in zip([1,2,3],[4,5,6],[7,8,9]):
     print(i,_,k)
     
@@ -2222,8 +2219,12 @@ for i,_,_ in zip([1,2,3],[4,5,6],[7,8,9]):
 # 주의, 맨 마지막에 쓴 값 출력 (할당하지 않으면)
 6. _method
 - private
-7. _ 주의, 맨 마지막에 쓴 값 출력 (할당하지 않으면)
-
+7. _  맨 마지막에 쓴 값 출력 (할당하지 않으면)
+a = 3
+a
+-
+: 3
+  3
 (8). _() # 다른 언어지원할 때 
 - 라이브러리 사용해야 해서 기본 7가지로 생각
 ```
@@ -2243,15 +2244,343 @@ for i,_,_ in zip([1,2,3],[4,5,6],[7,8,9]):
 
 # 2019년 5월 17일 금요일 열한번째 수업
 
+## Multiple inheritance(다중 상속)
+
+말 그대로 상속을 2개 이상을 하는 것 
+
+
+**function 기법**
+- 실행 순서를 직접 정할 수 있다 
+- 그러나 같은 값을 중복해서 출력하는 경우가 생긴다 
+
+```python
+class x:
+    def __init__(self):
+        print('x')
+class A(x):
+    def __init__(self):
+        x.__init__(self)
+        print('A')
+class B(x):
+    def __init__(self):
+        x.__init__(self)
+        print('B')
+class C(A,B):
+    def __init__(self): 
+        B.__init__(self)   
+        A.__init__(self)  
+        print('C')
+	
+c = C()
+
+: X 
+  B
+  X
+  A
+  C
+```
+
+**super**
+
+- super는 상속을 전부 실행하지 않는다 
+- 따라서 중복의 문제를 해결할 수 있다.
+- 하지만 super와 function을 함께 사용하면 상속을 전부 실행하지 않는다 
+
+```python
+class x:
+    def __init__(self):
+        print('x')
+class A(x):
+    def __init__(self):
+        x.__init__(self)
+        print('A')
+class B(x):
+    def __init__(self):
+        x.__init__(self)
+        print('B')
+class C(B,A):
+    def __init__(self): 
+        super().__init__()  # super는 부모 인스턴스를 반환 / 클래스 명,self 생략 가능 
+        print('C')
+
+c = C()
+: X
+  B
+  C
+```
+
+**only super**
+
+- super는 상속 실행 순서를 자동적으로 지정해준다 
+- super를 사용할때 전부 super를 사용하면 중복 해결, 원하는 값 출력 가능하다 
+- 다이아 문제 해결 
+
+```python
+
+class x:
+    def __init__(self):
+        print('x')
+class B(x):
+    def __init__(self):
+        super().__init__()
+        print('B')
+class A(x):
+    def __init__(self):
+        super().__init__()
+        print('A')
+class C(A,B):
+    def __init__(self): 
+        super().__init__() 
+        print('C')
+c = C()
+: x
+  B
+  A
+  C
+```
+
+> 왜 실행 순서에 따라 출력되지 않을까? 
+
+```python
+C.__mro__
+C.mro()
+
+: (__main__.C, __main__.A, __main__.B, __main__.x, object)
+  [__main__.C, __main__.A, __main__.B, __main__.x, object]
+  # 반환 타입이 서로 다름 
+```
+
+**실행 순서는 C -> A -> B -> x 인데 출력 결과는 왜 반대일까?**
+
+<span style="background-color: orange">그 이유는 바로 super사용시 stack에 들어가기 때문이다 </span><br>
+
+## 다중 상속시 절대 에러가 나지 않게 하는 방법 
+
+<span style="background-color: rgb(229, 68, 91)">Mixins</span>
+**특수한 class를 만들어 충돌이 일어나지 않게 다중 상속을 한다**
+
+```python
+class FirstMixin(object):
+    def test1(self):
+        print("first mixin!!!")
+
+
+class SecondMixin(object):
+    def test2(self):
+        print("second mixin!!!")
+
+
+class TestClass(FirstMixin, SecondMixin):
+    pass
+
+t = TestClass()
+t.test1
+t.test2
+: first mixin!!!
+  second mixin!!!
+```
+
+**다이아 문제** 다중 상속시 어느 클래스의 메소드를 상속 받아야 할 지 모호한 경우 
+{: .notice}
+
+
+## ABC class (Abstract base class)
+
+<span style="color:orange">추상적인 부분은 구현하지 않고 구체적인 부분에서 구현하도록 강제하는 기법 </span></br>
+
+**추상 클래스 특징**
+
+```
+1. ABC class를 사용하면 duck typing 문제점을 보완할 수 있다 
+2. 상속받는 클래스는 추상메소드를 구현하지 않아도 클래스 기능은 동작한다 
+3. abc 모듈을 import 해야한다 
+```
+
+추상클래스: [wikidocs](https://wikidocs.net/16075)<br>
+
+```python
+# sequence 타입의 조건 
+class A:           
+    x = 1 
+    def __getitem__(self,x):
+        print('A')
+    def __len__(self):
+        print('B')
+a = A()
+a[0]
+: A
+```
+
+### ABCMeta
+
+```python
+from abc import ABCMeta, abstractmethod 
+
+class Y(metaclass = ABCMeta):
+	@abstractmethod
+	def a(self):
+		return 1
+class A(Y):
+	pass
+	
+a = A()
+
+: TypeError 
+```
+
+> 오버라이딩을 하지 않는 경우 에러가 발생하기 때문에 오버라이딩을 강제시킨다
+
+```python
+class A(Y):
+    def a(self):
+        return 1
+
+a = A()
+a.a()
+:1
+```
+
+```python
+from abc import ABCMeta, abstractclassmethod 
+
+class Y(metaclass = ABCMeta):
+    @abstractclassmethod
+    def a(self):
+        return 1
+class B(Y):
+    def a(self):
+        return 1
+
+b = B()
+b.a()
+: 1
+
+```
+
+#### abstractmethod vs abstractclassmethod
+
+
+<kbd>duck typing</kbd>+<kbd>meta class</kbd>+<kbd>abc</kbd> => <kbd>강려크하다</kbd>
+
+
+### register 
+
+```python
+from abc import ABCMeta
+
+class MyABC(metaclass=ABCMeta):
+    pass
+
+MyABC.register(tuple)  # tuple처럼 사용 
+
+assert issubclass(tuple, MyABC)
+assert isinstance((), MyABC)
+```
+
+> 좋지 않은 방법이기 때문에 내가 만든 클래스에서만 사용하도록 권장 
 
 
 
+
+## Descriptor 
+
+> 점(.)으로 객체의 멤버를 접근할 때, 먼저 인스턴스 변수(__dict__)에서 멤버를 찾는다. 없을 경우 클래스 변수에서 찾는다. 클래스에서 멤버를 찾고 객체가 descriptor 프로토콜을 구현했다면 바로 멤버를 리턴하지 않고 descriptor 메소드(__get__, __set__, __delete__)를 호출한다 
+
+**Descriptor 구현 방법 3가지**
+```
+1. get, set + composition 
+
+2. Properties
+
+3. Decorator 
+```
+
+#### 1. get, set + composition
+```python
+class RevealAccess:
+    def __init__(self, initval = None, name='var'):
+        self.val = initval
+        self.name = name 
+    def __get__(self, obj, objtype):
+        print('get')
+        return self.val
+    def __set__(self, obj, val):
+        print('Updating',self.name)
+        self.val = val + 10
+    def __delete__(self, obj, val):
+        print('안지워짐')
+class Myclass:
+    x = RevealAccess() 
+    y = 5
+    
+m = Myclass()
+m.x
+: get
+m.x = 20
+: Updating var
+m.x
+: get
+  30 
+```
+#### 2. Properties
+
+```python
+class C(object):  #getx, setx, delx 이름 상관없음 
+    def getx(self): 
+        print('AAA')
+        return self.__x
+    def setx(self, value): 
+        self.__x = value
+    def delx(self): 
+        del self.__x
+    x = property(getx, setx, delx, "I'm the 'x' property.")
+    
+d = C()
+d.x
+: AAA 
+  AttributeError
+```
+
+#### 3. Decorator
+
+```python
+class D:
+    __X = 3   # 실제값은 __X에 저장 
+    @property 
+    def x(self):
+        return self.__X
+	
+d = D()
+d.x()
+:TypeError 
+
+
+class D:
+    def __init__(self):
+        self._x = 0
+    @property 
+    def x(self):
+        return self.__x
+    @x.setter    #이름은 똑같지만 다른 메모리번지에 할당해주는 역할 
+    def x(self, x):
+        self.__x = x	
+```
+<span style="background-color:red">Descriptor 부분은 다시 공부하고 정리하기 </span><br>
+
+Descripter : [slideshare](https://www.slideshare.net/dahlmoon/descriptor-20160403)<br>
+
+
+### 싱글 디스패치, 멀티 디스패치
 
 ### epiphany
 
+> 우연한 순간에 귀중한 것들과의 만남, 혹은 깨달음을 뜻하는 통찰이나 직관, 영감을 뜻하는 단어이다.
+  python 공부도 그렇듯 계속해서 하다보면 저절로 내것이 될꺼라 믿는다.
+
+epiphany : [brunch](https://brunch.co.kr/@altna84/216)<br>
 
 ##### 자습서 공부하기 
 - 3 ~ 9장
 
-**복습 시간**  20시 ~ 22시 30분/ 총 2시간 30분 
+**복습 시간** 22시 30분 ~ 1시 10분 / 총 2시간 40분  
 {: .notice}
