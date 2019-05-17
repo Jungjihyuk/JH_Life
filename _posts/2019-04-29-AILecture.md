@@ -2198,7 +2198,7 @@ issubclass(bool,int)
 
 special method : [slideshare](https://www.slideshare.net/dahlmoon/specialmethod-20160403-70272494)<br>
 
-## _ 3가지 활용 
+## _ 7가지 활용 
 
 ```
 1. _* 
@@ -2206,8 +2206,28 @@ special method : [slideshare](https://www.slideshare.net/dahlmoon/specialmethod-
 2. __*__
 - magic or special method 명명법 
 3. __*
+- mangling
 - 클래스내에 __를 사용하여 변수명을 바꿔주는 방법 
 - 이때 외부에서 해당 변수에 접근을 하지 못하는 private 기능을 하는 것처럼 눈속임을 한다 
+4. _ 
+- 숫자에 쓰는 언더바 
+- ex) a = 100_000
+5. _ (이름이 중요하지 않지만 관례상 쓸때)
+```python
+for i,_,k in zip([1,2,3],[4,5,6],[7,8,9]):
+    print(i,_,k)
+    
+for i,_,_ in zip([1,2,3],[4,5,6],[7,8,9]):
+    print(i,_,_)   
+# 주의, 맨 마지막에 쓴 값 출력 (할당하지 않으면)
+6. _method
+- private
+7. _ 주의, 맨 마지막에 쓴 값 출력 (할당하지 않으면)
+
+(8). _() # 다른 언어지원할 때 
+- 라이브러리 사용해야 해서 기본 7가지로 생각
+```
+
 ```
 
 ##### 추가 복습 
@@ -2215,6 +2235,23 @@ special method : [slideshare](https://www.slideshare.net/dahlmoon/specialmethod-
 1. 다형성 
 2. 추상클래스 
 3. getattribute 
+
+**복습 시간**  20시 ~ 22시 30분/ 총 2시간 30분 
+{: .notice}
+
+
+
+# 2019년 5월 17일 금요일 열한번째 수업
+
+
+
+
+
+### epiphany
+
+
+##### 자습서 공부하기 
+- 3 ~ 9장
 
 **복습 시간**  20시 ~ 22시 30분/ 총 2시간 30분 
 {: .notice}
