@@ -2354,6 +2354,7 @@ C.mro()
 
 <span style="background-color: orange">그 이유는 바로 super사용시 stack에 들어가기 때문이다 </span><br>
 
+<br>
 ## 다중 상속시 절대 에러가 나지 않게 하는 방법 
 
 <span style="background-color: rgb(229, 68, 91)">Mixins</span>
@@ -2383,10 +2384,10 @@ t.test2
 **다이아 문제** 다중 상속시 어느 클래스의 메소드를 상속 받아야 할 지 모호한 경우 
 {: .notice}
 
-
+<br>
 ## ABC class (Abstract base class)
 
-<span style="color:orange">추상적인 부분은 구현하지 않고 구체적인 부분에서 구현하도록 강제하는 기법 </span></br>
+<span style="color:orange">추상적인 부분은 구현하지 않고 구체적인 부분에서 구현하도록 강제하는 기법 </span<br>
 
 **추상 클래스 특징**
 
@@ -2480,7 +2481,7 @@ assert isinstance((), MyABC)
 > 좋지 않은 방법이기 때문에 내가 만든 클래스에서만 사용하도록 권장 
 
 
-
+<br>
 
 ## Descriptor 
 
