@@ -13,24 +13,35 @@ tag:
 이 수업은 기본반이라고 되어 있지만 사실상 <kbd>fundamental</kbd> 즉, 핵심적이고, 근본적인, 필수적인 것들을 다루기 때문에 어려운 내용도 포함 하고 있다. 
 <br>
 ## 왜 프로그래밍 언어가 많은 걸까?? <br>
-: 언어마다 각각의 장단점이 있다. <br> 
+: 언어마다 각각의 장단점이 있기 때문이다 <br>
+그리고 더 구체적으로는 언어마다 특화되있는 분야가 있기 때문이다 <br>
+
 <br>
 ## 왜 AI에는 파이썬인가?
 ```
 Life is short, you need! 
 파이썬의 슬로건에서 보여주듯이 
 파이썬은 개발 속도가 빠르기 때문에 생산성이 좋다! 
-생산성
+
+1. 생산성
 - Efficient  --> 빠르고 체계적인 일처리가 가능하다  
 - Effective  --> 원하는 결과를 가져다 준다
+
+2. 멀티 패러다임 
+- 절차 지향, 객체지향, 함수지향 프로그래밍이 모두 가능하다 
+
+3. 연구자 친화적 언어, 개발자 친화적 언어  
+- 언어중에서 속도가 느린 언어에 속하지만 개발속도는 빠르고 함수적 프로그래밍이 가능하다
 
 그리고 이 파이썬은 크게 3가지 분야에서 유리하다. 
 첫번째 시스템 자동화 분야
 두번째 웹
 세번째 데이터 사이언스 
 ```
-* 이 수업은 Data Science분야를 집중해서 다뤄볼 것이다. <br>
+* ※ 이 수업은 Data Science분야를 집중해서 다뤄볼 것이다. <br>
 <br>
+<br>
+
 ## Python의 특징 
 
 1. 다양한 패러다임을 지원한다. 
@@ -46,14 +57,18 @@ Life is short, you need!
 
 <br>
 
-* 이번 수업은 c로 만든 python으로 사용한다 <br>
+* ※이번 수업은 c로 만든 python으로 사용한다 <br>
 
-* python3.3 부터 유니코드로 인한 속도가 개선되었다. <br>
+* ※python3.3 부터 유니코드로 인한 속도가 개선되었다. <br>
 <br>
+
+
 ## Interpreter vs Compiler 
 
 ![interpreter vs compiler](https://user-images.githubusercontent.com/33630505/56888295-93eac080-6aae-11e9-977b-2db7ce9cd580.JPG)
 <br>
+<br>
+
 ## REPL vs IDE vs Text Editor 
 <kbd>REPL</kbd>: &nbsp; Read-Eval-Print loop의 약자로 컴파일 과정없이 즉석으로 코드를 입력하고 실행결과를 바로 보는 대화형 환경을 말한다.<br>
 <kbd>IDE</Kbd>: &nbsp; Integrated Development Environment의 약자로 개발통합환경 즉, 코딩을 위한 편집기, 컴파일, 링크, 디버그 등... 실행 모듈 개발에 필요한 기능을 한곳에 모아둔 프로그램을 말한다. <br>
@@ -74,7 +89,9 @@ Jupyter notebook은 특이한 점이 웹에서 사용한다는 것이다. <br>
 > 앞으로 이 수업은 파이썬 공식 문서를 이용할 것이다. 왜냐하면 정확한 정보를 제공하고 공식 문서를 보는 연습을 미리 해두면
 나중에 공부할때 필히 도움이 될 것이다. &nbsp; [공식 문서](https://docs.python.org/3/)
 
-## Jupyter을 이용하여 python, markdown 활용해보기 
+<br>
+
+## 자료형 숫자, 문자  
 
 ```
 자료형 중 숫자는 크게 4가지가 있다. 
@@ -208,7 +225,7 @@ w          str        ㅇㅇ
 
 ## 자료형은 총 20가지가 있지만 13가지를 배울 것이다.
 
-### 자료형
+## 자료형
 ```
 1. 숫자형 [Integer, Float, Boolean, Complex]
 2. 문자형 [String, Bytes, Bytearray]
@@ -230,6 +247,8 @@ w          str        ㅇㅇ
 - 0x를 숫자 앞에 붙인다.
 4. 10진수
 - 아무것도 안쓰면 그냥 10진수이다. 
+
+### 정수형 숫자 범위 
 
 ```python
 import sys
@@ -255,6 +274,7 @@ hex() => 16진법으로 변환 <br>
 <br>
 * bold채가 아닌데 색이 변하는 것은 builtin함수
 <br>
+<br>
 
 ### float 
 
@@ -268,8 +288,11 @@ float('nan')
 # 무한대 개념은 딥러닝에서 미분의 개념을 꼭 알아야 하는데 이때 중요하게 작용한다.
   파이썬은 이처럼 숫자 체계가 범위가 넓기 때문에 인공지능에 이용되는 장점이 있다.
 ```
-.(점)은 부동소수점을 결정하는 리터럴 <br>
-* 리터럴은 데이터 타입을 결정하는 문자를 일컫는 말이다. 
+<br>
+**.(점)은 부동소수점을 결정하는 리터럴** <br>
+> 리터럴은 데이터 타입을 결정하는 문자를 일컫는 말이다. 
+
+<br>
 
 ```
 import sys
@@ -277,7 +300,7 @@ sys.float_info
 
 sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)
 ```
-
+<br>
 
 ### float형 숫자의 연산 
 <kbd>+</kbd> , <kbd>-</kbd> ,<kbd> *</kbd> ,<kbd> /</kbd>, <kbd>//</kbd>,<kbd> %</kbd>, <kbd>**</kbd>가 있다.  
@@ -298,12 +321,14 @@ why? --> -4 + 0.66667 이런식으로 간주하기 때문에
 
 Container ┌─ Homogeneous    # 요소들이 서로 같은 타입인 경우
           └─ Heterogeneous  # 요소들이 서로 다른 타입이 가능한 경우 
-(요소가 1개 이상)
+(요소가 1개 이상인 데이터 구조)
 
 Sequence ┌─ Indexing   # 요소를 하나씩 출력
          └─ Slicing    # 요소를 한번에 여러개 출력
 (순서가 있음)         
-Mapping hash    # key값과 value를 갖는 Dictinary가 갖는 특징      
+Lookup  ┌─ Mapping hash    # key값과 value를 갖는 Dictinary가 갖는 특징    
+        └─ set  # 순서가 없는 고유한 원소들의 집합 
+(key값으로 이루어진 데이터 구조)
 ```
 
 ### Indexing
@@ -374,6 +399,8 @@ type(s)
 
 * Garbage Collection은 메모리 관리 기법 중 하나로, 프로그램이 동적으로 할당했던 메모리 영역 중에서 필요 없게 된 영역을 해제하는 기능이다.
 
+<br>
+
 ### xxx = xxx 
 <span style="background: orange">식별자 or 변수 = 식(Expression) </span><br>
 <kbd>Expression</kbd>: 연산결과가 하나의 값으로 만들 수 있는 것 <br>
@@ -411,10 +438,13 @@ eval('a+b')
 <br>
 ex)
 ```python
+# statement
 for i in range(1, 20+1):
    exec('r' + str(i) + '=' +str(i))
+
+# r1, r2 ...r20 까지 1,2,...20 할당 
 ```
-**결론적으로** 모든 Expression은 Statement지만 어떤 Statement는 expression이지 않다. retrun 3 이런 구문은 평가를 통해 3의 값이 나오는 것이 아니기 때문이다.
+**결론적으로** 모든 Expression은 Statement지만 어떤 Statement는 expression이지 않다. retrun 3 이런 구문은 평가를 통해 3의 값이 나오는 것이 아니기 때문이다. ex) exec('1+2')는 문제 없지만 eval('a=3')는 오류가 난다 
 {: .notice}
 
 
@@ -504,6 +534,10 @@ a is b
 - 인덱스 값에서 벗어난 인덱스를 사용했을 때 발생하는 에러 
 3. TypeError
 - 서로 다른 타입간의 연산을 했을 경우 발생하는 에러 
+4. KeyError 
+- dictionary에서 없는 key값으로 접근할때 발생하는 에러 
+5. AttributeError 
+- 존재하지 않는 Attribute에 접근하려고 할 때 발생하는 에러 
 
 **복습 시간**   18시 35분 ~ 20시 5분/ 총 1시간 30분  
 {: .notice}
@@ -654,6 +688,9 @@ else:
 > 여기서 개념 하나 추가 Iterable! Iterable은 순회, 반복 가능한 것을 말한다. 
 그래서 for문에 쓸 수 있다.
 보통 container이면 Iterable ※ 아닌것도 있지만 아주 나중에 배운다.
+
+
+<span style="color: red">container이지만 Iterable이 아닌것이 set인가?? iterable의 조건중 __ iter__랑 __ getitem__ 두가지가 있어야 되는데 set은 __ iter__ 한가지 밖에 없다 왜지? 찾아보자 </span>
 
 ```python
 # for # 
