@@ -175,3 +175,10 @@ Procedure는 함수 내에서 처리가 끝나지만 Function은 처리가 끝�
 ### NoSQL 
 [samaung sds](https://www.samsungsds.com/global/ko/support/insights/1195843_2284.html)
 
+
+<hr>
+
+### 드롭다운 목록에서 선택하여 DB에 저장하기 
+
+codeday : [codeday](https://codeday.me/ko/qa/20190416/345691.html)
+
