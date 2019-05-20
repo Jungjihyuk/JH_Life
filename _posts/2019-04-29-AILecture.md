@@ -2688,7 +2688,7 @@ Computing Model
 
 <span style="color:rgb(56, 188, 182)">NumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpy</span> <br>
 
-<span style="background-color:rgb(56, 188, 182)>Numpy는 속도가 빠르고 사용하기가 쉽다! </span><br>
+<span style="background-color:rgb(56, 188, 182")>Numpy는 속도가 빠르고 사용하기가 쉽다! </span><br>
 Numpy는 벡터 연산, 행렬 연산을 효율적으로 쉽게 만들 수 있다<br>  
 Numpy는 속도 개선의 최적화를 하지 않아도 되기 때문에 AI시작시 python말고 Numpy를 한다 <br>
 
@@ -2715,33 +2715,35 @@ Numpy 공식 문서: [docs](https://docs.scipy.org/doc/numpy/reference/?v=201905
 - 2차 행렬 
 - 3차 텐서 
 
- 
- **python 속도 개선을 위한 방법 **
- 
- 1. Computing Power
- - GPU
- - Parallel Computing
- 2. Compiler 
- - Cython
- - PyPy ....
- 3. Library 
- - Numpy 
- 4. Algorithm/ Data Structure 
- 
- 
- ### Vectorization
- 
- ```
- loop없이 벡터연산으로 속도 향상을 하는 방법 
- 요즘은 cpu자체에서 vercotr processor를 지원 
- 함수형 패러다임 + 선형대수 기법 
- ```
- 
- ![array](https://user-images.githubusercontent.com/33630505/58010431-4ef4ff80-7b2b-11e9-81fb-7fb7bba0cd19.JPG)
+<br>
 
- **Numpy Tip1** python list와 numpy list는 차이가 있다. python은 linked list , type check로 인해 속도가 느리고, numpy 에서는 type이 통일되어 있어 속도가 빠르다 
-{: .notice} 
+**python 속도 개선을 위한 방법 **
  
+1. Computing Power
+- GPU
+- Parallel Computing
+2. Compiler 
+- Cython
+- PyPy ....
+3. Library 
+- Numpy 
+4. Algorithm/ Data Structure 
+ 
+<br>
+
+### Vectorization
+ 
+```
+loop없이 벡터연산으로 속도 향상을 하는 방법 
+요즘은 cpu자체에서 vercotr processor를 지원 
+함수형 패러다임 + 선형대수 기법 
+```
+
+![array](https://user-images.githubusercontent.com/33630505/58010431-4ef4ff80-7b2b-11e9-81fb-7fb7bba0cd19.JPG)
+<br>
+**Numpy Tip1** python list와 numpy list는 차이가 있다. python은 linked list , type check로 인해 속도가 느리고, numpy 에서는 type이 통일되어 있어 속도가 빠르다 
+{: .notice} 
+<br> 
 ![list](https://user-images.githubusercontent.com/33630505/58010552-8bc0f680-7b2b-11e9-9c2b-ff3cb5012eaa.JPG) 
 
 
@@ -2770,7 +2772,7 @@ type(a)
   numpy.ndarray
 ```
 
-**특수 행렬 만들기**
+### 특수 행렬 만들기
 
 ```python
 import numpy as np
