@@ -2266,7 +2266,6 @@ a
 - 라이브러리 사용해야 해서 기본 7가지로 생각
 ```
 
-```
 
 ##### 추가 복습 
 
@@ -2622,3 +2621,94 @@ epiphany : [brunch](https://brunch.co.kr/@altna84/216)<br>
 
 **복습 시간** 22시 30분 ~ 1시 10분 / 총 2시간 40분  
 {: .notice}
+
+
+# 2019년 5월 20일 월요일 열두번째 수업
+
+DIKW 
+
+# 인공지능이란 
+
+두 가지로 나뉨 <br>
+
+요즘은 보통 인지적 관점에서 관심이 쏠림 <br>
+
+인공지능은 이해하지 못하지만 인식은 사람의 영역까지 왔다 <br>
+
+좁은 의미에서 기계학습 <br>
+
+기계학습은 데이터를 넣어주고 스스로 알고리즘을 생성 
+
+기계학습 중에 deep learning <br>
+
+deep learning은 인식이외에 기능은 좋지 않음 <br>
+
+파이썬은 연산속도가 느린데 도대체 왜 파이썬으로 AI를 하는가? <br>
+
+matlab이 연산이 빠른 이유는 행렬 계산이 가능하기 때문 
+=> 행렬계산은 대량 연산시 빠르다 
+
+
+
+=> 그래서 NumPy !! 
+=> 속도 + 사용하기 쉬움 
+=> 벡터 연산, 행렬 연산을 효율적으로 쉽게 만듦 
+
+pandas, 케라스 => 100 % Numpy로 만들어짐 
+텐서플로우 => Numpy + GPU 
+
+
+
+
+
+Computing Model =>> 
+
+Numpy 공식 문서 [docs](https://docs.scipy.org/doc/numpy/reference/?v=20190520142926)
+
+Numpy는 속도 개선의 최적화를 하지 않아도 되기 때문에 AI시작시 python말고 Numpy를 한다 <br>
+
+
+0차 스칼라 
+1차 벡터 
+2차 행렬 
+3차 텐서 
+
+
+
+Numpy 
+
+1. statmodel
+2. scikit-image
+3. scikit-learn
+4. pandas
+5. matplotlib
+
+ 
+ python 속도 개선을 위한 방법 
+ 
+ 1. Computing Power
+ 2. Compiler 
+ 3. Library 
+ 4. Algorithm/ Data Structure 
+ 
+ 
+ Vectorization
+ 
+ loop 없이 벡터연산으로 속도 향상을 하는 방법 <br>
+ 요즘은 cpu자체에서 vercotr processor를 지원 <br>
+ 함수형 패러다임 + 선형대수 기법 <br>
+ 
+ 
+ python list와 numpy list는 차이가 있다 
+ python은 linked list , type check로 인해 속도가 느리다 
+ numpy 에서는 type이 통일되어 있어 속도가 빠르다 
+ 
+ 
+문자열은 벡터화가 우선 
+
+
+
+
+**복습 시간** / 총  
+{: .notice}
+
