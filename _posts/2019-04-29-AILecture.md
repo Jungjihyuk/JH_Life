@@ -2625,90 +2625,381 @@ epiphany : [brunch](https://brunch.co.kr/@altna84/216)<br>
 
 # 2019년 5월 20일 월요일 열두번째 수업
 
-DIKW 
+## 정보의 진화 단계 
 
-# 인공지능이란 
+![dikw](https://user-images.githubusercontent.com/33630505/58008628-c1fc7700-7b27-11e9-9e69-6f39608cd81d.JPG)
 
-두 가지로 나뉨 <br>
 
-요즘은 보통 인지적 관점에서 관심이 쏠림 <br>
+DIKW : [blog](http://blog.naver.com/PostView.nhn?blogId=gracehappyworld&logNo=221481622524&categoryNo=17&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=search)
 
-인공지능은 이해하지 못하지만 인식은 사람의 영역까지 왔다 <br>
+## 인공지능의 시작과 배경 
 
-좁은 의미에서 기계학습 <br>
+Physical Labor과 Cognitive Labor의 한계를 극복하기 위해 인공지능으로 자동화 시키는 분야가 발달하게 됨 <br>
+그러나 요즘은 보통 물리적 노동보다는 인지적 관점에서 관심이 쏠리고 있다 <br>
+아직 인공지능은 이해하지 못하지만 인식은 사람의 영역까지 왔다 <br>
 
-기계학습은 데이터를 넣어주고 스스로 알고리즘을 생성 
+### 지능 
 
-기계학습 중에 deep learning <br>
+지식을 <br>
 
-deep learning은 인식이외에 기능은 좋지 않음 <br>
+1. 이해
+2. 인식 
+3. 추론
+4. 학습 
+5. 생성 
+6. 해결 
+7. 결정 
+<br>
+할 수 있는 능력 
 
-파이썬은 연산속도가 느린데 도대체 왜 파이썬으로 AI를 하는가? <br>
+## 인공지능 
+```
+'인간을 대체할 수 있는 기계 또는 지능을 갖춘 존재로부터 의사소통, 상황의 상관관계 이해 및 
+ 결론 도출 등 인간의 행동을 모방할 수 있는 기술'
+ 
+ 좁은 의미에서 기계학습이라 볼 수 있다 
+ 기계학습은 데이터를 넣어주고 스스로 알고리즘을 생성 한다 
+ 기계학습 중에 deep learning을 하면 deep learning 
+ deep learning은 인식분야에서 정확도가 높지만
+ 인식이외에 기능은 좋지 않다
+```
 
-matlab이 연산이 빠른 이유는 행렬 계산이 가능하기 때문 
+### AI, Machine learning, deep learning 
+
+![ai](https://user-images.githubusercontent.com/33630505/58009466-7f3b9e80-7b29-11e9-9515-20b4583abaf6.JPG)
+
+
+## 인공지능의 문제해결 전략 
+
+```
+인간의 인지적 작업을 
+어떻게 Computing Model로 만들어내고 
+그것을 Machine에서 구현하여 
+그 작업을 자동으로 효율적으로 할 수 있게 할 것인가? 
+
+Computing Model 
+- Theory of computation
+  컴퓨터 과학의 한 갈래로, 어떤 문제를 컴퓨터로 풀 수 있는지, 또 
+  얼마나 효율적으로 풀 수 있는지 
+- Programmable 
+```
+
+## 파이썬은 연산속도가 느린데 도대체 왜 파이썬으로 AI를 하는가?
+
+<span style="color:rgb(56, 188, 182)">NumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpy</span> <br>
+
+<span style="background-color:rgb(56, 188, 182)>Numpy는 속도가 빠르고 사용하기가 쉽다! </span><br>
+Numpy는 벡터 연산, 행렬 연산을 효율적으로 쉽게 만들 수 있다<br>  
+Numpy는 속도 개선의 최적화를 하지 않아도 되기 때문에 AI시작시 python말고 Numpy를 한다 <br>
+
+<br>
+추가적으로 <br>
+pandas, Keras => 100 % Numpy로 만들어짐 <br>
+Tensor => Numpy + GPU <br>
+matlab이 연산이 빠른 이유는 행렬 계산이 가능하기 때문 <br>
 => 행렬계산은 대량 연산시 빠르다 
 
 
-
-=> 그래서 NumPy !! 
-=> 속도 + 사용하기 쉬움 
-=> 벡터 연산, 행렬 연산을 효율적으로 쉽게 만듦 
-
-pandas, 케라스 => 100 % Numpy로 만들어짐 
-텐서플로우 => Numpy + GPU 
+Numpy 공식 문서: [docs](https://docs.scipy.org/doc/numpy/reference/?v=20190520142926)
 
 
+## Numpy 
+
+> Numarray와 Numeric이라는 오래된 Python 패키지를 계승해서 나온 수학 및 과학 연산을 위한 파이썬 패키지이다.
 
 
+**Numpy는 벡터 기반이다**
 
-Computing Model =>> 
-
-Numpy 공식 문서 [docs](https://docs.scipy.org/doc/numpy/reference/?v=20190520142926)
-
-Numpy는 속도 개선의 최적화를 하지 않아도 되기 때문에 AI시작시 python말고 Numpy를 한다 <br>
-
-
-0차 스칼라 
-1차 벡터 
-2차 행렬 
-3차 텐서 
-
-
-
-Numpy 
-
-1. statmodel
-2. scikit-image
-3. scikit-learn
-4. pandas
-5. matplotlib
+- 0차 스칼라 
+- 1차 벡터 
+- 2차 행렬 
+- 3차 텐서 
 
  
- python 속도 개선을 위한 방법 
+ **python 속도 개선을 위한 방법 **
  
  1. Computing Power
+ - GPU
+ - Parallel Computing
  2. Compiler 
+ - Cython
+ - PyPy ....
  3. Library 
+ - Numpy 
  4. Algorithm/ Data Structure 
  
  
- Vectorization
+ ### Vectorization
  
- loop 없이 벡터연산으로 속도 향상을 하는 방법 <br>
- 요즘은 cpu자체에서 vercotr processor를 지원 <br>
- 함수형 패러다임 + 선형대수 기법 <br>
+ ```
+ loop없이 벡터연산으로 속도 향상을 하는 방법 
+ 요즘은 cpu자체에서 vercotr processor를 지원 
+ 함수형 패러다임 + 선형대수 기법 
+ ```
  
+ ![array](https://user-images.githubusercontent.com/33630505/58010431-4ef4ff80-7b2b-11e9-81fb-7fb7bba0cd19.JPG)
+
+ **Numpy Tip1** python list와 numpy list는 차이가 있다. python은 linked list , type check로 인해 속도가 느리고, numpy 에서는 type이 통일되어 있어 속도가 빠르다 
+{: .notice} 
  
- python list와 numpy list는 차이가 있다 
- python은 linked list , type check로 인해 속도가 느리다 
- numpy 에서는 type이 통일되어 있어 속도가 빠르다 
- 
- 
-문자열은 벡터화가 우선 
+![list](https://user-images.githubusercontent.com/33630505/58010552-8bc0f680-7b2b-11e9-9c2b-ff3cb5012eaa.JPG) 
 
 
+### Numpy 사용하기 
+
+```python
+import numpy as np
+
+a = np.array(0)
+b = np.array([1,2,3])
+c = np.array([[1,2],[3,4]])
+d = np.array([[[1,2],[3,4],[5,6]]])
+a
+b
+c
+d
+type(a)
+
+: array(0)
+  array([1,2,3])
+  array([[1, 2],
+       [3, 4]])
+  array([[[1, 2],
+        [3, 4],
+        [5, 6]]])
+  numpy.ndarray
+```
+
+**특수 행렬 만들기**
+
+```python
+import numpy as np
+
+z = np.zeros([3,3])
+z
+: array([[0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.]])
+       
+y = np.eye(3)
+y
+: array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]])
+
+t = np.array([[1,2,3],[4,5,6],[7,8,9]])
+t.T
+: array([[1, 4, 7],
+       [2, 5, 8],
+       [3, 6, 9]])
+ 
+o = np.ones((5,4))
+o
+: array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])
+       
+f = np.full((3,3),3)
+f
+: array([[3, 3, 3],
+       [3, 3, 3],
+       [3, 3, 3]])
+       
+       
+l = np.ones_like(f)
+l
+: array([[1, 1, 1],
+       [1, 1, 1],
+       [1, 1, 1]])
+```
+
+**array** 는 몇차원 데이터인지 통칭하는 단어이다. 그리고 return 값에 array가 나오면 Numpy형태라는 뜻. 파이썬에서 사용하는 형태를 Numpy로 바꿔준다. 벡터를 만드는 방식이기도 하다 
+{: .notice}
 
 
-**복습 시간** / 총  
+### 행렬 연산 함수 
+
+```python
+import numpy as np
+
+
+a = np.array([1,2,3,4,5])
+a + 3 
+: array([4, 5, 6, 7, 8])
+
+a.dot(a) # 내적 
+: 55
+
+np.sum(a)
+: 15
+
+t = np.array([[1,2,3],[4,5,6],[7,8,9]])
+np.sum(t, axis = 1) # 행연산 
+: array([ 6, 15, 24])
+
+np.sum(t,axis=0) # 열연산
+:array([12, 15, 18])
+
+```
+
+### Python, Numpy 속도 비교
+
+```python
+%timeit np.sum(np.arange(10000000))
+: 24.6 ms ± 2.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+
+%timeit sum(range(10000000))
+: 352 ms ± 6.34 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+```
+
+
+### 데이터 정보 확인하는 방법 
+
+```
+1. dtype
+2. size
+3. shape 
+4. ndim
+```
+```python
+import numpy as np
+a = np.arange(10)
+
+a.dtype
+a.size
+a.shape
+a.ndim
+
+: dtype('int32')
+  10
+  (10,)
+  1
+```
+
+## Stride
+
+![ndarray](https://user-images.githubusercontent.com/33630505/58012662-f2481380-7b2f-11e9-833e-4966c0e17241.JPG)
+
+```python
+import numpy as np
+
+a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+a.strides
+: (12, 4)
+
+# 8bit = 1byte
+# 바이트 단위로 쪼개기 때문에 8로 나누어 주면 (3,1) 즉, 한 행에 3개 열로 구성되어 있다는 뜻 
+```
+
+**stride만 바꾸어 shape 자유자재로 바꾸기**<br>
+
+```python
+import numpy as np
+
+a = np.arange(10).reshape(2,5)
+a
+: array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+       
+a = np.arange(10).reshape(-1,5)
+a
+: array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])
+# -1은 자동으로 알아서 하라는 뜻 / 행렬의 크기를 모를때 유용        
+```
+
+
+## 데이터 형태 변환하기 
+
+```python
+import numpy as np
+
+a.astype('float32')
+: array([[1., 2., 3.],
+       [4., 5., 6.],
+       [7., 8., 9.]], dtype=float32)
+
+a.astype('int64')       
+: array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]], dtype=int64)   
+
+a.astype('bool')
+: array([[ True,  True,  True],
+       [ True,  True,  True],
+       [ True,  True,  True]])
+```
+
+### 자동 형변환 
+
+**coerce** <br>
+
+```python
+1/2
+: 0.5
+```
+
+## Python 문법으로 벡터화 하기 vs Numpy 
+
+```python
+def x(a,b):
+    return [i+j for i,j in zip(a,b)]
+x([1,2,3],[4,5,6])
+: [5, 7, 9]
+
+@np.vectorize
+def z(a,b):
+    return a + b
+z([1,2,3],[4,5,6])
+: array([5, 7, 9])
+```
+
+
+## array는 sequence type 
+
+> sequence type은 indexing, slicing이 가능하다! 
+
+
+```python
+import numpy as np
+
+n = np.arange(10).reshape(5,2)
+n
+: array([[0, 1],
+       [2, 3],
+       [4, 5],
+       [6, 7],
+       [8, 9]])
+       
+n[:,1]
+: array([1, 3, 5, 7, 9])
+
+n[:][1]
+: array([2, 3])
+
+n[1,:]
+: array([2, 3])
+
+n[n>3]
+: array([4, 5, 6, 7, 8, 9])
+
+
+```
+
+##### 이해 못함 
+
+```python
+import numpy as np
+
+x = np.array([1,2])
+x[True,False]
+: array([], shape=(0, 2), dtype=int32)
+```
+
+##### 자유자재로 indexing, slicing 연습하기  
+
+**복습 시간** 17시 40분 ~  / 총  
 {: .notice}
 
