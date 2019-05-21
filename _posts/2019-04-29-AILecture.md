@@ -3073,6 +3073,9 @@ a + 1
 : array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
 ```
 
+![broadcasting](https://user-images.githubusercontent.com/33630505/58095909-e717e500-7c0e-11e9-9adb-d916ca172bf2.JPG)
+
+
 ## ufunc(universal function)
 
 > 범용적인 함수 즉, python, numpy 둘다 있는 함수 but 차이가 있다 
