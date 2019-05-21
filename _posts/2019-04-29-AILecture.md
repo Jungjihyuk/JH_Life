@@ -2689,12 +2689,11 @@ Computing Model
 
 ## 파이썬은 연산속도가 느린데 도대체 왜 파이썬으로 AI를 하는가?
 
-<span style="color:rgb(56, 188, 182)">NumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpyNumpy</span> <br>
+### Numpy가 있기 때문에! 
 
-<span style="background-color:rgb(56, 188, 182")>Numpy는 속도가 빠르고 사용하기가 쉽다! </span><br>
+<span style="background-color:rgb(56, 188, 182)">Numpy는 속도가 빠르고 사용하기가 쉽다! </span><br>
 Numpy는 벡터 연산, 행렬 연산을 효율적으로 쉽게 만들 수 있다<br>  
 Numpy는 속도 개선의 최적화를 하지 않아도 되기 때문에 AI시작시 python말고 Numpy를 한다 <br>
-
 <br>
 추가적으로 <br>
 pandas, Keras => 100 % Numpy로 만들어짐 <br>
@@ -2720,7 +2719,7 @@ Numpy 공식 문서: [docs](https://docs.scipy.org/doc/numpy/reference/?v=201905
 
 <br>
 
-**python 속도 개선을 위한 방법 **
+**python 속도 개선을 위한 방법**
  
 1. Computing Power
 - GPU
