@@ -729,6 +729,9 @@ else:
 
 #### Dictionary view
 
+본질은 그대로 있지만 보여주는 형태가 바뀌는 경우 <br>
+그러나 view를 이용하면 본질이 변하기 때문에 copy로 사용해야 안전할때가 있다 <br>
+
 1. key
 2. values
 3. items 
@@ -2741,9 +2744,9 @@ loop없이 벡터연산으로 속도 향상을 하는 방법
 
 ![array](https://user-images.githubusercontent.com/33630505/58010431-4ef4ff80-7b2b-11e9-81fb-7fb7bba0cd19.JPG)
 <br>
+
 **Numpy Tip1** python list와 numpy list는 차이가 있다. python은 linked list , type check로 인해 속도가 느리고, numpy 에서는 type이 통일되어 있어 속도가 빠르다 
 {: .notice} 
-<br> 
 ![list](https://user-images.githubusercontent.com/33630505/58010552-8bc0f680-7b2b-11e9-9c2b-ff3cb5012eaa.JPG) 
 
 
@@ -3002,6 +3005,299 @@ x[True,False]
 
 ##### 자유자재로 indexing, slicing 연습하기  
 
-**복습 시간** 17시 40분 ~ 19시 / 총 1시간 20
+
+
+**복습 시간** 17시 40분 ~ 19시 / 총 1시간 20분
+{: .notice}
+
+
+# 2019년 5월 21일 화요일 열세번째 수업
+
+
+## Masking 
+
+
+## ix_ 
+
+<span style="background-color:skyblue">Cartesian product 연산</span><br>
+
+```python
+import numpy as np
+
+h = np.arange(25).reshape(5,5)
+h
+: array([[ 0,  1,  2,  3,  4],
+       [ 5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14],
+       [15, 16, 17, 18, 19],
+       [20, 21, 22, 23, 24]])
+h[np.ix_([1,3],[0,1,2,3,4])]
+: 
+array([[ 5,  6,  7,  8,  9],
+       [15, 16, 17, 18, 19]])
+```
+
+## Namedtuple
+
+> 이름 있는 튜플 만들기 
+sequence tuple 처럼 사용 가능
+클래스처럼 이름으로 접근가능 
+
+```python
+from collections import namedtuple
+
+t = namedtuped('AttendanceSheet',['name','attendance'])
+x=t('jh','yes')
+x[0]
+x[1]
+x.name
+x.attendance
+type(x)
+
+: jh 
+  yes
+  jh
+  yes
+  __main__.AttendanceSheet
+```
+
+## broadcasting 
+
+> 벡터연산에서 자동으로 크기 맞춰주는 기법 
+
+```python
+import numpy as np
+
+a = np.arange(10)
+a + 1 
+
+: array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
+```
+
+## ufunc(universal function)
+
+> 범용적인 함수 즉, python, numpy 둘다 있는 함수 but 차이가 있다 
+
+### 1개의 배열에 대한 ufunc 함수 
+
+```
+abs,fabs => 절대값 
+ceil => 올림 
+floor => 내림 
+modf => 정수부분과 소수점 부분 분리 
+rint => 올림하거나 내림하거나 5를 기준으로 
+log, log10, log2, log1p => 로그 값 취하기 
+exp => exponential 지수함수 (정확히 어떻게 계산되는지는 모르겠음) 
+sqrt => 루트
+square => 제곱 
+isnan => nan인지 체크 
+isinfinite => 유한한 수안자 체크
+logical_not => 모르겠음 
+sign = > 0을 제외하고 다 1로 반환 (사실 정확하지 않음)
+sin, cos, tan => sin, cos, tan값 계산
+arcsin, arccos, arctan => 역삼각함수 계산 
+
+```
+### 2개의 배열에 대한 ufunc 함수 
+
+```
+add => 각 요소 더하기 
+subtract => 각 요소 빼기 
+multiply => 각 요소 곱하기
+divide => 각 요소 나눈 값 
+floor_divide => 각 요소 나눈 몫 
+mod => 각 요소 나눈 나머지
+power => 승 계산 ex) 2,3 => 2의 3 승 : 8 
+maximum, fmax => 더 큰 값 
+minimum, fmin => 더 작은 값 
+greater => 앞 값이 더 크면 True 작으면 False 
+greater_equal => 앞 값이 크거나 같으면 True 작으면 False 
+less => greater 반대 
+less_equal => greater_equal 반대 
+equal => 같으면 True
+not_equal => 다르면 True 
+copysign => 모르겠음 
+```
+
+### Python, Numpy ufunc
+
+> python에서는 동시에 사용 못하지만 numpy에서는 한꺼번에 연산 가능 
+
+```python
+import math 
+math.sqrt(4)
+: 2.0 
+
+np.sqrt((4,9))
+: array([2., 3.])
+```
+<hr>
+
+![ufunc1](https://user-images.githubusercontent.com/33630505/58092007-052d1780-7c06-11e9-86ca-8b8a2dae0a74.JPG)
+![ufunc2](https://user-images.githubusercontent.com/33630505/58092009-065e4480-7c06-11e9-9dbc-eb9665801c3a.JPG)
+![ufunc3](https://user-images.githubusercontent.com/33630505/58092011-078f7180-7c06-11e9-826c-b477930b24a5.JPG)
+
+```python
+np.sqrt([4,9])
+np.sqrt((4,9))
+
+둘다 가능 
+```
+**Numpy Tip1** mutable 성질이 중요하지 않으면 list, tuple 혼용 가능 
+{: .notice}
+
+
+### 배열 분할하기, 붙이기 
+
+```python
+a = np.arange(16).reshape(4,4)
+a
+: array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11],
+       [12, 13, 14, 15]])
+       
+np.hsplit(a,2), np.split(a,2,axis=1) # 수평축으로 분할(세로, 사실상 수직)
+: [array([[ 0,  1],
+        [ 4,  5],
+        [ 8,  9],
+        [12, 13]]), 
+   array([[ 2,  3],
+        [ 6,  7],
+        [10, 11],
+        [14, 15]])]
+np.hsplit(a,(1,2))
+: [array([[ 0],
+        [ 4],
+        [ 8],
+        [12]]), 
+   array([[ 1],
+        [ 5],
+        [ 9],
+        [13]]), 
+   array([[ 2,  3],
+        [ 6,  7],
+        [10, 11],
+        [14, 15]])]
+```
+
+
+### view & copy 
+
+> python은 기본적으로 shallow copy, numpy는 기본적으로 deep copy 
+
+```python
+# python에서 deep copy하기 
+import copy
+
+a = [[1,2,3]]
+b = copy.deepcopy(a)
+a[0][1] = 4 
+b 
+a
+
+: [[1, 2, 3]]
+  [[1, 4, 3]]
+  
+# numpy는 기본적으로 deep copy 
+
+a = np.array([[1,2,3],[4,5,6]])
+b = a.copy()
+a[0][0] = 4 
+b
+a
+
+: array([[1, 2, 3],
+       [4, 5, 6]])
+  array([[4, 2, 3],
+       [4, 5, 6]])     
+```
+
+### ravel & flatten 
+
+> Ravel - Bolero (클래식/디지몬 어드벤처 극장판에서 나오는 노래) 
+ravel은 몇 차원이건 간에 모두 1차원으로 만들어 준다 
+그리고 view 방식이기 때문에 원래 값을 바꾸기 때문에 주의 해야한다 
+flatten은 copy 방식
+
+```python
+a = np.arange(10).reshape(2,5)
+
+a.ravel()
+a.flatten()
+: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+  array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+```
+
+### newaxis 
+
+> return이 None이고 차원을 추가한다 
+곱하기 할때에도 활용하는 방법이다.(차원을 맞추어 계산해야 하기 때문) 
+
+```python
+a = np.array([[1,2,3],[4,5,6]])
+a
+a.shape
+: array([[1, 2, 3],
+       [4, 5, 6]])
+  (2,3)
+
+# z축에 추가 
+b=a[:,:,np.newaxis]
+b
+b.shape
+: array([[[1],
+        [2],
+        [3]],
+
+       [[4],
+        [5],
+        [6]]])
+   (2, 3, 1)	## 평면 두개    
+                
+# y축에 추가 
+c=a[:,np.newaxis]
+c
+c.shape
+: array([[[1, 2, 3]],
+
+       [[4, 5, 6]]])
+  (2, 1, 3)     ## 평면 두개 
+ 
+
+# x축에 추가 
+d=a[np.newaxis,:]
+d
+d.shape
+: array([[[1, 2, 3],
+        [4, 5, 6]]])
+  (1, 2, 3)     ## 평면 한개
+```
+
+### 행렬의 곱셈
+
+#### matrix product
+```python
+a = np.array([[1,1],[0,1]])
+b = np.array([[2,0],[3,4]])
+
+a@b
+: array([[5, 4],
+       [3, 4]])
+```
+
+#### elementwise product 
+
+```python
+a = np.array([[1,1],[0,1]])
+b = np.array([[2,0],[3,4]])
+
+a*b
+: array([[2, 0],
+       [0, 4]])
+```
+
+
+**복습 시간** 18시 30분 ~ 21시 / 총 2시간 30
 {: .notice}
 
