@@ -3464,6 +3464,8 @@ np.save()
 
 #### WhyPythonIsSlow + open_with 내용 복습 
 
+https://docs.scipy.org/doc/numpy/user/quickstart.html 복습 
+
 **복습 시간**
 {: .notice}
 
