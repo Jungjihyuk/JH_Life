@@ -3309,20 +3309,160 @@ a*b
 
 ## newaxis 정리 
 
+<span style="color:orange">1차원</span>  : 방향이 없는 벡터(스칼라)형태의 데이터만 존재, [] 1개<br>
+```python
+import numpy as np
+
+a = np.array([1,2,3])
+a.shape
+
+: (3,)  # 3개의 데이터가 하나로 묶여 있다고 생각
+```
+<span style="color:orange">2차원 : 행렬, 평면, [] 2개 <br>
+
+```python
+import numpy as np
+
+a = np.array([1,2,3])
+a[np.newaxis]     # x축 추가 행기준으로 묶기 
+a[np.newaxis].shape
+
+: array([[1,2,3]]) # 가장 바깥 [] 소거하고 행갯수 세면 x축 데이터 갯수 
+                   # 그 다음 안 [] 소거하고 행갯수 세면 y축 데이터 갯수 
+  (1,3)
+a[:,np.newaxis] # y축 추가 열기준으로 묶기 
+a[:,np.newaxis].shape
+
+: array([[1],      # 가장 바깥 [] 소거하고 열갯수 세면 x축 데이터 갯수 
+        [2],       # 그 다음 안 [] 소거하고 열갯수 세면 y축 데이터 갯수 
+        [3]])
+  (3,1)	
+```
+
+<span style="background=color:red">행렬은 다른 행이여도 열의 갯수가 같아야 하는데 이런 경우도 가능한건가..?</span> <br>
+
+```python
+import numpy as np 
+a = np.array([[1,2],[4,5,6]])
+a
+: array([list([1, 2]), list([4, 5, 6])], dtype=object)
+```
+
+<span style="color:orange">3차원 : 행렬 중첩, 평면 겹쳐서 직육면체처럼 [] 3개 <br>
+
+```python
+import numpy as np
+
+a = np.array([[1,2,3],[4,5,6]])
+a[np.newaxis]
+a[np.newaxis].shape
+
+: array([[[1, 2, 3],
+        [4, 5, 6]]])   # 가장 바깥 []소거하고 []x2인 행갯수 세면 x축 데이터 갯수 
+                       # [[1,2,3]] 이라는 평면 1개   
+  (1,2,3)              # 그 다음 안 [] 소거하고 []x1인 행갯수 세면 y축 데이터 갯수
+                       # 마지막 [] 소거하고 행갯수 세면 z축 데이터 갯수 
+
+a[:,np.newaxis]
+a[np.newaxis].shape    # 위와 동일 
+
+: array([[[1, 2, 3]],
+
+       [[4, 5, 6]]])
+  (2,1,3)      
+  
+a[:,:,np.newaxis]
+a[:,:,np.newaxis].shape #
+
+: array([[[1],
+         [2],
+         [3]]])
+(2, 3, 1)	
+```
 
 
+## tile 
+
+```python
+import numpy as np 
+
+a = np.array([1,2,3])
+
+np.tile(a,3)
+: array([1, 2, 3, 1, 2, 3, 1, 2, 3])
+
+np,tile(a,(2,3))
+: array([[1, 2, 3, 1, 2, 3, 1, 2, 3],
+       [1, 2, 3, 1, 2, 3, 1, 2, 3]])
+
+np.tile(a,[2,3])  # duck typing 
+: array([[1, 2, 3, 1, 2, 3, 1, 2, 3],
+       [1, 2, 3, 1, 2, 3, 1, 2, 3]])
+```
 
 ## 파일 불러오기 
 
 
+### loadtxt, genfromtxt
+```python
+%%writefile a.csv
+1,2,3
+4,5,6
+
+: Writing a.csv
+
+x = np.loadtxt('a.csv', delimiter = ',') 
+x
+: array([[1., 2., 3.],
+       [4., 5., 6.]])
+       
+x = np.genfromtxt('a.csv')
+: array([nan, nan])
+
+# loadtxt는 delimiter를 이용해 문자열 구분을 하지 않으면 에러가 나지만 
+# getfromtxt는 nan이라는 출력값을 주고 에러를 발생시키지 않는다 
+```
+
+### fromfile
+
+```python
+x = np.fromfile('a.csv', sep=',') # \n을 만나면 종료
+x
+
+: array([1., 2., 3.])
+```
 
 
 ## File
 
 ### Flat 
 
+```
+1. text file  
+=> 확장자 상관없이 열 수 있다. 
+=> 데이터 교환시 유용함 
+2. binary file 
+=> 연결프로그램에 의존적 
+```
+
+
+```
+np.savez()
+
+np.save()
+```
+
 ### Raw 
 
+
+## linear algebra
+
+
+## view & copy 
+
+
+
+#### WhyPythonIsSlow + open_with 내용 복습 
 
 **복습 시간**
 {: .notice}
