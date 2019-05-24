@@ -3466,7 +3466,31 @@ np.save()
 
 https://docs.scipy.org/doc/numpy/user/quickstart.html 복습 
 
-**복습 시간**
+**복습 시간** 
 {: .notice}
 
+
+
+# 2019년 5월 24일 금요일 열다섯번째 수업
+
+
+
+structured array는 datatype을 각각 지정할 수 있다 <br>
+
+dataframe으로 묶으면서 dict으로 접근, attr로 접근 가능해짐 <br>
+
+시리즈, 벡터의 차이점은 (pandas, numpy) <br>
+시리즈는 index가 붙는다 <br>
+
+
+numpy에 있는 함수 pandas에서 전부 다 쓸 수 있다 <br>
+
+iloc로 행도 뽑을 수 있다 <br>
+=> 원하는거 뽑아서 분석해야하기 때문에 <br>
+
+
+##### indexing, slicing 연습 
+##### Numpy_exercises 연습하기 
+**복습 시간**
+{: .notice}
 
