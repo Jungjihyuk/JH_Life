@@ -180,5 +180,5 @@ Procedure는 함수 내에서 처리가 끝나지만 Function은 처리가 끝�
 
 ### 드롭다운 목록에서 선택하여 DB에 저장하기 
 
-codeday : [codeday](https://codeday.me/ko/qa/20190416/345691.html)
-
+Drop down to db : [codeday](https://codeday.me/ko/qa/20190416/345691.html)<br>
+Drop down to db for flask :[code Q & A](https://code.i-harness.com/ko-kr/q/16773c7)
