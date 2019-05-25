@@ -2639,7 +2639,7 @@ DIKW : [blog](http://blog.naver.com/PostView.nhn?blogId=gracehappyworld&logNo=22
 
 Physical Labor과 Cognitive Labor의 한계를 극복하기 위해 인공지능으로 자동화 시키는 분야가 발달하게 됨 <br>
 그러나 요즘은 보통 물리적 노동보다는 인지적 관점에서 관심이 쏠리고 있다 <br>
-아직 인공지능은 이해하지 못하지만 인식은 사람의 영역까지 왔다 <br>
+아직 인공지능은 이해하는 능력은 부족하지만 인식하는 능력은 사람의 영역 그 이상까지 왔다 <br>
 
 ### 지능 
 
@@ -2661,8 +2661,10 @@ Physical Labor과 Cognitive Labor의 한계를 극복하기 위해 인공지능�
  결론 도출 등 인간의 행동을 모방할 수 있는 기술'
  
  좁은 의미에서 기계학습이라 볼 수 있다 
- 기계학습은 데이터를 넣어주고 스스로 알고리즘을 생성 한다 
- 기계학습 중에 deep learning을 하면 deep learning 
+ 기계학습은 데이터를 넣어주면 프로그래밍된 논리나 규칙을 바탕으로 
+ 스스로 학습하여 문제해결을 하는 알고리즘을 생성한다
+ 
+ deep learning은 인간 신경망을 모델화하여 스스로 데이터 세트를 예측하는 기술이다
  deep learning은 인식분야에서 정확도가 높지만
  인식이외에 기능은 좋지 않다
 ```
@@ -2671,6 +2673,10 @@ Physical Labor과 Cognitive Labor의 한계를 극복하기 위해 인공지능�
 
 ![ai](https://user-images.githubusercontent.com/33630505/58009466-7f3b9e80-7b29-11e9-9515-20b4583abaf6.JPG)
 
+
+### 인공지능 영역의 분류
+
+![ai](https://user-images.githubusercontent.com/33630505/58367430-26e61180-7f1a-11e9-97a3-9c163f0b52d4.JPG)
 
 ## 인공지능의 문제해결 전략 
 
@@ -3473,7 +3479,28 @@ https://docs.scipy.org/doc/numpy/user/quickstart.html 복습
 
 # 2019년 5월 24일 금요일 열다섯번째 수업
 
+## Pandas
 
+> Numpy 기반으로 만들어진 데이터 조작, 분석을 위한 프레임워크 
+
+
+<span style="color:orange">Pandas로 할 수 있는 2가지</span>
+```
+1. 기초통계분석
+2. 전처리
+```
+
+## 문제해결 그리고 예측 
+
+<span style="background-color:orange">많은 데이터 확보 => 기초 통계분석 및 전처리 => 기계학습 및 딥러닝으로 예측 </span>
+
+## 데이터 종류 
+
+```
+1. 정형 데이터 
+2. 비정형 데이터 
+3. 반정형 데이터 
+```
 
 structured array는 datatype을 각각 지정할 수 있다 <br>
 
