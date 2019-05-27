@@ -344,15 +344,17 @@ a[0]
 ```python
 a = '정지혁'
 a[0:3] or a[:3]
-: 정지혁
-a[-3:] or a[-0:]
-:정지혁 
+:'정지혁'
+a[-3:] or a[0:]
+:'정지혁' 
 a[0:3:2]  # 양수일때 (맨 뒤에 오는 숫자 - 1) 을 하면 건너 뛰는 문자의 개수를 나타낸다
-:정혁 
-a[0:-4:-1]  # 음수일때 |맨 뒤에 오는 숫자 + 1|을 하면 건너 뛰는 문자의 개수를 나타내고 거꾸로 출력한다. 
-:혁지정
+:'정혁' 
+a[::-1]  # 음수일때 |맨 뒤에 오는 숫자 + 1|을 하면 건너 뛰는 문자의 개수를 나타내고 거꾸로 출력한다. 
+:'혁지정'
+a[:-3:-1]
+:'혁지'
 a[:70] # 슬라이싱은 범위가 벗어나도 에러가 나지 않는다
-:정지혁
+:'정지혁'
 ```
 
 ### List vs Tuple 
@@ -402,7 +404,7 @@ type(s)
 <br>
 
 ### xxx = xxx 
-<span style="background: orange">식별자 or 변수 = 식(Expression) </span><br>
+<span style="background: orange">식별자 or 변수 = 식(Expression), statement </span><br>
 <kbd>Expression</kbd>: 연산결과가 하나의 값으로 만들 수 있는 것 <br>
 ex) 3 + 1 , float('inf') 등 ...  
 
@@ -646,7 +648,6 @@ def name(t):
 a(7)
 : 7
   2
-
 ```
 Packing & Unpacking: &nbsp; [blog](https://python.bakyeono.net/chapter-5-5.html)
 
@@ -665,7 +666,6 @@ if 0 < a < 10:
    print(True)
 else:
    print(False)
-
 ```
 
 #### AND & OR
@@ -728,9 +728,6 @@ else:
 3. 예외처리할 때  
 
 #### Dictionary view
-
-본질은 그대로 있지만 보여주는 형태가 바뀌는 경우 <br>
-그러나 view를 이용하면 본질이 변하기 때문에 copy로 사용해야 안전할때가 있다 <br>
 
 1. key
 2. values
@@ -981,7 +978,6 @@ def b(x):
    
 list(filter(b,[1,2,3,4,5,6]))) 
 :[4,5,6]
-
 ```
 
 > filter는 predicate function => True or False를 되돌려 주는 함수 
@@ -1052,11 +1048,13 @@ list(map(lambda i: '양수' if i > 0 else ('음수' if i < 0 else 0), integer))
 ```
 
 <br>
+
 **Python Tip2**  Local, Argumentation은 stack에 저장되고 Parameter는 heap영역에 들어간다
 {: .notice}
 
 **Python Tip3**  default값에 mutable값을 넣으면 값을 공유한다?, 값이 고정된다?
 {: .notice}
+
 <br>
 
 ```python
@@ -1070,6 +1068,7 @@ a()
 1557232228.6397958 # 값이 고정된다 
 ```
 <br>
+
 **Python Tip4**  bytearray와 frozenset은 리터럴이 없다
 {: .notice}
 <br>
@@ -1308,6 +1307,7 @@ generator를 사용하면 호출한 값만 메모리에 할당되므로 메모�
 ### Comprehension
 
 <span style="background-color:orange">Iterable한 객체를 생성하기 위한 방법</span>
+
 ```
 1. List
 2. Set
@@ -1413,7 +1413,6 @@ a()
 ```
 
 ```python
-
 1. import <module_name>
 import sys 
 sys.path
@@ -1509,8 +1508,8 @@ public class Test{
 		System.out.print(add.sum(3,4));
 	}
 }
-
 ```
+
 ```
 1. 클래스 사용을 위해 클래스 선언
 2. 클래스 사용시 메모리에 생성 
@@ -3487,7 +3486,8 @@ https://docs.scipy.org/doc/numpy/user/quickstart.html 복습
 <span style="color:orange">Pandas로 할 수 있는 2가지</span>
 ```
 1. 기초통계분석
-2. 전처리
+2. 전처리 
+- 반정형 데이터를 정형데이터로 바꿔준다 
 ```
 
 ## 데이터 종류 
@@ -3541,9 +3541,10 @@ type(data)
 # 첫번째 인자는 불러올 파일의 경로인데 현재 작업파일과 동일한 위치에 있다면 파일이름만 적어줘도 된다
 # engine = 'python' 이나 encoding = 'cp949'를 인자로 넣어주지 않으면 unicodeerror가 뜬다 
 ```
-
 ![read method](https://user-images.githubusercontent.com/33630505/58368737-26567680-7f2c-11e9-9581-e21370c90f49.JPG)
 
+**filepath_buffer**는 read_csv 메소드의 첫번째 인자로 파일경로나, url이 올 수 있다  
+{: .notice}
 
 **Dataframe** 객체는 Numpy에서 structured array방식을 따라 데이터 타입을 생성한다. 왜냐하면 pandas는 Numpy를 기반으로 만들어졌기 때문에 Numpy방식을 그대로 이어받아 속도를 빠르게 하기 위함이다! 그리고 dict, attr 두가지 방법으로 모두 접근 가능하다.
 {: .notice}
@@ -3576,7 +3577,6 @@ Series, Vector 둘다 1차원 데이터에 방향도 없지만 Series는 index�
 
 ### [두번째] 분석하고 그래프 그리기 
 
-<br>
 
 ### 분석하기전 5가지 확인 사항 
 
@@ -3755,4 +3755,245 @@ jupyter trust name.ipynb
 
 **해결!** <br>
 그러나 힌트파일이 아닌 정답파일은 파일 자체 내용이 많아서 그런지 아직도 안열린다... 
+
+
+
+# 2019년 5월 27일 월요일 열여섯번째 수업
+
+
+## 유니콘이 되려면...
+
+![unicon](https://user-images.githubusercontent.com/33630505/58414654-fedfe500-80b6-11e9-950d-03888fd83082.JPG)
+
+**Data Wrangling** Raw data를 또 다른 형태로 수작업으로 전환하거나 매핑하는 과정. 즉, 여러가지 데이터 포멧을 내가 원하는 데이터 포멧으로 전환하여 사용하기 위한 과정. (Data Munging 이라고도 불린다) 
+{: .notice}
+
+## 그래프 그리기 
+
+### describe로 나오는 값들 그래프로 그리기 
+```python
+import numpy as np
+import pandas as pd 
+import seaborn as sns 
+
+data = pd.read_csv('file.csv', engine='python')
+pd.plotting.boxplot(data)
+```
+![describe](https://user-images.githubusercontent.com/33630505/58414617-e374da00-80b6-11e9-9e72-168df4140f90.JPG)
+
+### 정규분포가 되는지 확인하는 그래프 그리기 
+
+```python
+import numpy as np
+import pandas as pd 
+import seaborn as sns 
+
+data = pd.read_csv('file.csv', engine='python')
+pd.plotting.scatter_matrix(data)
+```
+![scatter](https://user-images.githubusercontent.com/33630505/58416173-aeb75180-80bb-11e9-8cc3-5d8f83737d5d.JPG)
+
+## matplotlib inline & notebook
+
+```python
+%matplotlib inline
+data.boxplot()
+
+%matplotlib notebook
+data.boxplot()
+```
+
+### inline
+![inline](https://user-images.githubusercontent.com/33630505/58416292-0f468e80-80bc-11e9-9789-12627d6fbdd7.JPG)
+
+### notebook
+![notebook](https://user-images.githubusercontent.com/33630505/58416310-1bcae700-80bc-11e9-90c0-54f9ba8cd9aa.JPG)
+
+
+## seaborn으로 그래프 이쁘게 그리기 
+
+```python
+import seaborn as sns 
+
+data = pd.read_csv('file.csv', engine='python')
+sns.pairplot(data)
+```
+
+![seaborn](https://user-images.githubusercontent.com/33630505/58416408-63ea0980-80bc-11e9-818c-93fbe478439e.JPG)
+
+## Header name 바꾸기 (전처리 과정중 일부) 
+
+```python
+import pandas as pd
+
+data = pd.read_csv('file.csv', engine='python')
+data.rename({0:'sl',1:'sw',2:'pl',3:'pw','class':'class_'},axis=1,inplace=True) 
+
+# inplace True하면 자기자신이 바뀜
+```
+
+## 짝을 이뤄 그래프 그리기 
+
+> 열(column)에 object가 있을 때 
+
+```python
+import pandas as pd
+
+data = pd.read_csv('file.csv', engine='python')
+data.rename({0:'sl',1:'sw',2:'pl',3:'pw','class':'class_'},axis=1,inplace=True) 
+sns.pairplot(data,hue='class_') 
+```
+
+![hue](https://user-images.githubusercontent.com/33630505/58416593-115d1d00-80bd-11e9-8b8a-59429b3f8b51.JPG)
+
+
+## Tidy Data 
+
+<kbd>Wid format</kbd> ⇒  <kbd>Long format</kbd>
+
+> 분석하기 좋은 데이터. Tidy data 형태로 만들면 차원도 줄고, 유지보수하기도 좋다 
+
+**Tidy Data 특징** 
+
+```
+1. 각 변수는 개별의 열(column)로 존재한다
+2. 각 관측치는 행(row)으로 구성한다 
+3. 각 표는 단 하나의 관측기준에 의해서 조작된 데이터를 저장한다 
+4. 만약 여러개의 표가 존재한다면, 적어도 하나이상의 열이 공유되어야 한다
+```
+
+> 위 원칙들은 관계형 데이터베이스 원칙과 유사하다 
+
+※ 예시 
+
+변수 : 키, 몸무게, 성별 <br>
+값 : 175, 73, 남자 <br>
+관측치 : 사람  (값을 측정한 단위가 되는 기준) <br> 
+
+```python
+import pandas as pd 
+
+data = pd.read_csv('file.txt')
+data.melt(['iso2','year'], var_name='sp', value_name='값').dropna()
+```
+![tidy data](https://user-images.githubusercontent.com/33630505/58412407-58451580-80b1-11e9-869a-56ce832033bb.JPG)
+
+**주의** <br>
+Tidy Data화 하지 않으면 info, describe, 등.. 초기 작업시 엉망으로 값이 나온다 
+
+<br>
+### 행 뽑기
+
+```python
+tb.loc[5:7]
+```
+![loc](https://user-images.githubusercontent.com/33630505/58419146-bd563680-80c4-11e9-99e6-fd1fa156b058.JPG)
+```python
+tb.iloc[1:3] # 파이썬 방식 
+```
+![iloc](https://user-images.githubusercontent.com/33630505/58419147-bd563680-80c4-11e9-9aeb-d56d82b27083.JPG)
+## 상관성 체크하기  (correlation)
+
+> 두 변수간에 어떤 선형적 관계를 갖고 있는지 분석하는 방법이 상관 분석. 그렇다면 상관성 있다는 것은 얼마나 관계가 있는지에 대한 정도라고 볼 수 있다. 만약 상관성이 1에 가깝다면 두 변수는 매우 관련 이 있다. 예를 들어 키가 크면 몸무게가 많이 나가는 것처럼 서로 관계가 가까운것. 
+
+**양의 상관성**: 기준이되는 변수가 커지면 상대 변수도 같이 커진다 <br>
+**음의 상관성**: 기준이되는 변수가 커지면 상대 변수는 작아진다 <br> 
+
+<span style='color: red">상관 분석은 왜 하는거야?</span><br>
+데이터 분석시 column이 많아지면 계산이 복잡해지는데 상관관계를 따져 <br>
+상관성이 높은 것들은 분석 데이터에서 제외시켜 계산 복잡도를 크게 줄일 수 있기 때문이다.
+<br>
+
+```python
+import pandas as pd
+
+data = pd.read_csv('file.txt')
+data.rename({0:'sl',1:'sw',2:'pl',3:'pw','class':'class_'},axis=1,inplace=True)
+data.corr() # method = {'pearson', 'kendall', 'spearman'}
+```
+![corr](https://user-images.githubusercontent.com/33630505/58418421-a9a9d080-80c2-11e9-9188-af2eb88e45b1.JPG)
+
+**공분산**
+```python
+data.cov()
+```
+
+## 문자열에 사용하는 것들 
+
+### Series에서 object(문자열) 빈도수 체크하기 
+
+```python
+import pandas as pd
+
+data = pd.read_csv('file.txt')
+data.rename({0:'sl',1:'sw',2:'pl',3:'pw','4':'class_'},axis=1,inplace=True)
+data['class_'].value_counts()
+
+: Iris-versicolor    50
+  Iris-setosa        50
+  Iris-virginica     50
+  Name: class_, dtype: int64
+  
+
+data['class_'].value_counts().plot.pie()
+data['class_'].value_counts().plot.bar()
+```
+![pie](https://user-images.githubusercontent.com/33630505/58419044-78320480-80c4-11e9-8ebb-cca88b2feb3b.JPG)
+![bar](https://user-images.githubusercontent.com/33630505/58419048-79fbc800-80c4-11e9-980c-5105d90b2777.JPG)
+
+
+### nlargest, nsmallest, unique
+
+```python
+x = data['class_'].value_counts()
+
+x.nlargest()
+x.nsmallest()
+data['class_'].unique() 
+
+: Iris-versicolor    50
+  Iris-setosa        50
+  Iris-virginica     50
+  Name: class_, dtype: int64
+ 
+  Iris-versicolor    50
+  Iris-setosa        50
+  Iris-virginica     50
+  Name: class_, dtype: int64
+   
+  array(['Iris-setosa', 'Iris-versicolor', 'Iris-virginica'], dtype=object)
+```
+
+
+## 기초 통계 분석시 알아두면 좋은 원칙 및 정리
+
+
+```
+1. Occam's Razor (오캄의 면도날)
+- 같은 성능을 보일 때 간단한것을 택한다
+2. Curse of dimensionality (차원의 저주)
+- 차원이 커지면 커질수록 필요한 데이터의 양이 커져야 한다 
+3. Law of large numbers (큰 수의 법칙)
+- 큰 모집단에서 무작위로 뽑은 표본의 평균이 전체 모집단의 평균과 가까울 가능성이 높다
+- 모집단이 커지면 표본평균은 모평균을 더 정확히 추정할 수 있다
+4. Central limit theorem (중심 극한 정리)
+- 동일한 확률분포를 가진 독립 확률 변수 n개의 평균의 분포는 n이 적당히 크다면 정규분포에 가까워진다는 정리
+- 
+```
+
+
+## Indexing & Slicing (Select data)
+
+내가 필요한 통계값 구하기 위해
+
+
+## MultiIndex 
+
+![multiindex](https://user-images.githubusercontent.com/33630505/58419324-440b1380-80c5-11e9-9630-d4f56d60c460.JPG)
+
+**Pandas Tip1** 예측 분석을 하려면 문자열을 숫자로 바꿔줘야한다 (Encoding)
+{: .notice}
+
+**복습시간** 18시 30분 ~ 21시 / 총 2시간 30분 
+{: .notice}
 
