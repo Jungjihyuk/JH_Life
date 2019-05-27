@@ -3994,6 +3994,10 @@ data['class_'].unique()
 **Pandas Tip1** 예측 분석을 하려면 문자열을 숫자로 바꿔줘야한다 (Encoding)
 {: .notice}
 
+<br>
+
+**예시에 나오는 데이터 출처** : [archive](https://archive.ics.uci.edu/ml/machine-learning-databases/iris/)<br>
+
 **복습시간** 18시 30분 ~ 21시 / 총 2시간 30분 
 {: .notice}
 
