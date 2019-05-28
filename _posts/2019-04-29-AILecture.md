@@ -199,8 +199,8 @@ w          str        ㅇㅇ
 ```
 
 ```python
-'문근영' * 3 
-: 문근영문근영문근영 
+'정지혁' * 3 
+: 정지혁정지혁정지혁 
 
 # 데이터 타입에 따라서 지원되는 연산이 다르다. 
 ```
@@ -942,7 +942,7 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 
 # 2019년 5월 7일 화요일 다섯번째 수업
 
-![function](https://user-images.githubusercontent.com/33630505/57440852-b6859200-7283-11e9-92fd-6b7b59ca7de9.png)
+First class function/Higher order function 관계 그림 수정 
 
 일급 객체: [git blog](https://gyukebox.github.io/blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9D%BC%EA%B8%89-%EA%B0%9D%EC%B2%B4first-class-citizen/), [tistory](https://rednooby.tistory.com/113)<br>
 
