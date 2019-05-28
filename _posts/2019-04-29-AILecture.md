@@ -3575,6 +3575,7 @@ Series, Vector 둘다 1차원 데이터에 방향도 없지만 Series는 index�
 
 <br>
 
+
 ### [두번째] 분석하고 그래프 그리기 
 
 
@@ -3589,6 +3590,14 @@ Series, Vector 둘다 1차원 데이터에 방향도 없지만 Series는 index�
 4. tail : head와 반대로 뒤에서 부터 데이터를 불러온다 
 5. sample : 랜덤으로 하나의 데이터를 불러온다 
 ```
+
+### info, describe로 데이터의 숨겨진 의미 찾기 
+
+1. column 갯수 확인 => 차원의 저주 고려 <br> 
+2. 데이터 갯수 확인 => 큰 수의 법칙 고려 <br>
+3. 미싱 데이터 찾기 => 미싱데이터를 포함하고 있으면 정확도  <br>
+4. 데이터 타입 확인 => 적절한 타입을 썻는지 체크 (category, object는 각각 지원하는 기능이 다르다) <br>
+
 
 <br>
 
@@ -4003,12 +4012,140 @@ data['class_'].unique()
 
 # 2019년 5월 28일 화요일 열일곱번째 수업
 
+## loc, iloc + lambda
+
+```python
+import pandas as pd 
+import numpy as np 
+
+data = pd.DataFrame(np.random.randn(6,4), index = list('abcdef'), columns = list('ABCD')
+data
+: 	   A	            B               C               D
+a	0.427092	1.122736	1.064223	-0.724660
+b	0.091881	1.049868	1.263243	-0.193525
+c	0.224007	-1.128729	-1.261087	2.461563
+d	-0.859961	-0.450851	-0.098474	0.456542
+e	0.339599	-0.946570	0.892721	-0.331624
+f	1.691290	-0.565636	0.905357	-0.301717
+
+data.loc[lambda x: x.B>0, :]
+: 	   A	            B               C               D
+a	0.427092	1.122736	1.064223	-0.724660
+b	0.091881	1.049868	1.263243	-0.193525
+
+data.loc[:, lambda x:['D','A']]
+:           D	           A
+a	-0.724660	0.427092
+b	-0.193525	0.091881
+c	2.461563	0.224007
+d	0.456542	-0.859961
+e	-0.331624	0.339599
+f	-0.301717	1.691290
+
+data.iloc[:,lambda x:[0,3]]
+:           A	            D
+a	0.427092	-0.724660
+b	0.091881	-0.193525
+c	0.224007	2.461563
+d	-0.859961	0.456542
+e	0.339599	-0.331624
+f	1.691290	-0.301717
+
+data[lambda x: x.columns[3]]
+: a   -0.724660
+  b   -0.193525
+  c    2.461563
+  d    0.456542
+  e   -0.331624
+  f   -0.301717
+Name: D, dtype: float64
+```
+
+## columns 
+
+```python
+import seaborn as sns 
+
+tips = sns.load_dataset('tips')
+tips
+:    total_bill	 tip	 sex   smoker	day	time	 size
+0	16.99	1.01	Female	 No	Sun	Dinner	  2
+1	10.34	1.66	Male	 No	Sun	Dinner	  3
+2	21.01	3.50	Male	 No	Sun	Dinner	  3
+3	23.68	3.31	Male	 No	Sun	Dinner	  2
+
+tips.melt(tips.columns[:3])    #  열만 따로 뽑기 
+:    total_bill	 tip	sex	variable   value
+0	16.99	1.01	Female	smoker	     No
+1	10.34	1.66	Male	smoker	     No
+2	21.01	3.50	Male	smoker	     No
+3	23.68	3.31	Male	smoker	     No
+```
+
+## index 
+
+```python
+import pandas as pd
+data = pd.read_csv('billboard.csv',engine='python')
+data.melt(data.columns[:7]).set_index('genre').loc['Rock']
+ 
+: 	year	artist.inverted	     track	     time	    date.entered       date.peaked    variable        value
+genre								
+Rock	2000	Destiny's Child	 Independent         3:38            2000-09-23         2000-11-18    x1st.week      78.0
+                                  Women Part I	     		                         	  
+Rock	2000	  Santana	 Maria, Maria	     4:18	     2000-02-12	        2000-04-08    x1st.week	     15.0
+Rock	2000	Savage Garden	I Knew I Loved You   4:07	     1999-10-23	        2000-01-29    x1st.week	     71.0
+Rock	2000	Madonna	             Music	     3:45	     2000-08-12	        2000-09-16    x1st.week	     41.0
+````
+
+## Intersection 
+
+```python
+a = {1,2,3}
+b = {3,4}
+
+a.intersection(b)
+: {3}
+a.intersection([3,4])
+: {3}
+a.intersection(range(3))
+:{1,2}
+```
+
+## 새로운 연산자 만들기 
+
+```python
+class x(int):
+	def __add__(self, other):
+		print('안더해줌')
+
+x(3) + x(4)
+: 안더해줌 
+```
+
+## isin (predicate)
+
+```python
+s = pd.Series(np.arange(5), index=np.arange(5)[::-1], dtype='int64')
+
+s.isin([2, 4, 6])
+: 4    False
+  3    False
+  2     True
+  1    False
+  0     True
+  dtype: bool
+  
+s[s.isin([2, 4, 6])]  
+: 2    2
+  0    4
+  dtype: int64
+```
+
+## where
+
+## split, strip
 
 
-
-
-
-
-
-**복습시간** 18시 30분 ~ 21시 / 총 2시간 30분 
+**복습시간** 12시 ~ 1시 30분 / 총 1시간 30분 
 {: .notice}
