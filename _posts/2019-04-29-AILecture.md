@@ -540,6 +540,8 @@ a is b
 - dictionary에서 없는 key값으로 접근할때 발생하는 에러 
 5. AttributeError 
 - 존재하지 않는 Attribute에 접근하려고 할 때 발생하는 에러 
+6. UnboundLocalError
+- 할당하기 전에 지역변수를 참조했을 때 발생하는 에러 
 
 **복습 시간**   18시 35분 ~ 20시 5분/ 총 1시간 30분  
 {: .notice}
