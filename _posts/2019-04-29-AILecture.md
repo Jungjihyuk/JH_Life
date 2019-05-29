@@ -1365,13 +1365,17 @@ fib(10)  # 10번째 항   (1 1 2 3 5 8 13 21 34 55)
 
 ## Closure
 
+Closure: [github blog](https://nachwon.github.io/closure/)
 
 
 ## Decorator
 
+> 함수를 추가, 수정해서 재사용 가능하게 해주는 것
 
-Closure: [github blog](https://nachwon.github.io/closure/)
+```python
 
+
+```
 
 ## Closure  vs  Decorator 
 
