@@ -643,13 +643,13 @@ def name(t):
 	print(a)
 	def name2():
 		nonlocal a 
-		a = 2
+		a += 1
 		print(a)
 	return name2()
 
-a(7)
-: 7
-  2
+name(3)
+: 3
+  4
 ```
 Packing & Unpacking: &nbsp; [blog](https://python.bakyeono.net/chapter-5-5.html)
 
