@@ -3914,7 +3914,7 @@ tb.iloc[1:3] # 파이썬 방식
 **양의 상관성**: 기준이되는 변수가 커지면 상대 변수도 같이 커진다 <br>
 **음의 상관성**: 기준이되는 변수가 커지면 상대 변수는 작아진다 <br> 
 
-<span style='color: red">상관 분석은 왜 하는거야?</span><br>
+<span style='color: red'>상관 분석은 왜 하는거야?</span><br>
 데이터 분석시 column이 많아지면 계산이 복잡해지는데 상관관계를 따져 <br>
 상관성이 높은 것들은 분석 데이터에서 제외시켜 계산 복잡도를 크게 줄일 수 있기 때문이다.
 <br>
@@ -4155,3 +4155,118 @@ s[s.isin([2, 4, 6])]
 
 **복습시간** 12시 ~ 1시 30분 / 총 1시간 30분 
 {: .notice}
+
+
+
+# 2019년 5월 28일 목요일 열여덟번째 수업
+
+
+## 기초통계 분석시 그래프 그리는 3가지 
+
+```
+1. boxplot
+2. pairplot
+3. heatmap 
+```
+
+### boxplot
+
+```python
+import pandas as pd 
+import seaborn as sns 
+
+tips = sns.load_dataset('tips')
+tips.boxplot()  # tips Dataframe의 attribute로 내장하고 있음 
+# or
+pd.plotting.boxplot(tips)
+```
+
+### pairplot
+
+> 짝을 이뤄 그리는 그래프 
+
+```python
+import pandas as pd 
+import seaborn as sns 
+
+
+tips = sns.load_dataset('tips')
+sns.pairplot(tips)  # tips Dataframe의 attribute로 내장하고 있지 않다 
+sns.pairplot(tips, hue='sex')
+```
+
+### heatmap 
+
+> 상관 분석시 그리는 그래프 
+
+```python
+import seaborn as sns
+
+tips = sns.load_dataset('tips')
+sns.heatmap(tips.corr())
+sns.heatmap(tips.corr(), cbar = False, annot = True) # 오른쪽 사이드바 제거, 평면에 상관계수 표시 
+```
+
+## Dataframe은 Iterator/Generator 처럼 next연산을 할 수 있다 
+
+```python
+import seaborn as sns 
+
+tips = sns.load_dataset('tips')
+x = tips.items() # or x = tips.iteritems()
+y = tips.iterrows() 
+type(x)
+type(y)
+next(x)
+next(y)
+: generator 
+  generator 
+  ('total_bill', 
+   0      16.99
+   1      10.34
+   2      21.01
+   3      23.68
+   4      24.59
+   5      25.29
+   (0, total_bill     16.99
+   tip             1.01
+   sex           Female
+   smoker            No
+   day              Sun
+   time          Dinner
+   size               2
+   Name: 0, dtype: object)
+```
+
+
+## Pandas data type 종류 
+
+```
+1. 숫자      => int64, float64
+2. 문자      => object, category
+3. 시간/날짜 
+```
+
+**Dask**는 메모리의 제한으로 dataframe을 만들 수 없는 경우 도움을 줄 수 있는 패키지 이다. 파이썬으로 작성한 작업을 병렬화 할 수 있다.
+{: .notice}
+
+
+```python
+!dir 
+
+: 2019-05-25  오후 10:01             4,173 pandas.ipynb
+  2019-05-25  오후 08:49           139,785 pandas2.ipynb
+  2019-05-26  오후 02:51           220,247 pandas3.ipynb
+  2019-05-27  오후 09:18           749,763 pandas4.ipynb
+  
+```
+**Jupyter Tip1** jupyter에서 !(느낌표) 뒤에 cmd에서 작동하는 명령어를 치면 작동한다 
+{: .notice}
+
+## Aggregation analysis (집합 분석)
+
+
+
+**복습시간** 18시 13분 ~ / 총 
+{: .notice}
+
