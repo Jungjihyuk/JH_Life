@@ -4258,15 +4258,264 @@ next(y)
   2019-05-25  오후 08:49           139,785 pandas2.ipynb
   2019-05-26  오후 02:51           220,247 pandas3.ipynb
   2019-05-27  오후 09:18           749,763 pandas4.ipynb
-  
+
+----------------------------------------------------------
+# 오늘 받은 패키지 
+
+!pip install vincent 
+!pip install -q pdvega # -q 옵션은 설치시 나오는 메시지 생략 
+                       # -U 옵션은 최신 버전이 아닐 경우 업데이트 
 ```
 **Jupyter Tip1** jupyter에서 !(느낌표) 뒤에 cmd에서 작동하는 명령어를 치면 작동한다 
 {: .notice}
 
+
+
+<br>
+
+**pdvega** <br>
+
+```python
+import pdvega
+
+s = tips.groupby('smoker')
+s.vgplot.bar()
+```
+
+![vgplot](https://user-images.githubusercontent.com/33630505/58626155-11545b80-830f-11e9-8744-da3eb42a2161.JPG)
+
+
 ## Aggregation analysis (집합 분석)
 
+### Groupby의 내부적 구현 순서 
+
+```
+1. iterrow 순회 
+2. split        => groupby
+3. apply        => mean, max ... (통계적으로 대표할 수 있는 값 설정)
+4. combine      => 결과 묶기 
+```
+
+## Group 3총사 
+
+```
+1. groupby 
+2. pivot table 
+3. crosstab (pd로 접근) 
+```
+
+### 2. pivot table
+```python
+import seaborn as sns
+
+tips = sns.load_dataset('tips')
+tips.pivot_table(index='smoker', columns = 'sex', aggfunc = np.sum, margins = True)
+# margin은 중간값을 보여줌 
+
+:  	size	                tip	                total_bill
+sex	Male	Female	All	Male	Female	All	Male	Female	All
+smoker									
+Yes	150	74	224	183.07	96.74	279.81	1337.07	593.27	1930.34
+No	263	140	403	302.00	149.77	451.77	1919.75	977.68	2897.43
+All	413	214	627	485.07	246.51	731.58	3256.82	1570.95	4827.77
+```
+
+### 3. crosstab
+
+```python
+import seaborn as sns
+
+tips = sns.load_dataset('tips')
+a = pd.crosstab(tips.smoker, tips.sex, tips.tip, aggfunc = np.max)
+a.index 
+
+# smoker가 index, sex가 column, tip이 value, aggfunc는 value의 대푯값 
+
+: 
+sex	Male	Female
+smoker		
+Yes	10.0	6.5
+No	9.0	5.2 
+
+CategoricalIndex(['Yes', 'No'], categories=['Yes', 'No'], ordered=False, name='smoker', dtype='category')
+
+b = pd.crosstab(tips.smoker,[tips.sex,tips.time],tips.tip,aggfunc=np.max)
+b.index
+# multi columns
+
+: 
+sex	Male	        Female
+time	Lunch	Dinner	Lunch	Dinner
+smoker				
+Yes	5.0	10.0	5.00	6.5
+No	6.7	9.0	5.17	5.2
+
+CategoricalIndex(['Yes', 'No'], categories=['Yes', 'No'], ordered=False, name='smoker', dtype='category')
+
+c = pd.crosstab([tips.smoker,tips.sex],tips.time,tips.tip,aggfunc=np.max)
+c.index
+
+: multi index
+        time	Lunch	Dinner
+smoker	sex		
+Yes	Male	5.00	10.0
+        Female	5.00	6.5
+No	Male	6.70	9.0
+        Female	5.17	5.2
+
+MultiIndex(levels=[['Yes', 'No'], ['Male', 'Female']],
+           codes=[[0, 0, 1, 1], [0, 1, 0, 1]],
+           names=['smoker', 'sex'])
+
+d = pd.crosstab([tips.smoker,tips.sex],tips.time,tips.tip,aggfunc=np.max).index
+d.labels # or d.codes
+
+: FrozenList([[0, 0, 1, 1], [0, 1, 0, 1]])
+```
 
 
-**복습시간** 18시 13분 ~ / 총 
+```python
+# sequnce 방식 
+x.codes 
+: FrozenList([[0, 0, 1, 1], [0, 1, 0, 1]])
+
+x.labels[0]
+
+# attribute 방식 
+from collections import namedtuple
+n = namedtuple('Jung', ['x','y'])
+a = n(1,2)
+a
+: Jung(x=1, y=2)
+
+a.x
+a.y
+: 1
+  2 
+```
+**Pandas Tip1** 데이터 형태가 []를 포함하면 sequence 방식 , xx = yy 가 있으면 attribute 방식
+{: .notice}
+
+## reindex & resetindex
+
+> reindex는 수동으로 index변경, resetindex는 0부터 자동으로 index 변경 
+
+### resetindex
+```python
+import seaborn as sns 
+
+tips = sns.load_dataset('tips')
+n = tips[tips.sex == 'Male'].loc[:15] # 맨처음 index부터 15 index까지 행 뽑기 
+n.reset_index(drop=True)  # 기존 index 버리고 0부터 새로 생성
+
+: 	total_bill	tip	sex	smoker	day	time	size
+0	  10.34	        1.66	Male	No	Sun	Dinner	  3
+1	  21.01	        3.50	Male	No	Sun	Dinner	  3
+2	  23.68	        3.31	Male	No	Sun	Dinner	  2
+3	  25.29	        4.71	Male	No	Sun	Dinner	  4
+4	  8.77	        2.00	Male	No	Sun	Dinner	  2
+5	  26.88	        3.12	Male	No	Sun	Dinner	  4
+6	  15.04	        1.96	Male	No	Sun	Dinner	  2
+7	  14.78	        3.23	Male	No	Sun	Dinner	  2
+8	  10.27	        1.71	Male	No	Sun	Dinner	  2
+9	  15.42	        1.57	Male	No	Sun	Dinner	  2
+10	  18.43	        3.00	Male	No	Sun	Dinner	  4
+11	  21.58	        3.92	Male	No	Sun	Dinner	  2
+
+n.reset_index() # 기존의 index 삭제 X 
+
+:     index	total_bill	tip	sex	smoker	day	time	size
+0	1	10.34	        1.66	Male	No	Sun	Dinner	  3
+1	2	21.01	        3.50	Male	No	Sun	Dinner	  3
+2	3	23.68	        3.31	Male	No	Sun	Dinner	  2
+3	5	25.29	        4.71	Male	No	Sun	Dinner	  4
+4	6	8.77	        2.00	Male	No	Sun	Dinner	  2
+5	7	26.88	        3.12	Male	No	Sun	Dinner	  4
+6	8	15.04	        1.96	Male	No	Sun	Dinner	  2
+7	9	14.78	        3.23	Male	No	Sun	Dinner	  2
+8	10	10.27	        1.71	Male	No	Sun	Dinner	  2
+9	12	15.42	        1.57	Male	No	Sun	Dinner	  2
+10	13	18.43	        3.00	Male	No	Sun	Dinner	  4
+11	15	21.58	        3.92	Male	No	Sun	Dinner	  2
+
+```
+
+## 행, 열 위치 변환하기 
+
+### 기준 데이터 
+```python
+tips.groupby(['sex','smoker']).mean()[['tip']]
+
+
+		tip
+sex	smoker	
+Male	Yes	3.051167
+        No	3.113402
+Female	Yes	2.931515
+        No	2.773519
+
+```
+
+### stack 
+```python
+tips.groupby(['sex','smoker']).mean()[['tip']].stack()
+
+sex     smoker     
+Male    Yes     tip    3.051167
+        No      tip    3.113402
+Female  Yes     tip    2.931515
+        No      tip    2.773519
+
+dtype: float64
+# 1차원으로 바뀜 
+```
+
+### unstack 
+
+```python
+tips.groupby(['sex','smoker']).mean()[['tip']].unstack()
+
+	tip
+smoker	Yes	        No
+sex		
+Male	3.051167	3.113402
+Female	2.931515	2.773519
+
+```
+
+### Column이 2개 이상일 때 그래프 
+
+#### Stacked = True (Column값을 쌓는다)
+```python
+tips.groupby(['day','sex']).mean()[['tip']].unstack().plot.bar(stacked=True)
+```
+![stacked_True](https://user-images.githubusercontent.com/33630505/58628687-5f6c5d80-8315-11e9-9c14-5bc64e11af28.JPG)
+
+#### unstack(0) (index와 열의 조합)
+```python
+tips.groupby(['day','sex']).mean()[['tip','total_bill']].unstack(0).plot.bar(stacked=True)
+```
+![zero](https://user-images.githubusercontent.com/33630505/58629825-79f40600-8318-11e9-9a54-a760d7049719.JPG)
+
+#### Stacked = False (Column값을 쌓지 않는다)
+```python
+tips.groupby(['day','sex']).mean()[['tip']].unstack().plot.bar(stacked=False)
+```
+![stacked_False](https://user-images.githubusercontent.com/33630505/58628716-714e0080-8315-11e9-812d-006a2a4efea9.JPG)
+
+#### unstack(1) (header와 열의 조합)
+
+```python
+tips.groupby(['day','sex']).mean()[['tip','total_bill']].unstack(1).plot.bar(stacked=True)
+```
+
+![one](https://user-images.githubusercontent.com/33630505/58629826-79f40600-8318-11e9-81a2-e408173faa35.JPG)
+
+**sci** Stack은 Column을 Index로 바꿔주고, Unstack은 Index를 Column으로 바꿔준다
+{: .notice}
+
+
+
+**복습시간** 18시 13분 ~ 20시 21분/ 총 2시간 8 
 {: .notice}
 
