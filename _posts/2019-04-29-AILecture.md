@@ -4516,6 +4516,6 @@ tips.groupby(['day','sex']).mean()[['tip','total_bill']].unstack(1).plot.bar(sta
 
 
 
-**복습시간** 18시 13분 ~ 20시 21분/ 총 2시간 8 
+**복습시간** 18시 13분 ~ 20시 21분/ 총 2시간 8분 
 {: .notice}
 
