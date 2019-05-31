@@ -4158,7 +4158,7 @@ s[s.isin([2, 4, 6])]
 
 
 
-# 2019년 5월 28일 목요일 열여덟번째 수업
+# 2019년 5월 30일 목요일 열여덟번째 수업
 
 
 ## 기초통계 분석시 그래프 그리는 3가지 
@@ -4519,3 +4519,30 @@ tips.groupby(['day','sex']).mean()[['tip','total_bill']].unstack(1).plot.bar(sta
 **복습시간** 18시 13분 ~ 20시 21분/ 총 2시간 8분 
 {: .notice}
 
+
+
+
+# 2019년 5월 30일 금요일 열아홉번째 수업
+
+
+
+## Data Visualization 
+
+> Costumize하려면 Matplotlib을 사용해야 한다 
+
+## Matplotlib 
+
+1. pyplot 
+2. pylab 
+
+### 구성요소
+
+
+### 그래프 
+
+
+
+
+
+**복습시간** / 총 
+{: .notice}
