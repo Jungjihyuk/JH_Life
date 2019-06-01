@@ -2430,7 +2430,7 @@ t.test2
 <br>
 ## ABC class (Abstract base class)
 
-<span style="color:orange">추상적인 부분은 구현하지 않고 구체적인 부분에서 구현하도록 강제하는 기법 </span<br>
+<span style="color:orange">추상적인 부분은 구현하지 않고 구체적인 부분에서 구현하도록 강제하는 기법 </span><br>
 
 **추상 클래스 특징**
 
