@@ -804,15 +804,18 @@ Parameter | Argument
 ```
 
 ```python 
-# Only Positional #
+# Positional + Keyword #
 def name(a,b):
    ''' 함수 설명 '''   # Docs String => Shift + Tab 하면 설명이 그대로 나온다
    return a, b        #                참고로 함수 설명에 ( / )가 있을 경우 Positional 방식이라는 뜻
 name(1,2)
 :(1,2)
  
-name(b=3, a=4)
-:(4,3)
+name(3, b = 4)
+:(3,4)
+
+name(a=1,b=2)
+:(1,2)
 
 # Only Keyword #
 def name(*,a,b):   
@@ -842,6 +845,9 @@ def name(*b, **a):
 name(2,3,4,5, a = 9, b = 3, c = [1,2])    # !주의! keyword를 쓰기 시작하면 끝까지 keyword를 써야한다 
 :((2, 3, 4, 6), {'a': 9, 'b': 3, 'c': [1, 2]})
 ```
+
+**positional only** <br>
+[python](https://discuss.python.org/t/pep-570-python-positional-only-parameters/1078)
 
 > Python에서는 Parameter로 받아 올때 Type을 지정해주지 않는다.
 Why? Python 철학중 EAFP라는 것이 있는데 이는 '허락보다는 용서를 구하기 쉽다'로 
