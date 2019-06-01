@@ -3864,7 +3864,7 @@ sns.pairplot(data,hue='class_')
 
 ## Tidy Data 
 
-<kbd>Wid format</kbd> ⇒  <kbd>Long format</kbd>
+<kbd>Wide format</kbd> ⇒  <kbd>Long format</kbd>
 
 > 분석하기 좋은 데이터. Tidy data 형태로 만들면 차원도 줄고, 유지보수하기도 좋다 
 
