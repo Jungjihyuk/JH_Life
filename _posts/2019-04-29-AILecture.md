@@ -4158,7 +4158,7 @@ s[s.isin([2, 4, 6])]
 
 
 
-# 2019년 5월 28일 목요일 열여덟번째 수업
+# 2019년 5월 30일 목요일 열여덟번째 수업
 
 
 ## 기초통계 분석시 그래프 그리는 3가지 
@@ -4519,3 +4519,106 @@ tips.groupby(['day','sex']).mean()[['tip','total_bill']].unstack(1).plot.bar(sta
 **복습시간** 18시 13분 ~ 20시 21분/ 총 2시간 8분 
 {: .notice}
 
+
+
+
+# 2019년 5월 30일 금요일 열아홉번째 수업
+
+
+
+## Data Visualization 
+
+> 문자나, 숫자 보다 그림으로 혹은 그래프로 시각적인 정보가 사람에게는 더 명확하고 효율적으로 전달 되기 때문에 데이터 분석 결과를 시각화 할 수 있어야 한다 
+
+### 시각화 라이브러리 
+![lib](https://user-images.githubusercontent.com/33630505/58707963-5ea8f980-83f1-11e9-8a8e-33d77621fc9d.JPG)
+
+### Python 시각화 라이브러리 분류 
+![pylib](https://user-images.githubusercontent.com/33630505/58707964-6072bd00-83f1-11e9-99ab-3f366ebac47e.JPG)
+
+> Costumize하려면 Matplotlib을 사용해야 한다 
+
+**matplotlib, seaborn** matplotlib는 python, numpy format으로 데이터를 처리하고 seaborn은 pandas format으로 데이터를 처리한다. .value는 pandas 데이터 형태를 numpy format으로 바꿔준다 
+{: .notice}
+
+
+## Matplotlib 
+
+1. pyplot 
+2. pylab 
+
+> 이제 pylab은 쓰지 않는다 
+
+### 구성요소
+
+![structure](https://user-images.githubusercontent.com/33630505/58708062-ab8cd000-83f1-11e9-842e-c69ea2654837.JPG)
+
+![graph](https://user-images.githubusercontent.com/33630505/58708348-8187dd80-83f2-11e9-96df-29952d1ff993.JPG)
+
+### 그래프 커스터마이징 하기 
+
+```python
+import matplotlibl.pyplot as plt 
+
+# canvas, figure, axes는 생략하면 자동으로 생성해서 그래프를 그려준다 
+# 단 생략하지 않으면 커스텀 할 수 있다 
+
+plt.figure(figsize=(10,5), facecolor='yellow')    
+plt.axes(xlim=(0,10),ylim=(0,10))  # xlim,ylim은 최대 범위를 지정 
+plt.title('Title')
+plt.xlabel('Time')
+plt.ylabel('Rate')
+plt.grid(axis='y')
+plt.plot([1,2,3,4,5,6],[2,0,4,7,3,10], color='black', marker='o')
+```
+![plotgraph](https://user-images.githubusercontent.com/33630505/58708975-117a5700-83f4-11e9-9978-19420df353c3.JPG)
+
+
+### matplotlib에서 제공해주는 스타일 
+
+```python
+plt.style.available
+
+['bmh',
+ 'classic',
+ 'dark_background',
+ 'fast',
+ 'fivethirtyeight',
+ 'ggplot',
+ 'grayscale',
+ 'seaborn-bright',
+ 'seaborn-colorblind',
+ 'seaborn-dark-palette',
+ 'seaborn-dark',
+ 'seaborn-darkgrid',
+ 'seaborn-deep',
+ 'seaborn-muted',
+ 'seaborn-notebook',
+ 'seaborn-paper',
+ 'seaborn-pastel',
+ 'seaborn-poster',
+ 'seaborn-talk',
+ 'seaborn-ticks',
+ 'seaborn-white',
+ 'seaborn-whitegrid',
+ 'seaborn',
+ 'Solarize_Light2',
+ 'tableau-colorblind10',
+ '_classic_test']
+```
+
+**예시**
+
+```python
+import seaborn as sns
+
+iris = sns.load_dataset('iris')
+plt.style.use('ggplot')
+sns.pairplot(iris, hue='species')
+```
+
+![ggplot](https://user-images.githubusercontent.com/33630505/58709958-366fc980-83f6-11e9-8d80-2c457a90c1fb.JPG)
+
+
+**복습시간** 22시 ~ 22시 40분 / 총 40
+{: .notice}
