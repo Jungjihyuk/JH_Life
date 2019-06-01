@@ -4620,5 +4620,5 @@ sns.pairplot(iris, hue='species')
 ![ggplot](https://user-images.githubusercontent.com/33630505/58709958-366fc980-83f6-11e9-8d80-2c457a90c1fb.JPG)
 
 
-**복습시간** 22시 ~ 22시 40분 / 총 40
+**복습시간** 22시 ~ 22시 40분 / 총 40분
 {: .notice}
