@@ -4642,6 +4642,30 @@ sns.pairplot(iris, hue='species')
 pip install folium
 ```
 
+### Folium Map 
+
+```python
+import folium
+
+mymap = folium.Map(location=[37.332268, 127.180961], zoom_start = 11, tiles='Stamen Toner')
+folium.Marker([37.332268, 127.180961], popup='<i>Ji hyeok home</i>', 
+icon=folium.Icon(icon='cloud')).add_to(mymap)
+folium.Marker([37.543148,126.949866], popup='<b>My location</b>').add_to(mymap)
+
+folium.CircleMarker(
+location=[37.332268, 127.180961], 
+radius=80, 
+popup='My area', 
+color='#3186cc', 
+fill=True, 
+fill_color='#3186cc'   
+).add_to(mymap)
+
+mymap.add_child(folium.LatLngPopup()) # 지도위 클릭시 위도, 경도 보여줌 
+mymap.add_child(folium.ClickForMarker(popup="ClickPoint")) # 지도위 클릭시 클릭위치에 표시됨
+```
+
+![map](https://user-images.githubusercontent.com/33630505/58799253-cce2fb80-863f-11e9-8f2a-fac434b50f71.JPG)
 
 ## file 불러오기 
 
@@ -4649,16 +4673,115 @@ pip install folium
 파일 구성이 복잡하여 불러오지 못하는 파일은 open으로 불러와야 한다<br>
 open으로 불러온 데이터는 text(객체의 의미를 갖지 못함)형태로 불러오고 <br>
 이 text를 csv나 json형태로 불러와 의미 부여해줘야 한다 (csv, json만 가능) <br>
+나머지는 pickle로?
 
 ```python
+import json
+from pprint import pprint
 
-
+with open('seoul_municipalities_geo_simple.json', encoding='utf-8') as f:
+    x = json.load(f)
+    
+pprint(x)
+len(x)
+len(x['features'])
+x['features'][0]['properties']['name']
+x['features'][0]['geometry']['type']
+: {'features': [{'geometry': {'coordinates': [[[127.11519584981606,
+                                              37.557533180704915],
+                                             [127.11879551821994,
+                                              37.557222485451305],
+                                             [127.12146867175024,
+                                              37.55986003393365],
+                                             [127.12435254630417,
+                                              37.56144246249796]
+  2
+  25
+  '강동구'
+  'Polygon'
 ```
 
-나머지는 pickle로 
+## 단계구분도 
+
+```python
+import json, folium
+import pandas as pd
+
+seoul_geo_json = open('seoul_municipalities_geo_simple.json',encoding='utf-8')
+seoul_geo_json = json.load(seoul_geo_json)
+
+data = pd.DataFrame.from_dict(seoul_geo_json['features']).properties
+
+keys = data[0].keys()
+
+data_list = {}
+for key in keys:
+    temp_list = []
+    for inst in data:
+        temp_list.append(inst[key])
+    data_list[key] = temp_list 
+    
+seoul_df = pd.DataFrame.from_dict(data_list)    
+seoul_df.to_csv('seoul_map.csv')
+
+seoul = folium.Map(location=[37.5665, 126.9780], tiles='Mapbox Bright') 
+seoul_geo_df = pd.read_csv('seoul_map.csv')
+seoul.choropleth(
+    geo_data=seoul_geo_json, # json 
+    name='choropleth',
+    data=seoul_geo_df,  # pandas
+    columns=['name', 'code'], 
+    key_on='feature.properties.name', # geo data와 pandas data 맞춰준다? 
+    fill_color='YlGn',
+    fill_opacity=0.7,
+    line_opacity=0.2,
+    legend_name='population'
+)
+
+seoul
+```
+
+![seoul](https://user-images.githubusercontent.com/33630505/58800748-9f984c80-8643-11e9-80aa-83ede9c45b0b.JPG)
+
+## map 사용하여 특정 열 값 뽑아내기 
+
+```python
+import json
+
+seoul_geo_json = open('seoul_municipalities_geo_simple.json',encoding='utf-8')
+seoul_geo_json = json.load(seoul_geo_json)
+
+data=pd.DataFrame.from_dict(seoul_geo_json['features'])
+t=pd.DataFrame.from_dict(data.properties)
+
+t
+
+: 	                                         properties
+0	{'code': '11250', 'name': '강동구', 'name_eng': '...
+1	{'code': '11240', 'name': '송파구', 'name_eng': '...
+2	{'code': '11230', 'name': '강남구', 'name_eng': '...
+3	{'code': '11220', 'name': '서초구', 'name_eng': '...
+4	{'code': '11210', 'name': '관악구', 'name_eng': '...
+
+t.properties.map(lambda x:x['name'])
+
+: 
+0      강동구
+1      송파구
+2      강남구
+3      서초구
+4      관악구
+```
 
 ## pandas 불러드리는 방법 3가지 
 
+```
+1. pd.load_csv
+2. pd.DataFrame
+3. pd.DataFrame.from_dict 
+```
+
+<span style='coloc:red'>※ 보충 필요 </span>
 
 ## Machine Learning 
 
@@ -4679,7 +4802,7 @@ open으로 불러온 데이터는 text(객체의 의미를 갖지 못함)형태�
 그리고 알고리즘, 하이퍼 파라미터 둘다 컴퓨터가 알아서 성능 좋은걸로 선택하게 할 수도 있다 
 ```
 
-**KNN** K-Nearest Neighbor 최근접 이웃 알고리즘, 
+**KNN** K-Nearest Neighbor 최근접 이웃 알고리즘
 {: .notice}
 
 
@@ -4711,10 +4834,23 @@ knn.predict_proba([[3,3,4,3]])
 : array(['setosa', 'versicolor', 'virginica'], dtype='<U10')
   array([1])  # versicolor로 예측 
   array([[0.        , 0.66666667, 0.33333333]])  # 가까운 값이 versicolor 2개, virginica 1개가 있었음 
+  
+※ Bunch 
+# dictionary + attribute 
+
+type(data)
+: sklearn.utils.Bunch 
+
+data.data
+data['data'] 
+# 둘다 접근 가능한 데이터 타입 
+
+dir(data)
+: ['DESCR', 'data', 'feature_names', 'filename', 'target', 'target_names']
 ```
 
 
 Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-folium/)
 
-**복습시간**   /
+**복습시간**   18시 30분 ~ 21시 / 2시간 30분 
 {: .notice}
