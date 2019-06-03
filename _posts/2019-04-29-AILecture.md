@@ -4773,7 +4773,7 @@ t.properties.map(lambda x:x['name'])
 4      관악구
 ```
 
-## pandas 불러드리는 방법 3가지 
+## pandas format으로 불러들이는 방법 3가지 
 
 ```
 1. pd.load_csv
