@@ -4633,20 +4633,88 @@ sns.pairplot(iris, hue='species')
 
 ## Folium
 
+> 지도 그리는 python 패키지 또는 라이브러리. 분석에 필요한 단계구분도를 하기 위해서 사용한다. 
+> Google map에서 갖고옴. 
 
-folium => 분석에 필요한 단계구분도를 하기 위해서 사용함 
+
+### Folium 설치 
+```shell
+pip install folium
+```
 
 
 ## file 불러오기 
 
-보통 pandas로 파일을 불러오지만 
-불러오지 못하는 파일은 open으로 불러와서 text(객체의 의미를 갖지 못함) => csv, json으로 불러와 의미 부여해주면 됨 (csv, json만)
+보통 pandas로 파일을 불러오지만<br> 
+파일 구성이 복잡하여 불러오지 못하는 파일은 open으로 불러와야 한다<br>
+open으로 불러온 데이터는 text(객체의 의미를 갖지 못함)형태로 불러오고 <br>
+이 text를 csv나 json형태로 불러와 의미 부여해줘야 한다 (csv, json만 가능) <br>
+
+```python
+
+
+```
 
 나머지는 pickle로 
 
 ## pandas 불러드리는 방법 3가지 
 
 
+## Machine Learning 
 
-**복습시간**  /
+## 기계학습시 거치는 단계 
+
+```
+1. 방법 (알고리즘) 
+2. 하이퍼 파라미터
+
+컴퓨터에게 방법(알고리즘)을 알려주고 스스로 학습을 하고 
+학습한 데이터를 기반으로 예측을 할때 비슷한걸 찾는다 
+이때 기계학습에는 전부 숫자데이터로 하기 때문에 근처 숫자 값을 
+찾아 예측하게 된다 (KNN 알고리즘)
+
+하이퍼 파라미터는 근처 값 몇개를 찾아보고 예측을 할지 정해주는 것이다
+하이퍼 파라미터를 몇개로 줘야 하는지는 성능이 좋은 것에 따라 지정해주면 된다 
+
+그리고 알고리즘, 하이퍼 파라미터 둘다 컴퓨터가 알아서 성능 좋은걸로 선택하게 할 수도 있다 
+```
+
+**KNN** K-Nearest Neighbor 최근접 이웃 알고리즘, 
+{: .notice}
+
+
+```python
+import pandas as pd 
+import seaborn as sns 
+from sklearn.datasets import load_iris
+from sklearn.neighbors import KNeighborsClassifier
+
+data = load_iris()
+print(data.DESCR) # 데이터 이해를 위해 보는 것 
+
+data_pd = pd.DataFrame(data.data, columns=data.feature_names) # 인스턴스 방식 
+data_target = pd.DataFrame(data.target, columns=['target'])
+iris = pd.concat([data_pd, data_target], axis = 1) # data_pd + data_target 결합 
+
+
+knn = KNeighborsClassfier(3) # 근처 3개를 확인해라 
+knn.fit(iris.iloc[:,:-1], iris.iloc[:,-1])
+
+: KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+           metric_params=None, n_jobs=None, n_neighbors=3, p=2,
+           weights='uniform')
+
+data.target_names
+knn.predict([[3,3,4,3]])
+knn.predict_proba([[3,3,4,3]])
+
+: array(['setosa', 'versicolor', 'virginica'], dtype='<U10')
+  array([1])  # versicolor로 예측 
+  array([[0.        , 0.66666667, 0.33333333]])  # 가까운 값이 versicolor 2개, virginica 1개가 있었음 
+```
+
+
+Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-folium/)
+
+**복습시간**   /
 {: .notice}
