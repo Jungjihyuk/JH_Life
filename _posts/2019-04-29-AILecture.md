@@ -983,7 +983,7 @@ else:
 def b(x):
    return x > 3
    
-list(filter(b,[1,2,3,4,5,6]))) 
+list(filter(b,[1,2,3,4,5,6])) 
 :[4,5,6]
 ```
 
