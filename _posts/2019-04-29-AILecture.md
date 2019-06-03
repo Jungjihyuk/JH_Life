@@ -4627,3 +4627,26 @@ sns.pairplot(iris, hue='species')
 
 **복습시간** 22시 ~ 22시 40분 / 총 40분
 {: .notice}
+
+
+# 2019년 6월 3일 월요일 스무번째 수업
+
+## Folium
+
+
+folium => 분석에 필요한 단계구분도를 하기 위해서 사용함 
+
+
+## file 불러오기 
+
+보통 pandas로 파일을 불러오지만 
+불러오지 못하는 파일은 open으로 불러와서 text(객체의 의미를 갖지 못함) => csv, json으로 불러와 의미 부여해주면 됨 (csv, json만)
+
+나머지는 pickle로 
+
+## pandas 불러드리는 방법 3가지 
+
+
+
+**복습시간**  /
+{: .notice}
