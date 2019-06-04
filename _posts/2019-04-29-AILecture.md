@@ -4876,10 +4876,14 @@ Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-fo
 - label data가 유한개인지 무한개인지 확인 
 - label data 유한 --> classifications
 - label data 무한 --> regression
-- 상관성 확인해야 하는 경우 heatmap 
-4. 5총사중 나머지 3개 (head, tail, sample) 
-5. 목적에 맞게 평가 척도에 따라 최적의 모델 생성 
-6. 성능 테스트 
+- 상관성 확인해야 하는 경우 heatmap
+- boxplot 
+4. 왜도, 첨도 
+- skew
+- kurtosis
+5. 5총사중 나머지 3개 (head, tail, sample) 
+6. 목적에 맞게 평가 척도에 따라 최적의 모델 생성 
+7. 성능 테스트 
 ```
 
 
@@ -4905,5 +4909,93 @@ mpg
 ```
 ![mpg](https://user-images.githubusercontent.com/33630505/58871406-e138fe00-86fc-11e9-94e0-c1ec9499cbd8.JPG)
 
-**복습시간** 18시 50분  /
+## masking 기법으로 missing data 보기 
+
+```python
+import seaborn as sns 
+
+mpg = sns.load_dataset('mpg')
+mpg.horsepower[mpg.horsepower.isnull()] # or mpg.horsepower[mpg.horsepower.isna()]
+
+: 
+32    NaN
+126   NaN
+330   NaN
+336   NaN
+354   NaN
+374   NaN
+```
+
+## missing data 그래프로 확인하기 
+
+```python
+# pip install missingno
+
+import missingno as mino 
+import seaborn as sns 
+
+mpg = sns.load_dataset('mpg')
+mino.matrix(mpg)
+```
+
+![mino](https://user-images.githubusercontent.com/33630505/58872893-fb281000-86ff-11e9-8a18-258b12ba14d1.JPG)
+
+> data의 양이 충분하지 않을때 missing data가 있으면 적당한 값으로 채워 넣어 성능을 높여주고, 
+적당한 값을 채우기 애매할 때는 missing data가 있는 row를 지워야 한다.
+
+## 데이터를 쪼개 성능 비교하기 
+
+```python
+import seaborn as sns 
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
+
+iris = sns.load_dataset('iris')
+iris.species = iris.species.map({'setosa': 0, 'versicolor':1,'virginica':2})
+
+knn = KNeighborsClassifier()
+iris_data = iris[iris.columns[:-1]]
+iris['species']
+
+knn.fit(iris_data, iris['species'])
+
+X_train, X_test, Y_train , Y_test = train_test_split(iris[iris.columns[:-1]], iris.species)
+len(X_train.index)
+len(X_test.index)
+: 112
+  38    
+# 75 : 25 비율로 쪼갬 
+
+knn.fit(X_train, Y_train)
+knn.predict(X_test)
+Y_test.values
+
+: array([2, 1, 2, 1, 2, 1, 0, 1, 2, 2, 1, 0, 0, 2, 2, 1, 2, 2, 0, 2, 2, 1,
+       1, 0, 0, 2, 2, 0, 0, 2, 1, 2, 2, 2, 0, 0, 0, 1], dtype=int64)
+  array([2, 1, 2, 1, 2, 1, 0, 1, 2, 2, 1, 0, 0, 2, 2, 1, 2, 2, 0, 2, 2, 1,
+       1, 0, 0, 2, 2, 0, 0, 2, 1, 1, 2, 2, 0, 0, 0, 1], dtype=int64)     
+       
+knn.predict(X_test) == Y_test.values       
+: 
+array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True, False,  True,  True,  True,  True,
+        True,  True])
+	
+confusion_matrix(Y_test, knn.predict(X_test))	
+: 
+array([[10,  0,  0],
+       [ 0, 10,  0],
+       [ 0,  1, 17]], dtype=int64)
+# virginica를 예측한 test에서는 한번은 versicolor이라고 잘못 예측 했기 때문에 0 , 1 , 17
+```
+
+**Model** 학습이 끝난 알고리즘 + 데이터를 Model 이라고 한다 
+{: .notice}
+
+
+※ 지도, 비지도, 강화학습 모델 관련 자료 추가 첨부, Data수집부터 예측까지 과정 부분 다시한번 검토 
+**복습시간** 18시 50분 ~ 19시 45분 / 총 55분  
 {: .notice}
