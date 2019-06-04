@@ -4776,7 +4776,7 @@ t.properties.map(lambda x:x['name'])
 ## pandas format으로 불러들이는 방법 3가지 
 
 ```
-1. pd.load_csv
+1. pd.read_csv
 2. pd.DataFrame
 3. pd.DataFrame.from_dict 
 ```
@@ -4853,4 +4853,57 @@ dir(data)
 Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-folium/)
 
 **복습시간**   18시 30분 ~ 21시 / 2시간 30분 
+{: .notice}
+
+
+# 2019년 6월 4일 화요일 스물한번째 수업
+
+## Data수집부터 예측까지 과정 
+
+```
+0. Data 불러들이기 
+- 적합한 데이터 format으로 변환
+1. Tidy data인지 확인하기 
+2. info 
+- missing datat 체크 (mino.matrix)
+- object, category type은 숫자 타입으로 변환 
+- 차원의 저주 (필요없는 열 삭제) 
+- 데이터 갯수 확인 (데이터 갯수가 충분한가)
+- 메모리 크기 확인 (내가 불러들일 수 있는 사이즈인가)
+- label(target,class) data 포함 여부 확인 
+3. describe 
+- 지도학습을 하는 경우 pairplot으로 분류 가능한지 확인
+- label data가 유한개인지 무한개인지 확인 
+- label data 유한 --> classifications
+- label data 무한 --> regression
+- 상관성 확인해야 하는 경우 heatmap 
+4. 5총사중 나머지 3개 (head, tail, sample) 
+5. 목적에 맞게 평가 척도에 따라 최적의 모델 생성 
+6. 성능 테스트 
+```
+
+
+## label이 유한일때, 무한일때 
+
+### 유한일때 
+```python
+import seaborn as sns
+
+iris = sns.load_dataset('iris')
+iris 
+```
+
+![iris](https://user-images.githubusercontent.com/33630505/58871405-e138fe00-86fc-11e9-87a6-f7f31a8a8ca0.JPG)
+
+### 무한일때 
+
+```python
+import seaborn as sns
+
+mpg = sns.load_dataset('mpg') 
+mpg
+```
+![mpg](https://user-images.githubusercontent.com/33630505/58871406-e138fe00-86fc-11e9-94e0-c1ec9499cbd8.JPG)
+
+**복습시간** 18시 50분  /
 {: .notice}
