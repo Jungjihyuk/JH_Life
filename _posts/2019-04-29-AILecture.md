@@ -5000,3 +5000,34 @@ array([[10,  0,  0],
 
 **복습시간** 18시 50분 ~ 19시 45분 / 총 55분  
 {: .notice}
+
+
+
+# 2019년 6월 5일 수요일 스물두번째 수업
+
+## One hot encoding & Label encoding 
+
+
+
+## Bias , Variance 
+
+![optimal](https://user-images.githubusercontent.com/33630505/58957665-fd5f9c80-87db-11e9-8094-c5ba63e4375e.JPG)
+
+> Bias가 높으면 값이 편향되어 있어서 값이 모여있고 Variance가 높으면 값이 퍼져있게된다.
+> 현실에 적용할 수 있는 모델을 만들기 위해서는 Bias와 Variance가 만나는 지점을 목표로 삼고 모델을 만들어야 한다. 
+
+## Trade off  
+
+![tradeoff](https://user-images.githubusercontent.com/33630505/58957666-fd5f9c80-87db-11e9-9dea-1802253b3aad.JPG)
+
+> 다양한 데이터를 학습시키지 않게 되면 bias가 높아져 정확도가 떨어지는 대신 학습하지 않은 데이터중 일부는 어쩌다 맞추는 경우는 Underfit이다. 
+> 다양한 데이터를 학습시키긴 했지만 데이터 양이 많지 않아 bias는 낮지만 variance가 높아 학습한 데이터에 대해서만 정확도가 높고 전혀 보지 못한 데이터에 대해서는 정확도가 현저히 낮게 되는 경우는 Overfit이다. 
+
+<span style="background-color: skyblue">Underfit의 경우 training시 정확성은 떨어지지만 test에서 오차범위가 크지 않게 예측을 할 수 있지만, Overfit의 경우 training시에 정확성은 높지만 test에서 오차범위가 크게 예측을 할 수 가 있다.</span>
+<br>
+<span style="background-color: skyblue">예를 들어 Underfit인 경우 사과를 맞추는 로봇이 있다고 가정했을 때 '사과는 동그랗고 빨갛다' 라고만 학습시키고 테스트를 했을 때 석류나 자두같이 동그랗고 빨간 과일을 보게되어도 사과라고 예측할 것이다. Overfit의 경우는 '지름이 10cm이며 동그랗고 빨간색이다' 라고 학습 시킨 경우에는 자두같이 작지만 빨간 과일에 대해서는 사과라고 예측하지는 않겠지만 10cm가 넘는 사과이거나 초록색 사과인 경우를 사과라고 판단하지 못하는 오류를 범할 수 있다</span>
+
+
+
+**복습시간**  21시 11분 ~  / 
+{: .notice}
