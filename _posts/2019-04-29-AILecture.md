@@ -5007,7 +5007,105 @@ array([[10,  0,  0],
 
 ## One hot encoding & Label encoding 
 
+> 기계학습으로 예측분석을 하기 위해서는 문자를 숫자로 변환 해야하기 때문에 Encoding을 해야한다
+그런데 문자를 숫자로 encoding할때 성능에 영향을 미치기 때문에 상황에 따라 encoding 방식을 달리 해야 한다 
 
+### One hot encoding
+
+> 하나의 값만 True이고 나머지는 모두 False인 인코딩 방식 
+
+#### Scikit 
+```python
+from sklearn.preprocessing import OneHotEncoder 
+
+ohe = OneHotEncoder()
+t = ohe.fit(data[['species']]) 
+t.array() 
+
+: array([[1., 0., 0.],
+       [1., 0., 0.],
+       [1., 0., 0.],
+       [1., 0., 0.],
+       [1., 0., 0.],
+       [1., 0., 0.],
+       [1., 0., 0.],
+       [1., 0., 0.],
+       .....
+       
+       
+# ohe.fit_transform(data[['species']]).toarray() 한번에 가능 
+
+ohe.inverse_transform([[1., 0., 0.]])
+: array([['setosa']], dtype=object)
+
+# 숫자로 인코딩 되기 전 문자 
+```
+
+> Scikit's onehotencoder의 장점은 인코딩 되기 전 문자를 알 수 있다는 것. 
+
+<span style='background-color:red'>onehoteencoder로 변환한 건 dataframe으로 어떻게 변환하면 원하는데로 안나오는데 어떻게 해야하는 걸까?</span><br>
+
+```python
+pd.DataFrame(ohe.fit_transform(data[['species']]), columns=['target'])
+
+: 
+target
+0	(0, 0)\t1.0
+1	(0, 0)\t1.0
+2	(0, 0)\t1.0
+3	(0, 0)\t1.0
+4	(0, 0)\t1.0
+5	(0, 0)\t1.0
+```
+
+#### Pandas 
+
+```python
+import seaborn as sns
+import pandas as pd 
+
+data = sns.load_dataset('iris')
+pd.get_dummies(data.species)
+
+:
+      setosa	   versicolor	 virginica
+0	1	       0	    0
+1	1	       0	    0
+2	1	       0	    0
+3	1	       0	    0
+4	1	       0	    0
+5	1	       0	    0
+```
+
+
+### LabelEncoder 
+
+#### Scikit 
+```python
+from sklearn.preprocessing import LabelEncoder
+
+le = LabelEncoder()
+le.fit_transform(data.species)
+
+: 
+
+array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
+```
+
+#### pandas map 
+
+```python
+import seaborn as sns
+
+iris = sns.load_dataset('iris')
+iris.species = iris.species.map('setosa': 0, 'versicolor':1,'virginica':2})
+```
 
 ## Bias , Variance 
 
@@ -5027,7 +5125,29 @@ array([[10,  0,  0],
 <br>
 <span style="background-color: skyblue">예를 들어 Underfit인 경우 사과를 맞추는 로봇이 있다고 가정했을 때 '사과는 동그랗고 빨갛다' 라고만 학습시키고 테스트를 했을 때 석류나 자두같이 동그랗고 빨간 과일을 보게되어도 사과라고 예측할 것이다. Overfit의 경우는 '지름이 10cm이며 동그랗고 빨간색이다' 라고 학습 시킨 경우에는 자두같이 작지만 빨간 과일에 대해서는 사과라고 예측하지는 않겠지만 10cm가 넘는 사과이거나 초록색 사과인 경우를 사과라고 판단하지 못하는 오류를 범할 수 있다</span>
 
+## Model 성능 평가하는 2가지 방법 
 
+### Hold out 
 
-**복습시간**  21시 11분 ~  / 
+> Train-test-split 
+
+**Data leakage** training data에는 있지만 test data에는 없어 overfitting된경우 발생하는 문제 
+{: .notice}
+
+### Cross Validation
+
+> n등분 나누어 test, train을 n번 수행하여 평균을 내어 성능을 테스트한다. 
+> 보통 10등분으로 함. 
+
+data leakage현상을 방지할 수 있다.<br>
+데이터의 양이 많으면 매우 느리다는 단점이 있다. 
+
+## Model의 성능이 좌우되는 요소 2가지 
+
+```
+1. 알고리즘 
+2. 하이퍼 파라미터 
+```
+
+**복습시간**  21시 10분 ~ 1시 / 2시간 50분
 {: .notice}
