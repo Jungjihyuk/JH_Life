@@ -5166,7 +5166,7 @@ data leakage현상을 방지할 수 있다.<br>
 ```
 1. map은 dictionary, 함수 방식 둘다 지원 
 2. apply는 함수방식만 지원 
-- apply방식은 args=() 옵션으로 재활용 가능한 함수 방식을 사용할 수 있 
+- apply방식은 args=() 옵션으로 재활용 가능한 함수 방식을 사용할 수 있다
 ```
 
 ## count vs size 
@@ -5186,7 +5186,7 @@ b.count(2)
 
 ### size 
 
-```numpy 
+```python 
 import numpy as np 
 c = np.arange(10)
 c.size
@@ -5244,6 +5244,8 @@ pd.qcut(x.z,2)
 
 > 분류하여 예측 하는 모델에는 두 가지 방식이 있다. Discriminative, Generative
 
+<br>
+
 ### Discriminative
 
 > 입력 데이터들이 있을때 label data를 구별해내는 방식 
@@ -5268,6 +5270,7 @@ pd.qcut(x.z,2)
 
 <br>
 
+<hr>
 #### SVM(Support Vector Machine)
 
 ![svm](https://user-images.githubusercontent.com/33630505/59195422-e8617f80-8bc6-11e9-8f3e-e05d569ec4d9.JPG)
