@@ -4879,6 +4879,8 @@ Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-fo
 - label data 무한 --> regression
 - 상관성 확인해야 하는 경우 heatmap
 - boxplot 
+- 비지도학습을 하는 경우 label data가 없이 즉, 기준이되는 답이 없이 학습해야함.
+- 비지도학습의 경우 클러스터링, 시각화와 차원축소, 연관 규칙 학습등의 알고리즘을 사용
 4. 왜도, 첨도 
 - skew
 - kurtosis
@@ -4901,6 +4903,8 @@ iris
 ![iris](https://user-images.githubusercontent.com/33630505/58871405-e138fe00-86fc-11e9-87a6-f7f31a8a8ca0.JPG)
 
 ### 무한일때 
+
+> mpg(연비)를 예측한다고 가정했을 때 연비는 정해져 있는 label이 아니기 때문에 무한 label임으로 regression 즉, 연속된 값을 예측해야 한다.
 
 ```python
 import seaborn as sns
@@ -5044,7 +5048,7 @@ ohe.inverse_transform([[1., 0., 0.]])
 
 > Scikit's onehotencoder의 장점은 인코딩 되기 전 문자를 알 수 있다는 것. 
 
-<span style='background-color:red'>onehoteencoder로 변환한 건 dataframe으로 어떻게 변환하면 원하는데로 안나오는데 어떻게 해야하는 걸까?</span><br>
+<span style='background-color:red'>밑의 경우에는 어떻게 해야 할까..?</span><br>
 
 ```python
 pd.DataFrame(ohe.fit_transform(data[['species']]), columns=['target'])
@@ -5151,4 +5155,159 @@ data leakage현상을 방지할 수 있다.<br>
 ```
 
 **복습시간**  21시 10분 ~ 1시 / 2시간 50분
+{: .notice}
+
+
+# 2019년 6월 10일 월요일 스물두번째 수업
+
+
+## map vs apply 
+
+```
+1. map은 dictionary, 함수 방식 둘다 지원 
+2. apply는 함수방식만 지원 
+- apply방식은 args=() 옵션으로 재활용 가능한 함수 방식을 사용할 수 있 
+```
+
+## count vs size 
+
+### count 
+
+```python
+a = [1,1,1,2,2,3,4]
+b = (1,1,1,2,2,3,4)
+
+a.count(1)
+b.count(2)
+
+: 3
+  2
+```
+
+### size 
+
+```numpy 
+import numpy as np 
+c = np.arange(10)
+c.size
+
+: 10
+```
+
+## cut & qcut 
+
+### cut 
+
+> 최저값과 최대값의 간격을 n등분하여 나눔
+
+```python
+import pandas as pd
+import numpy as np
+
+a = np.array([[0,0,2],[0,0,10],[0,0,20],[0,0,49],[0,0,30],[10,11,100]])
+x=pd.DataFrame(a)
+x.rename({0:'x',1:'y',2:'z'}, axis=1, inplace=True)
+pd.cut(x.z,2)
+
+:
+0    (1.902, 51.0]
+1    (1.902, 51.0]
+2    (1.902, 51.0]
+3    (1.902, 51.0]
+4    (1.902, 51.0]
+5    (51.0, 100.0]
+```
+
+### qcut
+
+> 전체 데이터 갯수에서 n%로 나눔 
+
+```python
+import pandas as pd
+import numpy as np
+
+a = np.array([[0,0,2],[0,0,10],[0,0,20],[0,0,49],[0,0,30],[10,11,100]])
+x=pd.DataFrame(a)
+x.rename({0:'x',1:'y',2:'z'}, axis=1, inplace=True)
+pd.qcut(x.z,2)
+
+:
+0    (1.999, 25.0]
+1    (1.999, 25.0]
+2    (1.999, 25.0]
+3    (25.0, 100.0]
+4    (25.0, 100.0]
+5    (25.0, 100.0]
+```
+
+## Discriminative  vs Generative 
+
+> 분류하여 예측 하는 모델에는 두 가지 방식이 있다. Discriminative, Generative
+
+### Discriminative
+
+> 입력 데이터들이 있을때 label data를 구별해내는 방식 
+
+> 어떤 입력값(input) x가 주어졌을 때 그 결과값(label) y일 확률을 알아내는 것 => p(y|x)
+
+![discriminative](https://user-images.githubusercontent.com/33630505/59189720-d4f9e880-8bb5-11e9-97e4-69ec7a2a5d09.JPG)
+
+<span style="background-color: skyblue">대표 알고리즘</span>
+```
+1. Logistic Regression
+2. Conditional Random Field
+3. Support Vector Machine
+4. Linear Regression
+```
+
+**장점** 데이터가 충분할 경우 성능이 좋음
+{: .notice}
+
+**단점** 데이터가 실제 어떤 모습인지 본질을 이해하기 어려움
+{: .notice}
+
+<br>
+
+#### SVM(Support Vector Machine)
+
+![svm](https://user-images.githubusercontent.com/33630505/59195422-e8617f80-8bc6-11e9-8f3e-e05d569ec4d9.JPG)
+
+<hr>
+
+### Generative
+
+> 입력값과 결과값이 주어질때, 일정한 분포 규칙속에 존재한다는 가정을 한다. 
+
+> 관측 데이터 결합확률 분포를 통해 확률 모델을 만들어낸다. 즉 주어진 데이터를 보고 분포 규칙을 생성해 낸다.
+
+![generative](https://user-images.githubusercontent.com/33630505/59195390-d384ec00-8bc6-11e9-8dc7-dd27c882753f.JPG)
+
+<br>
+
+![generative2](https://user-images.githubusercontent.com/33630505/59195454-fadbb900-8bc6-11e9-955e-51f5048ee8ec.JPG)
+
+<span style="background-color: skyblue">대표 알고리즘</span>
+```
+1. Naive Bayes
+2. Gaussian discriminant Analysis
+3. Gaussian Mixture Model
+```
+
+**장점** 데이터 자체의 특성을 파악하기에 좋다, 데이터를 생성해 새로운 결과물을 얻어낼 수 있다.
+{: .notice}
+
+**단점** 데이터가 많은 경우 Discriminative에 비해 성능이 떨어 질수 있다.
+{: .notice}
+
+
+Generative & Discriminative: [naver blog](https://m.blog.naver.com/PostView.nhn?blogId=2feelus&logNo=221078340870&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+<br>
+
+선형, 비선형 모델 : [blog](https://tensorflow.blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/2-3-7-%EC%BB%A4%EB%84%90-%EC%84%9C%ED%8F%AC%ED%8A%B8-%EB%B2%A1%ED%84%B0-%EB%A8%B8%EC%8B%A0/)<br>
+
+## LogisticRegression을 제일처음에 하는 이유
+
+
+
+**복습시간**  18시 30분 ~ 22시 10분 / 총 3시간 40분 
 {: .notice}
