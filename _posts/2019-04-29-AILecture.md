@@ -12,16 +12,16 @@ tag:
 # 수업 목차 
 
 
-<kbd>Python</kbd>
-* [1일차](#1st) * [2일차](#2nd) * [3일차](#3rd) * [4일차](#4th) * [5일차](#5th)
-* [6일차](#6th) * [7일차](#7th) * [8일차](#8th) * [9일차](#9th) * [10일차](#10th)
-* [11일차](#11th)
-<kbd>Numpy</kbd>
-* [12일차](#12th) * [13일차](#13th) * [14일차](#14th) 
-<kbd>Pandas</kbd> 
-* [15일차](#15th) * [16일차](#16th) * [17일차](#17th) * [18일차](#18th) * [19일차](#19th)
-<kbd>Machine Learning</kbd> 
-* [20일차](#20th)
+<kbd>Python</kbd> <br>
+[1일차](#1st) &nbsp; [2일차](#2nd)  &nbsp; [3일차](#3rd)  &nbsp; [4일차](#4th)  &nbsp; [5일차](#5th <br>
+[6일차](#6th) &nbsp; [7일차](#7th)  &nbsp; [8일차](#8th)  &nbsp; [9일차](#9th)  &nbsp; [10일차](#10th) <br>
+[11일차](#11th) <br>
+<kbd>Numpy</kbd> <br>
+[12일차](#12th)  &nbsp; [13일차](#13th)  &nbsp; [14일차](#14th) <br>
+<kbd>Pandas</kbd> <br>
+[15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
+<kbd>Machine Learning</kbd> <br>
+[20일차](#20th)  &nbsp; [21일차](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th)<br>
 
 
 <a id = '1st'></a>
