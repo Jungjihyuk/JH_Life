@@ -5280,7 +5280,7 @@ pd.qcut(x.z,2)
 
 > 입력 데이터들이 있을때 label data를 구별해내는 방식 
 
-> 어떤 입력값(input) x가 주어졌을 때 그 결과값(label) y일 확률을 알아내는 것 => p(y|x)
+> 어떤 입력값(input) x가 주어졌을 때 그 결과값(label) y일 확률을 알아내는 것
 
 ![discriminative](https://user-images.githubusercontent.com/33630505/59189720-d4f9e880-8bb5-11e9-97e4-69ec7a2a5d09.JPG)
 
