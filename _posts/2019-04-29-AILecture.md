@@ -13,7 +13,7 @@ tag:
 
 
 <kbd>Python</kbd> <br>
-[1일차](#1st) &nbsp; [2일차](#2nd)  &nbsp; [3일차](#3rd)  &nbsp; [4일차](#4th)  &nbsp; [5일차](#5th <br>
+[1일차](#1st) &nbsp; [2일차](#2nd)  &nbsp; [3일차](#3rd)  &nbsp; [4일차](#4th)  &nbsp; [5일차](#5th) <br>
 [6일차](#6th) &nbsp; [7일차](#7th)  &nbsp; [8일차](#8th)  &nbsp; [9일차](#9th)  &nbsp; [10일차](#10th) <br>
 [11일차](#11th) <br>
 <kbd>Numpy</kbd> <br>
