@@ -442,7 +442,6 @@ eval('a+b')
 :6
 :9
 ```
-<br>
 [참고](https://shoark7.github.io/programming/knowledge/expression-vs-statement.html)<br>
 
 <br>
@@ -455,8 +454,7 @@ eval('a+b')
 4. 반복문 (for, while)
 5. 예외처리
 
-<br>
-ex)
+**for문으로 변수 할당하기**
 ```python
 # statement
 for i in range(1, 20+1):
@@ -467,7 +465,7 @@ for i in range(1, 20+1):
 **결론적으로** 모든 Expression은 Statement지만 어떤 Statement는 expression이지 않다. retrun 3 이런 구문은 평가를 통해 3의 값이 나오는 것이 아니기 때문이다. ex) exec('1+2')는 문제 없지만 eval('a=3')는 오류가 난다 
 {: .notice}
 
-
+<br>
 ### 기타 내장 함수 
 ```
 dir(obejct) : 어떠한 객체를 인자로 넣어주면 해당 객체가 어떤 변수와 메소드를 가지고 있는지 출력을 합니다. 
@@ -476,7 +474,7 @@ len(object) : 어떠한 객체를 인자로 넣어주면 해당 객체의 요소
 id(object) : 해당 객체가 저장되어 있는 메모리 위치를 반환한다. 
 ```
 
-#### id함수로 보는 메모리 할당 
+### id함수로 보는 메모리 할당 
 
 ```python
 x = 10 
@@ -500,7 +498,6 @@ hex(id(x))
 
 # 새로운 식별자로 같은 값에 binding을 하거나 reassignment를 하게되면 메모리 주소값이 변경된다.  
 ```
-<br>
 ※ 메모리 잘 쓰는 방법: &nbsp; [wikidocs](https://wikidocs.net/21057)
 <br><br>
 
@@ -672,6 +669,7 @@ name(3)
 ```
 Packing & Unpacking: &nbsp; [blog](https://python.bakyeono.net/chapter-5-5.html)
 
+<br>
 
 ### 조건의 형태 3가지 
 
@@ -680,7 +678,8 @@ Packing & Unpacking: &nbsp; [blog](https://python.bakyeono.net/chapter-5-5.html)
 2. if, elif, else
 3. 중첩 if 
 ```
-<hr>
+
+### if문 예시 
 ```python
 a = 6 
 if 0 < a < 10:
@@ -698,6 +697,7 @@ else:
 - A가 참이면 B 체크 X => A 반환 
 - A가 거짓이면 B 체크 => B 반환 
 
+<br>
 
 ### 반복문 2가지 
 
@@ -741,13 +741,15 @@ else:
 
 * 모든 for문은 while문으로 바꿀수 있지만, 모든 while문은 for문으로 바꾸기 어렵다.
 
-#### else문 3가지 쓰임 
+### else문 3가지 쓰임 
 1. 조건문에서     => 조건에 맞지 않는 경우  
 2. 반복문에서     => 반복문이 정상 완료 되고나서 실행
 - 0번도 수행이라고 간주하기 때문에 else문이 실행될 수 있다
 3. 예외처리할 때  
 
-#### Dictionary view
+<hr>
+
+### Dictionary view
 
 1. key
 2. values
@@ -864,8 +866,7 @@ name(2,3,4,5, a = 9, b = 3, c = [1,2])    # !주의! keyword를 쓰기 시작하
 :((2, 3, 4, 6), {'a': 9, 'b': 3, 'c': [1, 2]})
 ```
 
-**positional only** <br>
-[python](https://discuss.python.org/t/pep-570-python-positional-only-parameters/1078)
+**positional only** : [python](https://discuss.python.org/t/pep-570-python-positional-only-parameters/1078)
 
 > Python에서는 Parameter로 받아 올때 Type을 지정해주지 않는다.
 Why? Python 철학중 EAFP라는 것이 있는데 이는 '허락보다는 용서를 구하기 쉽다'로 
@@ -968,7 +969,7 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 <a id = '5th'></a>
 # 2019년 5월 7일 화요일 5th 
 
-First class function/Higher order function 관계 그림 수정 
+<First class function/Higher order function 관계 그림 수정> 
 
 일급 객체: [git blog](https://gyukebox.github.io/blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9D%BC%EA%B8%89-%EA%B0%9D%EC%B2%B4first-class-citizen/), [tistory](https://rednooby.tistory.com/113)<br>
 
@@ -1167,6 +1168,7 @@ outer()
 **Python Tip5**  함수 중첩은 3번 이상 하지 않는 것이 좋다.
 {: .notice}
 
+<hr>
 
 ### 신기한 기능 
 
@@ -1215,6 +1217,8 @@ tips.sample(10, replace = True) # 랜덤으로 10개 보여줘
 
 **iterable** 1. iterator로 바꿀 수 있는 2. 순회, 반복가능 (요소 하나씩 뽑아냄) 3. for 뒤에 사용할 수 있는 container 
 {: .notice}
+
+<br>
 
 ## 왜 함수형 패러다임에서 반복을 줄여야 하는가? 
 
@@ -1275,6 +1279,7 @@ next(y)
 **주의** iterator와 generator는 scope를 초과하면 StopIteration 에러가 뜬다. 
 {: .notice}
 
+<br>
 
 ### Iterator vs Generator & Generator vs Function 
 
@@ -1330,6 +1335,8 @@ generator를 사용하면 호출한 값만 메모리에 할당되므로 메모�
 계산 결과 값이 필요할 때까지 계산을 늦추는 방식 <br>
 
 참고: [tistory](https://bluese05.tistory.com/56)<br>
+
+<br>
 
 ### Comprehension
 
