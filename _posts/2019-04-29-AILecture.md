@@ -11,18 +11,18 @@ tag:
 
 # 수업 목차 
 
-```
-# Python
+
+<kbd>Python</kbd>
 * [1일차](#1st) * [2일차](#2nd) * [3일차](#3rd) * [4일차](#4th) * [5일차](#5th)
 * [6일차](#6th) * [7일차](#7th) * [8일차](#8th) * [9일차](#9th) * [10일차](#10th)
 * [11일차](#11th)
-# Numpy
+<kbd>Numpy</kbd>
 * [12일차](#12th) * [13일차](#13th) * [14일차](#14th) 
-# Pandas 
+<kbd>Pandas</kbd> 
 * [15일차](#15th) * [16일차](#16th) * [17일차](#17th) * [18일차](#18th) * [19일차](#19th)
-# Machine Learning 
+<kbd>Machine Learning</kbd> 
 * [20일차](#20th)
-```
+
 
 <a id = '1st'></a>
 # 2019년 4월 29일 월요일 1st 
@@ -237,7 +237,8 @@ w          str        ㅇㅇ
 
 <hr>
 
-# 2019년 4월 30일 화요일 2nd <a id = '2nd'></a>
+<a id = '2nd'></a>
+# 2019년 4월 30일 화요일 2nd 
 
 ## 자료형은 총 20가지가 있지만 13가지를 배울 것이다.
 
@@ -563,7 +564,8 @@ a is b
 **복습 시간**   18시 35분 ~ 20시 5분/ 총 1시간 30분  
 {: .notice}
 
-# 2019년 5월 2일 목요일 3rd <a id = '3rd'></a>
+<a id = '3rd'></a>
+# 2019년 5월 2일 목요일 3rd 
 
 
 ### 할당문의 종류 6가지 
@@ -776,9 +778,8 @@ python 내부 구조 확인 가능 사이트: [pythontutor](http://pythontutor.c
 
 
 
-
-# 2019년 5월 3일 금요일 4th  <a id = '4th'></a>
-
+<a id = '4th'></a>
+# 2019년 5월 3일 금요일 4th 
 
 ## 선언문 2가지
 
@@ -964,7 +965,8 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 {: .notice}
 
 
-# 2019년 5월 7일 화요일 5th <a id = '5th'></a>
+<a id = '5th'></a>
+# 2019년 5월 7일 화요일 5th 
 
 First class function/Higher order function 관계 그림 수정 
 
@@ -1189,6 +1191,7 @@ tips.sample(10, replace = True) # 랜덤으로 10개 보여줘
 {: .notice}
 
 
+<a id = '6th'></a>
 # 2019년 5월 9일 목요일 6th
 
 
@@ -1374,7 +1377,7 @@ fib(10)  # 10번째 항   (1 1 2 3 5 8 13 21 34 55)
 {: .notice}
 
 
-
+<a id = '7th'></a>
 # 2019년 5월 10일 금요일 7th
 
 <span style="background-color:orange">함수의 중첩으로 가능한 것들</span>
@@ -1575,7 +1578,7 @@ a.__class__
 {: .notice}
 
 
-
+<a id = '8th'></a>
 # 2019년 5월 13일 월요일 8th
 
 ## Class (클래스) 
@@ -1862,7 +1865,7 @@ c.f 패키지는 소문자로 구성한다
 {: .notice}
 
 
-
+<a id = '9th'></a>
 # 2019년 5월 14일 화요일 9th
 
 
@@ -2098,7 +2101,7 @@ AssertionError
 {: .notice}
 
 
-
+<a id = '10th'></a>
 # 2019년 5월 16일 목요일 10th
 
 
@@ -2307,7 +2310,7 @@ a
 {: .notice}
 
 
-
+<a id = '11th'></a>
 # 2019년 5월 17일 금요일 11th
 
 ## Multiple inheritance(다중 상속)
@@ -2653,6 +2656,7 @@ epiphany : [brunch](https://brunch.co.kr/@altna84/216)<br>
 {: .notice}
 
 
+<a id = '12th'></a>
 # 2019년 5월 20일 월요일 열두번째 수업
 
 ## 정보의 진화 단계 
@@ -3043,7 +3047,8 @@ x[True,False]
 {: .notice}
 
 
-# 2019년 5월 21일 화요일 열세번째 수업
+<a id = '13th'></a>
+# 2019년 5월 21일 화요일 13th
 
 
 ## Masking 
@@ -3337,8 +3342,8 @@ a*b
 {: .notice}
 
 
-# 2019년 5월 23일 목요일 열네번째 수업
-
+<a id = '14th'></a>
+# 2019년 5월 23일 목요일 14th
 
 ## newaxis 정리 
 
@@ -3503,8 +3508,8 @@ https://docs.scipy.org/doc/numpy/user/quickstart.html 복습
 {: .notice}
 
 
-
-# 2019년 5월 24일 금요일 열다섯번째 수업
+<a id = '15th'></a>
+# 2019년 5월 24일 금요일 15th
 
 ## Pandas
 
@@ -3794,9 +3799,8 @@ jupyter trust name.ipynb
 그러나 힌트파일이 아닌 정답파일은 파일 자체 내용이 많아서 그런지 아직도 안열린다... 
 
 
-
-# 2019년 5월 27일 월요일 열여섯번째 수업
-
+<a id = '16th'></a>
+# 2019년 5월 27일 월요일 16th
 
 ## 유니콘이 되려면...
 
@@ -4038,7 +4042,8 @@ data['class_'].unique()
 {: .notice}
 
 
-# 2019년 5월 28일 화요일 열일곱번째 수업
+<a id = '17th'></a>
+# 2019년 5월 28일 화요일 17th
 
 ## loc, iloc + lambda
 
@@ -4179,8 +4184,8 @@ s[s.isin([2, 4, 6])]
 {: .notice}
 
 
-
-# 2019년 5월 30일 목요일 열여덟번째 수업
+<a id = '18th'></a>
+# 2019년 5월 30일 목요일 18th
 
 
 ## 기초통계 분석시 그래프 그리는 3가지 
@@ -4543,9 +4548,8 @@ tips.groupby(['day','sex']).mean()[['tip','total_bill']].unstack(1).plot.bar(sta
 
 
 
-
-# 2019년 5월 30일 금요일 열아홉번째 수업
-
+<a id = '19th'></a>
+# 2019년 5월 30일 금요일 19th
 
 
 ## Data Visualization 
@@ -4646,7 +4650,8 @@ sns.pairplot(iris, hue='species')
 {: .notice}
 
 
-# 2019년 6월 3일 월요일 스무번째 수업
+<a id = '20th'></a>
+# 2019년 6월 3일 월요일 20th
 
 ## Folium
 
@@ -4873,7 +4878,8 @@ Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-fo
 {: .notice}
 
 
-# 2019년 6월 4일 화요일 스물한번째 수업
+<a id = '21th'></a>
+# 2019년 6월 4일 화요일 21th
 
 ## Data수집부터 예측까지 과정 
 
@@ -5023,8 +5029,8 @@ array([[10,  0,  0],
 {: .notice}
 
 
-
-# 2019년 6월 5일 수요일 스물두번째 수업
+<a id = '22th'></a>
+# 2019년 6월 5일 수요일 22th
 
 ## One hot encoding & Label encoding 
 
@@ -5174,7 +5180,8 @@ data leakage현상을 방지할 수 있다.<br>
 {: .notice}
 
 
-# 2019년 6월 10일 월요일 스물두번째 수업
+<a id = '23th'></a>
+# 2019년 6월 10일 월요일 23th
 
 
 ## map vs apply 
