@@ -4894,9 +4894,9 @@ Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-fo
 
 ## 기계학습 목적 
 
-<span  style="color: red; font-size:50px;">Data</span>로 부터 <br>
-<span  style="color: red; font-size:50px;">Specific</span>문제 <span  style="color: red; font-size:50px">해결</span>을 위한 <br>
-<span  style="color: red; font-size:50px;">최적의 모델</span> 만들기 
+<span  style="color: red; font-size:30px;">Data</span>**로 부터** <br>
+<span  style="color: red; font-size:30px;">Specific</span>**문제** <span  style="color: red; font-size:30px">해결</span>**을 위한** <br>
+<span  style="color: red; font-size:30px;">최적의 모델</span> **만들기** 
 
 ## Data수집부터 예측까지 과정 
 
@@ -5415,8 +5415,64 @@ Requirement already satisfied: pytz>=2011k in c:\users\samsung\anaconda3\lib\sit
 
 ## 상황에 따른 알고리즘 사용법 
 
+![algorithm](https://user-images.githubusercontent.com/33630505/59346577-926b1400-8d4d-11e9-893c-04293ef73f8c.JPG)
+
+## 데이터의 양이 충분한지 판단하는 방법 
+
+> 데이터 분석시 info정보만으로 데이터의 양이 충분한지 안한지 가늠이 가지 않을때 Learning curve를 확인하여 데이터 양이 충분한지 판단한다. 
+
+>Learning curve란 학습시킬때마다 정확도가 어떻게 달라지는지 추세를 확인하여 training score와 cv score가 만나는 지점 즉, overfitting되기 전 적당한 trade-off 지점을 확인할 수 있는 데이터 양이라고 한다면 데이터가 충분하다는 말 
+
+```python
+from sklearn.datasets import load_iris
+import pandas as pd
+from sklearn.model_selection import learning_curve 
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn_evaluation import plot
+!pip install sklearn-evaluation
+
+iris = load_iris()
+data = pd.DataFrame(iris.data, columns=list('ABCD'))
+target = pd.DataFrame(iris.target, columns=['target'])
+iris2 = pd.concat([data, target], axis=1)
+knn = KNeighborsClassifier()
+train_size, train_score, test_score = learning_curve(knn, iris2.iloc[:,:-1], iris2.iloc[:,-1], cv = 10)
+plot.learning_curve(train_score, test_score, train_size)
+```
+
+![learning curve](https://user-images.githubusercontent.com/33630505/59351013-699c4c00-8d58-11e9-8ada-647b976d4949.JPG)
+
+**learning curve & LogisticRegression** 왜 LogisticRegression은 target data가 2개일때만 learning curve가 가능한 것인가....
+{: .notice}
+
+## Learning curve & LogisticRegression  
+```python
+from sklearn.datasets import make_classification
+import pandas as pd
+from sklearn.model_selection import learning_curve 
+from sklearn.linear_model import LogisticRegression
+
+lr = LogisticRegression()
+data = make_classification(1000,5)
+
+d = pd.DataFrame(data[0])
+ta = pd.DataFrame(data[1])
+train_size, train_score, test_score = learning_curve(lr, d, ta, cv=10)
+plot.learning_curve(train_score, test_score, train_size)
+```
+
+![learning curve](https://user-images.githubusercontent.com/33630505/59352237-2394b780-8d5b-11e9-9afc-fc6703239dc5.JPG)
+
+## 하이퍼 파라미터 찾기 (GridSearchCV)
+
+> GridSearch를 활용하여 for문을 쓰지 않고 하이퍼 파라미터 찾기 
+
+```python
+
+```
 
 
 
-**복습시간**  
+
+**복습시간**  19시 ~  / 총 
 {: .notice}
