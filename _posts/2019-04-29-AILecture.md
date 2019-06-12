@@ -5461,17 +5461,45 @@ train_size, train_score, test_score = learning_curve(lr, d, ta, cv=10)
 plot.learning_curve(train_score, test_score, train_size)
 ```
 
-![learning curve](https://user-images.githubusercontent.com/33630505/59352237-2394b780-8d5b-11e9-9afc-fc6703239dc5.JPG)
+![logistic learning curve](https://user-images.githubusercontent.com/33630505/59358328-4f1d9f00-8d67-11e9-83ce-43b6da0756ef.JPG)
+
 
 ## 하이퍼 파라미터 찾기 (GridSearchCV)
 
 > GridSearch를 활용하여 for문을 쓰지 않고 하이퍼 파라미터 찾기 
 
 ```python
+from sklearn.model_selection import GridSearchCV
 
+# iris2는 위에서 다룬 예제를 대체한다 
+x_train, x_test, y_train, y_test = train_test_split(iris2.iloc[:,:-1], iris2.iloc[:,-1])
+para_grid = {'n_neighbors': range(2,21), 'weights':['uniform', 'distance']}
+gri = GridSearchCV(KNeighborsClassifier(), para_grid)
+gri.fit(x_train, y_train)
+gri.best_estimator_
+gri.best_params_
+gri.param_grid
+gri.best_score_
+pd.DataFrame(gri.cv_results_).T
+
+: GridSearchCV(cv='warn', error_score='raise-deprecating',
+       estimator=KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+           metric_params=None, n_jobs=None, n_neighbors=5, p=2,
+           weights='uniform'),
+       fit_params=None, iid='warn', n_jobs=None,
+       param_grid={'n_neighbors': range(2, 21), 'weights': ['uniform', 'distance']},
+       pre_dispatch='2*n_jobs', refit=True, return_train_score='warn',
+       scoring=None, verbose=0)
+KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+           metric_params=None, n_jobs=None, n_neighbors=13, p=2,
+           weights='distance')   
+{'n_neighbors': 13, 'weights': 'distance'}
+{'n_neighbors': range(2, 21), 'weights': ['uniform', 'distance']}
+0.9821428571428571
 ```
 
 
+![gri_results](https://user-images.githubusercontent.com/33630505/59363332-f43c7580-8d6f-11e9-8858-226de6ce3354.JPG)
 
 
 **복습시간**  19시 ~  / 총 
