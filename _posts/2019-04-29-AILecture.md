@@ -13,15 +13,15 @@ tag:
 
 
 <kbd>Python</kbd> <br>
-[1일차](#1st) &nbsp; [2일차](#2nd)  &nbsp; [3일차](#3rd)  &nbsp; [4일차](#4th)  &nbsp; [5일차](#5th) <br>
-[6일차](#6th) &nbsp; [7일차](#7th)  &nbsp; [8일차](#8th)  &nbsp; [9일차](#9th)  &nbsp; [10일차](#10th) <br>
+[1일차](#1st) &nbsp; [Type(2일차)](#2nd)  &nbsp; [3일차](#3rd)  &nbsp; [4일차](#4th)  &nbsp; [Function(5일차)](#5th) <br>
+[6일차](#6th) &nbsp; [Decorator(7일차)](#7th)  &nbsp; [Class(8일차)](#8th)  &nbsp; [9일차](#9th)  &nbsp; [Meta_Class(10일차)](#10th) <br>
 [11일차](#11th) <br>
 <kbd>Numpy</kbd> <br>
-[12일차](#12th)  &nbsp; [13일차](#13th)  &nbsp; [14일차](#14th) <br>
+[12일차](#12th)  &nbsp; [13일차](#13th)  &nbsp; [newaxis(14일차)](#14th) <br>
 <kbd>Pandas</kbd> <br>
 [15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
 <kbd>Machine Learning</kbd> <br>
-[20일차](#20th)  &nbsp; [21일차](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th)<br>
+[20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th)<br>
 
 
 <a id = '1st'></a>
