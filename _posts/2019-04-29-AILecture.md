@@ -21,7 +21,7 @@ tag:
 <kbd>Pandas</kbd> <br>
 [15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
 <kbd>Machine Learning</kbd> <br>
-[20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th)<br>
+[20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th)<br>
 
 
 <a id = '1st'></a>
@@ -4888,6 +4888,16 @@ Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-fo
 <a id = '21th'></a>
 # 2019년 6월 4일 화요일 21th
 
+## 기계학습 분류 
+
+![learning model](https://user-images.githubusercontent.com/33630505/59347252-1eca0680-8d4f-11e9-9104-a788a22a72e3.JPG)
+
+## 기계학습 목적 
+
+<span  style="color: red" font-size:50px>Data</span>로 부터 <br>
+<span  style="color: red" font-size:50px>Specific</span>문제 <span  style="color: red" font-size:50px>해결</span>을 위한 <br>
+<span  style="color: red" font-size:50px>최적의 모델</span> 만들기 
+
 ## Data수집부터 예측까지 과정 
 
 ```
@@ -5343,4 +5353,70 @@ Generative & Discriminative: [naver blog](https://m.blog.naver.com/PostView.nhn?
 
 
 **복습시간**  18시 30분 ~ 22시 10분 / 총 3시간 40분 
+{: .notice}
+
+
+
+<a id = '24th'></a>
+# 2019년 6월 10일 수요일 24th
+
+
+## import를 하지 않고 외부 객체의 메소드를 사용 하는 방법 
+
+
+```python
+import seaborn as sns 
+iris = sns.load_dataset('iris')
+
+$whos
+:
+Variable   Type         Data/Info
+---------------------------------
+iris       DataFrame         sepal_length  sepal_<...>n\n[150 rows x 5 columns]
+sns        module       <module 'seaborn' from 'C<...>s\\seaborn\\__init__.py'>
+
+dir(iris)
+:
+['T',
+ '_AXIS_ALIASES',
+ '_AXIS_IALIASES',
+ '_AXIS_LEN',
+ ....
+ 'boxplot',
+ 'iloc',
+ 'index',
+ 'infer_objects',
+ 'info',
+ 'insert',
+ 'interpolate',
+ 'isin',
+ .....
+```
+
+> DataFrame 객체는  Pandas 프레임워크에 정의된 클래스이다. 따라서 Pandas를 import하지 않고는 사용할 수 없다. 
+
+> 하지만 import seaborn만 했는데 iris 객체가 DataFrame 타입으로 나온다. 어떻게 된것일까? 
+
+```shell
+!pip install seaborn 
+
+Requirement already satisfied: seaborn in c:\users\samsung\anaconda3\lib\site-packages (0.9.0)
+Requirement already satisfied: numpy>=1.9.3 in c:\users\samsung\anaconda3\lib\site-packages (from seaborn) (1.16.2)
+Requirement already satisfied: scipy>=0.14.0 in c:\users\samsung\anaconda3\lib\site-packages (from seaborn) (1.2.1)
+Requirement already satisfied: pandas>=0.15.2 in c:\users\samsung\anaconda3\lib\site-packages (from seaborn) (0.24.2)
+Requirement already satisfied: matplotlib>=1.4.3 in c:\users\samsung\anaconda3\lib\site-packages (from seaborn) (3.0.3)
+Requirement already satisfied: pytz>=2011k in c:\users\samsung\anaconda3\lib\site-packages (from pandas>=0.15.2->seaborn) (2018.9)
+.....
+```
+
+> seaborn을 설치하게되면 numpy, scipy, pandas 등 같이 설치하게 된다. 왜냐하면 seaborn을 사용하기 위해서는 모두 필요하기 때문이다. 
+
+> 설치가 되었다고 해서 import하지 않고 쓸수 있다는 말은 아니다. seaborn 패키지 자체에서 numpy든 pandas든 import해서 seaborn으로 dataset을 생성하면 DataFrame 형태로 반환하도록 설계되어 있어 DataFrame 객체가 네임스페이스에 들어 있게 되면 DataFrame이 사용할 수 있는 메소드는 전부 사용할 수 있게 되는 것이다.
+
+## 상황에 따른 알고리즘 사용법 
+
+
+
+
+**복습시간**  
 {: .notice}
