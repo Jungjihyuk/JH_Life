@@ -5501,6 +5501,10 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 
 ![gri_results](https://user-images.githubusercontent.com/33630505/59363332-f43c7580-8d6f-11e9-8858-226de6ce3354.JPG)
 
+## Supervised Learning Process
+
+![supervised learning process](https://user-images.githubusercontent.com/33630505/59368687-bba19980-8d79-11e9-91bc-63d9a8d3988e.JPG)
+
 
 **복습시간**  19시 ~  / 총 
 {: .notice}
