@@ -4894,9 +4894,9 @@ Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-fo
 
 ## 기계학습 목적 
 
-<span  style="color: red" font-size:50px>Data</span>로 부터 <br>
-<span  style="color: red" font-size:50px>Specific</span>문제 <span  style="color: red" font-size:50px>해결</span>을 위한 <br>
-<span  style="color: red" font-size:50px>최적의 모델</span> 만들기 
+<span  style="color: red; font-size:50px;">Data</span>로 부터 <br>
+<span  style="color: red; font-size:50px;">Specific</span>문제 <span  style="color: red; font-size:50px">해결</span>을 위한 <br>
+<span  style="color: red; font-size:50px;">최적의 모델</span> 만들기 
 
 ## Data수집부터 예측까지 과정 
 
