@@ -21,7 +21,7 @@ tag:
 <kbd>Pandas</kbd> <br>
 [15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
 <kbd>Machine Learning</kbd> <br>
-[20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th)<br>
+[20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th) &nbsp; [25일차](#25th)<br>
 
 
 <a id = '1st'></a>
@@ -5358,7 +5358,7 @@ Generative & Discriminative: [naver blog](https://m.blog.naver.com/PostView.nhn?
 
 
 <a id = '24th'></a>
-# 2019년 6월 10일 수요일 24th
+# 2019년 6월 12일 수요일 24th
 
 
 ## import를 하지 않고 외부 객체의 메소드를 사용 하는 방법 
@@ -5501,10 +5501,68 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 
 ![gri_results](https://user-images.githubusercontent.com/33630505/59363332-f43c7580-8d6f-11e9-8858-226de6ce3354.JPG)
 
+
+**복습시간**  19시 ~  22시/ 총 3시간 
+{: .notice}
+
+
+
+
+<a id = '25th'></a>
+# 2019년 6월 13일 목요일 25th
+
+
 ## Supervised Learning Process
 
 ![supervised learning process](https://user-images.githubusercontent.com/33630505/59368687-bba19980-8d79-11e9-91bc-63d9a8d3988e.JPG)
 
 
-**복습시간**  19시 ~  / 총 
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Raw Data Collection</span> <br>
+
+<p style = "border: 1.2px solid black>데이터 수집, 적합한 데이터 format으로 불러오기. 
+	    기초 통계분석하기 위해 보통 DataFrame 형태로 불러오거나 변환해준다.</p> <br>
+	    
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>	    
+	    
+<p style = "border: 1.2px solid black>Tidy Data인지 확인한다. 
+	    Tidy Data가 아닐 경우 변수는 열로 관측치는 행으로 구성할 수 있도록 melt로 행, 열 변환해준다. </p> <br>
+
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Sampling</span> <br>
+
+<p style = "border: 1.2px solid black>Train-Test-Split 하거나 데이터 양이 많지 않아 대략적인 성능을 알고 싶을 때는 Cross Validation. 보통 Big Data를 다룬다는 가정이 있기 때문에 Train-Test-Split을 한다.</p><br>
+
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>
+
+<p style = "border: 1.2px solid black>info를 통해 데이터 양이 충분한지, 열 이름에 공백이나 특수문자는 없는지, 데이터 타입이 모두 숫자인지, 불러드릴 수 있는 크기인지, label data를 포함하고 있는지 등을 체크한다. 
+	    이때 데이터 양이 충분한지 여부를 확인하고 싶을때는 Learning Curve를 확인한다.
+	    데이터 양이 적다고 판단이 되어 데이터 수집을 해야하는데 데이터 수집할 형편이 되지 않는다면 차원 축소를 고려해본다.
+	    차원 축소는 Scaling, 수작업 등으로 한다.
+	    
+	    </p>
+	    
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white"></span> <br>	    
+
+```
+
+3. describe 
+- 지도학습을 하는 경우 pairplot으로 분류 가능한지 확인
+- label data가 유한개인지 무한개인지 확인 
+- label data 유한 --> classifications
+- label data 무한 --> regression
+- 상관성 확인해야 하는 경우 heatmap
+- boxplot 
+- 비지도학습을 하는 경우 label data가 없이 즉, 기준이되는 답이 없이 학습해야함.
+- 비지도학습의 경우 클러스터링, 시각화와 차원축소, 연관 규칙 학습등의 알고리즘을 사용
+4. 왜도, 첨도 
+- skew
+- kurtosis
+5. 5총사중 나머지 3개 (head, tail, sample) 
+6. 목적에 맞게 평가 척도에 따라 최적의 모델 생성 
+7. 성능 테스트 
+```
+
+
+
+**복습시간**  19시 ~ / 
 {: .notice}
+
