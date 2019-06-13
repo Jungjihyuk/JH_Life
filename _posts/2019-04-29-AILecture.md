@@ -4892,18 +4892,37 @@ Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-fo
 
 ![learning model](https://user-images.githubusercontent.com/33630505/59347252-1eca0680-8d4f-11e9-9104-a788a22a72e3.JPG)
 
-<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">지도 학습</span> <br>	    
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">정답을 알려주며 학습시킨다. 
-예를 들어 '바퀴 4개, 문짝 4개, 도로위를 시속 0~200km(input data) 달릴 수 있는 것은 자동차(label data or target data)야' 라고 학습 시키고 학습을 바탕으로 모델이 예측할 수 있도록 하는 방법이다. 
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">지도 학습</span> <br>
+
+```
+정답을 알려주며 학습시킨다. 
+예를 들어 '바퀴 4개, 문짝 4개, 도로위를 시속 0~200km(input data) 달릴 수 있는 것은 자동차(label data or target data)야' 
+라고 학습 시키고 학습을 바탕으로 모델이 예측할 수 있도록 하는 방법이다. 
+
 지도학습은 크게 Classification, Regression으로 나눈다. 
 Classification은 또 이진분류, 다중분류로 볼 수 있다. 
-이진분류 같은 경우 생존자 or 비생존자와 같이 둘 중 하나로 분류 가능한 것을 말한다. LogisticRegression 알고리즘이 대표적인 이진 분류 알고리즘이다. 다중 분류는 어떤 데이터에 대해 여러 값 중 하나로 분류 가능한 것을 말한다. 예를 들어 축구공, 야구공, 농구공 등 Label data가 여러개로 나뉠 수 있는 경우를 말한다. 이때는 KNN알고리즘으로 분류 가능하다. 이때 KNN알고리즘은 데이터가 많아지거나 Label data가 많아지면 성능이 떨어질 가능성이 높다.
-회귀는 어떤 데이터들의 특징을 토대로 값을 예측하는 것을 말한다. 예를 들어 키가 170cm인 사람의 몸무게는 65kg이다와 같이 Label data가 실수 값을 갖거나 연속적, 범위가 정해지지 않은 경우 무한대인 경우이다.
-분류인지 회귀인지는 label data가 유한개인지 무한개인지 생각해보면 된다. </p><br>
+이진분류 같은 경우 생존자 or 비생존자와 같이 둘 중 하나로 분류 가능한 것을 말한다. 
+LogisticRegression 알고리즘이 대표적인 이진 분류 알고리즘이다. 
+다중 분류는 어떤 데이터에 대해 여러 값 중 하나로 분류 가능한 것을 말한다. 
+예를 들어 축구공, 야구공, 농구공 등 Label data가 여러개로 나뉠 수 있는 경우를 말한다. 
+이때는 KNN알고리즘으로 분류 가능하다. 
+KNN알고리즘은 데이터가 많아지거나 Label data가 많아지면 성능이 떨어질 가능성이 높다.
 
+Regression는 어떤 데이터들의 특징을 토대로 값을 예측하는 것을 말한다. 
+예를 들어 키가 170cm인 사람의 몸무게는 65kg이다와 같이 Label data가 실수 값을 갖거나 
+연속적, 범위가 정해지지 않은 경우 무한대인 경우이다.
+
+분류인지 회귀인지는 label data가 유한개인지 무한개인지 생각해보면 된다.
+```
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">비지도 학습</span> <br>	    
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">정답을 알려주지 않고 비슷한 데이터들 끼리 군집화하여 학습한다. 예를 들어 '남자, 여자 사진을 무작위로 입력값으로 줬을 때 사진을 보고 공통적으로 보이는 특성들을 찾아 비슷한 특성끼리 묶어 남자, 여자를 학습 시킨 데이터를 기반으로 분류하는 것을 말한다. </p><br>
 
+```
+정답을 알려주지 않고 비슷한 데이터들 끼리 군집화하여 학습한다. 
+예를 들어 '남자, 여자 사진을 무작위로 입력값으로 줬을 때 사진을 보고 공통적으로 보이는 
+특성들을 찾아 비슷한 특성끼리 묶어 남자, 여자를 학습 시킨 데이터를 기반으로 분류하는 것을 말한다. 
+```
+
+지도학습, 비지도학습 : [tistory](https://marobiana.tistory.com/155)
 ## 기계학습 목적 
 
 <span  style="color: red; font-size:30px;">Data</span>**로 부터** <br>
@@ -5529,48 +5548,157 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Raw Data Collection</span> <br>
 
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">데이터 수집, 적합한 데이터 format으로 불러오기. 
+<p style = "border: 1.2px solid black; border-radius: 7px; display: inline-block; padding: 5;">데이터 수집, 적합한 데이터 format으로 불러오기. 
 	    기초 통계분석하기 위해 보통 DataFrame 형태로 불러오거나 변환해준다.</p> <br>
 	    
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>	    
 	    
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">Tidy Data인지 확인한다. 
+<p style = "border: 1.2px solid black; border-radius: 7px; display: inline-block; padding: 5;">Tidy Data인지 확인한다. 
 	    Tidy Data가 아닐 경우 변수는 열로 관측치는 행으로 구성할 수 있도록 melt로 행, 열 변환해준다. </p> <br>
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Sampling</span> <br>
 
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">Train-Test-Split 하거나 데이터 양이 많지 않아 대략적인 성능을 알고 싶을 때는 Cross Validation. 보통 Big Data를 다룬다는 가정이 있기 때문에 Train-Test-Split을 한다.</p><br>
+<p style = "border: 1.2px solid black; border-radius: 7px; display: inline-block; padding: 5;">Train-Test-Split 하거나 데이터 양이 많지 않아 대략적인 성능을 알고 싶을 때는 Cross Validation. 보통 Big Data를 다룬다는 가정이 있기 때문에 Train-Test-Split을 한다.</p><br>
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>
 
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">info를 통해 데이터 양이 충분한지, 열 이름에 공백이나 특수문자는 없는지, 데이터 타입이 모두 숫자인지, 불러드릴 수 있는 크기인지, label data를 포함하고 있는지 등을 체크한다. 
+<p style = "border: 1.2px solid black; border-radius: 7px; display: inline-block; padding: 5;">info를 통해 데이터 양이 충분한지, 열 이름에 공백이나 특수문자는 없는지, 데이터 타입이 모두 숫자인지, 불러드릴 수 있는 크기인지, label data를 포함하고 있는지 등을 체크한다. 
 	    이때 데이터 양이 충분한지 여부를 확인하고 싶을때는 Learning Curve를 확인한다.
 	    데이터 양이 적다고 판단이 되어 데이터 수집을 해야하는데 데이터 수집할 형편이 되지 않는다면 차원 축소를 고려해본다.
 	    차원 축소는 Scaling, 수작업 등으로 한다.
 	    
 	    </p>
 	    
-<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white"></span> <br>	    
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Learning Algorithm Training</span> <br>	    
 
+
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Hyperparameter Optimization</span> <br>
+
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Post-Processing</span> <br>
+
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Final Model</span> <br>
+
+## Pandas-Profiling
+
+### 설치 
+
+```shell
+!pip install pandas-profiling
 ```
 
-3. describe 
-- 지도학습을 하는 경우 pairplot으로 분류 가능한지 확인
-- label data가 유한개인지 무한개인지 확인 
-- label data 유한 --> classifications
-- label data 무한 --> regression
-- 상관성 확인해야 하는 경우 heatmap
-- boxplot 
-- 비지도학습을 하는 경우 label data가 없이 즉, 기준이되는 답이 없이 학습해야함.
-- 비지도학습의 경우 클러스터링, 시각화와 차원축소, 연관 규칙 학습등의 알고리즘을 사용
-4. 왜도, 첨도 
-- skew
-- kurtosis
-5. 5총사중 나머지 3개 (head, tail, sample) 
-6. 목적에 맞게 평가 척도에 따라 최적의 모델 생성 
-7. 성능 테스트 
+### 예제 
+
+```python
+from sklearn.datasets import load_wine
+import pandas as pd
+from pandas_profiling import ProfileReport
+import seaborn as sns
+
+data = load_wine()
+data1=pd.DataFrame(data.data, columns=data.feature_names)
+data2 = pd.DataFrame(data.target, columns=['target'])
+data3 = pd.concat([data1,data2], axis=1)
+ProfileReport(data3)
 ```
 
+![overview](https://user-images.githubusercontent.com/33630505/59434512-a59de280-8e26-11e9-8053-1d2431cea98c.JPG)
+
+> ProfileReport를 사용해서 자기만의 전처리 방식을 자동화 할 수도 있다. 
+
+
+## 차원 축소 3가지 방법 
+
+```
+1. Feature Scaling 
+2. Feature Selection
+3. Dimensionality Reduction
+```
+
+### Feature Scaling
+
+#### 13개 차원에서 5개 차원으로 축소 
+```python
+from sklearn.decomposition import PCA
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import cross_val_score
+
+pca = PCA(5)
+t=pca.fit_transform(data3.iloc[:,:-1])
+wine=pd.DataFrame(t)
+wine_pca = pd.concat([wine, data3.target], axis=1)
+
+# 13차원 
+cross_val_score(KNeighborsClassifier(), data3.iloc[:,:-1], data3.iloc[:,-1], cv = 10)
+# 5차원
+cross_val_score(KNeighborsClassifier(), wine_pca.iloc[:,:-1], wine_pca.iloc[:,-1], cv = 10)
+
+:
+array([0.73684211, 0.88888889, 0.77777778, 0.94444444, 0.88888889,
+       0.94444444, 0.72222222, 1.        , 0.76470588, 0.875     ])
+
+array([0.73684211, 0.88888889, 0.83333333, 0.88888889, 0.88888889,
+       0.94444444, 0.72222222, 0.94444444, 0.76470588, 0.875     ])
+```
+
+> 차원 축소 전과 축소 후 성능 비교후 성능이 축소 전과 비슷하다면 상관성이 높다는 의미로 차원을 축소해도 괜찮다. 
+
+> 데이터의 양이 차원에 비해 작을때 차원 축소로 성능 향상을 하기도 한다. 
+
+
+<span style="background-color:red">밑에 부터는 복습 자세하게 다시하기</span>
+
+## Pipeline
+
+> pipeline은 ... 
+
+### Pipeline만드는 두가지 방법 
+
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pipeline</span> <br>
+
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">make_pipeline</span> <br>
+
+### Pipeline 
+```python
+import numpy as np
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import seaborn as sns
+import missingno as mino
+%matplotlib inline
+from sklearn.datasets import load_breast_cancer
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.pipeline import Pipeline
+
+data = load_breast_cancer()
+X, y = pd.DataFrame(data.data), pd.DataFrame(data.target, columns=['target'])
+cancer = pd.concat([X, y], axis=1)
+
+t = cross_val_score(KNeighborsClassifier(),
+                    cancer.iloc[:, :-1],
+                    cancer.iloc[:, -1],
+                    cv=10)
+
+X_train, X_test, y_train, y_test = train_test_split(cancer.iloc[:, :-1], cancer.iloc[:, -1])
+pipe = Pipeline([('scaler', MinMaxScaler()), ('knn', KNeighborsClassifier())])
+pipe.fit(X_train, y_train)
+
+: Pipeline(memory=None,
+         steps=[('scaler', MinMaxScaler(copy=True, feature_range=(0, 1))),
+                ('knn',
+                 KNeighborsClassifier(algorithm='auto', leaf_size=30,
+                                      metric='minkowski', metric_params=None,
+                                      n_jobs=None, n_neighbors=5, p=2,
+                                      weights='uniform'))],
+         verbose=False)
+```
+
+## 표준화 
+
+## GridSearchCV + Pipeline 하는 방법 
 
 
 **복습시간**  19시 ~ / 
