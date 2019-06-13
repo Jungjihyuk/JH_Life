@@ -4892,6 +4892,18 @@ Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-fo
 
 ![learning model](https://user-images.githubusercontent.com/33630505/59347252-1eca0680-8d4f-11e9-9104-a788a22a72e3.JPG)
 
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">지도 학습</span> <br>	    
+<p style = "border: 1.2px solid black">정답을 알려주며 학습시킨다. 
+예를 들어 '바퀴 4개, 문짝 4개, 도로위를 시속 0~200km(input data) 달릴 수 있는 것은 자동차(label data or target data)야' 라고 학습 시키고 학습을 바탕으로 모델이 예측할 수 있도록 하는 방법이다. 
+지도학습은 크게 Classification, Regression으로 나눈다. 
+Classification은 또 이진분류, 다중분류로 볼 수 있다. 
+이진분류 같은 경우 생존자 or 비생존자와 같이 둘 중 하나로 분류 가능한 것을 말한다. LogisticRegression 알고리즘이 대표적인 이진 분류 알고리즘이다. 다중 분류는 어떤 데이터에 대해 여러 값 중 하나로 분류 가능한 것을 말한다. 예를 들어 축구공, 야구공, 농구공 등 Label data가 여러개로 나뉠 수 있는 경우를 말한다. 이때는 KNN알고리즘으로 분류 가능하다. 이때 KNN알고리즘은 데이터가 많아지거나 Label data가 많아지면 성능이 떨어질 가능성이 높다.
+회귀는 어떤 데이터들의 특징을 토대로 값을 예측하는 것을 말한다. 예를 들어 키가 170cm인 사람의 몸무게는 65kg이다와 같이 Label data가 실수 값을 갖거나 연속적, 범위가 정해지지 않은 경우 무한대인 경우이다.
+분류인지 회귀인지는 label data가 유한개인지 무한개인지 생각해보면 된다. </p><br>
+
+<span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">비지도 학습</span> <br>	    
+<p style = "border: 1.2px solid black">정답을 알려주지 않고 비슷한 데이터들 끼리 군집화하여 학습한다. 예를 들어 '남자, 여자 사진을 무작위로 입력값으로 줬을 때 사진을 보고 공통적으로 보이는 특성들을 찾아 비슷한 특성끼리 묶어 남자, 여자를 학습 시킨 데이터를 기반으로 분류하는 것을 말한다. </p><br>
+
 ## 기계학습 목적 
 
 <span  style="color: red; font-size:30px;">Data</span>**로 부터** <br>
