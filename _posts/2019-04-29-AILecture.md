@@ -4893,7 +4893,7 @@ Folium 활용 : [pythonhow](https://pythonhow.com/web-mapping-with-python-and-fo
 ![learning model](https://user-images.githubusercontent.com/33630505/59347252-1eca0680-8d4f-11e9-9104-a788a22a72e3.JPG)
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">지도 학습</span> <br>	    
-<p style = "border: 1.2px solid black">정답을 알려주며 학습시킨다. 
+<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">정답을 알려주며 학습시킨다. 
 예를 들어 '바퀴 4개, 문짝 4개, 도로위를 시속 0~200km(input data) 달릴 수 있는 것은 자동차(label data or target data)야' 라고 학습 시키고 학습을 바탕으로 모델이 예측할 수 있도록 하는 방법이다. 
 지도학습은 크게 Classification, Regression으로 나눈다. 
 Classification은 또 이진분류, 다중분류로 볼 수 있다. 
@@ -4902,7 +4902,7 @@ Classification은 또 이진분류, 다중분류로 볼 수 있다.
 분류인지 회귀인지는 label data가 유한개인지 무한개인지 생각해보면 된다. </p><br>
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">비지도 학습</span> <br>	    
-<p style = "border: 1.2px solid black">정답을 알려주지 않고 비슷한 데이터들 끼리 군집화하여 학습한다. 예를 들어 '남자, 여자 사진을 무작위로 입력값으로 줬을 때 사진을 보고 공통적으로 보이는 특성들을 찾아 비슷한 특성끼리 묶어 남자, 여자를 학습 시킨 데이터를 기반으로 분류하는 것을 말한다. </p><br>
+<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">정답을 알려주지 않고 비슷한 데이터들 끼리 군집화하여 학습한다. 예를 들어 '남자, 여자 사진을 무작위로 입력값으로 줬을 때 사진을 보고 공통적으로 보이는 특성들을 찾아 비슷한 특성끼리 묶어 남자, 여자를 학습 시킨 데이터를 기반으로 분류하는 것을 말한다. </p><br>
 
 ## 기계학습 목적 
 
@@ -5051,8 +5051,6 @@ array([[10,  0,  0],
 **Model** 학습이 끝난 알고리즘 + 데이터를 Model 이라고 한다 
 {: .notice}
 
-
-※ 지도, 비지도, 강화학습 모델 관련 자료 추가 첨부, Data수집부터 예측까지 과정 부분 다시한번 검토, 참고 자료 업로드 되면 내용 추가 필요 
 
 **복습시간** 18시 50분 ~ 19시 45분 / 총 55분  
 {: .notice}
@@ -5531,21 +5529,21 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Raw Data Collection</span> <br>
 
-<p style = "border: 1.2px solid black">데이터 수집, 적합한 데이터 format으로 불러오기. 
+<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">데이터 수집, 적합한 데이터 format으로 불러오기. 
 	    기초 통계분석하기 위해 보통 DataFrame 형태로 불러오거나 변환해준다.</p> <br>
 	    
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>	    
 	    
-<p style = "border: 1.2px solid black">Tidy Data인지 확인한다. 
+<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">Tidy Data인지 확인한다. 
 	    Tidy Data가 아닐 경우 변수는 열로 관측치는 행으로 구성할 수 있도록 melt로 행, 열 변환해준다. </p> <br>
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Sampling</span> <br>
 
-<p style = "border: 1.2px solid black">Train-Test-Split 하거나 데이터 양이 많지 않아 대략적인 성능을 알고 싶을 때는 Cross Validation. 보통 Big Data를 다룬다는 가정이 있기 때문에 Train-Test-Split을 한다.</p><br>
+<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">Train-Test-Split 하거나 데이터 양이 많지 않아 대략적인 성능을 알고 싶을 때는 Cross Validation. 보통 Big Data를 다룬다는 가정이 있기 때문에 Train-Test-Split을 한다.</p><br>
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>
 
-<p style = "border: 1.2px solid black">info를 통해 데이터 양이 충분한지, 열 이름에 공백이나 특수문자는 없는지, 데이터 타입이 모두 숫자인지, 불러드릴 수 있는 크기인지, label data를 포함하고 있는지 등을 체크한다. 
+<p style = "border: 1.2px solid black; border-radius: 7px; padding: 5">info를 통해 데이터 양이 충분한지, 열 이름에 공백이나 특수문자는 없는지, 데이터 타입이 모두 숫자인지, 불러드릴 수 있는 크기인지, label data를 포함하고 있는지 등을 체크한다. 
 	    이때 데이터 양이 충분한지 여부를 확인하고 싶을때는 Learning Curve를 확인한다.
 	    데이터 양이 적다고 판단이 되어 데이터 수집을 해야하는데 데이터 수집할 형편이 되지 않는다면 차원 축소를 고려해본다.
 	    차원 축소는 Scaling, 수작업 등으로 한다.
