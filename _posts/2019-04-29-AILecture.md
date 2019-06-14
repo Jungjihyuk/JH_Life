@@ -22,7 +22,7 @@ tag:
 [15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
 <kbd>Machine Learning</kbd> <br>
 [20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th) &nbsp; [25일차](#25th)<br>
-
+[26일차](#26th)<br>
 
 <a id = '1st'></a>
 # 2019년 4월 29일 월요일 1st 
@@ -5573,21 +5573,21 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Raw Data Collection</span> <br>
 
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 10;">데이터 수집, 적합한 데이터 format으로 불러오기. 
+<p style = "border: 1.2px solid black; border-radius: 7px; display: block; padding: 10;">데이터 수집, 적합한 데이터 format으로 불러오기. 
 	    기초 통계분석하기 위해 보통 DataFrame 형태로 불러오거나 변환해준다.</p>
 	    
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>	    
 	    
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 10;">Tidy Data인지 확인한다. 
+<p style = "border: 1.2px solid black; border-radius: 7px; display: block; padding: 10;">Tidy Data인지 확인한다. 
 	    Tidy Data가 아닐 경우 변수는 열로 관측치는 행으로 구성할 수 있도록 melt로 행, 열 변환해준다. </p>
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Sampling</span> <br>
 
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 10;">Train-Test-Split 하거나 데이터 양이 많지 않아 대략적인 성능을 알고 싶을 때는 Cross Validation. 보통 Big Data를 다룬다는 가정이 있기 때문에 Train-Test-Split을 한다.</p>
+<p style = "border: 1.2px solid black; border-radius: 7px; display: block; padding: 10;">Train-Test-Split 하거나 데이터 양이 많지 않아 대략적인 성능을 알고 싶을 때는 Cross Validation. 보통 Big Data를 다룬다는 가정이 있기 때문에 Train-Test-Split을 한다.</p>
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>
 
-<p style = "border: 1.2px solid black; border-radius: 7px; padding: 10;">info를 통해 데이터 양이 충분한지, 열 이름에 공백이나 특수문자는 없는지, 데이터 타입이 모두 숫자인지, 불러드릴 수 있는 크기인지, label data를 포함하고 있는지 등을 체크한다. 
+<p style = "border: 1.2px solid black; border-radius: 7px; display: block; padding: 10;">info를 통해 데이터 양이 충분한지, 열 이름에 공백이나 특수문자는 없는지, 데이터 타입이 모두 숫자인지, 불러드릴 수 있는 크기인지, label data를 포함하고 있는지 등을 체크한다. 
 	    이때 데이터 양이 충분한지 여부를 확인하고 싶을때는 Learning Curve를 확인한다.
 	    데이터 양이 적다고 판단이 되어 데이터 수집을 해야하는데 데이터 수집할 형편이 되지 않는다면 차원 축소를 고려해본다.
 	    차원 축소는 Scaling, 수작업 등으로 한다.
