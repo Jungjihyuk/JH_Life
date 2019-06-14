@@ -5832,6 +5832,85 @@ np.where(km.labels_==0)  # 100 ~ 149 / 52, 77 / 14개 틀림
        dtype=int64),)
 ```
 
+## dbscan 
+
+> 묶음 갯수 파악하기 
+
+```python
+from sklearn.cluster import DBSCAN, dbscan  # 둘다 같은 기능 
+from sklearn.datasets import load_iris
+import pandas as pd
+
+iris = load_iris()
+iris_data = pd.DataFrame(iris.data, columns=iris.feature_names)
+dbs = DBSCAN()
+dbs.fit(iris_data.iloc[:,:-1])
+vars(dbs.fit(iris_data.iloc[:,:-1]))
+
+:
+DBSCAN(algorithm='auto', eps=0.5, leaf_size=30, metric='euclidean',
+    metric_params=None, min_samples=5, n_jobs=None, p=None)
+    
+{'eps': 0.5,
+ 'min_samples': 5,
+ 'metric': 'euclidean',
+ 'metric_params': None,
+ 'algorithm': 'auto',
+ 'leaf_size': 30,
+ 'p': None,
+ 'n_jobs': None,
+ 'core_sample_indices_': array([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,
+         13,  16,  17,  19,  20,  21,  23,  24,  25,  26,  27,  28,  29,
+         30,  31,  32,  33,  34,  35,  36,  37,  38,  39,  40,  42,  43,
+         44,  45,  46,  47,  48,  49,  50,  51,  52,  53,  54,  55,  56,
+         58,  61,  63,  65,  66,  67,  69,  70,  71,  72,  73,  74,  75,
+         76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  88,  89,
+         90,  91,  92,  94,  95,  96,  97,  99, 101, 102, 103, 104, 110,
+        111, 112, 115, 116, 120, 121, 123, 124, 125, 126, 127, 128, 132,
+        133, 136, 137, 138, 139, 140, 142, 143, 144, 145, 146, 147, 149],
+       dtype=int64),
+ 'labels_': array([ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+         0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+         0,  0,  0,  0,  0,  0,  0, -1,  0,  0,  0,  0,  0,  0,  0,  0,  1,
+         1,  1,  1,  1,  1,  1, -1,  1,  1, -1,  1,  1,  1,  1,  1,  1,  1,
+        -1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,
+         1,  1, -1,  1,  1,  1,  1,  1, -1,  1,  1,  1,  1, -1,  1,  1,  1,
+         1,  1,  1, -1, -1,  1, -1, -1,  1,  1,  1,  1,  1,  1,  1, -1, -1,
+         1,  1,  1, -1,  1,  1,  1,  1,  1,  1,  1,  1, -1,  1,  1, -1, -1,
+         1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1],
+       dtype=int64),
+ 'components_': array([[5.1, 3.5, 1.4, 0.2],
+        [4.9, 3. , 1.4, 0.2],
+        [4.7, 3.2, 1.3, 0.2],
+	......
+```
+
+**min_samples**는 영역 안의 최소 데이터 갯수 <br>
+**eps**는 영역 크기 <br>
+
+## Agglomerative Clustering
+
+
+### Dendrograms
+
+```python
+from scipy.cluster.hierarchy import dendrogram, linkage
+
+linkage_matrix = linkage(X, 'ward')
+figure = plt.figure(figsize=(7.5, 5))
+dendrogram(
+    linkage_matrix, # 
+    color_threshold=0,
+)
+plt.title('Hierarchical Clustering Dendrogram (Ward)')
+plt.xlabel('sample index')
+plt.ylabel('distance')
+plt.tight_layout()
+plt.show()
+```
+
+![dendrogram](https://user-images.githubusercontent.com/33630505/59520588-44990c00-8f05-11e9-99bb-06d03b26ff40.JPG)
+
 
 ## mglearn으로 clustering 시각화 해서 보기 
 
@@ -5875,10 +5954,36 @@ mglearn.plot_dbscan.plot_dbscan()
 
 ![dbscan](https://user-images.githubusercontent.com/33630505/59519335-9db37080-8f02-11e9-8caa-822cf5e52152.JPG)
 
+## dbscan + k-means
+
+<hr>
+<span style="background-color: red">알고리즘 만들기는 다음시간에 계속</span>
+
 ## 알고리즘 만들기 
 
+### Duck typing 방식 
+```python 
+class MyEstimator:
+    def __init__(self):
+        print('a')
+    def fit(self, X,y):
+        print('b')
+	
+my = MyEstimator()
+my.fit(data.iloc[:,:-1],data.iloc[:])	
+
+from sklearn.dummy import DummyClassifier
+dum = DummyClassifier() # 사람처럼 분류하는 알고리즘 
+```
+
+### BaseEstimator 상속 방식 
 
 
-**복습시간**  19시 ~ 22시 / 총 3시간  
+**Dummy 알고리즘** Dummy 알고리즘과 내가 만든 알고리즘과 비교해서 성능이 좋지 못하다면 자신만의 알고리즘을 만들 필요가 딱히 없음...
+{: .notice}
+
+
+
+**복습시간**  19시 45분 ~ 24시 / 총 4시간 15분  
 {: .notice}
 
