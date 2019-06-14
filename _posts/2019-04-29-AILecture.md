@@ -4927,7 +4927,15 @@ Clustering 방법중 대표적인 알고리즘인 k-means는 예를 들어 3가�
 랜덤한 데이터 값에서 가까운 값을 찾아 평균을 낸다. 그러면 평균낸 값에서 가까운 값을 또 찾고 그 값에서 평균을 낸다. 
 이와 같은 작업을 반복하여 평균값이 변하지 않는 때를 찾아 그 평균 값을 기준으로 군집화 하면 그것이 클러스터링 방법이다. 
 
-Visualization & Dimensionality  Reduction은 
+Visualization & Dimensionality  Reduction은 데이터간의 상관성을 분석하여 포함시키지 않아도 예측하는데 큰 지장 없는 
+데이터 열을 줄임으로써 차원을 축소하는 방법이다. 
+대표적으로 pca 방법이 있다. pca알고리즘은 데이터 분포에서 variance가 큰 방향의 벡터에 데이터를 정사영하여 
+차원을 축소시킨다. 이렇게 했을 때 데이터의 구조는 크게 바뀌지 않으면서 차원은 감소시킬수 있기 때문이다. 
+
+Association은 유사한 요소를 찾아 묶는 것이다. 이때 유사성을 파악할때 데이터간의 차이를 측정하는 방법인 
+유클리드 거리 측정 방법과 비-유클리드 거리 측정법으로 나눌 수 있다. 
+예를 들어 '근처에 사는 사람은 비슷한 성격을 갖고 있을 것이다' 처럼 묶거나 
+'피자를 사는 사람은 꼭 콜라를 산다' 처럼 묶을 수 있다. 
 ```
 
 지도학습, 비지도학습 : [tistory](https://marobiana.tistory.com/155) <br>
@@ -5189,6 +5197,9 @@ import seaborn as sns
 iris = sns.load_dataset('iris')
 iris.species = iris.species.map('setosa': 0, 'versicolor':1,'virginica':2})
 ```
+
+**Label encoding시 주의** 거리기반 알고리즘을 사용할 때 라벨 인코딩된 값으로 학습을 하게되면 숫자간의 격차로 인해 오차가 생길 위험이 있다. 예를 들어 0, 1, 2로 라벨 인코딩 되었다고 했을 때 0과 1사이 1과 2사이는 둘다 1간격만 있어 상관 없지만 0과 2사이에는 2간격이 생겨 학습시 주의해야 한다. 따라서 label encoding 해야할 때와 하지 말아야 할때를 잘 구분해야 한다. 
+{: .notice}
 
 ## Bias , Variance 
 
@@ -5481,8 +5492,6 @@ plot.learning_curve(train_score, test_score, train_size)
 
 ![learning curve](https://user-images.githubusercontent.com/33630505/59351013-699c4c00-8d58-11e9-8ada-647b976d4949.JPG)
 
-**learning curve & LogisticRegression** 왜 LogisticRegression은 target data가 2개일때만 learning curve가 가능한 것인가....
-{: .notice}
 
 ## Learning curve & LogisticRegression  
 ```python
@@ -5540,6 +5549,12 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 
 ![gri_results](https://user-images.githubusercontent.com/33630505/59363332-f43c7580-8d6f-11e9-8858-226de6ce3354.JPG)
 
+
+**LogisticRegression** LogisticRegression알고리즘은 target data가 2개 이상일때만 Learning curve가 가능하다. 
+{: .notice}
+
+**Cross-validation & Learning curve** Cross-validation으로 성능 체크할때 n개로 나누어 체크를 하는데 이때 자동으로 데이터를 섞고나서 평가를 하기 때문에 데이터가 정렬 되어 있어도 섞어서 평가를 한다. 그런데 Learning curve로 학습 추세를 확인 할때는 데이터를 순서대로 학습시키기 때문에 최소 클래스 2개가 필요한 LogisticRegression알고리즘을 사용할 때는 shuffle 옵션을 True로 줘야 한다. 
+{: .notice}
 
 **복습시간**  19시 ~  22시/ 총 3시간 
 {: .notice}
@@ -5631,23 +5646,29 @@ ProfileReport(data3)
 from sklearn.decomposition import PCA
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_score
+from sklearn.datasets import load_wine
+import pandas as pd
+
+data = load_wine()
+wine = pd.DataFrame(data.data, columns=data.feature_names)
+target = pd.DataFrame(data.target, columns=['target'])
+wine_data = pd.concat([wine, target], axis=1)
 
 pca = PCA(5)
-t=pca.fit_transform(data3.iloc[:,:-1])
-wine=pd.DataFrame(t)
-wine_pca = pd.concat([wine, data3.target], axis=1)
+wine_pca = pca.fit_transform(wine_data.iloc[:,:-1])
+wine2 = pd.DataFrame(wine_pca)
+wine2_data = pd.concat([wine2, wine_data.target], axis=1)
 
 # 13차원 
-cross_val_score(KNeighborsClassifier(), data3.iloc[:,:-1], data3.iloc[:,-1], cv = 10)
+cross_val_score(KNeighborsClassifier(), wine_data.iloc[:,:-1], wine_data.iloc[:,-1], cv=10)
 # 5차원
-cross_val_score(KNeighborsClassifier(), wine_pca.iloc[:,:-1], wine_pca.iloc[:,-1], cv = 10)
-
+cross_val_score(KNeighborsClassifier(), wine2_data.iloc[:,:-1], wine2_data.iloc[:,-1], cv=10)
 :
-array([0.73684211, 0.88888889, 0.77777778, 0.94444444, 0.88888889,
-       0.94444444, 0.72222222, 1.        , 0.76470588, 0.875     ])
+array([0.68421053, 0.61111111, 0.66666667, 0.55555556, 0.66666667,
+       0.55555556, 0.77777778, 0.66666667, 0.82352941, 0.75      ])
 
-array([0.73684211, 0.88888889, 0.83333333, 0.88888889, 0.88888889,
-       0.94444444, 0.72222222, 0.94444444, 0.76470588, 0.875     ])
+array([0.68421053, 0.61111111, 0.66666667, 0.55555556, 0.66666667,
+       0.55555556, 0.77777778, 0.66666667, 0.82352941, 0.75      ])
 ```
 
 > 차원 축소 전과 축소 후 성능 비교후 성능이 축소 전과 비슷하다면 상관성이 높다는 의미로 차원을 축소해도 괜찮다. 
@@ -5721,9 +5742,141 @@ pipe.fit(X_train, y_train)
 
 ## Unsupervised Learnling
 
+> 
 
+## k-means
+
+> 근처 값의 평균을 내어 n개로 묶는 clustering 방법 
+
+```python
+from sklearn.cluster import KMeans
+from sklearn.datasets import load_iris
+import pandas as pd
+
+iris = load_iris()
+iris_data = pd.DataFrame(iris.data, columns=iris.feature_names)
+
+km = KMeans(3)  # 3개가지로 묶는다 
+vars(km.fit(iris_data.values))  
+
+:
+{'n_clusters': 3,
+ 'init': 'k-means++',
+ 'max_iter': 300,
+ 'tol': 0.0001,
+ 'precompute_distances': 'auto',
+ 'n_init': 10,
+ 'verbose': 0,
+ 'random_state': None,
+ 'copy_x': True,
+ 'n_jobs': None,
+ 'algorithm': 'auto',
+ 'cluster_centers_': array([[6.85      , 3.07368421, 5.74210526, 2.07105263],
+        [5.006     , 3.428     , 1.462     , 0.246     ],
+        [5.9016129 , 2.7483871 , 4.39354839, 1.43387097]]),
+ 'labels_': array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0,
+        0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 2, 2, 0, 0, 0, 0,
+        0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2]),
+ 'inertia_': 78.85144142614601,
+ 'n_iter_': 5}
+```
 
 k-means : [github blog](https://ratsgo.github.io/machine%20learning/2017/04/19/KC/) <br>
+
+### k-means로 cluster 성능 파악하기 
+
+```python
+import numpy as np 
+
+iris.target  # target data (정답)
+: 
+array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
+km.labels_   # cluster로 묶은 답 
+:
+array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0,
+       0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 2, 2, 0, 0, 0, 0,
+       0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2])
+
+np.where(km.labels_==1)  # 0 ~ 49 / 100% 맞춤 
+:
+(array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49],
+       dtype=int64),)
+np.where(km.labels_==2)  # 50 ~ 99 / 101,106,112 ~ 149 / 2개 틀림  
+:
+(array([ 50,  51,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,
+         64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,
+         78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,  89,  90,
+         91,  92,  93,  94,  95,  96,  97,  98,  99, 101, 106, 113, 114,
+        119, 121, 123, 126, 127, 133, 138, 142, 146, 149], dtype=int64),)
+np.where(km.labels_==0)  # 100 ~ 149 / 52, 77 / 14개 틀림 
+:
+(array([ 52,  77, 100, 102, 103, 104, 105, 107, 108, 109, 110, 111, 112,
+        115, 116, 117, 118, 120, 122, 124, 125, 128, 129, 130, 131, 132,
+        134, 135, 136, 137, 139, 140, 141, 143, 144, 145, 147, 148],
+       dtype=int64),)
+```
+
+
+## mglearn으로 clustering 시각화 해서 보기 
+
+### 설치 
+
+```shell
+!pip install mglearn
+```
+### k-means방식으로 clustering 하는 과정
+```python
+import mglearn
+mglearn.plot_kmeans.plot_kmeans_algorithm() 
+```
+
+![kmeans](https://user-images.githubusercontent.com/33630505/59517495-ab66f700-8efe-11e9-8de2-fb47d3d01680.JPG)
+
+### k-means boundaries
+
+```python
+import mglearn
+mglearn.plot_kmeans.plot_kmeans_boundaries()
+```
+
+![boundaries](https://user-images.githubusercontent.com/33630505/59517493-ab66f700-8efe-11e9-87f4-74532ab636a1.JPG)
+
+### agglomerative 
+
+```python
+import mglearn
+mglearn.plot_agglomerative.plot_agglomerative_algorithm()
+```
+
+![agglomerative](https://user-images.githubusercontent.com/33630505/59517492-aace6080-8efe-11e9-944c-f61807ea32e0.JPG)
+
+### dbscan
+
+```python
+import mglearn
+mglearn.plot_dbscan.plot_dbscan()
+```
+
+![dbscan](https://user-images.githubusercontent.com/33630505/59519335-9db37080-8f02-11e9-8caa-822cf5e52152.JPG)
+
+## 알고리즘 만들기 
+
 
 
 **복습시간**  19시 ~ 22시 / 총 3시간  
