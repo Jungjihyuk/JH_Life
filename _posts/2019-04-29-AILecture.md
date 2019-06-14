@@ -4920,9 +4920,19 @@ Regression는 어떤 데이터들의 특징을 토대로 값을 예측하는 것
 정답을 알려주지 않고 비슷한 데이터들 끼리 군집화하여 학습한다. 
 예를 들어 '남자, 여자 사진을 무작위로 입력값으로 줬을 때 사진을 보고 공통적으로 보이는 
 특성들을 찾아 비슷한 특성끼리 묶어 남자, 여자를 학습 시킨 데이터를 기반으로 분류하는 것을 말한다. 
+
+비지도학습은 크게 Clustering, Visualization & Dimensionality  Reduction, Association으로 나뉜다. 
+Clustering은 비슷한 것끼리 묶는 방법이다. 
+Clustering 방법중 대표적인 알고리즘인 k-means는 예를 들어 3가지로 묶는다고 했을 때 데이터에서 무작위로 임의의 값을 3개 찍고 
+랜덤한 데이터 값에서 가까운 값을 찾아 평균을 낸다. 그러면 평균낸 값에서 가까운 값을 또 찾고 그 값에서 평균을 낸다. 
+이와 같은 작업을 반복하여 평균값이 변하지 않는 때를 찾아 그 평균 값을 기준으로 군집화 하면 그것이 클러스터링 방법이다. 
+
+Visualization & Dimensionality  Reduction은 
 ```
 
-지도학습, 비지도학습 : [tistory](https://marobiana.tistory.com/155)
+지도학습, 비지도학습 : [tistory](https://marobiana.tistory.com/155) <br>
+차원 축소 (pca): [tistory](https://excelsior-cjh.tistory.com/167), &nbsp; [wikidocs](https://wikidocs.net/7646) <br>
+
 ## 기계학습 목적 
 
 <span  style="color: red; font-size:30px;">Data</span>**로 부터** <br>
@@ -5549,16 +5559,16 @@ KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Raw Data Collection</span> <br>
 
 <p style = "border: 1.2px solid black; border-radius: 7px; display: inline-block; padding: 5;">데이터 수집, 적합한 데이터 format으로 불러오기. 
-	    기초 통계분석하기 위해 보통 DataFrame 형태로 불러오거나 변환해준다.</p> <br>
+	    기초 통계분석하기 위해 보통 DataFrame 형태로 불러오거나 변환해준다.</p>
 	    
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>	    
 	    
 <p style = "border: 1.2px solid black; border-radius: 7px; display: inline-block; padding: 5;">Tidy Data인지 확인한다. 
-	    Tidy Data가 아닐 경우 변수는 열로 관측치는 행으로 구성할 수 있도록 melt로 행, 열 변환해준다. </p> <br>
+	    Tidy Data가 아닐 경우 변수는 열로 관측치는 행으로 구성할 수 있도록 melt로 행, 열 변환해준다. </p>
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Sampling</span> <br>
 
-<p style = "border: 1.2px solid black; border-radius: 7px; display: inline-block; padding: 5;">Train-Test-Split 하거나 데이터 양이 많지 않아 대략적인 성능을 알고 싶을 때는 Cross Validation. 보통 Big Data를 다룬다는 가정이 있기 때문에 Train-Test-Split을 한다.</p><br>
+<p style = "border: 1.2px solid black; border-radius: 7px; display: inline-block; padding: 5;">Train-Test-Split 하거나 데이터 양이 많지 않아 대략적인 성능을 알고 싶을 때는 Cross Validation. 보통 Big Data를 다룬다는 가정이 있기 때문에 Train-Test-Split을 한다.</p>
 
 <span style = "border: 1.2px solid rgb(45, 164, 164); background-color: rgb(45, 164, 164); color: white">Pre-Processing</span> <br>
 
@@ -5701,6 +5711,21 @@ pipe.fit(X_train, y_train)
 ## GridSearchCV + Pipeline 하는 방법 
 
 
-**복습시간**  19시 ~ / 
+**복습시간**  19시 ~ 22시 / 총 3시간  
+{: .notice}
+
+
+
+<a id = '26th'></a>
+# 2019년 6월 14일 금요일 26th
+
+## Unsupervised Learnling
+
+
+
+k-means : [github blog](https://ratsgo.github.io/machine%20learning/2017/04/19/KC/) <br>
+
+
+**복습시간**  19시 ~ 22시 / 총 3시간  
 {: .notice}
 
