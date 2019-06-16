@@ -3586,7 +3586,7 @@ type(data)
 **filepath_buffer**는 read_csv 메소드의 첫번째 인자로 파일경로나, url이 올 수 있다  
 {: .notice}
 
-**Dataframe** 객체는 Numpy에서 structured array방식을 따라 데이터 타입을 생성한다. 왜냐하면 pandas는 Numpy를 기반으로 만들어졌기 때문에 Numpy방식을 그대로 이어받아 속도를 빠르게 하기 위함이다! 그리고 dict, attr 두가지 방법으로 모두 접근 가능하다.
+**Dataframe** 객체는 Numpy에서 structured array방식을 따라 데이터 타입을 생성한다. pandas는 벡터, 행렬연산으로 속도를 빠르게 하기 위해 Numpy방식을 그대로 이어받아 사용한다. 그리고 DataFrame에서 각 열은 단일 데이터 형식만을 저장한다. 따라서 타입체크를 하지 않아 속도가 빠르다. 또한 DataFrame은 dict, attr 두가지 방법으로 모두 접근 가능하다. ex) dataframe.column, dataframe['column']
 {: .notice}
 
 **Series** 객체는 Dataframe에서 1차원 데이터 한 행이나 한 열, 1차원이기 때문에 방향은 없다. Series는 dataframe 처럼 dictionary 형태로 구성되어 있고 key값으로 index가 자동 생성이 된다.
@@ -3756,7 +3756,10 @@ dtype: float64
 
 ## 행 뽑는 방법 
 
-iloc
+```
+1.loc
+2.iloc
+```
 
 ## 문제해결 그리고 예측 
 
