@@ -1402,12 +1402,114 @@ Closure: [github blog](https://nachwon.github.io/closure/)
 
 ## Decorator
 
-> 함수를 추가, 수정해서 재사용 가능하게 해주는 것
+> 함수를 추가, 수정해서 재사용 가능하게 해주는 것 <br>
+> 데코레이터를 사용하려면 함수 중첩이 있어야 하고, 함수를 파라미터로 받아야 하고, 중첩된 inner 함수를 return 해야 한다.  
+
+### 예제를 통한 decorator 이해하기 
+
+#### 중첩 X, 함수 리턴 X 일때 
+```python
+def login_check(fn):
+    id=input('id: ')
+    if(id=='jh'):
+        print("jh님 안녕하세요")
+        fn()
+    else:
+        print('존재하지 않는 회원입니다')
+
+@login_check
+def home():
+    print('jh님의 home page 입니다')
+
+id: [jh                       ]  # home 함수 선언시 input창이 뜬다
+
+: id: jh 
+  jh님 안녕하세요
+  jh님의 home page 입니다
+
+# 다른 아이디를 입력했을 때 
+id: [hj                       ] 
+
+: id: hj
+  존재하지 않는 회원입니다. 
+  
+callable(home)
+: False 
+callable(login_check)
+: True 
+```
+
+> 결론 데코레이터 아님.
+
+#### 함수 return X, 문자열 return일 때 
 
 ```python
+def login_check(fn):
+    def inner():
+        id = input('id: ')
+        if(id=='jh'):
+            print("jh님 안녕하세요")
+            fn()
+        else:
+            print("존재하지 않는 회원입니다")
+    print('ㅋㅋㅋㅋ')
+    return 'a'
 
 
+@login_check
+def home():
+    print('jh님의 home page 입니다')
+
+: ㅋㅋㅋㅋ
+
+callable(home)
+: False
+callable(login_check)
+: True 
 ```
+
+> 결론 당연한 결과지만 login_check함수 안에서 inner 함수를 return 하지 않으면 inner함수를 사용할 방법이 없다. <br>
+> 그리고 함수위에 '@login_check'을 사용하면 @밑으로 함수선언을 하게되면 @밑 함수는 '@login_check'의 인자로 들어가게 된다.<br>
+> 결국 '@함수이름'의 return값이 함수이름이 아니게되면 @밑에 선언된 함수는 not callable이게 된다. 
+> 따라서 데코레이터 아님.
+
+#### 함수 return X, 함수 호출 return 일때 
+
+```python
+def login_check(fn):
+    def inner():
+        id = input('id: ')
+        if(id=='jh'):
+            print("jh님 안녕하세요")
+            fn()
+        else:
+            print("존재하지 않는 회원입니다")
+    return inner()
+    
+@login_check
+def home():
+    print("jh님의 home page 입니다")    
+: id: [jh                       ]    
+  id: jh
+  jh님 안녕하세요
+  jh님의 home page 입니다
+ 
+: id: [hj                       ]   
+  id: hj 
+  존재하지 않는 회원입니다
+
+callable(home) 
+: False 
+```
+
+> 함수 return X, 문자열 return일 때와 결과가 같다. 이로써 '@login_check'을 사용하면 밑에 선언된 함수는 <br>
+> login_check함수의 인자로 들어가 login_check함수의 return 값을 반환한다는 사실이 확실해졌다.<br>
+> login_check함수의 return 값은 inner함수 호출이고 inner함수의 호출값의 return은 None 이기 때문에 <br>
+> home함수의 return 값은 None <br>
+> 따라서 데코레이터 아님.
+
+### 
+
 
 ## Closure  vs  Decorator 
 
