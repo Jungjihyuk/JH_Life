@@ -1508,7 +1508,36 @@ callable(home)
 > home함수의 return 값은 None <br>
 > 따라서 데코레이터 아님.
 
-### 
+#### 함수 파라미터 O, 함수 중첩, 함수 이름 return O
+
+```python
+def login_check(fn):
+    def inner():
+        id = input('id: ')
+        if(id=='jh'):
+            print("jh님 안녕하세요")
+            fn()
+        else:
+            print("존재하지 않는 회원입니다")
+    return inner
+
+@login_check
+def home():
+    print("jh님의 home page 입니다")
+
+home()
+: id [jh        ]
+  id: jh
+  jh님 안녕하세요
+  jh님의 home page 입니다
+home()
+: id [hj        ]
+  id: hj
+  존재하지 않는 회원입니다
+```
+
+> 결론 데코레이터 맞음! 
+
 
 
 ## Closure  vs  Decorator 
