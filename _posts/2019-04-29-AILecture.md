@@ -22,7 +22,7 @@ tag:
 [15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
 <kbd>Machine Learning</kbd> <br>
 [20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th) &nbsp; [25일차](#25th)<br>
-[26일차](#26th)<br>
+[26일차](#26th) &nbsp; [27일차](#27th)<br>
 
 <a id = '1st'></a>
 # 2019년 4월 29일 월요일 1st 
@@ -5879,8 +5879,6 @@ pipe.fit(X_train, y_train)
 
 ## Unsupervised Learnling
 
-> 
-
 ## k-means
 
 > 근처 값의 평균을 내어 n개로 묶는 clustering 방법 
@@ -6288,6 +6286,93 @@ data.fillna(0)
 
 ![pivot](https://user-images.githubusercontent.com/33630505/59602677-4a2f6580-9142-11e9-93a6-c1cf399baa65.JPG)
 
+## Surprise 
 
-**복습시간**  19시 10분 ~ 20시  / 총  
+
+### 설치 
+```shell
+!pip install surprise
+```
+
+### Surprise를 활용하여 예상 별점 예측하기 
+
+```python
+from surprise import Dataset, Reader, SVD, KNNBasic
+import pandas as pd
+
+data = pd.read_csv('u.data', delimiter='\t', header=None, engine='python', usecols=range(3),names=['user_id','movie_id','ratings'])  
+
+sur_data = Dataset.load_from_df(data, Reader(rating_scale=(1,5)))
+
+kb = KNNBasic()
+svd = SVD()
+
+kb.fit(sur_data.build_full_trainset())
+svd.fit(sur_data.build_full_trainset())
+
+# {124, 326, 328, 333, 344, 689, 690, 750, 751} 위 예제에서 회원아이디 2인 사람의 영화 추천목록
+
+svd.predict(2,344)
+:
+Prediction(uid=2, iid=344, r_ui=None, est=3.7619267139014876, details={'was_impossible': False})
+svd.predict(2,124)
+:
+Prediction(uid=2, iid=124, r_ui=None, est=4.160187263892665, details={'was_impossible': False})
+kb.predict(2,124)
+:
+Prediction(uid=2, iid=124, r_ui=None, est=4.065428928759065, details={'actual_k': 40, 'was_impossible': False})
+kb.predict(2,344)
+:
+Prediction(uid=2, iid=344, r_ui=None, est=3.696881271344415, details={'actual_k': 40, 'was_impossible': False})
+```
+
+## Scikit으로 예상 별점 예측하기 
+
+```python
+from sklearn.neighbors import KNeighborsRegressor
+
+knn = KNeighborsRegressor(3)
+knn.fit(data.iloc[:,:-1],data.iloc[:,-1])
+:
+KNeighborsRegressor(algorithm='auto', leaf_size=30, metric='minkowski',
+          metric_params=None, n_jobs=None, n_neighbors=3, p=2,
+          weights='uniform')
+
+knn.predict([[2,344]])
+:
+array([3.33333333])
+
+knn.predict([[2,124]])
+: 
+array([4.])
+
+#####################################
+knn = KNeighborsRegressor(40)
+knn.fit(data.iloc[:,:-1],data.iloc[:,-1])
+:
+KNeighborsRegressor(algorithm='auto', leaf_size=30, metric='minkowski',
+          metric_params=None, n_jobs=None, n_neighbors=40, p=2,
+          weights='uniform')
+
+
+knn.predict([[2,344]])
+:
+array([3.075])
+
+knn.predict([[2,124]])
+:
+array([3.9])
+```
+
+## plot_knn_regression (mglearn)
+
+```python
+import mglearn
+
+mglearn.plot_knn_regression.plot_knn_regression()
+```
+
+![knn_regression](https://user-images.githubusercontent.com/33630505/59603791-49e49980-9145-11e9-9970-0ea5d8318d34.JPG)
+
+**복습시간**  19시 10분 ~ 21시 17분 / 총 2시간 7분
 {: .notice}
