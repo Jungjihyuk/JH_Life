@@ -6266,6 +6266,27 @@ list(map(lambda x:set(user_movie_rate.title[user_movie_rate.movie_id==x].values)
  {'Lone Star (1996)'}]
 ```
 
+## Pandas format 대표값 설정 없이 그대로 변형하는 4가지 방법 
+
+```
+1. stack 
+2. unstack
+3. melt 
+4. pivot 
+```
+
+### pivot 
+
+```python
+import pandas as pd 
+
+data = pd.read_csv('u.data', delimiter='\t', header=None, engine='python')
+data.rename({0:'user_id',1:'movie_id',2:'ratings'}, axis=1, inplace=True)
+data=data.pivot('user_id','movie_id','ratings')
+data.fillna(0)
+```
+
+![pivot](https://user-images.githubusercontent.com/33630505/59602677-4a2f6580-9142-11e9-93a6-c1cf399baa65.JPG)
 
 
 **복습시간**  19시 10분 ~ 20시  / 총  
