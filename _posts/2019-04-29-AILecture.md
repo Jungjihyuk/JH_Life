@@ -866,6 +866,9 @@ name(2,3,4,5, a = 9, b = 3, c = [1,2])    # !주의! keyword를 쓰기 시작하
 :((2, 3, 4, 6), {'a': 9, 'b': 3, 'c': [1, 2]})
 ```
 
+**Positional Only** 사용자가 직접 만드는 함수의 파라미터에는 positinal only 방식을 사용할 수 없다. 하지만 기본 내장 함수 중에 파라미터 부분에 / 표시가 되어 있는 경우는 Positional Only 방식을 사용하라는 의미 이다. (shift + tab으로 설명 볼때) 
+{: .notice}
+
 **positional only** : [python](https://discuss.python.org/t/pep-570-python-positional-only-parameters/1078)
 
 > Python에서는 Parameter로 받아 올때 Type을 지정해주지 않는다.
@@ -1022,8 +1025,8 @@ list(filter(b,[1,2,3,4,5,6]))
 2. Only keyword
 3. Variable Positional
 4. Variable Keyword
-5. Unpacking (벗겨내기, 리스트 쪼개기)
-6. 
+5. Unpacking (벗겨내기, list 쪼개기)
+6. Unpacking (dictionary)
 7. import에서 모두 
 ```
 <br>
