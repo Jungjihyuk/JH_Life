@@ -6128,3 +6128,145 @@ dum = DummyClassifier() # 사람처럼 분류하는 알고리즘
 **복습시간**  19시 45분 ~ 24시 / 총 4시간 15분  
 {: .notice}
 
+
+<a id = '27th'></a>
+# 2019년 6월 17일 월요일 27th
+
+## 영화 추천 모델 만들기 
+
+### Collaborative filtering 
+
+> 나와 비슷한 사람을 찾아 내가본 영화를 제외한 비슷한 사람이 본 영화 추천 
+
+### 필요한 데이터 불러오기 
+
+```python
+import pandas as pd 
+
+data = pd.read_csv('u.data', delimiter='\t', header=None, engine='python', usecols=range(3),names=['user_id','movie_id','ratings'])
+items=pd.read_csv('u.item', delimiter='|', header=None, engine='python', usecols=range(3), names=['movie_id','title','year'])
+
+data.head(4)
+: 
+user_id	movie_id	ratings
+0	196	242	3
+1	186	302	3
+2	22	377	1
+3	244	51	2
+
+items.head(4)
+: 
+	movie_id	title	year
+0	1	Toy Story (1995)	01-Jan-1995
+1	2	GoldenEye (1995)	01-Jan-1995
+2	3	Four Rooms (1995)	01-Jan-1995
+3	4	Get Shorty (1995)	01-Jan-1995
+```
+
+### DESCR, README 등 도메인 정보 확인하기 
+
+
+```
+u.data     -- The full u data set, 100000 ratings by 943 users on 1682 items.
+              Each user has rated at least 20 movies.  Users and items are
+              numbered consecutively from 1.  The data is randomly
+              ordered. This is a tab separated list of 
+	         user id | item id | rating | timestamp. 
+              The time stamps are unix seconds since 1/1/1970 UTC 
+
+u.item     -- Information about the items (movies); this is a tab separated
+              list of
+              movie id | movie title | release date | video release date |
+              IMDb URL | unknown | Action | Adventure | Animation |
+              Children's | Comedy | Crime | Documentary | Drama | Fantasy |
+              Film-Noir | Horror | Musical | Mystery | Romance | Sci-Fi |
+              Thriller | War | Western |
+              The last 19 fields are the genres, a 1 indicates the movie
+              is of that genre, a 0 indicates it is not; movies can be in
+              several genres at once.
+              The movie ids are the ones used in the u.data data set.
+```
+
+### 불러온 정보 필요한 형태로 변형하기 
+
+```python
+# 유저 아이디 + 영화 아이디 + 평점 + 영화 이름 + 개봉년도 DataFrame 만들기 
+user_movie_rate=pd.merge(data,items)
+
+# user index, item columns로 만들기 
+user_item = data.set_index(['user_id','movie_id']).unstack().fillna(0)
+```
+
+
+### 회원간의 상관성 보기 (어떤 연관성 전략을 세울지 고민)
+
+```python
+# user_item에서 user가 index이기 때문에 corr하기 위해 Transform 해야함 
+user_item_corr = user_item.T.corr()
+```
+
+![user_corr](https://user-images.githubusercontent.com/33630505/59600997-c4a9b680-913d-11e9-983e-e5482a173c99.JPG)
+
+
+### 연관성이 높은 3명 뽑기 (세부 전략 세우기)
+
+> 회원 번호 2를 나라고 가정
+
+```python 
+user_item_corr.loc[2].sort_values(ascending=False)[:4]
+:
+user_id
+2      1.000000
+701    0.570307
+931    0.495166
+460    0.485913
+Name: 2, dtype: float64
+```
+
+### 나와 비슷한 사람 영화 목록 - 나의 영화 목록 
+
+```python
+# 나의 영화 목록 
+my_movie_list = user_movie_rate[user_movie_rate.user_id==2]
+my_movie_list = my_movie_list.movie_id
+my_movie_list=set(my_movie_list)
+my_movie_list.__len__()
+: 
+62 
+
+# 나와 비슷한 사람 영화 목록 
+other = user_movie_rate[user_movie_rate.user_id.isin([701]).movie_id.value
+other_movie_list = set(other)
+
+# 나와 비슷한 사람 영화 목록 - 나의 영화 목록 
+reco_movie_to_me = other_movie_list - my_movie_list
+```
+
+### 최종 추천 영화 목록 출력하기 
+
+```python
+reco_movie_to_me=user_movie_rate[user_movie_rate.movie_id.isin(reco_movie_to_me)].sort_values('ratings', ascending=False)
+
+final_reco_movie_to_me = set(reco_movie_to_me.movie_id.values)
+final_my_reco_movie
+:
+{124, 326, 328, 333, 344, 689, 690, 750, 751}
+
+# 최종 추천 영화 목록 
+list(map(lambda x:set(user_movie_rate.title[user_movie_rate.movie_id==x].values),final_my_reco_movie))
+:
+[{'G.I. Jane (1997)'},
+ {'Conspiracy Theory (1997)'},
+ {'Game, The (1997)'},
+ {'Amistad (1997)'},
+ {'Tomorrow Never Dies (1997)'},
+ {'Jackal, The (1997)'},
+ {'Seven Years in Tibet (1997)'},
+ {'Apostle, The (1997)'},
+ {'Lone Star (1996)'}]
+```
+
+
+
+**복습시간**  19시 10분 ~ 20시  / 총  
+{: .notice}
