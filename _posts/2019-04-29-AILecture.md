@@ -22,7 +22,7 @@ tag:
 [15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
 <kbd>Machine Learning</kbd> <br>
 [20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th) &nbsp; [25일차](#25th)<br>
-[26일차](#26th) &nbsp; [27일차](#27th)<br>
+[26일차](#26th) &nbsp; [추천 시스템(27일차)](#27th)<br>
 
 <a id = '1st'></a>
 # 2019년 4월 29일 월요일 1st 
@@ -6373,6 +6373,8 @@ mglearn.plot_knn_regression.plot_knn_regression()
 ```
 
 ![knn_regression](https://user-images.githubusercontent.com/33630505/59603791-49e49980-9145-11e9-9970-0ea5d8318d34.JPG)
+
+## recommendation.pdf 내용 추가 
 
 **복습시간**  19시 10분 ~ 21시 17분 / 총 2시간 7분
 {: .notice}
