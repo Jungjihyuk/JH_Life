@@ -5890,7 +5890,7 @@ import pandas as pd
 iris = load_iris()
 iris_data = pd.DataFrame(iris.data, columns=iris.feature_names)
 
-km = KMeans(3)  # 3개가지로 묶는다 
+km = KMeans(3)  # 3가지로 묶는다 
 vars(km.fit(iris_data.values))  
 
 :
@@ -6021,8 +6021,8 @@ DBSCAN(algorithm='auto', eps=0.5, leaf_size=30, metric='euclidean',
 ```
 
 ```
-min_samples는 영역 안의 최소 데이터 갯수 <br>
-eps는 영역 크기 <br>
+min_samples는 영역 안의 최소 데이터 갯수 
+eps는 영역 크기 
 ```
 <br>
 
