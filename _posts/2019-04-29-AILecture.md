@@ -22,7 +22,7 @@ tag:
 [15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
 <kbd>Machine Learning</kbd> <br>
 [20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th) &nbsp; [25일차](#25th)<br>
-[26일차](#26th) &nbsp; [추천 시스템(27일차)](#27th)<br>
+[26일차](#26th) &nbsp; [추천 시스템(27일차)](#27th) &nbsp; [28일차](#28th)<br>
 
 <a id = '1st'></a>
 # 2019년 4월 29일 월요일 1st 
@@ -6377,4 +6377,157 @@ mglearn.plot_knn_regression.plot_knn_regression()
 ## recommendation.pdf 내용 추가 
 
 **복습시간**  19시 10분 ~ 21시 17분 / 총 2시간 7분
+{: .notice}
+
+
+<a id = '28th'></a>
+# 2019년 6월 18일 화요일 28th
+
+
+## Surprise vs Scikit 
+
+### 차이점 2가지 
+
+```
+1. Train_test_split 
+2. 평가척도 
+```
+```
+Scikit에서는 Train_Test_Split으로 데이터를 나누었지만 Surprise에서는 Fold로 랜덤하게 쪼개준다.
+그리고 Scikit에서 평가척도는 score하나 뿐이었지만 Surprise에서는 평가척도로 여러가지가 있다.
+예를 들어 rmse(root mean square error) => 평균 제곱근 편차 
+
+Fold => train,test default로 5쌍으로 쪼개어진 generator를 반환한다. 
+```
+
+
+### Surprise 예제 
+
+```python
+import pandas as pd 
+from surprise import SVD, KNNBasic, Dataset, Reader, dump
+from surprise.accuracy import rmse
+
+data = Dataset.load_builtin('ml-100k') 
+
+for trainset, testset in data.folds(): 
+    algo_knn.fit(trainset)
+    predictions_knn = algo_knn.test(testset)
+    rmse(predictions_knn)
+:
+Computing the msd similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9753                       
+Computing the msd similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9685
+Computing the msd similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9870
+Computing the msd similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9858
+Computing the msd similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9739
+
+# 평균 제곱근 편차가 0.9739면 어떻다는 거니... 생각해보자..
+```
+
+
+## os vs sys 
+
+> os는 파일관련 처리할 때 사용하고 운영체제 내 폴더파일을 다룰때도 사용한다. <br>
+> 참고로 os는 위험한애임.. <br>
+> sys는 파이썬 관점에서 경로를 확인할때 등에 사용되는 모듈 이다. <br>
+> 자세한건 더 공부하면서 추가해보자.
+
+```python
+import os 
+
+os.path.expanduser
+: <module 'ntpath' from 'C:\\Users\\SAMSUNG\\Anaconda3\\lib\\ntpath.py'>
+
+import sys 
+
+sys.path
+: ['C:\\Users\\SAMSUNG\\Anaconda3\\lib\\site-packages\\win32\\lib',
+ 'C:\\Users\\SAMSUNG\\Anaconda3\\lib\\site-packages\\Pythonwin',
+ 'C:\\Users\\SAMSUNG\\Anaconda3\\lib\\site-packages\\IPython\\extensions',
+ 'C:\\Users\\SAMSUNG\\.ipython']
+```
+
+
+## Validation_curve 
+
+> GridSearchCV로 하이퍼 파라미터를 찾을때 같이 사용함으로써 적절한 하이퍼 파라미터를 찾기 위해 참고하면 좋다. 
+
+```python
+from sklearn.model_selection import validation_curve
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn_evaluation import plot
+
+knn = KNeighborsClassifier()
+train_scores, test_scores=validation_curve(knn, iris.iloc[:,:-1], iris.iloc[:,-1], 'n_neighbors', [3,4,5,6,7], cv=10)
+plot.validation_curve(train_scores, test_scores, [3,4,5,6,7], 'n_neighbors')
+```
+
+![validation_curve](https://user-images.githubusercontent.com/33630505/59681973-2a667300-9210-11e9-8e1e-384e6233675d.JPG)
+
+
+## Statsmodel로 regression분석하기 
+
+> Linear regression 분석은 머신러닝에서 해설분야를 담당하고 예측하는데 쓰지는 않는다.
+
+### R방식 
+
+#### 설치 
+```shell
+!pip install statsmodels
+```
+
+#### 예제 
+
+```python
+import numpy as np 
+import statsmodels.api as sm 
+import statsmodels.formula.api as smf 
+
+data = sm.datasets.get_rdataset("Guerry", "HistData").data
+
+results = smf.ols('Lottery ~ Literacy + np.log(Pop1831)',data=data).fit() 
+results2 = smf.ols('Lottery ~ Literacy + Instruction',data=data).fit()
+
+results.summary()
+results2.summary()
+```
+
+#### results summary
+![summary](https://user-images.githubusercontent.com/33630505/59684068-4704aa00-9214-11e9-8bd1-4d6417b831f0.JPG)
+
+#### results2 summary
+![summary2](https://user-images.githubusercontent.com/33630505/59684100-5552c600-9214-11e9-97e9-9b89f399f6c2.JPG)
+
+### Python 방식 
+
+```python 
+import numpy as np
+import statsmodels.api as sm
+
+nobs = 100
+X = np.random.random((nobs, 2))
+X = sm.add_constant(X)
+beta = [1, .1, .5]
+e = np.random.random(nobs)
+Iy = np.dot(X, beta) + e
+
+results = sm.OLS(Iy, X).fit()
+
+print(results.summary())
+```
+
+![python_summary](https://user-images.githubusercontent.com/33630505/59684963-102f9380-9216-11e9-8603-4d2679cf351c.JPG)
+
+
+**복습시간**    19시 ~ 22시  / 총 3시간 
 {: .notice}
