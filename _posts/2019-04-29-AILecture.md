@@ -22,7 +22,7 @@ tag:
 [15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
 <kbd>Machine Learning</kbd> <br>
 [20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th) &nbsp; [25일차](#25th)<br>
-[26일차](#26th) &nbsp; [추천 시스템(27일차)](#27th) &nbsp; [28일차](#28th)<br>
+[26일차](#26th) &nbsp; [추천 시스템(27일차)](#27th) &nbsp; [28일차](#28th) &nbsp; [29일차](#29th)<br>
 
 <a id = '1st'></a>
 # 2019년 4월 29일 월요일 1st 
@@ -6530,4 +6530,234 @@ print(results.summary())
 
 
 **복습시간**    19시 ~ 22시  / 총 3시간 
+{: .notice}
+
+
+
+
+<a id = '29th'></a>
+# 2019년 6월 19일 수요일 29th
+
+
+## 버전관리 2가지 방법 
+
+```
+1. version-information 
+2. watermark 
+```
+
+### version-information 
+
+```python
+# 설치 방법 
+!pip install version-information
+
+%load_ext version_information   # import 처럼 version_information을 쓰겠다고 명시해주는 구문 
+
+%version_information numpy, pandas, seaborn, scikit-learn, statsmodels # numpy, pandas, seaborn, 등의 버전 명시
+```
+
+> watermark 방식보다 이쁘게 나온다
+
+![version_information](https://user-images.githubusercontent.com/33630505/59765932-1be48e00-92da-11e9-92f5-29c8becce363.JPG)
+
+
+### watermark 
+
+```python
+%load_ext watermark
+
+%watermark -a 지혁 -d -p numpy,pandas,seaborn
+```
+
+> version_information은 한글이 깨지지만 watermark는 한글도 지원한다
+
+![watermark](https://user-images.githubusercontent.com/33630505/59765934-1be48e00-92da-11e9-9e6f-08ea3a07d2a7.JPG)
+
+
+## Feature-selection 
+
+> pre-processing의 일종으로 column을 줄여야겠다는 판단이 들었을때 하는 전처리. <br>
+> 성능을 높이기 위한 전처리로, 연산 속도를 향상 시키는 방법으로 사용한다. <br>
+> 이때 정확도 성능을 낮추지 않는 선에서 feature-selection을 진행한다. 
+
+### 3가지 방식 
+```
+1. Filter
+2. Embeded
+3. Wrapper 
+```
+
+### Filter 
+
+> 통계값을 보고 경험적으로 도메인 지식을 통해 column을 걸러낸다. 
+
+#### 예시 
+
+```python 
+from sklearn.datasets import load_boston
+import pandas as pd 
+from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import LinearRegression
+
+
+# 데이터 불러와서 DataFrame 형태로 만들기 
+data = load_boston()
+boston = pd.DataFrame(data.data, columns=data.feature_names)
+target = pd.DataFrame(data.target, columns=['target'])
+boston_target = pd.concat([boston, target], axis=1)
+
+# 기초 통계분석 생략 
+
+# pairplot으로 clustering 경향 살피거나 도메인 지식 활용하여 영향력이 가장 없는 column 걸러내기 
+
+boston_target_raw=boston_target.copy() # 원본 데이터 copy해두기 
+boston_target.drop(columns=['AGE'])  # 가구당 나이는 집값에 영향이 크지 않다고 판단하여 걸러 내본다. 
+cross_val_score(LinearRegression(), boston_target.iloc[:,:-1], bost_target2.target, cv=10).mean()
+
+: 0.20252899006055775
+
+# 원본 데이터의 정확도 
+cross_val_score(LinearRegression(), boston_target_raw.iloc[:,:-1], bost_target_raw.target, cv=10).mean()
+
+: 0.20252899006055775
+```
+
+> AGE column을 걸러냈을 때와 걸러내기 전의 정확도가 같기 때문에 age는 영향력이 없는 column! <br>
+> 따라서 빼도 되는 feature! 
+
+### wrapper
+
+> 통계값과 머신러닝 기법을 동시에 사용하여 기준을 두고 ranking을 구해 n개 column 뽑는 방법. 
+
+
+```python 
+from sklearn.feature_selection import RFE
+from sklearn.linear_model import LinearRegression
+
+model = LinearRegression() 
+rfe = RFE(model, 7)
+X_rfe = rfe.fit_transform(boston_target_raw.iloc[:,:-1], boston_target_raw.target)  # filter 예시에 있는 boston data 사용
+X_rfe
+:
+
+array([[ 0.   ,  0.538,  6.575, ...,  1.   , 15.3  ,  4.98 ],
+       [ 0.   ,  0.469,  6.421, ...,  2.   , 17.8  ,  9.14 ],
+       [ 0.   ,  0.469,  7.185, ...,  2.   , 17.8  ,  4.03 ],
+       ...,
+       [ 0.   ,  0.573,  6.976, ...,  1.   , 21.   ,  5.64 ],
+       [ 0.   ,  0.573,  6.794, ...,  1.   , 21.   ,  6.48 ],
+       [ 0.   ,  0.573,  6.03 , ...,  1.   , 21.   ,  7.88 ]])
+
+model.fit(X_rfe, boston_target_raw.target)
+:
+LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False)
+
+vars(rfe)
+
+:
+{'estimator': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+          normalize=False),
+ 'n_features_to_select': 7,
+ 'step': 1,
+ 'verbose': 0,
+ 'estimator_': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+          normalize=False),
+ 'n_features_': 7,
+ 'support_': array([False, False, False,  True,  True,  True, False,  True,  True,
+        False,  True, False,  True]),
+ 'ranking_': array([2, 4, 3, 1, 1, 1, 7, 1, 1, 5, 1, 6, 1])}
+```
+
+### Embeded 
+
+> 알고리즘으로 자동으로 영향력이 어느 정도인가 분류 해주는 방법.
+
+
+```python 
+from sklearn.tree import DecisionTreeClassifier
+import seaborn as sns
+
+iris = sns.load_dataset('iris')
+dt = DecisionTreeClassifier()
+dt.fit(iris.iloc[:,:-1], iris.iloc[:,-1]) # classification에 한정해서 숫자로 바꾸지 않았을때 자동으로 바꿔줌 
+:
+DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+            max_features=None, max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, presort=False, random_state=None,
+            splitter='best')
+	    
+dt.predict([[3,3,3,3]])
+: array(['virginica'], dtype=object)
+
+dt.feature_importances_
+: array([0.        , 0.01333333, 0.06405596, 0.92261071])  # 각각의 숫자는 영향력의 크기를 나타낸다
+```
+
+## Ensemble 
+
+> 여러가지 알고리즘을 동시에 사용하여 최적의 성능을 낼수 있는 알고리즘을 생성한다 
+
+### RandomForest 
+
+```python 
+from sklearn.ensemble import RandomForestClassifier
+
+rf=RandomForestClassifier()
+rf.fit(iris.iloc[:,:-1], iris.iloc[:,-1])
+
+: RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=None, max_features='auto', max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=None,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False)
+rf.feature_importances_
+: array([0.03122967, 0.02095218, 0.57202362, 0.37579453])
+```
+
+## MLxtend
+
+### 설치 
+
+```shell
+!pip install mlxtend
+```
+
+## Staking 
+
+## Data부터 Model 학습까지 
+
+
+
+
+## Cross-validate 3가지 
+
+```
+1. Cross_validation_score
+2. Cross_validate
+3. Cross_val_predict 
+```
+
+## Fit_transform 하는 3가지 
+
+```python 
+1. pre-processing
+2. feature-extraction
+3. RFE 
+```
+
+## Column 줄이는 3가지 방법 
+
+```
+1. filter
+2. PCA
+3. RFE 
+```
+
+**복습시간**    18시 45분 ~  22시 20분 / 총 3시간 35분  
 {: .notice}
