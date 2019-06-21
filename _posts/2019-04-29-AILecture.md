@@ -6780,10 +6780,90 @@ rf.feature_importances_
 ![ai_people_c](https://user-images.githubusercontent.com/33630505/59897521-f6659a80-9427-11e9-8ca8-af5bcb252ea1.jpg)
 
 ### Frank Rosenblatt's Perceptron 
-1957년 Frank Rosenblatt에 의해 고안된 인공신경망의 한 종류로써 Perceptron이 발표되었습니다 <br>
-이 Perceptron은 뉴런의 행동 방식을 모방하여 만들어졌습니다. <br>
+```
+1957년 Frank Rosenblatt에 의해 고안된 인공신경망의 한 종류로써 Perceptron이 발표되었습니다 
+이 Perceptron은 뉴런의 행동 방식을 모방하여 만들어졌습니다. 
+Single Perceptron은 입력값의 연산 결과가 1이면 activate되고 0이되면 deactivate하는 방식의 선형 모델입니다.
+이렇게 하면 OR ,AND 연산이 가능하지만 XOR 연산을 할 수 없는 문제가 발생합니다
+XOR 연산을 하기 위해서는 Perceptron을 하나 더 연결하여 
+```
+
+![선형 모델](https://user-images.githubusercontent.com/33630505/59901536-87437280-9436-11e9-994f-3bbfb1015d34.JPG)
+
+
+
+### Perceptron 학습 방법 
+
+> 입력값의 결과값을 1과 0으로 분류하고 실제값과 예측값의 활성함수 리턴값이 다를 경우 가중치를 조정하며 최적의 가중치를 찾아간다
+
+```
+AND Gate를 만든다고 가정하자 
+Data => (0,0) / Result => 0 
+        (0,1) / Result => 0
+	(1,0) / Result => 0
+	(1,1) / Result => 1 
+위와 같은 dataset이 있을때 Perceptron 학습방법은 다음과 같다 
+
+
+활성함수: y = 1 (x1*w1 + x2*w2 + w0 >= 0) or 0 (otherwise) 
+# x1, x2는 입력값 w1,w2는 가중치 w0는 bias(절편) 
+
+(0,0)일때 
+w0 < 0 이 되어야 결과값이 0이 나오기 때문에 
+w0 값을 임의로 -1를 찾았음
+
+(0,1)일때 
+w2 -1 < 0을 만족하는 가중치를 임의로 0.5라고 한다 
+
+(1,0)일때 
+w1 -1 < 0을 만족하는 가중치를 임의로 0.5라고 한다 
+
+(1,1)일때 
+0.5 + 0.5 - 1 = 0 결과값이 0이기 때문에 y = 1을 만족하므로 
+
+학습된 Perceptron의 coefficient또는 weight값은 0.5, 0.5, intercept 또는 bias는 -1 
+```
+
+
+### Bernard Widrow's Adaline
+
+> Adaline(Adptive Linear Neuron)은 신경세포의 초기 모델. 
+
+### Adaline 
+
+> 입력값의 결과값과 실제 결과값을 비교하여 오차가 최소가 되도록 가중치를 찾아간다 
+
+### 예시
+```
+구구단에서 2단을 학습시키기 위한 딥러닝 이라고 가정 했을때 
+
+data: 2 => 2  X  0.5(가중치)  => result: 1 
+result = 1 
+real_result = 2 X 2 = 4 
+오차 : real_result - result = 3 
+가중치를 높여야 겠군! 
+
+data: 3 => 3  X  3(가중치)    => result: 9
+result = 9
+real_result = 3 X 2 = 6 
+오차: real_result - result = -3 
+가중치를 낮춰야 겠군! 
+
+data: 4 => 4  X  2(가중치)    => result: 8 
+result = 8 
+real_result = 4 X 2 = 8
+오차: real_result - result = 0 
+오차가 없군! 학습을 멈춰야겠어! 정확도가 100%네 ?!
+(실제로는 정확도 100%나오기 힘듦) 
+```
+
+### Perceptron vs Adaline
+
+요약하면 Perceptron은 임계값을 1로 잡고 입력값의 결과가 1이 넘어가면 활성함수에 의해 예측값이 나오고 실제값과 예측값이 다를 경우 가중치를 조정한다.<br>
+Adaline은 입력값의 결과가 예측값이 되고 활성함수(실제값-예측값)의 리턴값을 최소화 하는 방향으로 가중치를 찾아간다는 점에서 차이가 있다.
 
 ### Neuron's communication 
+```
 뉴런이 휴지상태일때 막전류가 -70mv 극성을 띄는데 뉴런에 자극이 가해지면 이온통로가 열리고 
 이온이 세포 안으로 들어오면 막전위의 변화를 알립니다. 
 그러면서 막전류가 -55mv에 도달하게 되면 수 천개의 나트륨 통로가 열리면서 뉴런 내부에 
@@ -6794,16 +6874,179 @@ rf.feature_importances_
 이때 활동 전위는 한 방향만으로 전도됩니다. 
 그리고 끝에 시냅스라는 부분에서 신경 전달물질을 세포 밖으로 내보내 다른 세포를 자극하기 위해 이동합니다  
 이렇게 휴지상태 => 활동전위 => 신경전달 물질 => 다른 세포 자극 사이클을 반복하여 뉴런과 소통하게 됩니다.
+```
 
-### Perceptron과 Neuron 
+### Adaline과 Neuron 
 
-Perceptron | Neuron 
+Adaline | Neuron 
 --------|-------
- Input data | 자극   
- Node  |  뉴런 가지 
- Activation | 휴지 상태(-70mv) => 활동전위 (-55mv) 
+ Input data | 시냅스를 통한 자극   
+ Node  |  수상 돌기  
+ Activation | 축삭 돌기 / 휴지 상태(-70mv) => 활동전위 (-55mv) 
  Hidden-layer | 뉴런 갯수 
  Output data | 신경전달물질 
+
+
+### Paul Werbos's MLP
+
+```
+1974년 하버드대 폴 워보스는 다층 퍼셉트론환경에서 학습을 가능하게 해주는 
+back-propagation 알고리즘을 고안해냈습니다. 
+그러나 신경망에 대해 냉랭했던 분위기 때문에 
+매장 당할까바 발표하지 못하고 8년 후 1982년에 저널에 발표하게 됩니다. 
+```
+
+### Yann LeCun & David Rumelhart & Geoffrey Everest Hinton
+
+```
+저널에 발표되고 2년뒤 1984년에 신경망 연구로 박사논문을 준비하던 얀 레쿤이 
+논문을 발견하여 다시 세상에 나왔고, 1986년 럼멜하트와 힌튼교수에 의해 다시 부활하게 되었습니다
+
+힌튼 교수는 홉필드 네트워크에 신경망 알고리즘을 결합시켜 볼츠만 머신을 만들어냅니다.
+그리고 마침내 1998년 힌튼 교수 밑에서 박사과정을 밟고있던 얀쿤과 요수아 벤지오가 
+볼츠만 머신에 back-propagation을 결합하여 CNN(Convolutional Neural Networks)알고리즘 만들어 냅니다. 
+```
+
+
+## Scikit Perceptron 
+
+```python
+import seaborn as sns 
+from sklearn.linear_model import Perceptron
+from sklearn.preprocessing import MinMaxScaler
+
+mms = MinMaxScaler()
+pct = Perceptron()
+iris = sns.load_dataset('iris')
+
+iris.iloc[:,:-1] = mms.fit_transform(iris.iloc[:,:-1])
+iris.species = iris.species.map({"setosa":0,"versicolor":1,"virginica":2})
+
+pct.fit(iris.iloc[:,:-1],iris.iloc[:,-1])  
+
+# 옵션 early_stopping => overfitting 막기위한 방법 / fit_intercept 가중치를 사용할지 말지
+
+vars(pct)
+:
+{'loss': 'perceptron',
+ 'penalty': None,
+ 'learning_rate': 'constant',
+ 'epsilon': 0.1,
+ 'alpha': 0.0001,
+ 'C': 1.0,
+ 'l1_ratio': 0,
+ 'fit_intercept': True,
+ 'shuffle': True,
+ 'random_state': 0,
+ 'verbose': 0,
+ 'eta0': 1.0,
+ 'power_t': 0.5,
+ 'early_stopping': False,
+ 'validation_fraction': 0.1,
+ 'n_iter_no_change': 5,
+ 'warm_start': False,
+ 'average': False,
+ 'n_iter': None,
+ 'max_iter': None,
+ 'tol': None,
+ 'class_weight': None,
+ 'n_jobs': None,
+ '_tol': None,
+ '_max_iter': 5,
+ 'coef_': array([[-0.80555556,  1.54166667, -1.57627119, -1.75      ],
+        [ 0.11111111, -5.75      ,  1.45762712, -2.70833333],
+        [ 0.52777778, -2.41666667,  4.13559322,  5.875     ]]),
+ 'intercept_': array([ 1.,  1., -6.]),
+ 't_': 751.0,
+ 'classes_': array(['setosa', 'versicolor', 'virginica'], dtype='<U10'),
+ '_expanded_class_weight': array([1., 1., 1.]),
+ 'loss_function_': <sklearn.linear_model.sgd_fast.Hinge at 0x242aef05770>,
+ 'n_iter_': 5}
+```
+
+## loss, cost, objective function 
+
+loss, cost : 실제값 - 예측값 <br>
+즉, 값이 작아질 수록 정확해진다는 의미 <br>
+
+objective : 유사도 <br>
+즉, 비슷하면 비슷할 수록 값이 커지고 값이 크면 정확해진다는 의미 
+
+> 오차를 구하는 방법도 여러가지이다. 
+
+## Feed-forward vs Back-Propagation 
+
+Feed-forward: 벡터연산(행렬), 앞으로 나아가는 연산 <br>
+Back-Propagation: 미분(편미분) <br> 
+
+## Vanishing gradient problem
+
+> 기울기 값이 사라져 학습이 안되는 문제 
+
+relu 알고리즘으로 이러한 문제 해결! 
+
+## Neural network 표현방식 
+
+```
+1. 전통적인 머신러닝 방식으로 표현 
+2. Graphical neural network 
+```
+
+### Graphical neural network 
+
+![graphical](https://user-images.githubusercontent.com/33630505/59913849-fbd8da00-9453-11e9-9d49-9dd0975e88b1.JPG)
+
+## Tensorflow 
+
+### 절차 
+```
+0. import
+1. Data 불러오기
+2. train-test-split
+3. 학습 가능하도록 차원 변환 (n차원 => 1차원)
+4. Sequence 만들기 (Layer)
+5. 학습 (어떻게 학습시킬까 : compile)
+```
+
+### 예시 
+
+```python 
+!pip install tensorflow==2.0.0b1 # 설치 
+import matplotlib.pyplot as plt 
+import numpy as np
+from sklearn.neighbors import KNeighborsClassifier
+import tensorflow as tf
+
+knn = KNeighborsClassifier()
+mnist = tf.keras.datasets.mnist # 가장많이 쓰이는 손글씨 데이터 
+data=mnist.load_data()  # 데이터 불러오기 / numpy 처럼 보이지만 tuple임
+
+data[0][0].shape  # x 
+: (60000, 28, 28)
+data[0][1].shape # y
+: (60000,)
+
+plt.imshow(data[0][0][0], cmap='gray')
+data[0][1][0]
+: 5 
+
+(X_train, y_train),(X_test, y_test) = mnist.load_data()
+
+# 2차원 데이터 1차원으로 바꿔주기 
+# temp, result 방식 둘 중 원하는 방식으로 
+temp = [x.flatten() for x in X_train] 
+result = np.array(list(map(lambda x:x.flatten(), X_train)))
+```
+
+## Keras쓰는 4가지 방식 
+
+
+Perceptron : [tistory](https://sacko.tistory.com/10)<br>
+Adaline, gradient descent : [m_blog](https://m.blog.naver.com/samsjang/220959562205) <br>
+Vanishing gradient problem : [tistory](https://ydseo.tistory.com/41)<br>
+ReLu: [tistory](https://mongxmongx2.tistory.com/25)<br>
+인공지능 그림으로 배우기: [brunch](https://brunch.co.kr/magazine/yamanin)<br>
+CNN: [tistory](https://hamait.tistory.com/535)<br>
 
 
 **복습시간**   19시 10분 ~ 22시,  / 총 2시간 50분 
