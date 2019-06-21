@@ -6790,6 +6790,7 @@ XOR 연산을 하기 위해서는 Perceptron을 하나 더 연결하여
 
 ![선형 모델](https://user-images.githubusercontent.com/33630505/59901536-87437280-9436-11e9-994f-3bbfb1015d34.JPG)
 
+![xor](https://user-images.githubusercontent.com/33630505/59915021-a5b96600-9456-11e9-8752-c941d955ab8d.JPG)
 
 
 ### Perceptron 학습 방법 
@@ -7040,6 +7041,13 @@ result = np.array(list(map(lambda x:x.flatten(), X_train)))
 
 ## Keras쓰는 4가지 방식 
 
+
+<hr>
+
+
+<span style="color: red">아직 완벽하게 복습이 되지 않아 부정확한 내용이 있을 수 있음을 알려드립니다...</span><br>
+
+<hr>
 
 Perceptron : [tistory](https://sacko.tistory.com/10)<br>
 Adaline, gradient descent : [m_blog](https://m.blog.naver.com/samsjang/220959562205) <br>
