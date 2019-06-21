@@ -6772,7 +6772,7 @@ rf.feature_importances_
 
 ## Deep Learning 
 
-**2개 이상의 ** <span  style="color: red; font-size:30px;">Perceptron</span> **을 연결하여** <br>
+**2개 이상의** <span  style="color: red; font-size:30px;">Perceptron</span> **을 연결하여** <br>
 **많은** <span  style="color: red; font-size:30px;">Layer</span> **로 구성된**  <span  style="color: red; font-size:30px;">기계학습</span> **을** <br> <span  style="color: red; font-size:30px;">Deep Learning</span>**이라고 부른다** <br>
 
 **복습시간**   19시 10분 ~ 
