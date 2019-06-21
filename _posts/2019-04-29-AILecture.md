@@ -6775,5 +6775,36 @@ rf.feature_importances_
 **2개 이상의** <span  style="color: red; font-size:30px;">Perceptron</span> **을 연결하여** <br>
 **많은** <span  style="color: red; font-size:30px;">Layer</span> **로 구성된**  <span  style="color: red; font-size:30px;">기계학습</span> **을** <br> <span  style="color: red; font-size:30px;">Deep Learning</span>**이라고 부른다** <br>
 
-**복습시간**   19시 10분 ~ 
+## 인공지능 발전에 기여한 인물들 
+
+![ai_people_c](https://user-images.githubusercontent.com/33630505/59897521-f6659a80-9427-11e9-8ca8-af5bcb252ea1.jpg)
+
+### Frank Rosenblatt's Perceptron 
+1957년 Frank Rosenblatt에 의해 고안된 인공신경망의 한 종류로써 Perceptron이 발표되었습니다 <br>
+이 Perceptron은 뉴런의 행동 방식을 모방하여 만들어졌습니다. <br>
+
+### Neuron's communication 
+뉴런이 휴지상태일때 막전류가 -70mv 극성을 띄는데 뉴런에 자극이 가해지면 이온통로가 열리고 
+이온이 세포 안으로 들어오면 막전위의 변화를 알립니다. 
+그러면서 막전류가 -55mv에 도달하게 되면 수 천개의 나트륨 통로가 열리면서 뉴런 내부에 
+엄청난 양의 나트륨 이온이 세포 내부로 들어와 급격하게 양전하가 되거나 혹은 극성이 없어집니다.
+엄청난 나트륨 이온의 유입으로 뉴런의 내부가 +30mv가 될때, 뉴런은 항상성 유지를 위해 나트륨 통로는 닫히고 
+칼륨 이온 통로가 열리면서 칼륨을 세포 밖으로 내보냅니다.
+이러한 방식으로 뉴런 가지안에서 연쇄 반응을 통해 탈분극과 재분극을 반복하여 활동 전위가 전도 됩니다. 
+이때 활동 전위는 한 방향만으로 전도됩니다. 
+그리고 끝에 시냅스라는 부분에서 신경 전달물질을 세포 밖으로 내보내 다른 세포를 자극하기 위해 이동합니다  
+이렇게 휴지상태 => 활동전위 => 신경전달 물질 => 다른 세포 자극 사이클을 반복하여 뉴런과 소통하게 됩니다.
+
+### Perceptron과 Neuron 
+
+Perceptron | Neuron 
+--------|-------
+ Input data | 자극   
+ Node  |  뉴런 가지 
+ Activation | 휴지 상태(-70mv) => 활동전위 (-55mv) 
+ Hidden-layer | 뉴런 갯수 
+ Output data | 신경전달물질 
+
+
+**복습시간**   19시 10분 ~ 22시,  / 총 2시간 50분 
 {: .notice}
