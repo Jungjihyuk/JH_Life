@@ -22,7 +22,11 @@ tag:
 [15일차](#15th)  &nbsp; [16일차](#16th)  &nbsp; [17일차](#17th)  &nbsp; [18일차](#18th)  &nbsp; [19일차](#19th) <br>
 <kbd>Machine Learning</kbd> <br>
 [20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th) &nbsp; [25일차](#25th)<br>
-[26일차](#26th) &nbsp; [추천 시스템(27일차)](#27th) &nbsp; [28일차](#28th) &nbsp; [29일차](#29th) &nbsp; [30일차](#30th)<br>
+[26일차](#26th) &nbsp; [추천 시스템(27일차)](#27th) &nbsp; [28일차](#28th) &nbsp; [29일차](#29th) 
+<kbd>Deep Learning</kbd> <br>
+[30일차](#30th) &nbsp; <br>
+
+
 
 <a id = '1st'></a>
 # 2019년 4월 29일 월요일 1st 
@@ -6766,10 +6770,10 @@ rf.feature_importances_
 <a id = '30th'></a>
 # 2019년 6월 20일 목요일 30th
 
+## Deep Learning 
 
-
-
-
+**2개 이상의 **<span  style="color: red; font-size:30px;">Perceptron</span>**을 연결하여**<br>
+**많은**<span  style="color: red; font-size:30px;">Layer</span>**로 구성된** <span  style="color: red; font-size:30px;">기계학습</span>**을** <span  style="color: red; font-size:30px;">Deep Learning</span>**이라고 부른다** <br>
 
 **복습시간**   19시 10분 ~ 
 {: .notice}
