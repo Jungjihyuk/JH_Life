@@ -4062,7 +4062,7 @@ sns.pairplot(data,hue='class_')
 ```python
 import pandas as pd 
 
-data = pd.read_csv('file.txt')
+data = pd.read_csv('file.csv')
 data.melt(['iso2','year'], var_name='sp', value_name='값').dropna()
 ```
 ![tidy data](https://user-images.githubusercontent.com/33630505/58412407-58451580-80b1-11e9-869a-56ce832033bb.JPG)
