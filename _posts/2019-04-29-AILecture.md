@@ -5369,10 +5369,13 @@ iris.species = iris.species.map('setosa': 0, 'versicolor':1,'virginica':2})
 **Data leakage** training data에는 있지만 test data에는 없어 overfitting된경우 발생하는 문제 
 {: .notice}
 
-### Cross Validation
+### Cross Validation (교차 검증)
 
-> n등분 나누어 test, train을 n번 수행하여 평균을 내어 성능을 테스트한다. 
-> 보통 10등분으로 함. 
+> n등분 나누어 test, train을 n번 수행하여 평균을 내어 성능을 테스트한다. <br>
+> 보통 10등분으로 함. <br>
+> 모든 데이터가 최소 한번은 테스트 데이터로 쓰이도록 한다. <br>
+> 데이터가 적을때 대충의 성능평가를 할때 cross_val_score를 사용한다 <br>
+
 
 data leakage현상을 방지할 수 있다.<br>
 데이터의 양이 많으면 매우 느리다는 단점이 있다. 
@@ -6742,7 +6745,7 @@ rf.feature_importances_
 ## Cross-validate 3가지 
 
 ```
-1. Cross_validation_score
+1. Cross_val_score
 2. Cross_validate
 3. Cross_val_predict 
 ```
