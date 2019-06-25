@@ -24,7 +24,7 @@ tag:
 [20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th) &nbsp; [25일차](#25th)<br>
 [26일차](#26th) &nbsp; [추천 시스템(27일차)](#27th) &nbsp; [28일차](#28th) &nbsp; [29일차](#29th) <br>
 <kbd>Deep Learning</kbd> <br>
-[30일차](#30th) &nbsp; <br>
+[30일차](#30th) &nbsp; [31일차](#30th) &nbsp; [32일차](#30th) <br>
 
 
 
@@ -7062,3 +7062,19 @@ CNN: [tistory](https://hamait.tistory.com/535)<br>
 
 **복습시간**   19시 10분 ~ 22시,  / 총 2시간 50분 
 {: .notice}
+
+
+
+
+
+<a id = '31th'></a>
+# 2019년 6월 24일 월요일 31th
+
+
+
+
+
+
+
+<a id = '32th'></a>
+# 2019년 6월 25일 화요일 32th
