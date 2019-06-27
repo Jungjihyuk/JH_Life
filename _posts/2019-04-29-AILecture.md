@@ -7112,6 +7112,8 @@ CNN: [tistory](https://hamait.tistory.com/535)<br>
 
 ![data](https://user-images.githubusercontent.com/33630505/60263814-98035500-991c-11e9-92d9-f6bfafbb0485.JPG)
 
+출처: Peter Norvig's The Unreasonable Effectiveness of Data 논문 <br>
+
 > Peter Norvig의 논문에서도 알 수 있듯이 복잡한 문제에서 딥러닝의 성능이 좋으려면 <br>
 > 좋은 알고리즘 보다는 더 많은 데이터가 중요하다는 것을 알 수 있다. <br>
 > 하지만 데이터 확보가 어려운 경우도 많고 중간 규모의 데이터는 매우 흔한 일 이기 때문에 <br>
@@ -7183,6 +7185,13 @@ CNN: [tistory](https://hamait.tistory.com/535)<br>
 
 #### 내재적 편향 
 
+
+
+
+머신러닝 단기집중과정 (편향 출처) : [google](https://developers.google.com/machine-learning/crash-course/fairness/types-of-bias)
+<br>
+
+<hr>
 
 ## Tensor board
 
