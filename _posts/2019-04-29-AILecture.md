@@ -24,7 +24,7 @@ tag:
 [20일차](#20th)  &nbsp; [Process(21일차)](#21th)  &nbsp; [22일차](#22th)  &nbsp; [23일차](#23th) &nbsp; [24일차](#24th) &nbsp; [25일차](#25th)<br>
 [26일차](#26th) &nbsp; [추천 시스템(27일차)](#27th) &nbsp; [28일차](#28th) &nbsp; [29일차](#29th) <br>
 <kbd>Deep Learning</kbd> <br>
-[30일차](#30th) &nbsp; [31일차](#30th) &nbsp; [32일차](#30th) <br>
+[30일차](#30th) &nbsp; [31일차](#31th) &nbsp; [32일차](#32th) &nbsp; [33일차](#33th) &nbsp; [34일차](#34th)<br>
 
 
 
