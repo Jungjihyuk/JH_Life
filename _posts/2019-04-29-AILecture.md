@@ -7155,8 +7155,84 @@ CNN: [tistory](https://hamait.tistory.com/535)<br>
 ```
 자동화 편향은 두 시스템의 오류율과 관계없이 자동화 시스템이 생성한 결과를 비 자동화 시스템이
 생성한 결과보다 선호하는 경향을 말합니다. 
-예를 들어 
+예를 들어 병아리 성별을 감별하는 자동화 시스템과 사람이 직접 감별하는 것 두 가지가 있다는 사실을 알려 줬을 때 어느 것이 정확도가 높을까? 라고 질문을 한다면 보통 사람들은 
+자동화 시스템을 더 신뢰할 것이다. 하지만 실제로는 병아리 성별 감별하는 전문가 즉 감별사는 
+자동화 시스템의 부정확성 때문에 고액의 연봉을 받는 직종이라고 한다. 
 ```
 
+#### 표본 선택 편향 
 
+```
+1. 포함 편향 
+- 선택된 데이터가 대표셩을 갖지 않는 경우 
+- ex) A 고등학교의 영어 성적 데이터를 갖고 전국의 고등학생 영어 성적의 분포를 알려고 하는 경우 
+2. 무응답 편향 
+- 데이터 수집시 참여도의 격차로 인해 데이터가 대표성을 갖지 못하는 경우 
+- ex) 대선운동 할때 유선전화로 여론조사를 시행한 결과로 대선 후보의 당선 예측을 하는 경우 
+3. 표본 추출 편향 
+- 데이터 수집 과정에서 적절한 무작위 선택이 적용되지 않았을 경우 
+- ex) 
+```
+
+#### 그룹 귀인 편향 
+
+
+#### 내재적 편향 
+
+
+## Tensor board
+
+```python 
+%load_ext version_information
+%load_ext tensorboard
+
+version_information tensorflow
+:
+Software	Version
+Python	3.7.3 64bit [MSC v.1915 64 bit (AMD64)]
+IPython	7.4.0
+OS	Windows 10 10.0.17134 SP0
+tensorflow	2.0.0-beta1
+Thu Jun 27 17:01:13 2019 ¢¥eCN©öI¡¾©ö C¡ÍA¨ª¨öA
+
+import tensorflow as tf 
+import datetime
+
+mnist = tf.keras.datasets.mnist
+
+(x_train, y_train),(x_test, y_test) = mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0
+
+def create_model():
+  return tf.keras.models.Sequential([
+    tf.keras.layers.Flatten(input_shape=(28, 28)),
+    tf.keras.layers.Dense(512, activation='relu'),
+    tf.keras.layers.Dropout(0.2),
+    tf.keras.layers.Dense(10, activation='softmax')
+  ])
+  
+model = create_model()
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+	      
+log_dir="log\\" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") # 현재시간을 문자열로 바꿔서 저장
+
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+
+model.fit(x=x_train, 
+          y=y_train, 
+          epochs=5, 
+          validation_data=(x_test, y_test),
+          callbacks=[tensorboard_callback]
+         )
+	 
+%lsmagic  # %load_ext tensorboard를 하면 %tensorboard가 생긴다 
+: Available line magics:
+%alias  %alias_magic  %autoawait  %autocall ....%tensorboard.....
+
+%tensorboard --logdir log/
+```
+
+![tensorboard](https://user-images.githubusercontent.com/33630505/60267850-187a8380-9926-11e9-84a8-654798556cd4.JPG)
 
