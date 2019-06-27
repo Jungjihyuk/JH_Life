@@ -7108,7 +7108,7 @@ CNN: [tistory](https://hamait.tistory.com/535)<br>
 
 ## Deep Learning에서 중요한것은? 
 
-<span  style="color: skyblue; font-size:30px;">Data</span>  **vs** <span  style="color: skyblue; font-size:30px;">Algorithm</span>  <br>
+<span  style="color: skyblue; font-size:30px;">Data</span> &nbsp; **vs**  &nbsp; <span  style="color: skyblue; font-size:30px;">Algorithm</span>  <br>
 
 ![data](https://user-images.githubusercontent.com/33630505/60263814-98035500-991c-11e9-92d9-f6bfafbb0485.JPG)
 
@@ -7117,6 +7117,7 @@ CNN: [tistory](https://hamait.tistory.com/535)<br>
 > 하지만 데이터 확보가 어려운 경우도 많고 중간 규모의 데이터는 매우 흔한 일 이기 때문에 <br>
 > 알고리즘의 중요성 또한 무시할 수 없다. 
 
+<br>
 
 ## 당신의 데이터는 일반적입니까? 
 
@@ -7125,11 +7126,14 @@ CNN: [tistory](https://hamait.tistory.com/535)<br>
 > 그리고 데이터를 수집한 사람이 혹은 시스템이 편향된 데이터를 수집하지는 않았을까요? <br>
 > 좋은 데이터를 갖고 있다고 가정하더라도 학습을 시키는 사람에 따라서 편향된 모델이 나올 수 있다는 것을 명심하자 <br>
 
+<br>
+
 ### 데이터는 공정한 데이터 여야 한다.
 
 > 공정한 데이터... 기준이 불명확하고 사람마다 공정성의 기준이 다를 수 있으니 <br>
 > 사람이 저지르는 편향 유형을 살펴보고 편향된 데이터인지 판단하는 눈을 기르도록 하자. 
 
+<br>
 
 ### 편향의 유형 
 
