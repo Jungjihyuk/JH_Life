@@ -7087,7 +7087,7 @@ CNN: [tistory](https://hamait.tistory.com/535)<br>
 
 
 
-<a id = '32th'></a>
+<a id = '34th'></a>
 # 2019년 6월 27일 목요일 34th
 
 ## Pandas 시계열 분석
@@ -7248,4 +7248,16 @@ model.fit(x=x_train,
 ```
 
 ![tensorboard](https://user-images.githubusercontent.com/33630505/60267850-187a8380-9926-11e9-84a8-654798556cd4.JPG)
+
+
+
+<a id = '35th'></a>
+# 2019년 6월 28일 금요일 35th (마지막 수업) 
+
+
+
+
+
+
+
 
