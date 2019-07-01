@@ -452,8 +452,6 @@ type(s)
 **Internals** Python은 -5부터 256까지 숫자는 재할당을 해도 메모리 번지가 바뀌지 않도록 인터널 기법을 사용한다. 많이 쓰이는 작은 정수들을 미리 할당해 놓음으로써 메모리 공간과 연산비용을 많이 아낄 수 있게된다. 
 {: .notice}
 
-<br>
-
 ```python 
 from sys import intern 
 
@@ -504,11 +502,14 @@ id(a)
 ```
 
 
-[참고](https://mingrammer.com/translation-cpython-internals-arbitrary-precision-integer-implementation/)<br>
+파이썬 내부 동작 원리 : [mingrammer](https://mingrammer.com/translation-cpython-internals-arbitrary-precision-integer-implementation/)<br>
 
-* Garbage Collection은 메모리 관리 기법 중 하나로, 프로그램이 동적으로 할당했던 메모리 영역 중에서 필요 없게 된 영역을 해제하는 기능이다.
+**Garbage Collection**은 메모리 관리 기법 중 하나로, 프로그램이 동적으로 할당했던 메모리 영역 중에서 필요 없게 된 영역을 해제하는 기능이다.
+{: .notice}
 
 <br>
+<hr>
+
 
 ### xxx = xxx 
 <span style="background: orange">식별자 or 변수 = 식(Expression), statement </span><br>
