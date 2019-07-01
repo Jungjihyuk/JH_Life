@@ -69,7 +69,7 @@ Life is short, you need!
 - 언어이면서 명세서이다. 
 - CPython / De facto -> 많이 쓰여서 표준이된것. (사실상 표준)
 3. Library & Tool (많다) 
-4. General Purpose <-> domain specific
+4. Python: General Purpose(범용적) <-> R: domain specific(도메인용, 통계전문)
 5. 인터프리터 언어이다.
 6. 모바일 지원에 대해 약하다. (이는 절대 개선될 수 없다. 왜냐하면 apple과 google에서 swift, 및 자사 언어를 사용하기 때문에) 
 - 그러나 DS분야에서는 그나마 낫다.
