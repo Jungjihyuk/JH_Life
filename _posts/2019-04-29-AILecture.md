@@ -148,19 +148,25 @@ ex) i = 1 + 3j
 String은 python3 버전에서 unicode문자에 해당한다. 
 Byte는 문자 앞에 b를 붙이면 byte문자로 인식하고 ASCII코드에 해당한다. 
 ex) a = b'안녕'
-    type(a) 
-    bytes
+    SyntaxError: bytes can only contain ASCII literal characters
     
-※ Python에서는 변수를 식별자라고 명칭한다. 
-이때 식별자는 생성 규칙이 정해져 있다. 
+```
+
+**Python Tip1** Python에서는 변수를 식별자라고 명칭한다. 이때 식별자는 생성 규칙이 정해져 있다.
+{: .notice}
+
+```
 1. 영문으로 써야한다.
 2. 첫번째문자는 특수문자를 사용할 수 없다.
 3. 미리 정의되어있는 문자는 사용할 수 없다. 
-
-※ 파이썬은 동적타입, 즉 타입을 지정해주지 않아도 자동으로 지정해주기 때문에 정수형인지 
-부동소수점인지 문자인지 등을 명시하지 않아도 타입이 지정된다.
 ```
 
+**Python Tip2** 파이썬은 동적타입, 즉 타입을 지정해주지 않아도 자동으로 지정해주기 때문에 정수형인지 
+부동소수점인지 문자인지 등을 명시하지 않아도 타입이 지정된다.
+{: .notice}
+
+
+### Python keword 종류 
 ```python
 import keyword 
 keyword.kwlist
@@ -201,7 +207,10 @@ keyword.kwlist
  'with',
  'yield']
 ```
+
 <br>
+
+### Namespace 보기 
 ```python
 %whos     # 여태까지 사용한 식별자를 보여줌
  
@@ -218,9 +227,19 @@ t          bool       True
 w          str        ㅇㅇ
 ```
 
+<br>
+
+### 문자열 연산 및 예외 연산 
 ```python
 '정지혁' * 3 
 : 정지혁정지혁정지혁 
+
+'정' + '정'
+: '정정'
+
+
+'정' + 1
+: TypeError: can only concatenate str (not "int") to str
 
 # 데이터 타입에 따라서 지원되는 연산이 다르다. 
 ```
@@ -437,6 +456,51 @@ type(s)
 
 ```python 
 from sys import intern 
+
+dir(intern) 
+:
+['__call__',
+ '__class__',
+ '__delattr__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__name__',
+ '__ne__',
+ '__new__',
+ '__qualname__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__self__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__text_signature__']
+
+
+※ 주의 
+# interning된 값을 재할당할때는 메모리 번지가 바뀌지 않는다
+
+a = 100 
+id(a)
+: 
+140706464961408
+a = 100
+id(a)
+:
+140706464961408
 ```
 
 
