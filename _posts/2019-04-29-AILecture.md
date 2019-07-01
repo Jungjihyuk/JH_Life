@@ -300,7 +300,8 @@ hex() => 16진법으로 변환 <br>
 ### float 
 
 <span style="background-color: skyblue">부동소수는 소수점이 존재하는 수</span><br>
-<span style="background-color: skyblue">예외적으로 무한대와 숫자가 아닌 경우도 포함한다.</span><br>
+<span style="background-color: skyblue">예외적으로 무한대와 숫자가 아닌 경우도 포함한다</span><br>
+<span style="background-color: skyblue">컴퓨터의 부동소수 연산은 정확하지 않은 근사값을 보여준다</span><br>
 ```python
 float('inf')
 => inf (infinity)
@@ -309,7 +310,9 @@ float('nan')
 # 무한대 개념은 딥러닝에서 미분의 개념을 꼭 알아야 하는데 이때 중요하게 작용한다.
   파이썬은 이처럼 숫자 체계가 범위가 넓기 때문에 인공지능에 이용되는 장점이 있다.
 ```
+
 <br>
+
 **.(점)은 부동소수점을 결정하는 리터럴**<br>
 
 > 리터럴은 데이터 타입을 결정하는 문자를 일컫는 말이다. 
