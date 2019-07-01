@@ -715,7 +715,7 @@ else:
 보통 container이면 Iterable ※ 아닌것도 있지만 아주 나중에 배운다.
 
 
-<span style="color: red">container이지만 Iterable이 아닌것이 set인가?? iterable의 조건중 __ iter__랑 __ getitem__ 두가지가 있어야 되는데 set은 __ iter__ 한가지 밖에 없다 왜지? 찾아보자 </span>
+<span style="color: red">container이지만 Iterable이 아닌것이 set인가?? iterable의 조건중 __ iter__랑 __ getitem__ 두가지가 있어야 되는데 set은 __ iter__ 한가지 밖에 없다 왜지? </span>
 
 ```python
 # for # 
@@ -886,7 +886,8 @@ Why? Python 철학중 EAFP라는 것이 있는데 이는 '허락보다는 용서
 
 <br>
 
-**Python Tip1** 파이썬은 오버로딩이 안된다. 즉 같은 함수 이름을 여러개 정의하여 매개변수를 달리하여 사용하는 기법이 허용이 되지 않는다. 파이썬은 오버로딩을 지원하지 않음으로써 속도를 개선했다. 단, 오버라이딩은 사용 가능하다. (매소드 재정의)
+**Python Tip1** 파이썬은 오버로딩이 안된다.(@연산자로 오버로딩 가능해졌다?) 즉, 같은 함수 이름을 여러개 정의하여 매개변수를 달리하여 사용하는 기법이 허용이 되지 않는다. 
+파이썬의 단점 중에 속도가 느리다는 점이 있었는데, 오버로딩을 지원하지 않음으로써 속도를 개선했다. (단, 오버라이딩은 사용 가능하다. (매소드 재정의))
 {: .notice}
 
 
