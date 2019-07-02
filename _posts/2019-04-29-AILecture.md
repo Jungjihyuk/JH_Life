@@ -479,6 +479,55 @@ set(dir(list())) & set(dir(tuple()))
  'index'}
 ```
 
+### __missing__ & defaultdict 
+
+#### __missing__
+```python
+class MyDict(dict):
+    def __missing__(self, key):
+        self[key] = rv = []
+        return rv
+
+m = MyDict()
+m
+: {}
+
+type(m)
+: __main__.MyDict
+
+m.update({'x':1})
+m
+: {'x': 1}
+
+m.update({'x':2})
+: {'x': 2}
+
+m['y'].append(3)
+: {'x': 2, 'y': [3]}
+```
+
+#### defaultdict
+
+```python
+from collections import defaultdict
+
+m = defaultdict(list)
+type(m)
+: collections.defaultdict
+
+m
+: defaultdict(list, {})
+
+m['x'].append(1)
+m
+: defaultdict(list, {'x': [1]})
+
+m['x'].append(2)
+m
+: defaultdict(list, {'x': [1, 2]})
+```
+
+출처: [tistory](https://greatkim91.tistory.com/189)<br>
 
 <hr>
 
@@ -865,6 +914,23 @@ else:
 * for문은 반복횟수를 알때 주로 사용하고, while문은 반복횟수가 정해지지 않았을 때, 모를때 주로 사용한다. 
 
 * 모든 for문은 while문으로 바꿀수 있지만, 모든 while문은 for문으로 바꾸기 어렵다.
+
+
+### Enumeration 
+
+> for문에 index가 필요할때 iterable 객체를 enumerate로 감싸면 index값이 같이 출력된다
+
+```python 
+a = ['a','b','c','d','e']
+for index, value in enumerate(a):
+    print(index, value)
+:
+0 a
+1 b
+2 c
+3 d
+4 e
+```
 
 ### else문 3가지 쓰임 
 1. 조건문에서     => 조건에 맞지 않는 경우  
