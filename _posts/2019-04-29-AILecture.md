@@ -937,7 +937,7 @@ Parameter | Argument
 키워드 방식이 온다 | 식이 들어갈 수 있다
 
 <br>
-### Argument 사용법 
+### Parameter 사용법 
 
 ```
 1. Positional + keyword
