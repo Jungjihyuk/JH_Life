@@ -435,6 +435,11 @@ type(y)
 y = (1,)
 ```
 
+**Tuple Tip** 콤마가 뒤에 있다는 것은 튜플이라는 것을 알려주기 때문에 가독성도 높일 수 있고, 콤마를 써야만 tuple로 인식이 되는 경우가 있기 때문에 마지막에 콤마를 꼭 써주는 습관을 갖도록 하자. ex) (1,2,)
+{: .notice}
+
+<br>
+
 ### Set vs Dictionary 
 **공통점** 둘다 집합의 성질을 띄어 중복허용이 불가능하고, 순서가 없다. 
 {: .notice}
@@ -452,7 +457,28 @@ type(s)
 s = set()
 type(s)
 : set 
+
+# 집합은 고유의 연산자가 있다. 
+a = {1,2,3}
+a - {2}
+: {1,3}
+
+a ^ {3}
+: {1,2}
+
+# set의 활용
+# set은 공통된 메소드를 확인할때도 사용한다 
+
+set(dir(list())) & set(dir(tuple()))
+: 
+{'__add__',
+ '__class__',
+ '__contains__',
+ ....
+ 'count',
+ 'index'}
 ```
+
 
 <hr>
 
@@ -1227,6 +1253,7 @@ def xx(y, x=[]):
 # 사실 엉터리 코딩 x.append(y)는 None을 리턴하고, 
 # 함수 밖에서 x 리스트에 접근도 할 수 없기 때문에 but 인자에 기본값 x list 말고 
 # 외부에 선언된 list 넣으면 list 확인 가능 
+# default값을 mutable로 사용하면 heap영역에 들어간다 
 
 # 1-1 
 def xx(list):
@@ -1831,6 +1858,18 @@ a.__class__
 
 
 참조와 참조변수 : [tistory](https://dohe2014.tistory.com/entry/%EC%B0%B8%EC%A1%B0reference%EC%99%80-%EC%B0%B8%EC%A1%B0%EB%B3%80%EC%88%98reference-variable)<br>
+
+**None & 객체** 객체가 있는지 없는지 구분할때 None을 활용해 확인할 수 있다 
+{: .notice}
+
+### 주의
+```python
+None == False 
+: False
+
+# False는 0이라는 값과 매칭되어 있기 때문에 즉, 0이라는 객체이기 때문에 
+# 존재론적 관점에서 None이 아니다.
+```
 
 
 **복습 시간**  18시 22분 ~ 20시 / 총 1시간 38분
@@ -2728,7 +2767,7 @@ t.test2
 추상클래스: [wikidocs](https://wikidocs.net/16075)<br>
 
 ```python
-# sequence 타입의 조건 
+# sequence 타입의 조건 (sequence type은 iterable을 상속받아 만들어졌다) 
 class A:           
     x = 1 
     def __getitem__(self,x):
