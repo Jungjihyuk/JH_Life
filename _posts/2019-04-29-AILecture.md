@@ -728,8 +728,9 @@ x,y,*z = 1,2,3,4 (O)
 *u, = {'a':1,'b':2,'c':3,'d':4,'e':1} (O)  # 단, 키 값만 리스트 형태로 반환
 *x, y = range(10) (O)
 
-x, = 1,2 (X) # 왼쪽 식별자와 오른쪽 식의 갯수를 맞춰줘야 함
+x, = 1,2 (X)  # 왼쪽 식별자와 오른쪽 식의 갯수를 맞춰줘야 함
 *x, y, *z = 1,2,3,4,5 (X)
+*x = 1,2,3 (X)  
 
 # 오른쪽에 오는 식은 Container면 모두 가능 
 # * (별표)는 나머지를 리스트로 반환, 그리고 * 두 개이상 못씀
@@ -1045,6 +1046,7 @@ print(cnt)
 :35
 ```
 
+
 ### 신기한 함수 
 ```python
 import matplotlib.pyplot as plt 
@@ -1204,17 +1206,34 @@ a()
 ### Return의 3가지 형태 
 
 ```
-1. 자기는 변하지만 return이 None
+1. 자기는 변하지만 return이 None 
+- ex) append, extend 
 2. 자기 자신이 변하지 않고 return 값이 있다 
+- ex) count, index 
 3. 자기 자신도 변하고 return 값도 있다
+- ex) pop 
 ```
+
+**mutable**에 사용하는 함수중에서 return 값이 None인 경우가 종종 있다. ex) append, extend
+{: .notice}
+
+<br>
 
 ```python 
 # 1 
 def xx(y, x=[]):
    return x.append(y)
 # 사실 엉터리 코딩 x.append(y)는 None을 리턴하고, 
-# 함수 밖에서 x 리스트에 접근도 할 수 없기 때문에
+# 함수 밖에서 x 리스트에 접근도 할 수 없기 때문에 but 인자에 기본값 x list 말고 
+# 외부에 선언된 list 넣으면 list 확인 가능 
+
+# 1-1 
+def xx(list):
+    return list.append(3)
+x = [1,2]
+xx(x)
+x
+: [1,2,3]
 
 # 2 
 def xx(y, x=[]):
