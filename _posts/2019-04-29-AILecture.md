@@ -1642,7 +1642,7 @@ Closure: [github blog](https://nachwon.github.io/closure/)
 
 ## Decorator
 
-> 함수를 추가, 수정해서 재사용 가능하게 해주는 것 <br>
+> 함수나 클래스를 추가, 수정해서 재사용 가능하게 해주는 것 <br>
 > 데코레이터를 사용하려면 함수 중첩이 있어야 하고, 함수를 파라미터로 받아야 하고, 중첩된 inner 함수를 return 해야 한다.  
 
 ### 예제를 통한 decorator 이해하기 
