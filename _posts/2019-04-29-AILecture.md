@@ -15,7 +15,7 @@ tag:
 <kbd>Python</kbd> <br>
 [1일차](#1st) &nbsp; [Type(2일차)](#2nd)  &nbsp; [3일차](#3rd)  &nbsp; [4일차](#4th)  &nbsp; [Function(5일차)](#5th) <br>
 [6일차](#6th) &nbsp; [Decorator(7일차)](#7th)  &nbsp; [Class(8일차)](#8th)  &nbsp; [9일차](#9th)  &nbsp; [Meta_Class(10일차)](#10th) <br>
-[11일차](#11th) <br>
+[11일차](#11th) &nbsp; [디버깅](#debug) <br>
 <kbd>Numpy</kbd> <br>
 [12일차](#12th)  &nbsp; [13일차](#13th)  &nbsp; [newaxis(14일차)](#14th) <br>
 <kbd>Pandas</kbd> <br>
@@ -1450,6 +1450,7 @@ tips.sample(10, replace = True) # 랜덤으로 10개 보여줘
 - for를 쓰지만 for를 쓰지 않는 기법
 4. Recursive function
 - 메모리 효율, 속도면에서 성능이 좋지않아 사용안함 
+5. map, filter, reduce
 ```
 
 **iterable** 1. iterator로 바꿀 수 있는 2. 순회, 반복가능 (요소 하나씩 뽑아냄) 3. for 뒤에 사용할 수 있는 container 
@@ -3043,6 +3044,38 @@ epiphany : [brunch](https://brunch.co.kr/@altna84/216)<br>
 
 **복습 시간** 22시 30분 ~ 1시 10분 / 총 2시간 40분  
 {: .notice}
+
+
+<a id = 'debug'></a>
+# 디버깅 
+
+## debug package, builtin_function 
+
+### pdb package
+```python
+x = 1 
+
+def y():
+    import pdb; pdb.set_trace()
+    x = x + 1
+    print(x)
+    
+ y()
+```
+![pdb](https://user-images.githubusercontent.com/33630505/60567725-de860300-9da5-11e9-9f85-27249b1694d3.JPG)
+
+### breakpoint
+
+```python
+x = 1
+
+def y():
+    breakpoint()
+    x = x+1
+    print(x)
+```
+
+![pdb](https://user-images.githubusercontent.com/33630505/60567725-de860300-9da5-11e9-9f85-27249b1694d3.JPG)
 
 
 <a id = '12th'></a>
