@@ -1182,6 +1182,13 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 <br>
 ## 함수의 인자로 함수가 들어가는 경우 
 
+```
+1. map 
+2. filter
+3. reduce
+```
+
+### 예제 
 ```python
 def a(x):
    return x + 1
@@ -1481,7 +1488,7 @@ set(dir(Iterator))-set(dir(Iterable))
 <span style="background-color:orange">Iterator를 생성해주는 Function, 그리고 일반 함수와 비슷해 보이지만 Generator는 yield를 포함한다는 점에서 차이가 있다</span>
 
 두 가지 방법으로 만들 수 있다
-1. tuple comprehension (generator comprehension) 
+1. generator 표현식(tuple)
 2. yield 
 
 ```python
