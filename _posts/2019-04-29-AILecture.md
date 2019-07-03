@@ -1592,7 +1592,7 @@ b = {x+1 for x in range(10) if > 5}
 c = {x:1 for x in range(10) if x>5}
 : {6: 1, 7: 1, 8: 1, 9: 1}
 
-# generator comprehension (tuple)
+# generator 표현식 (tuple)
 d = (x for x in range(10))
 d
 : <generator object <genexpr> at 0x000001EBD5645DE0>
