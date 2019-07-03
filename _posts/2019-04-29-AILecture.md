@@ -1077,6 +1077,28 @@ Why? Python 철학중 EAFP라는 것이 있는데 이는 '허락보다는 용서
 파이썬의 단점 중에 속도가 느리다는 점이 있었는데, 오버로딩을 지원하지 않음으로써 속도를 개선했다. (단, 오버라이딩은 사용 가능하다. (매소드 재정의))
 {: .notice}
 
+### multipledispatch
+
+> 파이썬으로 오버로딩 지원해주는 패키지
+
+```python
+from multipledispatch import dispatch
+
+@dispatch(int, int)
+def add(x,y):
+    return x + y 
+
+@dispatch(object, object)
+def add(x,y)
+    return "%s + %s"%(x,y)
+
+add(1,2)
+: 3 
+
+add(1,'hello')
+: '1 + hello'
+```
+
 
 * 오늘의 명언 
 <span style="color: orange">자동이 많으면 제약이 많다.</span>
