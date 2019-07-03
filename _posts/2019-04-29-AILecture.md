@@ -1467,12 +1467,21 @@ next(b)
 # 실행할 때마다 index 0번지 부터 하나씩 뽑아낸다
 ```
 
+### Iterator vs Iterable 
+
+```python 
+from collections.abc import Iterable, Iterator
+
+set(dir(Iterator))-set(dir(Iterable))
+: {'__next__'}
+```
+
 ### Generator 
 
 <span style="background-color:orange">Iterator를 생성해주는 Function, 그리고 일반 함수와 비슷해 보이지만 Generator는 yield를 포함한다는 점에서 차이가 있다</span>
 
 두 가지 방법으로 만들 수 있다
-1. tuple
+1. tuple comprehension (generator comprehension) 
 2. yield 
 
 ```python
@@ -1520,9 +1529,13 @@ Generator는 iterator를 생성해주는 Function <br>
 <span style="background-color: orange">생성 방식에서 차이가 있고 Iterator는 객체 Generator는 함수</span><br>
 <span style="background-color: orange">Generator는 tuple, yield로 만들고 Iterator는 liter() 함수로 만든다</span>
 <br>
+
+<br>
+<hr>
+
 <span style="color: skyblue">Generator vs Function</span>
 
-Generator <br>
+**Generator** <br>
 
 Iterator를 만들어주는 것 <br>
 반복 가능한 객체를 만들어주는 함수<br>
@@ -1538,7 +1551,7 @@ next(e)
 # yield는 return과 비슷하다고 생각하면 된다
 ```
 
-일반적으로 함수는 사용이 종료되면 결과값을 호출한 곳에 반환해주고 함수 자체를 종료 시킨 후 메모리상에서 사라진다 <br>
+일반적으로 **함수**는 사용이 종료되면 결과값을 호출한 곳에 반환해주고 함수 자체를 종료 시킨 후 메모리상에서 사라진다 <br>
 하지만 yield를 사용할 경우 그 상태로 <span style="color:red">정지</span> 되며 반환 값을 next()를 호출한 쪽을 전달한다<br>
 함수 호출이 종료되면 메모리상의 내용이 사리지지 않고 다음 함수 호출까지 대기한다<br>
 다음 함수 호출이 발생할 경우 <span style="color:red">yield이후 구문부터 실행된다</span>
@@ -1571,12 +1584,15 @@ generator를 사용하면 호출한 값만 메모리에 할당되므로 메모�
 a = [(x,y) for x in range(10) for y in range(20)]
 : [(0,0),(0,1),(0,2),......(9,19)]
 
+# set
 b = {x+1 for x in range(10) if > 5}
 : {7, 8, 9, 10}
 
+# dictionary 
 c = {x:1 for x in range(10) if x>5}
 : {6: 1, 7: 1, 8: 1, 9: 1}
 
+# generator comprehension (tuple)
 d = (x for x in range(10))
 d
 : <generator object <genexpr> at 0x000001EBD5645DE0>
