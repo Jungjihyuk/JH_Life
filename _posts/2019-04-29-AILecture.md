@@ -1287,11 +1287,12 @@ a(n or 3)
 
 1. 조건식 
 - 3 if a > 0 else 6 
-2. 함수식  
+2. 함수식 (lambda: 익명함수) 
 - (lambda x: x + 1)(2)
 - (lambda x, y=1: x + y)(3)
 - (lambda *x: x)(4,1,2)
 - list(map(lambda a:a+8, [1,2,3,4,5]))
+- lambda 파라미터 : return 값 
 3. 반복식 
 - (x for x in range(10))
 - Haskell에서 가져옴 
