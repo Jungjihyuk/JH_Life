@@ -1185,11 +1185,12 @@ plt.plot([1,2,3,4,5],[9,3,7,3,9])
 ```
 1. map 
 2. filter
-3. reduce
+3. reduce  => 여러개 값을 하나의 값으로 축약 
 ```
 
 ### 예제 
 ```python
+# map
 def a(x):
    return x + 1
    
@@ -1203,11 +1204,16 @@ else:
    print(temp)
 :[2,3,4]
 
+# filter 
 def b(x):
    return x > 3
    
 list(filter(b,[1,2,3,4,5,6])) 
 :[4,5,6]
+
+# reduce
+reduce(lambda x,y:x+y,[1,2,3,4,5])
+: 15
 ```
 
 > filter는 predicate function => True or False를 되돌려 주는 함수 
@@ -1266,6 +1272,10 @@ a(n or 3)
 - list(map(lambda a:a+8, [1,2,3,4,5]))
 3. 반복식 
 - (x for x in range(10))
+- Haskell에서 가져옴 
+
+![haskell_comprehension](https://user-images.githubusercontent.com/33630505/60572427-8b657d80-9db0-11e9-82ae-5318f85e08b8.JPG)
+<br>
 
 ```python
 # 조건식 + 반복식 
