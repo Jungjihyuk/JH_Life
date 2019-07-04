@@ -930,6 +930,17 @@ for index, value in enumerate(a):
 2 c
 3 d
 4 e
+
+for i, j in enumerate(*[''], 1):
+    print(i,j)
+:
+1 a
+2 b
+3 c
+4 d
+5 e
+6 f
+7 g 
 ```
 
 ### else문 3가지 쓰임 
@@ -1547,6 +1558,18 @@ next(y)
 **주의** iterator와 generator는 scope를 초과하면 StopIteration 에러가 뜬다. 
 {: .notice}
 
+**file**을 불러오면 generator 처럼 행동한다. 
+{: .notice}
+
+```python
+x = open('file.txt')
+next(x)
+: '안녕\n'
+next(x)
+: '반가워\n'
+```
+
+
 <br>
 
 ### Iterator vs Generator & Generator vs Function 
@@ -1604,7 +1627,8 @@ next(e)
 generator를 사용하면 호출한 값만 메모리에 할당되므로 메모리를 효율적으로 사용할 수 있게된다
 <br>
 이러한 기법을 <span style="color: orange">Lazy Evaluation</span>이라고 한다 <br>
-계산 결과 값이 필요할 때까지 계산을 늦추는 방식 <br>
+Lazy Evaluation은 계산 결과 값이 필요할 때까지 계산을 늦추는 방식이다 <br>
+Lazy Evaluation은 속도가 느리다는 단점이 있지만 파이썬에서는 내부적으로 최적화 되어 있어 속도가 빠르다<br>
 
 참고: [tistory](https://bluese05.tistory.com/56)<br>
 
