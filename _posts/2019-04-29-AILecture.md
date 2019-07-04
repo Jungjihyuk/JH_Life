@@ -1665,12 +1665,30 @@ fib(10)  # 10번째 항   (1 1 2 3 5 8 13 21 34 55)
 <span style="background-color:orange">함수의 중첩으로 가능한 것들</span>
 ```
 1. Closure
-
 2. Decorator 
 ```
 
 
 ## Closure
+
+> 함수를 중첩시키고 함수를 리턴하는 함수. 클로저는 보통 함수를 쉽게 변형할 수 있는 기법이다. 
+
+
+```python
+def add(x):
+    def addd(y):
+        return x + y
+    return addd
+
+# 3더해주는 함수 
+add(3)(10)
+: 13
+
+# 4더해주는 함수 
+add(4)(10)
+: 14 
+```
+
 
 Closure: [github blog](https://nachwon.github.io/closure/)
 
@@ -1782,6 +1800,40 @@ callable(home)
 > login_check함수의 return 값은 inner함수 호출이고 inner함수의 호출값의 return은 None 이기 때문에 <br>
 > home함수의 return 값은 None <br>
 > 따라서 데코레이터 아님.
+
+#### 어노테이션 X 
+
+```python
+def login_check(fn):
+    def inner():
+        id = input('id: ')
+        if(id=='jh'):
+            print("jh님 안녕하세요")
+            fn()
+        else:
+            print("존재하지 않는 회원입니다")
+    return inner
+
+def home():
+    print("jh님의 home page 입니다")
+
+home()
+: jh님의 home page 입니다
+
+login_check(home)()
+:
+id: jh
+jh님 안녕하세요
+jh님의 home page 입니다
+
+login_check(home)()
+:
+id: hj
+존재하지 않는 회원입니다
+```
+
+> 결론 home함수는 따로 작동하기 때문에 기능확장이라 할 수 없어서 데코레이터가 아님.
+
 
 #### 함수 파라미터 O, 함수 중첩, 함수 이름 return O
 
