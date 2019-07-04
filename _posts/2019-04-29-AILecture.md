@@ -1678,6 +1678,35 @@ fib(10)  # 10번째 항   (1 1 2 3 5 8 13 21 34 55)
 : 55 
 ```
 
+### itertools 
+
+```
+1. cycle
+2. count
+3. islice
+4. chain
+```
+
+#### cycle 
+
+```python
+from itertools import cycle
+
+for x in cycle(iter([1,2,3])):
+    print(x)
+    if(x==3):
+        break
+:
+1
+2
+3
+```
+
+#### count 
+
+#### islice 
+
+#### chain 
 
 **복습 시간**  18시 ~  19시 50분/ 총 1시간 50분
 {: .notice}
