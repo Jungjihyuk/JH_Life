@@ -1057,7 +1057,7 @@ name(2,3,4,5, a = 9, b = 3, c = [1,2])    # !주의! keyword를 쓰기 시작하
 :((2, 3, 4, 6), {'a': 9, 'b': 3, 'c': [1, 2]})
 ```
 
-**Positional Only** 사용자가 직접 만드는 함수의 파라미터에는 positinal only 방식을 사용할 수 없다. 하지만 기본 내장 함수 중에 파라미터 부분에 / 표시가 되어 있는 경우는 Positional Only 방식을 사용하라는 의미 이다. (shift + tab으로 설명 볼때) 
+**Positional Only** 사용자가 직접 만드는 함수의 파라미터에는 Positional only 방식을 사용할 수 없다. 하지만 기본 내장 함수 중에 파라미터 부분에 / 표시가 되어 있는 경우는 Positional Only 방식을 사용하라는 의미 이다. (shift + tab으로 설명 볼때), (앞으로 python 3.8부터는 positional only 방식을 지원한다고 한다.)
 {: .notice}
 
 **positional only** : [python](https://discuss.python.org/t/pep-570-python-positional-only-parameters/1078)
