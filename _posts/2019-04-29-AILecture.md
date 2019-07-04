@@ -2126,7 +2126,7 @@ b = B()
 b.b()
 
 : Access class 
-  AttributeError
+  TypeError
 
 class B:
 	x = 2 
