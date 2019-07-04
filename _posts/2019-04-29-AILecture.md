@@ -1863,8 +1863,29 @@ home()
   존재하지 않는 회원입니다
 ```
 
-> 결론 데코레이터 맞음! 
+> 결론 데코레이터 맞음! (home함수에 login_check함수 기능 추가)
 
+#### 데코레이터 기능 수정하기 
+
+```python
+def trans_odd(fn):
+    def inner(x):
+    	print('홀수 입니다')
+	result = fn(x+1)
+	return result
+    return inner
+
+@trans_odd
+def odd(x):
+    if (x%2==0):
+        return "홀수 입니다"
+    else :
+        return "홀수가 아닙니다"
+odd(4)
+: '홀수가 아닙니다'
+odd(3)
+: '홀수 입니다'
+```
 
 
 ## Closure  vs  Decorator 
@@ -2302,6 +2323,12 @@ vars(dy)
   'jane'
   {'name': 'jane'}
 ```
+
+## Object, Type 
+
+<span style="color: red; font-size: 30px;">Object</span>는 <span style="color: red; font-size: 30px;">최상위 객체</span><br>
+<span style="color: red; font-size: 30px;">Type</span>는 <span style="color: red; font-size: 30px;">meta class</span><br>
+
 
 ### Naming 
 
