@@ -3194,7 +3194,7 @@ class D:
 ```
 <span style="background-color:red">Descriptor 부분은 다시 공부하고 정리하기 </span><br>
 
-Descripter : [slideshare](https://www.slideshare.net/dahlmoon/descriptor-20160403)<br>
+Descriptr : [slideshare](https://www.slideshare.net/dahlmoon/descriptor-20160403)<br>
 
 
 ### 싱글 디스패치, 멀티 디스패치
@@ -3206,8 +3206,7 @@ Descripter : [slideshare](https://www.slideshare.net/dahlmoon/descriptor-2016040
 
 epiphany : [brunch](https://brunch.co.kr/@altna84/216)<br>
 
-##### 자습서 공부하기 
-- 3 ~ 9장
+
 
 **복습 시간** 22시 30분 ~ 1시 10분 / 총 2시간 40분  
 {: .notice}
