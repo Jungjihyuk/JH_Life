@@ -2857,6 +2857,18 @@ instance.attribute(variable) <br>
 
 1. import할때 명명법 바꾸기 
 2. 예외처리문에서 에러에 대한 상세표시 
+3. with 구문 사용할때 파일 내용 할당하기 
+
+```python
+with open('test.txt', 'w',encoding='utf-8') as f:
+    f.write('ㅎㅎㅎㅎㅎ')
+    
+with open('test.txt', 'r', encoding='utf-8') as f:
+    print(f.read())
+
+: ㅎㅎㅎㅎㅎ
+# __enter__, __exit__가 정의 되어 있으면 with 사용가능하다 
+```
 
 **__all__** import할때 포함시키고 싶은 범위를 지정해주는 special method
 {: .notice}
