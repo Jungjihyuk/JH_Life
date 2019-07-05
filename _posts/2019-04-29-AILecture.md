@@ -2805,11 +2805,20 @@ print(type(MyType))
 # 따라서 메타클래스를 만들기 위해서 type을 상속받아야 한다 
 ```
 <br>
+
 **type, object** type은 최상위 metaclass, object는 최상위 class 
 {: .notice}
 <br>
 
 ## Singleton
+
+> 인스턴스를 하나만 만들 수 있는 클래스 <br>
+> 설정파일을 만드는 객체, 임시저장소 활용할때 쓴다?? <br>
+
+```
+1. Type을 상속받는다 
+2. __call__ (클래스 호출할때 사용함) 
+```
 
 ```python 
 class Singleton(type):
@@ -2828,6 +2837,7 @@ b = ASingleton()
 a is b
 : True
 
+# 싱글톤 인스턴스 a를 만들고 다시 b를 만들었더니 
 ```
 <br>
 
