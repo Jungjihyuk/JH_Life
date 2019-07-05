@@ -2723,11 +2723,38 @@ import matplotlib
 len(dir(matplotlib))
 : 109 
 
+mat1 = set(dir(matplotlib)) 
+
 import matplotlib.pyplot as plt
 len(dir(matplotlib))
 : 172
 
-# 사실 이 예제가 Monkey patch랑 무슨 연관이 있는지 잘 모르겠음 
+mat2 = set(dir(matplotlib)) 
+
+mat3 = mat2 - mat1 
+len(mat3)
+: 63 
+
+mat3 
+: {'_cm',
+   '_cm_listed',
+   '_constrained_layout',
+   '_contour',
+   '_image',
+   '_layoutbox',
+   '_mathtext_data',
+   '_path',
+    ......
+   'texmanager',
+   'text',
+   'textpath',
+   'ticker',
+   'tight_bbox',
+   'tight_layout',
+   'transforms',
+   'tri',
+   'units',
+   'widgets'}  
 ```
 
 ### Runtime
