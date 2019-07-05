@@ -1249,6 +1249,20 @@ from functools import reduce
 
 reduce(lambda x,y:x+y,[1,2,3,4,5])
 : 15
+
+add5 = lambda n: n+5
+
+reduce(lambda l, x: l+add5(x), range(10),0) 
+: 95 
+
+# 0 + (0 + 5) => 5 / 5 + (1 + 5) => 11 / .....  
+
+reduce(lambda l, x: l+add5(x), range(10)) 
+: 90
+
+# 0 + (1 + 5) => 6 / 6 + (2 + 5) => 13 / ..... 
+
+# 초기값을 주는지 안 주는지에 따라 결과값이 달라진다 
 ```
 
 > filter는 predicate function => True or False를 되돌려 주는 함수 
