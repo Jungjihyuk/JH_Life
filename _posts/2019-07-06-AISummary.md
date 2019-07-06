@@ -16,31 +16,31 @@ tag:
 # 목차 
 
 <div style='border:1.2px solid rgb(85,85,85); border-radius:7px; display:block; padding:10; background-color: rgb(85,85,85)'>
-	<span>개요</span><br>
-	<a href="#1st" style='text-decoration:none; color:white;'><span>1. AI와 Python</span></a><br>
-	<a href="#2nd" style='text-decoration: none; color:white;'><span>2. 개발환경(Jupyter Notebook)</span></a><br>
-	<span>Python</span><br>
-	<a href="#3rd" style='text-decoration: none; color:white;'><span>1. 자료형</span></a><br>
-	<a href="#4th" style='text-decoration: none; color:white;'><span>2. Expression, Statement</span></a><br>
-	<a href="#5th" style='text-decoration: none; color:white;'><span>3. 할당문</span></a><br>
-	<a href="#6th" style='text-decoration: none; color:white;'><span>4. 선언문</span></a><br>
-	<a href="#7th" style='text-decoration: none; color:white;'><span>5. 조건문</span></a><br>
-	<a href="#8th" style='text-decoration: none; color:white;'><span>6. 반복문</span></a><br>
-	<a href="#9th" style='text-decoration: none; color:white;'><span>7. 예외처리</span></a><br>
-	<a href="#10th" style='text-decoration: none; color:white;'><span>8. 함수</span></a><br>
-	<a href="#11th" style='text-decoration: none; color:white;'><span>9. Iterator & Generator</span></a><br>
-	<a href="#12th" style='text-decoration: none; color:white;'><span>10. Comprehension</span></a><br>
-	<a href="#13th" style='text-decoration: none; color:white;'><span>11. Recursive Function</span></a><br>
-	<a href="#14th" style='text-decoration: none; color:white;'><span>12. Closure</span></a><br>
-	<a href="#15th" style='text-decoration: none; color:white;'><span>13. Decorator</span></a><br>
-	<a href="#16th" style='text-decoration: none; color:white;'><span>14. Object</span></a><br>
-	<a href="#17th" style='text-decoration: none; color:white;'><span>15. Class</span></a><br>
-	<a href="#18th" style='text-decoration: none; color:white;'><span>16. Class inheritance</span></a><br>
-	<a href="#19th" style='text-decoration: none; color:white;'><span>17. Composition</span></a><br>
-	<a href="#20th" style='text-decoration: none; color:white;'><span>18. Duck Typing</span></a><br>
-	<a href="#21th" style='text-decoration: none; color:white;'><span>19. Meta Class</span></a><br>
-	<a href="#22th" style='text-decoration: none; color:white;'><span>20. Descriptor</span></a><br>
-	<a href="#23th" style='text-decoration: none; color:white;'><span>21. Debugging</span></a><br>
+	<span style='color: orange'>개요</span><br>
+	<a href="#1st" style='text-decoration:none; color:white; padding:10;'><span>1. AI와 Python</span></a><br>
+	<a href="#2nd" style='text-decoration: none; color:white; padding:10;'><span>2. 개발환경(Jupyter Notebook)</span></a><br>
+	<span style='color: orange'>Python</span><br>
+	<a href="#3rd" style='text-decoration: none; color:white; padding:10;'><span>1. 자료형</span></a><br>
+	<a href="#4th" style='text-decoration: none; color:white; padding:10;'><span>2. Expression, Statement</span></a><br>
+	<a href="#5th" style='text-decoration: none; color:white; padding:10;'><span>3. 할당문</span></a><br>
+	<a href="#6th" style='text-decoration: none; color:white; padding:10;'><span>4. 선언문</span></a><br>
+	<a href="#7th" style='text-decoration: none; color:white; padding:10;'><span>5. 조건문</span></a><br>
+	<a href="#8th" style='text-decoration: none; color:white; padding:10;'><span>6. 반복문</span></a><br>
+	<a href="#9th" style='text-decoration: none; color:white; padding:10;'><span>7. 예외처리</span></a><br>
+	<a href="#10th" style='text-decoration: none; color:white; padding:10;'><span>8. 함수</span></a><br>
+	<a href="#11th" style='text-decoration: none; color:white; padding:10;'><span>9. Iterator & Generator</span></a><br>
+	<a href="#12th" style='text-decoration: none; color:white; padding:10;'><span>10. Comprehension</span></a><br>
+	<a href="#13th" style='text-decoration: none; color:white; padding:10;'><span>11. Recursive Function</span></a><br>
+	<a href="#14th" style='text-decoration: none; color:white; padding:10;'><span>12. Closure</span></a><br>
+	<a href="#15th" style='text-decoration: none; color:white; padding:10;'><span>13. Decorator</span></a><br>
+	<a href="#16th" style='text-decoration: none; color:white; padding:10;'><span>14. Object</span></a><br>
+	<a href="#17th" style='text-decoration: none; color:white; padding:10;'><span>15. Class</span></a><br>
+	<a href="#18th" style='text-decoration: none; color:white; padding:10;'><span>16. Class inheritance</span></a><br>
+	<a href="#19th" style='text-decoration: none; color:white; padding:10;'><span>17. Composition</span></a><br>
+	<a href="#20th" style='text-decoration: none; color:white; padding:10;'><span>18. Duck Typing</span></a><br>
+	<a href="#21th" style='text-decoration: none; color:white; padding:10;'><span>19. Meta Class</span></a><br>
+	<a href="#22th" style='text-decoration: none; color:white; padding:10;'><span>20. Descriptor</span></a><br>
+	<a href="#23th" style='text-decoration: none; color:white; padding:10;'><span>21. Debugging</span></a><br>
 </div>
 
 
