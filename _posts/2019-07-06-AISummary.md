@@ -16,8 +16,8 @@ tag:
 # 목차 
 
 <div style='border:1.2px solid rgb(85,85,85); border-radius:7px; display:block; padding:10; background-color: rgb(85,85,85)'>
-	<span style='color: orange'>개요</span><br>
-	<a href="#1st" style='text-decoration:none; color:white; padding:10;'><span>1. AI와 Python</span></a><br>
+	&nbsp;<span style='color: orange'>개요</span><br>
+	<a href="#1st" style='text-decoration:none; color:white; padding:10;'><span>&nbsp; 1. AI와 Python</span></a><br>
 	<a href="#2nd" style='text-decoration: none; color:white; padding:10;'><span>2. 개발환경(Jupyter Notebook)</span></a><br>
 	<span style='color: orange'>Python</span><br>
 	<a href="#3rd" style='text-decoration: none; color:white; padding:10;'><span>1. 자료형</span></a><br>
