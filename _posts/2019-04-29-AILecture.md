@@ -1642,17 +1642,17 @@ next(e)
 ```
 
 일반적으로 **함수**는 사용이 종료되면 결과값을 호출한 곳에 반환해주고 함수 자체를 종료 시킨 후 메모리상에서 사라진다 <br>
-하지만 yield를 사용할 경우 그 상태로 <span style="color:red">정지</span> 되며 반환 값을 next()를 호출한 쪽을 전달한다<br>
+하지만 yield를 사용할 경우 그 상태로 <span style="color:red">정지</span> 되며 반환 값을 next()를 호출한 쪽으로 전달한다<br>
 함수 호출이 종료되면 메모리상의 내용이 사리지지 않고 다음 함수 호출까지 대기한다<br>
 다음 함수 호출이 발생할 경우 <span style="color:red">yield이후 구문부터 실행된다</span>
 <br>
 
-여기서 generator를 사용하는 이유를 알 수 있다 <br>
+여기서 generator를 사용하는 <span style="color:red">이유</span>를 알 수 있다 <br>
 generator를 사용하면 호출한 값만 메모리에 할당되므로 메모리를 효율적으로 사용할 수 있게된다
 <br>
 이러한 기법을 <span style="color: orange">Lazy Evaluation</span>이라고 한다 <br>
 Lazy Evaluation은 계산 결과 값이 필요할 때까지 계산을 늦추는 방식이다 <br>
-Lazy Evaluation은 속도가 느리다는 단점이 있지만 파이썬에서는 내부적으로 최적화 되어 있어 속도가 빠르다<br>
+Lazy Evaluation은 속도가 느리다는 단점이 있지만 파이썬에서는 <span style="color:red">내부적으로 최적화</span> 되어 있어 속도가 빠르다<br>
 
 참고: [tistory](https://bluese05.tistory.com/56)<br>
 
