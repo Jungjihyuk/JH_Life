@@ -1533,6 +1533,16 @@ next(b)
 
 :1 
 # 실행할 때마다 index 0번지 부터 하나씩 뽑아낸다
+
+# iterator를 객체화하면 iterator의 성질도 잃고 객체화 하기 전 iterator의 요소 전부를 뽑아냄으로 주의! 
+a = [1,2,3]
+b = iter(a)
+next(b)
+: 1
+list(b) # tuple(b), set(b) 다 똑같음
+: [2,3]
+next(b)
+: StopIteration 
 ```
 
 ### Iterator vs Iterable 
