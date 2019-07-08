@@ -2028,6 +2028,17 @@ odd(3)
 ## Closure  vs  Decorator 
 
 
+## partial 
+
+> 부분을 대체하여 클로저 처럼 사용하는 함수
+
+```python 
+from functools import partial 
+
+add3 = partial(add,3)  # add의 두개 인자중 하나를 3으로 대체 
+add3(7)
+: 10 
+```
 
 
 **Python Tip1** locals(), globals() 함수는 함수내에서 사용하면 메모리상에 올라간 local, global 변수를 각각 확인 할 수 있다
