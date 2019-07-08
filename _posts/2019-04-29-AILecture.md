@@ -1254,13 +1254,23 @@ add5 = lambda n: n+5
 
 reduce(lambda l, x: l+add5(x), range(10),0) 
 : 95 
-
 # 0 + (0 + 5) => 5 / 5 + (1 + 5) => 11 / .....  
 
 reduce(lambda l, x: l+add5(x), range(10)) 
 : 90
-
 # 0 + (1 + 5) => 6 / 6 + (2 + 5) => 13 / ..... 
+
+# 초기값 list (O)
+reduce(lambda l, x: l+[add5(x)], range(10),[]) 
+: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+# 초기값 tuple (O)
+reduce(lambda x,y : x+(y,), [1,2,3,4], ())
+: (1, 2, 3, 4)
+
+# 초기값 set (X)
+reduce(lambda x,y : x+{y}, [1,2,3,4], set())
+: TypeError
 
 # 초기값을 주는지 안 주는지에 따라 결과값이 달라진다 
 ```
@@ -1335,6 +1345,19 @@ integer = [1,-1,4,0,44,-34,-42,14]
 list(map(lambda i: '양수' if i > 0 else ('음수' if i < 0 else 0), integer))
 
 : ['양수', '음수', '양수', 0, '양수', '음수', '음수', '양수']
+
+# 조건식 + 반복식 vs 반복식 + 조건식 
+
+li1 = [x if x%2==0 else None for x in range(10)]
+li1 
+: [0, None, 2, None, 4, None, 6, None, 8, None]
+
+li2 = [x for x in range(10) if x%2==0]
+li2
+: [0, 2, 4, 6, 8]
+
+# 조건식이 왼쪽에 있을때 오른쪽에 있을때 사용법에 있어서 차이가 있으니 조심하자
+# 기본적으로 파이썬은 왼쪽에서 오른쪽으로 실행!
 ```
 
 <br>
@@ -1592,9 +1615,24 @@ next(x)
 next(x)
 : '반가워\n'
 ```
-
-
 <br>
+
+### reversed
+
+> 원본 데이터를 뒤집고 iterator로 만드는 함수                                              
+
+```python
+rev = reversed([1,2,3,4])
+type(rev)
+: list_reverseiterator
+
+next(rev)
+: 4
+
+list(rev)
+: [3,2,1]
+```
+
 
 ### Iterator vs Generator & Generator vs Function 
 
