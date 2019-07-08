@@ -1770,6 +1770,28 @@ for x in cycle(iter([1,2,3])):
 
 #### chain 
 
+### all, any 
+
+> all은 전부다 True일때 True를 반환하고 False가 하나라도 있으면 False를 반환한다. <br>
+> any는 하나라도 True이면 True를 반환하고 전부다 False이면 False를 반환한다.
+
+```python
+# all 
+all_pred = lambda item, *tests: all(p(item) for p in tests)
+: all_pred([1,2,3], sum, max)
+: True 
+all_pred([0,1,2,3], sum, min)
+: False
+
+# any
+any_pred = lambda item, *tests: any(p(item) for p in tests)
+any_pred([0,1], sum, min)
+: True 
+
+any_pred([0,1], min)
+: False
+```
+
 **복습 시간**  18시 ~  19시 50분/ 총 1시간 50분
 {: .notice}
 
