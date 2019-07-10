@@ -20,6 +20,8 @@ tag:
 데이터를 문서화, 구조화 할 뿐만아니라 그 문서를 컴퓨터 화면에 보여줄 수도 있다.
 ```
 
+<br>
+<hr>
 
 # XML 
 
@@ -28,11 +30,17 @@ tag:
 > Extensible Markup Language의 약자로 W3C에서 개발된 다목적 마크업 언어이다. <br>
 > XML은 데이터를 전달하고 저장하는 목적으로 만들어졌다. <br>
 
+<br>
+
 ## XML 등장 배경 
 
 ```
-정부나 항공우주 기업의 대규모 계획 사업에서 기계 판독형 문서를 공유할 목적으로 SGML(Standard Generalized Markup Language)라는 마크업 언어가 있었는데, 사용하기에 너무 복잡하고 HTML의 한계를 극복하기 위해 XML이 탄생했다. 
+정부나 항공우주 기업의 대규모 계획 사업에서 기계 판독형 문서를 공유할 목적으로 
+SGML(Standard Generalized Markup Language)라는 마크업 언어가 있었는데, 
+사용하기에 너무 복잡하고 HTML의 한계를 극복하기 위해 XML이 탄생했다. 
 ```
+
+<br>
 
 ## XML의 특징 
 
@@ -57,10 +65,14 @@ tag:
 - ex) <note date= 19/7/10></note> (X) <note date= "19/7/10"></note> (O) 
 ```
 
+<br>
+
 ## HTML vs XML 
 
 **HTML은 데이터를 표현하는 것에 초점을 두고 XML은 데이터를 구조화 하고 전달하는 것에 초점이 맞춰저 있다.**
 
+
+<br>
 
 ## XML 구성 요소 
 
@@ -75,9 +87,35 @@ tag:
 6. Characters
 7. Attributes
 8. Entity 
+9. XML Schema 
+- namespaces, data types 지원 
+- XML 문법 준수 
 ```
 
 ![xml](https://user-images.githubusercontent.com/33630505/60965241-51681e80-a350-11e9-8b7b-ac25b974d4a3.JPG)
+
+<br>
+
+### XML Schema 
+
+```html 
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="note">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element name="to" type="xs:string"/>
+         <xs:element name="to" type="xs:string"/>
+         <xs:element name="to" type="xs:string"/>
+      </xs:sequence>
+   <xs:complexType>
+</xs:element>
+</xs:schema>     
+<!-- xs는 namespace -->   
+```
+
+<br>
 
 ### XML Tree
 
@@ -85,6 +123,104 @@ tag:
 
 ## XML vs LXML
 
+### LXML
+
+> XML보다 속도가 빠르고 자주 쓰는 방법
+
+
+
+#### 예제 
+
+```python
+from lxml import etree
+
+bookStore = etree.Element("bookstore") 
+
+book1 = etree.SubElement(bookStore, "book")
+book2 = etree.SubElement(bookStore, "book", attrib={"category":"children"})
+
+book1.attrib["category"] = "cooking"
+
+title1 = etree.Element("title", lang="en")
+title1.text = "Everyday Italian"
+book1.append(title1)
+
+etree.SubElement(book1, "author").text = "Giada De Lausadlf"
+etree.SubElement(book1, "year").text = "2003"
+etree.SubElement(book1, "price").text = "40.3"
+
+title2 = etree.Element("title")
+title2.set("lang", title1.get("lang"))
+title2.text = "Harry Potter"
+book2.append(title2)
+
+etree.SubElement(book2, "author").text = "Giada De Lausadlf"
+etree.SubElement(book2, "year").text = "2003"
+etree.SubElement(book2, "price").text = "40.3"
+
+xmlBytes = etree.tostring(bookStore, encoding="UTF-8", pretty_print=True, xml_declaration=True)
+xmlstr = etree.tounicode(bookStore, pretty_print=True)
+
+etree.dump(bookStore)
+:
+<bookstore>
+  <book category="cooking">
+    <title lang="en">Everyday Italian</title>
+    <author>Giada De Lausadlf</author>
+    <year>2003</year>
+    <price>40.3</price>
+  </book>
+  <book category="children">
+    <title lang="en">Harry Potter</title>
+    <author>Giada De Lausadlf</author>
+    <year>2003</year>
+    <price>40.3</price>
+  </book>
+</bookstore>
+
+xmlRoot = xmlTree.getroot()
+for childNode in xmlRoot:
+    print(childNode.tag, childNode.attrib)
+:
+book {'category': 'cooking'}
+book {'category': 'children'}
+```
+
+#### 예제 (Write, Parse)
+
+```python
+# bookStore는 위 예제와 동일 
+xml = etree.XML(etree.tostring(bookStore))
+xmlTree = etree.ElementTree(xml)
+xmlRoot = xmlTree.getroot()
+
+# xmlTree book_tree, book_root 이름의 xml 파일을 생성한다
+xmlTree.write("book_tree.xml")
+etree.ElementTree(xmlRoot).write("book_root.xml")
+
+getxmlTree = etree.parse("book_tree.xml")
+xmlRoot = getxmlTree.getroot()
+
+etree.dump(xmlRoot)
+:
+<bookstore>
+  <book category="cooking">
+    <title lang="en">Everyday Italian</title>
+    <author>Giada De Lausadlf</author>
+    <year>2003</year>
+    <price>40.3</price>
+  </book>
+  <book category="children">
+    <title lang="en">Harry Potter</title>
+    <author>Giada De Lausadlf</author>
+    <year>2003</year>
+    <price>40.3</price>
+  </book>
+</bookstore>
+```
+
+<br>
+<hr>
 
 # JSON 
 
@@ -136,8 +272,6 @@ Structured data를 byte
 6. JSON은 전송받은 데이터의 무결성을 사용자가 직접 검증해야 하지만 XML은 
    스키마를 사용하여 무결성을 검증할 수 있다(JSON Schema로 보완 가능하긴 함)
 ```
-
-
 
 출처: [tcpschool](http://tcpschool.com/json/json_intro_xml)<br>
 
