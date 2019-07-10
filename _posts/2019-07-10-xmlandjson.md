@@ -83,3 +83,158 @@ tag:
 
 ![xmltree](https://user-images.githubusercontent.com/33630505/60965240-51681e80-a350-11e9-8555-bc1646001a49.png)
 
+## XML vs LXML
+
+
+# JSON 
+
+## JSON 이란?
+
+> JavaScript Object Notation의 약자
+
+## JSON 등장 
+
+> XML의 대안으로서 좀 더 쉽게 데이터를 교환하고 저장하기 위해 고안되었다. <br>
+> XML보다 가볍고 사용하기 편하다.
+
+## 왜 json을 쓰는가? 
+
+Structured data를 byte
+
+## JSON의 특징 
+
+### 장점 
+
+```
+1. javascript 객체 표기법을 따른다
+2. 사람과 기계 모두 읽기 편하다 
+- XML보다 가독성이 뛰어나다
+3. 프로그래밍 언어와 운영체제에 독립적이다
+- 언어에 관계없이 통일된 데이터를 주고받을 수 있다
+4. 가볍다
+- XML보다 메모리가 효율적이다
+```
+
+### 단점 
+
+```
+1. 문법 오류에 민감하다 
+- 콤마가 누락되거나 중괄호가 잘못 닫히는 등 구두점에서 오타가 나면 전체 JSON 파일이 망가진다
+2. 주석을 지원하지 않는다
+3. 데이터 타입을 강제할 수 없다 (JSON Schema로 보완은 가능하지만 데이터 스스로 타입을 기술할 수 없다)
+```
+
+## XML vs JSON 
+
+```
+1. JSON은 종료 태그를 사용하지 않는다
+2. JSON의 구문은 XML 구문보다 짧다
+3. XML은 배열을 사용할 수 없지만, JSON은 배열을 사용할 수 있다
+4. XML은 XML 파서로 파싱되며, JSON은 자바스크립트 표준 함수인 eval() 함수로 파싱된다
+5. XML 문서는 XML DOM을 이용하여 문서에 접근하지만 JSON은 문자열을 전송 받은 후에 
+   해당 문자열을 바로 파싱하므로, XML보다 더 빠른 처리 속도를 보여준다
+6. JSON은 전송받은 데이터의 무결성을 사용자가 직접 검증해야 하지만 XML은 
+   스키마를 사용하여 무결성을 검증할 수 있다(JSON Schema로 보완 가능하긴 함)
+```
+
+
+
+출처: [tcpschool](http://tcpschool.com/json/json_intro_xml)<br>
+
+## JSON 구성 요소 
+
+```
+1. 데이터는 이름과 값의 쌍으로 이루어진다
+2. Array (대괄호 [])
+3. Object (중괄호 {}) 
+```
+
+![jsonstructure](https://user-images.githubusercontent.com/33630505/60967707-444e2e00-a356-11e9-968d-dc80f8e9ecb3.JPG)
+
+## 데이터 타입 
+
+```
+1. Number
+2. String
+3. Boolean
+4. Object
+5. Array
+6. Null 
+```
+
+![datatype](https://user-images.githubusercontent.com/33630505/60967709-444e2e00-a356-11e9-9fc4-c7d6bd34f645.JPG)
+
+
+## Stringify & Parse
+
+> Stringify는 JSON파일을 Serialize하고 Parse는 Deserialize한다 <br>
+> Stringify는 json객체를 string객체로 변환하고 parse는 string객체를 json 객체로 변환한다
+
+### 예시
+```html 
+<html>
+<head></head>
+<body>
+<script>
+    var obj = {name: "jh", "age": 25, "car": true};
+    objstr = JSON.stringify(obj, function(k,v){if(v===23)return;else return v;});
+    console.log("obj: ",obj);
+    console.log("objstr1", objstr);
+    objstr = JSON.stringify(obj, null, 10/* ' ', '\t' */);
+    console.log("objstr2", objstr);
+
+    objbyte = JSON.parse(objstr);
+    console.log("objbyte",objbyte);
+</script>
+</body>
+</html>
+```
+
+![jsonjavascript](https://user-images.githubusercontent.com/33630505/60969067-93e22900-a359-11e9-839f-f3e3b9af7a43.JPG)
+
+## Open API JSON형태로 불러오기 
+
+```python
+import json, urllib
+
+url = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty'
+
+params = {
+    "serviceKey": "rHPpLuWO16wWq7c2Z87Q8gwiZ7z6agbTuwvSDBpCEC7dqDXusPHYkC%2FVMq029DVkRJegegKOoUETTvYa82Dc2Q%3D%3D",
+    "numOfRows": 10,
+    "pageNo": 1,
+    "startPage": 1,
+    "sidoName": "인천",
+    "dataTerm": "DAILY",
+    "ver":"1.3",
+    "_returnType": "JSON"
+}
+
+params["serviceKey"] = urllib.parse.unquote(params["serviceKey"])
+params = urllib.parse.urlencode(params)
+params = params.encode("UTF-8")
+req = urllib.request.Request(url, data=params)
+res = urllib.request.urlopen(req)
+resStr = res.read()
+resStr = resStr.decode("UTF-8")
+resObj = json.loads(resStr)
+resJSON = json.dumps(resObj, indent="  ")
+
+x = resObj['list']
+for i in x:
+    print(i['stationName'], i['pm25Value'])
+
+: 
+신흥 9
+송림 9
+구월동 2
+숭의 10
+석바위 31
+부평역 20
+부평 5
+연희 -
+검단 7
+계산 8
+```
+
+
