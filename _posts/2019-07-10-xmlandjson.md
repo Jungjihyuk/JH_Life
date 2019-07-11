@@ -239,7 +239,7 @@ etree.dump(xmlRoot)
 
 ## 왜 json을 쓰는가? 
 
-Structured data를 byte
+
 
 <br>
 
@@ -386,4 +386,5 @@ for i in x:
 계산 8
 ```
 
+## JSON Schema
 
