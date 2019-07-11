@@ -228,14 +228,20 @@ etree.dump(xmlRoot)
 
 > JavaScript Object Notation의 약자
 
+<br>
+
 ## JSON 등장 
 
 > XML의 대안으로서 좀 더 쉽게 데이터를 교환하고 저장하기 위해 고안되었다. <br>
 > XML보다 가볍고 사용하기 편하다.
 
+<br>
+
 ## 왜 json을 쓰는가? 
 
 Structured data를 byte
+
+<br>
 
 ## JSON의 특징 
 
@@ -260,6 +266,8 @@ Structured data를 byte
 3. 데이터 타입을 강제할 수 없다 (JSON Schema로 보완은 가능하지만 데이터 스스로 타입을 기술할 수 없다)
 ```
 
+<br>
+
 ## XML vs JSON 
 
 ```
@@ -275,6 +283,8 @@ Structured data를 byte
 
 출처: [tcpschool](http://tcpschool.com/json/json_intro_xml)<br>
 
+<br>
+
 ## JSON 구성 요소 
 
 ```
@@ -284,6 +294,8 @@ Structured data를 byte
 ```
 
 ![jsonstructure](https://user-images.githubusercontent.com/33630505/60967707-444e2e00-a356-11e9-968d-dc80f8e9ecb3.JPG)
+
+<br>
 
 ## 데이터 타입 
 
@@ -298,6 +310,7 @@ Structured data를 byte
 
 ![datatype](https://user-images.githubusercontent.com/33630505/60967709-444e2e00-a356-11e9-9fc4-c7d6bd34f645.JPG)
 
+<br>
 
 ## Stringify & Parse
 
@@ -325,6 +338,8 @@ Structured data를 byte
 ```
 
 ![jsonjavascript](https://user-images.githubusercontent.com/33630505/60969067-93e22900-a359-11e9-839f-f3e3b9af7a43.JPG)
+
+<br>
 
 ## Open API JSON형태로 불러오기 
 
