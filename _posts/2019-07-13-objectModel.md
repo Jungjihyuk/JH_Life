@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Object Model 
-excerpt: 'object model로 웹 브라우저 이해하기'
-date 2019-07-13
+excerpt: "object model로 웹 브라우저 이해하기"
+date: 2019-07-13
 tag:
 - object model
 - dom
@@ -20,9 +20,9 @@ tag:
 ![window](https://user-images.githubusercontent.com/33630505/61168962-0be66400-a591-11e9-9ad3-ced452f00481.JPG)
 <br>
 
-<span style="color: skyblue; font-size: 30px">Window</span>는 전역 객체이면서, 모든 객체가 소속된 객체(최상위 객체?)<br>
+<span style="color: skyblue; font-size: 30px">Window</span>는 **전역 객체**이면서, 모든 객체가 소속된 **객체**(최상위 객체?)<br>
 Document, navigator, object 등은 window의 Property이면서 각각 객체로서 역할을 한다
-
+<br>
 
 object model 출처: [tistory1](https://chrismare.tistory.com/28), &nbsp; [tistory2](https://bravesuccess.tistory.com/25), &nbsp; [youtube](https://www.youtube.com/watch?v=bJg4ywnaZ6Q&t=26s)<br>
 
@@ -53,6 +53,10 @@ object model 출처: [tistory1](https://chrismare.tistory.com/28), &nbsp; [tisto
 
 > Document 객체는 웹 페이지 그 자체를 의미 <br>
 > 웹 페이지에 존재하는 HTML요소에 접근하고자 할 때는 DOM으로 만들어야 한다
+
+
+![document](https://user-images.githubusercontent.com/33630505/61169326-dba1c400-a596-11e9-8093-10a90bd40aac.JPG)
+<br>
 
 ### Document 메소드 
 
@@ -130,6 +134,7 @@ Variable : 인스턴스와 상관없이 만들어진 변수
 
 ![consolelog](https://user-images.githubusercontent.com/33630505/61168413-e05f7b80-a588-11e9-8669-46914714457f.JPG)
 <br>
+<br>
 
 ### Html과 Dom에서 Attribute와 Property 
 
@@ -138,6 +143,8 @@ Attribute: HTML관점에서 선택자
 
 Property: DOM관점에서 선택자 
 ```
+
+<br>
 
 ### 예제로 알아보자 
 
@@ -164,6 +171,8 @@ Property: DOM관점에서 선택자
 Attribute vs Property: [Medium](https://medium.com/hexlant/attribute-%EC%99%80-property-%EC%9D%98-%EC%B0%A8%EC%9D%B4-c6f1c91ba91)<br>
 Variable vs Property: [blog](http://blog.kazikai.net/?p=18)<br>
 
+<br>
+
 # DOM 
 
 > Document Object Model의 약자로 객체 지향 모델로써 구조화된 문서를 표현하는 형식이다. <br>
@@ -181,5 +190,8 @@ DOM은 HTML 문서의 요소를 제어하기 위해 웹 브라우저에서 처�
 브라우저가 다양해지면서 브라우저 사이에 DOM 구현이 호환되지 않음에 따라, 
 W3C에서 DOM 표준 규격을 작성하게 되었다.
 ```
+
+
+
 
 DOM 출처: [tistory](https://na27.tistory.com/228), &nbsp; [wiki](https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%84%9C_%EA%B0%9D%EC%B2%B4_%EB%AA%A8%EB%8D%B8)<br>
