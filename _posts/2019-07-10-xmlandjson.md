@@ -127,7 +127,7 @@ SGML(Standard Generalized Markup Language)라는 마크업 언어가 있었는�
 
 > XML보다 속도가 빠르고 자주 쓰는 방법
 
-
+<br>
 
 #### 예제 
 
@@ -218,6 +218,26 @@ etree.dump(xmlRoot)
   </book>
 </bookstore>
 ```
+
+# DOM 
+
+> Document Object Model의 약자로 객체 지향 모델로써 구조화된 문서를 표현하는 형식이다. <br>
+> Html, xml 같은 문서를 객체형태로 바꾸어 객체로써 이용하기 위한 형태이다. <br>
+> DOM은 플랫폼/언어 중립적으로 구조화된 문서를 표현하는 W3C의 공식 표준이기 때문에 문서를 객체로써 쓴다면 DOM 형식을 사용해야한다. <br>
+> DOM은 HTML문서의 모든 요소에 접근하는 방법을 정의한 API이기도 하다.<br>
+> DOM은 넓은 의미로 웹 브라우저가 HTML 페이지를 인식하는 방식으로 볼 수 있고<br>
+> 좁은 의미로는 document 객체와 관련된 객체의 집합으로 볼 수 있다.
+
+
+## 등장 배경 
+
+```
+DOM은 HTML 문서의 요소를 제어하기 위해 웹 브라우저에서 처음 지원되었다.  
+브라우저가 다양해지면서 브라우저 사이에 DOM 구현이 호환되지 않음에 따라, 
+W3C에서 DOM 표준 규격을 작성하게 되었다.
+```
+
+DOM 출처: [tistory](https://na27.tistory.com/228), &nbsp; [wiki](https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%84%9C_%EA%B0%9D%EC%B2%B4_%EB%AA%A8%EB%8D%B8)<br>
 
 <br>
 <hr>
@@ -387,4 +407,6 @@ for i in x:
 ```
 
 ## JSON Schema
+
+
 
