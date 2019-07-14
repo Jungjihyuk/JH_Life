@@ -2294,10 +2294,40 @@ B.b(b)
   Access instance
 ```
 
+<br>
+<hr>
+
+### Instance (인스턴스)
+
+클래스를 사용하려면 인스턴스화 해야한다 <br>
+인스턴스는 클래스의 값과 메소드에 접근이 가능하다 
+
+```python 
+class A(object):                   # 기본적으로 class는 object라는 클래스를 상속받는다
+	                           # 명시하지 않아도 default로 상속한다 
+	def __init__(self): 
+		print('init')	   # object는 공통적인 속성들을 모아둔 class(추상화, 상속)
+# init은 내부적으로 인스턴스화 할때 호출함 / 생성자라고도 한다 
+# init의 추상화 내용이 마음에 들지 않는 경우 변경 가능함(다형성)  
+
+A()    # 클래스를 호출하면 인스턴스 객체를 반환한다
+: init 
+  <__main__.A at 0x23b6c143a90>
+a = A()  # 클래스를 호출함으로써 인스턴스 할당 
+         # 인스턴스화를 하면 클래스에 정의되어 있는 기능 사용할 수 있다 
+```
+
+<br>
+
 ### 클래스 변수 vs 인스턴스 변수 
 
-인스턴스는 모든 것을 사용할 수 있지만 클래스는 인스턴스 변수를 사용할 수 없다 <br>
+> 클래스 변수는 모든 인스턴스들이 어트리뷰트와 메서드를 공유한다. <br>
+> 반면 인스턴스 변수는 각 인스턴스 별로 개별적인 값을 갖는다. <br>
+> 인스턴스는 클래스내에 정의된 모든 것을 사용할 수 있지만, <br>
+> 클래스는 여러 인스턴스를 생성하기 때문에 인스턴스 변수에 접근 할 수 없다. 
 
+
+### 예제로 살펴보기 
 ```python
 class A: 
 	a = 1                  # class variable, attribute
@@ -2315,17 +2345,28 @@ class A:
 		self.sum = 20 
 		return sum 
 a = A()
+aa = A()
+
 a.add(3,4)
+aa.add(5,6)
+
 A.add(a, 10, 20)
+
 vars(a)
 a.sum
-A.sum
+aa.sum = 0 
+vars(aa)
+
+A.sum  
 
 : 7
+  11
   30
   {'sum':20}
   20
-  AttributeError
+  {'sum': 0}
+  AttributeError   # 클래스로 인스턴스 변수에 접근했기 때문
+ 
  
 class B:
     x = 1
@@ -2354,51 +2395,68 @@ dir(b)
               'sum': <function __main__.B.sum(self, x, y)>,
 	      .....})
   ['__class__', ......, 'sum','x','y']
-     
+
+# 클래스변수가 mutable 일때 주의 
+
+
+class C:
+    tricks = []
+    
+    def __init__(self, name):
+        self.name = name 
+    
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+a = C('jh')
+b = C('other') 
+
+a.add_trick('first')
+
+a.tricks
+b.tricks
+
+: ['first']
+  ['first']
+  
+# 인스턴스 별로 개별 리스트 변수를 만들고 싶다면 인스턴스 변수에 리스트 할당해야함
+
+class D:
+    def __init__(self, name):
+        self.tricks = []
+        self.name = name 
+    
+    def add_trick(self, trick):
+        self.tricks.append(trick) 
+
+a = D('jh')
+b = D('other')
+
+a.add_trick(1)
+a.add_trick(2) 
+
+b.add_trick('first')
+b.add_trick('second')
+
+a.tricks
+b.tricks 
+
+: [1, 2]
+  ['first', 'second']
 ```
 
+<br>
 
 **실행 순서** 메소드와 변수가 이름이 같을때 변수를 먼저 접근하기 때문에 주의 해야 한다 
 {: .notice}
 
-```python 
-# ex)
-
-```
-
-**인스턴스.메소드** 클래스안에 선언된 메소드를 사용하기 위해서는 인스턴스 생성을 한후 인스턴스.메소드() 하면 사용가능하다
-{: .notice}
 
 **self** 는 인스턴스라고 생각하면 된다. 메소드의 인자로 self가 있는건 self 자리에 인스턴스를 인자로 넘겨받아 해당 함수를 접근해서 사용 가능하게 된다는 의미로 받아들이면 된다 
 {: .notice}
 
-```python 
-type(int)
-type(float)
-type(list)
+<br>
+<hr>
 
-:type
- type
- type
-# return값이 type인 경우는 클래스라는 뜻이다 
-# type은 meta class 
-# type입장에서는 int, float, list 모두 인스턴스 
-
-type(KNeighborsClassifier)
-:abc.ABCMeta 
-```
-### Instance (인스턴스)
-
-클래스를 사용하려면 인스턴스화 해야한다 <br>
-인스턴스는 클래스의 값과 메소드에 접근이 가능하다 
-
-```python 
-class A(object):                   # 기본적으로 class는 object라는 클래스를 상속받는다
-	def __init__(self, x = 0): # 명시하지 않아도 default로 상속한다 
-		print('init')	   # object는 공통적인 속성들을 모아둔 class(추상화, 상속)
-# init은 내부적으로 인스턴스화 할때 호출함 / 생성자라고도 한다 
-# init의 추상화 내용이 마음에 들지 않는 경우 변경 가능함(다형성)  
-```
 
 **Type casting** a = list({1,2,3}) 리스트 클래스의 괄호 안에 dict타입을 넣게 되면 리스트 타입으로 변경된다. 파이썬에서는 타입 변경이 없기 때문에 타입 변경시에는 클래스 안에 인자로 넣어 인스턴스화 하여 바꿔준다. 단, 모든것이 되는것은 아니다  
 {: .notice}
@@ -2410,8 +2468,60 @@ a
 : 0 
 # 원래는 문자를 정수형으로 타입 변환이 되지 않지만 
 # 문자형으로 된 숫자를 정수형 타입으로 변환되는 경우가 몇가지 있다 
-# 이는 init으로 바꿀 수 있게 해둔 것이다 
+# 이는 init으로 바꿀 수 있게 해둔 것이다 (특수한 경우이다)
+
+b = int('b')
+: ValueError 
+# invalid literal for int() with base 10: 'b' 
+# 기본적으로 문자를 정수형으로 바꿀 수 없다. 
 ```
+
+<br>
+
+### 클래스 밖에 있는 함수를 클래스의 지역 변수에 할당 할 수 있다
+
+```python
+def out(self, x):
+    self.array.pop(x)
+    return self.array
+    
+class Array:
+    def __init__(self):
+        self.array = [] 
+    def add(self, x):
+        self.array.append(x)
+    
+    def add5(self, x):   # 클래스 내에 다른 함수를 호출 가능 
+        self.add(x+5)
+	return self.array
+    
+    pop_method = out
+
+
+array = Array() 
+
+array.add(1)
+array.add(2)
+array.add(3)
+
+vars(array)
+: {'array': [1, 2, 3]}
+
+array.pop_method(0)
+: [2, 3]
+
+vars(array)
+: {'array': [2, 3]}
+
+array.array
+: [2, 3]
+
+
+array.add5(1)
+: [2, 3, 6]
+```
+
+<br>
 
 ### classmethod, staticmethod 
 
