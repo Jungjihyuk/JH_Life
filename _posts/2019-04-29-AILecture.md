@@ -2476,11 +2476,16 @@ vars(dy)
   {'name': 'jane'}
 ```
 
+<br>
+
 ## Object, Type 
 
 <span style="color: red; font-size: 30px;">Object</span>는 <span style="color: red; font-size: 30px;">최상위 객체</span><br>
 <span style="color: red; font-size: 30px;">Type</span>는 <span style="color: red; font-size: 30px;">meta class</span><br>
 
+
+<br>
+<hr>
 
 ### Naming 
 
@@ -2742,16 +2747,6 @@ AssertionError
 **Mangling** 맹글링은 소스 코드에서 선언된 함수 또는 변수의 이름을 컴파일 단계에서 컴파일러가 일정한 규칙을 가지고 변형하는 것을 말한다. 이는 보통 객체 지향에서 오버로딩시 함수의 이름이 같고 파라미터만 다를때 알아서 구별할 수 있도록 하는데 사용된다.
 {: .notice}
 
-#### 추가 복습이 필요한 부분 
-
-1. Composition 
-2. Decorator  
-3. Closure
-4. Iterator 
-5. Genrator 
-6. Comprehension
-7. First class function 
-8. tatement 3가지 
 
 **복습 시간**  17시 30분 ~  19시, 20시 ~ 20시 30분 / 총 2시간 
 {: .notice}
@@ -2864,11 +2859,22 @@ mat3
 
 ## Meta class 
 
-**Type** <br>
-**Class 행동을 지정할 수 있다** <br>
-ex) 인스턴스를 한개만 만들 수 있게 지정 (싱글톤) 
+<span style="color: bluesky; font-size: 30px;">Type</span><br>
+**=> Class 행동을 지정할 수 있다** <br>
+**ex) 인스턴스를 한개만 만들 수 있게 지정 (싱글톤)** 
+<br>
 
+### Type의 3가지 활용 
 
+```
+1. 메타클래스 자체로 사용할 때 
+2. 객체의 클래스 이름을 알아낼 때(함수 type())
+3. 메타클래스, 클래스를 만들어줄 때 
+```
+
+<br>
+
+### 예제로 알아보기 
 ```python 
 class MyType(type): # type을 상속받아 메타클래스를 만듦
     pass
@@ -2886,11 +2892,32 @@ print(type(MyType))
   <class 'type'>                      # 메타클래스 MyType의 메타클래스는 type 
 
 # 따라서 메타클래스를 만들기 위해서 type을 상속받아야 한다 
-```
-<br>
 
-**type, object** type은 최상위 metaclass, object는 최상위 class 
-{: .notice}
+
+# lambda 함수식 처럼 클래스도 선언없이 사용할 수 있다 
+
+A = type('Integer', (int,), {})  # int클래스를 상속받아 A라는 클래스를 생성 
+
+a = A(3) 
+a 
+type(a)
+: 3 
+  __main__.Integer
+
+B = type('List', (list,), {})
+b = B([1,2,3])
+b
+type(b)
+: [1,2,3]
+  __main__.List
+  
+C = type('multi', (A, B), {})
+: TypeError 
+# multiple bases have instance lay-out conflict 
+# => 상속받으려는 두 클래스의 속성이 비슷하여 충돌이 일어나는 경우 다중 상속이 불가하다. 
+# => 물론 해결하는 방법은 있는 듯 하다
+```
+
 <br>
 
 ## Singleton
@@ -3087,8 +3114,9 @@ c = C()
 - super를 사용할때 전부 super를 사용하면 중복 해결, 원하는 값 출력 가능하다 
 - 다이아 문제 해결 
 
-```python
+<br>
 
+```python
 class x:
     def __init__(self):
         print('x')
@@ -3112,6 +3140,11 @@ c = C()
 ```
 
 > 왜 실행 순서에 따라 출력되지 않을까? 
+
+
+### MRO (Method Resolution Order)
+
+> 메소드 실행 순서를 확인하는 클래스 메소드(인스턴스로 사용 불가)
 
 ```python
 C.__mro__
