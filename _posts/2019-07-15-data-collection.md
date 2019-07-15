@@ -1,7 +1,7 @@
 ---
 layout: post 
 title: Data Collection
-exceprt: 'Data mining, crawling, scraping'
+excerpt: 'Data mining, crawling, scraping'
 date: 2019-07-15
 tag:
 - data mining
