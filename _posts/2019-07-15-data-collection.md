@@ -232,11 +232,6 @@ Queue: 43, Seen: 8
 ....
 ```
 
-![sequence](https://user-images.githubusercontent.com/33630505/61232836-2de70e80-a76a-11e9-8bad-b48671cc0f5e.JPG)
-![table1](https://user-images.githubusercontent.com/33630505/61232837-2de70e80-a76a-11e9-8571-9d2fcf5d90a9.JPG)
-![table2](https://user-images.githubusercontent.com/33630505/61232839-2e7fa500-a76a-11e9-8224-bfdb39180664.JPG)
-
-
 crawling 출처: [prowebscraping](http://prowebscraping.com/web-scraping-vs-web-crawling/) &nbsp; [quora](https://www.quora.com/What-the-difference-between-crawling-website-and-counting-link-in-website) &nbsp; [tistory](https://twoearth.tistory.com/19) <br>
 논문: [RCrawler: An R package for parallel web crawling and scraping -Salim Khalil, Mohamed Fakir]  <br>
 
@@ -245,8 +240,116 @@ crawling 출처: [prowebscraping](http://prowebscraping.com/web-scraping-vs-web-
 
 ### Crawling 한 url DB에 저장하기 
 
+```python 
+import sqlite3, requests, download
+
+con = sqlite3.connect("bot.db")
+cur = con.cursor()
+
+cur.executescript('''
+    DROP TABLE IF EXISTS table1;
+    CREATE TABLE table1(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        table2_id INTEGER NOT NULL,
+        path TEXT NOT NULL,
+        param TEXT,
+        depth INTEGER NOT NULL,
+        inbound INTEGER NOT NULL, 
+        seen BOOLEAN DEFAULT FALSE NOT NULL,
+        date TIMESTAMP DEFAUlT CURRENT_TIMESTAMP NOT NULL
+    );
+    DROP TABLE IF EXISTS table2;
+    CREATE TABLE table2(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        netloc TEXT NOT NULL,
+        date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+    );
+'''
+)
+
+url = "https://www.google.com/search"
+html = download.download("get", url, param = {"q": "박보영"})
+dom = download.BeautifulSoup(html.text, "lxml")
+
+def parseURL(seed):
+    html = download.download("get", seed)
+    dom = download.BeautifulSoup(html.text, 'lxml')
+
+    return [requests.compat.urljoin(seed, _["href"]) for _ in dom.find_all("a")  if _.has_attr("href") 
+            and len(_["href"]) > 3]
+            
+
+for href in [_.find_parent()["href"]
+             for _ in dom.select(".LC20lb")]:
+    _urlparse = requests.compat.urlparse(href)
+    netloc = "://".join(_urlparse[:2])
+    cur.execute("SELECT id FROM table2 WHERE netloc=? LIMIT 0,1", [netloc]) #netloc을 시퀀스로 만들어서 넘겨줘야함
+    
+    netlocID = cur.fetchone()
+    if not netlocID:
+        cur.execute("INSERT INTO table2(netloc) VALUES(?)", [netloc])
+        
+        con.commit()
+        
+        cur.execute("SELECT id FROM table2 WHERE netloc=? LIMIT 0,1", [netloc]) 
+        
+        netlocID = cur.fetchone()
+    
+    cur.execute("INSERT INTO table1(table2_id, path, param, depth, inbound) VALUES(?, ?, ?, ?, ?)",[netlocID[0], _urlparse[2], _urlparse[4], 1, 0])
+    con.commit()
+    print(cur.lastrowid, netlocID)
+
+i = 0
+while True: 
+    cur.execute('''
+        SELECT table1.id, table2.netloc, table1.path, table1.param, table1.depth, table2.id
+        FROM table1
+        JOIN table2
+            ON table1.table2_id=table2.id
+        WHERE table1.seen = FALSE and table1.depth < 3
+        ORDER BY table1.date ASC
+        LIMIT 0, 1;
+    ''')
+    seed = cur.fetchone()
+    if not seed or i > 1000:
+        break
+    i += 1 
+    
+    cur .execute('''
+        UPDATE table1
+        SET seen = TRUE 
+        WHERE id = ? 
+    ''', [seed[0]])
+    con.commit()
+
+    baseURL= "{0}{1}?{2}".format(seed[1],seed[2],seed[3])
+    for url in parseURL(baseURL):
+        for href in [_.find_parent()["href"] for _ in dom.select(".LC20lb")]:
+            _urlparse = requests.compat.urlparse(href)
+            netloc = "://".join(_urlparse[:2])
+            cur.execute("SELECT id FROM table2 WHERE netloc=? LIMIT 0,1", [netloc]) #netloc을 시퀀스로 만들어서 넘겨줘야함
+
+            netlocID = cur.fetchone()
+            if not netlocID:
+                cur.execute("INSERT INTO table2(netloc) VALUES(?)", [netloc])
+
+                con.commit()
+
+                cur.execute("SELECT id FROM table2 WHERE netloc=? LIMIT 0,1", [netloc]) 
+
+                netlocID = cur.fetchone()
+    
+            cur.execute("INSERT INTO table1(table2_id, path, param, depth, inbound) VALUES(?, ?, ?, ?, ?)",[netlocID[0], _urlparse[2], _urlparse[4], seed[4]+1, seed[5]])
+            con.commit()
+        
+#     break
 ```
-```
+
+
+![sequence](https://user-images.githubusercontent.com/33630505/61233463-95ea2480-a76b-11e9-9fc1-c8a5e1ff520a.JPG)
+![table1](https://user-images.githubusercontent.com/33630505/61232837-2de70e80-a76a-11e9-8571-9d2fcf5d90a9.JPG)
+![table2](https://user-images.githubusercontent.com/33630505/61232839-2e7fa500-a76a-11e9-8224-bfdb39180664.JPG)
+
 
 <a id = "scraping"></a>
 ## Scraping 
@@ -256,6 +359,9 @@ crawling 출처: [prowebscraping](http://prowebscraping.com/web-scraping-vs-web-
 
 ## Page Rank 
 
+
+
+Page Rank 참고: [sungmooncho](https://sungmooncho.com/2012/08/26/pagerank/)<br>
 
 
 
