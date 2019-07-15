@@ -44,7 +44,7 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 > 그런데 Portal site에서 데이터를 수집하기 위해서는 제법 까다로운 작업이 필요하다 
 
 <br>
-<hr>
+
 
 ## Data from Portal site(Web Data) 
 
@@ -55,7 +55,7 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 
 <span style="color: skyblue; font-size: 20px">데이터를 가져오려면 Web page 구성을 알아야 한다!</span><br>
 
-> HTML, CSS, JavaScript등 웹 페이지 구성이 어떻게 되는지 공부해야 한다
+> HTML, SS, JavaScript등 웹 페이지 구성이 어떻게 되는지 공부해야 한다
 
 <span style="color: orange">잘 모른다면 참고하자 =></span> [Object Model](https://jungjihyuk.github.io/JH_Life/objectModel/)<br>
 
@@ -90,6 +90,9 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 
 [Scraping 공부하러가기](#scraping)
 
+<br> 
+<hr>
+
 
 ## Data mining 
 
@@ -106,30 +109,49 @@ Data mining 출처: [incodom](http://www.incodom.kr/Data_mining_%EC%A0%95%EC%9D%
 <br>
 
 ```python
-import download
+headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"}  # 브라우저에서 직접 request보내는 것처럼 흉내내기 위한 header 초기화 
 
-def parseURL(seed):
-    html = download.download("get", seed)
-    dom = download.BeautifulSoup(html.text, 'lxml')
+import time, requests
+from bs4 import BeautifulSoup 
+
+def download(method, url, param=None, data=None, timeout=1, maxretries=3, headers = headers):
+    try:
+        resp = requests.request(method, url, params = param, data =  data, headers = headers)  # request요청에 대한 response
+        resp.raise_for_status() # 에러 강제하기
+    except requests.exceptions.HTTPError as e:    # 에러 처리 
+        if (500 <= e.response.status_code < 600 and maxretries >0): 
+            print(maxretries)
+            time.sleep(timeout)
+            resp=download3(method, url, param, data, timeout, maxretries-1)
+        else:          
+            print(e.response.status_code)
+            print(e.response.reason)
+    return resp
+
+
+def parseURL(seed):      # download함수와 BeautifulSoup을 이용해 URL parsing 하는 함수 
+    html = download("get", seed)
+    dom = BeautifulSoup(html.text, 'lxml')
     
     return [requests.compat.urljoin(seed, _["href"]) for _ in dom.find_all("a")  if _.has_attr("href") and len(_["href"]) > 3]
 
+
 url = "https://www.google.com/search"
-html = download.download("get", url, param = {"q":"박보영"})
-dom = download.BeautifulSoup(html.text, 'lxml')
+html = download("get", url, param = {"q":"박보영"})
+dom = BeautifulSoup(html.text, 'lxml')
 
 queue = list()
-queue.extend([_.find_parent()['href'] for _ in dom.select(".LC20lb")])
+queue.extend([_.find_parent()['href'] for _ in dom.select(".LC20lb")]) # 초기 seed값 추가 
 seen = list()
 
 while queue:
-    baseURL = queue.pop(0)
-    seen.append(baseURL)
+    baseURL = queue.pop(0)   # queue는 선입 선출 방식이기 때문에 index 가장 앞 0을 꺼낸다 
+    seen.append(baseURL)   # 한번 꺼낸 url은 재방문 하지 않도록 seen list에 추가 
     
-    download.time.sleep(5)
+    time.sleep(5)    # 빈번한 request로 block 당하는 일 방지하기 위해 시간 끌기 
     
-    linkList = parseURL(baseURL)
-    for link in linkList:
+    linkList = parseURL(baseURL)  # parsing한 url list에 추가 
+    for link in linkList:  # 추가된 url을 하나씩 뽑아 queue에 없거나 seen에 없으면 queue에 추가한다 
         if link not in queue and link not in seen:
             queue.append(link)
     
@@ -149,14 +171,88 @@ Queue: 2426, Seen: 6
 
 ### DFS Crawling(Focused Crawling)
 
+> naver에 박보영 검색 후 블로그 url parsing 
+
+<br>
+
+```python
+import requests, download
+
+def checkBlog(url):
+    return requests.compat.urlparse(url)[1] == "blog.naver.com"
+    
+def parseURL(seed):
+    html = download.download("get", seed)
+    dom = download.BeautifulSoup(html.text, 'lxml')
+    
+    if len(dom.select("#mainFrame")) < 1:
+        return []
+        
+    seed = requests.compat.urljoin(seed, dom.select("#mainFrame")[0]["src"])
+    
+    html = download.download("get", seed)
+    dom = download.BeautifulSoup(html.text, 'lxml')
+
+#     print(requests.compat.urljoin(seed, dom.select("#mainFrame")[0]['src']))
+    
+    return [requests.compat.urljoin(seed, _["href"]) for _ in dom.find_all("a")  if _.has_attr("href") 
+            and len(_["href"]) > 3 and checkBlog(requests.compat.urljoin(seed, _['href']))]
+            
+url = "https://search.naver.com/search.naver"
+html = download.download("get", url, param = {"query":"박보영"})
+dom = download.BeautifulSoup(html.text, 'lxml')
+
+queue = list()
+queue.extend([_['href'] for _ in dom.select("a.sh_blog_title._sp_each_url._sp_each_title") if checkBlog(_['href'])])
+seen = list()
+
+while queue:
+    baseURL = queue.pop(0)
+    seen.append(baseURL)
+    
+    download.time.sleep(0.5)
+    
+    linkList = parseURL(baseURL)
+    for link in linkList:
+        if link not in queue and link not in seen:
+            queue.append(link)
+    
+    print("Queue: {0}, Seen: {1}".format(len(queue), len(seen)))
+    
+:
+Queue: 17, Seen: 1
+Queue: 32, Seen: 2
+Queue: 48, Seen: 3
+Queue: 47, Seen: 4
+Queue: 46, Seen: 5
+Queue: 45, Seen: 6
+Queue: 44, Seen: 7
+Queue: 43, Seen: 8
+....
+....
+```
+
+![sequence](https://user-images.githubusercontent.com/33630505/61232836-2de70e80-a76a-11e9-8bad-b48671cc0f5e.JPG)
+![table1](https://user-images.githubusercontent.com/33630505/61232837-2de70e80-a76a-11e9-8571-9d2fcf5d90a9.JPG)
+![table2](https://user-images.githubusercontent.com/33630505/61232839-2e7fa500-a76a-11e9-8224-bfdb39180664.JPG)
 
 
+crawling 출처: [prowebscraping](http://prowebscraping.com/web-scraping-vs-web-crawling/) &nbsp; [quora](https://www.quora.com/What-the-difference-between-crawling-website-and-counting-link-in-website) &nbsp; [tistory](https://twoearth.tistory.com/19) <br>
+논문: [RCrawler: An R package for parallel web crawling and scraping -Salim Khalil, Mohamed Fakir]  <br>
 
-crawling 출처: [prowebscraping](http://prowebscraping.com/web-scraping-vs-web-crawling/) &nbsp; [quora](https://www.quora.com/What-the-difference-between-crawling-website-and-counting-link-in-website) &nbsp; [tistory](https://twoearth.tistory.com/19) &nbsp; 논문: [RCrawler: An R package for parallel web crawling and scraping -Salim Khalil, Mohamed Fakir]  <br>
+
+<br>
+
+### Crawling 한 url DB에 저장하기 
+
+```
+```
 
 <a id = "scraping"></a>
 ## Scraping 
 
+
+<br>
 
 ## Page Rank 
 
