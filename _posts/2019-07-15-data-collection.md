@@ -101,6 +101,52 @@ Data mining 출처: [incodom](http://www.incodom.kr/Data_mining_%EC%A0%95%EC%9D%
 
 ### BFS Crawling 
 
+> google 박보영 검색 결과 crawling 
+
+<br>
+
+```python
+import download
+
+def parseURL(seed):
+    html = download.download("get", seed)
+    dom = download.BeautifulSoup(html.text, 'lxml')
+    
+    return [requests.compat.urljoin(seed, _["href"]) for _ in dom.find_all("a")  if _.has_attr("href") and len(_["href"]) > 3]
+
+url = "https://www.google.com/search"
+html = download.download("get", url, param = {"q":"박보영"})
+dom = download.BeautifulSoup(html.text, 'lxml')
+
+queue = list()
+queue.extend([_.find_parent()['href'] for _ in dom.select(".LC20lb")])
+seen = list()
+
+while queue:
+    baseURL = queue.pop(0)
+    seen.append(baseURL)
+    
+    download.time.sleep(5)
+    
+    linkList = parseURL(baseURL)
+    for link in linkList:
+        if link not in queue and link not in seen:
+            queue.append(link)
+    
+    print("Queue: {0}, Seen: {1}".format(len(queue), len(seen)))
+
+:
+Queue: 862, Seen: 1
+Queue: 1291, Seen: 2
+Queue: 2259, Seen: 3
+Queue: 2381, Seen: 4
+Queue: 2416, Seen: 5
+Queue: 2426, Seen: 6
+.....
+.....
+```
+
+
 ### DFS Crawling(Focused Crawling)
 
 
