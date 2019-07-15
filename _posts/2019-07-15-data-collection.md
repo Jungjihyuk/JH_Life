@@ -43,12 +43,15 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 > 처리하는 작업이 번거롭거나 힘들지 않다 <br>
 > 그런데 Portal site에서 데이터를 수집하기 위해서는 제법 까다로운 작업이 필요하다 
 
-
+<br>
+<hr>
 
 ## Data from Portal site(Web Data) 
 
 > Web으로부터 데이터를 수집하겠다고 마음 먹은 순간 해야할 작업들이 많다 
 
+<br>
+<hr>
 
 <span style="color: skyblue; font-size: 20px">데이터를 가져오려면 Web page 구성을 알아야 한다!</span><br>
 
@@ -56,6 +59,7 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 
 <span style="color: orange">잘 모른다면 참고하자 =></span> [Object Model](https://jungjihyuk.github.io/JH_Life/objectModel/)<br>
 
+<br>
 
 <span style="color: skyblue; font-size: 20px">웹 문서 중 어디서부터 어디까지 찾을 껀데? 수집 범위는 정했니?</span><br>
 
@@ -76,19 +80,35 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 <span style="color: rgb(180, 75, 92); font-size: 15px;">단, page rank가 높다고 나한테 필요한 데이터라는 보장은 없다.</span><br>
 <span style="color: rgb(180, 75, 92); font-size: 15px;">그래서 데이터 추출후 전처리, 패턴 분석 등 여러가지 처리 후 데이터를 사용해야 한다.</span><br>
 
+[Crawling 공부하러가기](#crawling)
 
 <br>
 
 <span style="color: skyblue; font-size: 20px">유용한 page url을 알아 냈으니 내가 원하는 data를 수집하자</span><br>
 
-> 
+> scraping
+
+[Scraping 공부하러가기](#scraping)
+
 
 ## Data mining 
 
 
+Data mining 출처: [incodom](http://www.incodom.kr/Data_mining_%EC%A0%95%EC%9D%98#h_9e737f73b091295d98128515d2729bbb)<br>
+
+<a id = 'crawling'></a>
 ## Crawling 
 
+### BFS Crawling 
 
+### DFS Crawling(Focused Crawling)
+
+
+
+
+crawling 출처: [prowebscraping](http://prowebscraping.com/web-scraping-vs-web-crawling/) &nbsp; [quora](https://www.quora.com/What-the-difference-between-crawling-website-and-counting-link-in-website) &nbsp; [tistory](https://twoearth.tistory.com/19) &nbsp; 논문: [RCrawler: An R package for parallel web crawling and scraping -Salim Khalil, Mohamed Fakir]  <br>
+
+<a id = "scraping"></a>
 ## Scraping 
 
 
