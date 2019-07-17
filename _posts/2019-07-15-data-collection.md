@@ -53,6 +53,15 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 <br>
 <hr>
 
+### Crawling부터 DB 저장까지 Flow 
+
+```
+Data 수집원 OK? ⇒ Dynamic HTML  ⇒  Focused?   ⇒ Selenium + Crawling + url check ⇒ Scraping  => DB
+                                      BFS?     ⇒ Selenium + Crawling ⇒ Scraping ⇒ DB 
+                      HTML      ⇒  Focused?   ⇒ Crawling + url check ⇒ Scraping ⇒ DB 
+                                      BFS?     ⇒ Crawling ⇒ Scraping ⇒ DB 
+```
+
 <span style="color: skyblue; font-size: 20px">데이터를 가져오려면 Web page 구성을 알아야 한다!</span><br>
 
 > HTML, CSS, JavaScript등 웹 페이지 구성이 어떻게 되는지 공부해야 한다 <br>
@@ -123,7 +132,7 @@ Data mining 출처: [incodom](http://www.incodom.kr/Data_mining_%EC%A0%95%EC%9D%
 
 ![crawlerandscraping](https://user-images.githubusercontent.com/33630505/61361477-8548c400-a8bb-11e9-9b09-7b1804aaf054.JPG)
 
-
+사진출처: [prowebscraping](http://prowebscraping.com/web-scraping-vs-web-crawling/)<br>
 
 <a id = 'crawling'></a>
 ## Crawling 
