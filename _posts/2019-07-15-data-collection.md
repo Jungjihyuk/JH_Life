@@ -80,7 +80,7 @@ request url을 확인하기 어려운 경우가 있다.
 dom객체가 추가 되기 때문에 실시간으로 개발자 도구에서 network 부분을 살피지 않는다면 
 절대 숨겨진 데이터를 가져올 수 없을 것이다. 
 
-따라서 어떠한 웹 페이지 인지에 따라 셀레늄같은 automation tool을 사용할지 말지 결정해야 한다.
+따라서 어떠한 웹 페이지 인지에 따라 셀레늄같은 automation framework를 사용할지 말지 결정해야 한다.
 ```
 
 <span style="color: orange">잘 모른다면 참고하자 =></span> [Object Model](https://jungjihyuk.github.io/JH_Life/objectModel/)<br>
@@ -389,8 +389,60 @@ while True:
 <a id = "scraping"></a>
 ## Scraping 
 
+> Crawling한 url로 부터 내가 원하는 데이터를 수집하는 것을 말한다
 
 <br>
+
+### Naver news 본문 scraping 예제 (Dynamic HTML X)
+
+```
+from selenium import webdriver
+from bs4 import BeautifulSoup
+import download
+
+driver = webdriver.Chrome("크롬드라이버 경로")
+driver.get("https://news.naver.com/")
+
+dom = BeautifulSoup(driver.page_source, 'lxml')
+# crawling으로 url 확보 했다고 가정 
+urls=[x['href'] for x in dom.select("#main_content a") if len(x['href']) > 7 and 'read' in x['href']][7:]
+
+def parseContent(url):   # crawling한 url을 인자로 전달하면 제목, 본문내용 parsing
+    html = download.download("get", url)
+    dom = download.BeautifulSoup(html.text, 'lxml')
+    
+    return {"title": dom.select_one("#articleTitle").text.strip(), 
+            "body": dom.select_one("#articleBodyContents").text.strip()
+           }
+
+contents = list()
+while urls:                # urls안에 있는 url이 없을때 까지 계속 parsing 
+    baseURL = urls.pop(0) 
+    contents.append(parseContent(baseURL))        
+
+import sqlite3
+con = sqlite3.connect("news.db")
+cur = con.cursor()
+
+cur.execute("""
+    CREATE TABLE news(
+        title TEXT NOT NULL,
+        content TEXT NOT NULL
+    );
+""")
+
+while contents:     # parsing한 data DB에 저장하기 
+    content=contents.pop(0)
+    cur.execute("""
+        INSERT INTO news
+        (title, content)
+        VALUES(?, ?)
+    """, [content['title'], content['body']])
+    con.commit()
+```
+
+<br>
+
 
 ## Page Rank 
 
@@ -399,5 +451,67 @@ while True:
 Page Rank 참고: [sungmooncho](https://sungmooncho.com/2012/08/26/pagerank/)<br>
 
 
+## Selenium 
+
+> Web Browser Automation 
+
+**단점** page rendering중에 scraping 시도를 하면 
+{: .notice}
+
+<br>
+
+### Dynamic HTML Scraping 예제 
+
+```python 
+from selenium import webdriver 
+
+driver = webdriver.Chrome("chromedriver.exe 경로")  # driver를 생성하면 chrome 브라우저 창 생성 
+
+def html_parser(url):
+    driver.get(url)
+    
+    time.sleep(1)
+    
+    html = driver.page_source
+    dom = BeautifulSoup(html, 'lxml')
+    
+    resp=dom.select('#main')
+    return resp
+    
+def search(url, country):
+    driver.get(url)
+    inputTag = driver.find_element_by_css_selector("#search_term")
+    inputTag.send_keys(country)
+    driver.find_element_by_css_selector("#search").click()
+    
+    time.sleep(1)
+    
+    html = driver.page_source
+    dom = BeautifulSoup(html, 'lxml')
+        
+    return [requests.compat.urljoin(url, _['href']) for _ in dom.select("#results a")]
+    
+    
+nation = search("http://example.webscraping.com/places/default/search", "korea")
+
+result = []
+while nation:
+    baseURL = nation.pop(0)
+    
+    dom=html_parser(baseURL)
+    result.append(dom[0].text)
+
+for x in result:
+    print(x)
 
 
+:
+National Flag: Area: 120,540 square kilometresPopulation: 22,912,177Iso: KPCountry: North KoreaCapital: PyongyangContinent: ASTld: .kpCurrency Code: KPWCurrency Name: WonPhone: 850Postal Code Format: ###-###Postal Code Regex: ^(\d{6})$Languages: ko-KPNeighbours: CN KR RU 
+Edit
+
+
+National Flag: Area: 98,480 square kilometresPopulation: 48,422,644Iso: KRCountry: South KoreaCapital: SeoulContinent: ASTld: .krCurrency Code: KRWCurrency Name: WonPhone: 82Postal Code Format: SEOUL ###-###Postal Code Regex: ^(?:SEOUL)*(\d{6})$Languages: ko-KR,enNeighbours: KP 
+Edit
+
+driver.close() # 브라우저 창 닫기 
+```
