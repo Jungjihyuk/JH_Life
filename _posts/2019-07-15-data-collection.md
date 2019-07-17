@@ -134,6 +134,8 @@ Data mining 출처: [incodom](http://www.incodom.kr/Data_mining_%EC%A0%95%EC%9D%
 
 사진출처: [prowebscraping](http://prowebscraping.com/web-scraping-vs-web-crawling/)<br>
 
+<br>
+
 <a id = 'crawling'></a>
 ## Crawling 
 
