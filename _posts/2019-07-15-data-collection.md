@@ -457,7 +457,7 @@ Page Rank 참고: [sungmooncho](https://sungmooncho.com/2012/08/26/pagerank/)<br
 
 > Web Browser Automation 
 
-**단점** page rendering중에 scraping 시도를 하면 
+**단점** page rendering중에는 dom객체에 접근하지 못하고 에러가 날 수 있다. 그래서 time sleep으로 시간을 부여하여 에러 발생 가능성을 줄이고 에러 핸들링이 필요하다. 결국 selenium을 활용하면 오히려 시간이 오래걸릴 수 있다.
 {: .notice}
 
 <br>
