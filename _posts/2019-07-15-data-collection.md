@@ -55,7 +55,24 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 
 <span style="color: skyblue; font-size: 20px">데이터를 가져오려면 Web page 구성을 알아야 한다!</span><br>
 
-> HTML, SS, JavaScript등 웹 페이지 구성이 어떻게 되는지 공부해야 한다
+> HTML, CSS, JavaScript등 웹 페이지 구성이 어떻게 되는지 공부해야 한다 <br>
+> 사이트 마다 웹 페이지 구성이 다르기 때문에 웹에 대한 이해 없이 무작정 하면 <br>
+> 데이터 수집이 안되는 경우를 발견하게 될 것이다 <br> 
+
+![lifecycle](https://user-images.githubusercontent.com/33630505/61360601-ba541700-a8b9-11e9-9031-d4271168bf10.JPG)
+
+```
+어떠한 웹 페이지는 요청한 부분만 동적으로 페이지 리로딩 없이 데이터를 가져 와서 
+request url을 확인하기 어려운 경우가 있다. 
+
+위 그림에 SPA Lifecycle이 그러한 경우 인데, 
+사용자가 직접 클릭을 해야만 데이터를 확인 할 수 페이지라면 
+처음에 요청했던 페이지에는 포함되어 있지 않고 클릭 한 순간 
+dom객체가 추가 되기 때문에 실시간으로 개발자 도구에서 network 부분을 살피지 않는다면 
+절대 숨겨진 데이터를 가져올 수 없을 것이다. 
+
+따라서 어떠한 웹 페이지 인지에 따라 셀레늄같은 automation tool을 사용할지 말지 결정해야 한다.
+```
 
 <span style="color: orange">잘 모른다면 참고하자 =></span> [Object Model](https://jungjihyuk.github.io/JH_Life/objectModel/)<br>
 
@@ -98,6 +115,15 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 
 
 Data mining 출처: [incodom](http://www.incodom.kr/Data_mining_%EC%A0%95%EC%9D%98#h_9e737f73b091295d98128515d2729bbb)<br>
+
+<br>
+
+## Crawling vs Scraping 
+
+
+![crawlerandscraping](https://user-images.githubusercontent.com/33630505/61361477-8548c400-a8bb-11e9-9b09-7b1804aaf054.JPG)
+
+
 
 <a id = 'crawling'></a>
 ## Crawling 
