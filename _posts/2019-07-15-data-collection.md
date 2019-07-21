@@ -51,6 +51,8 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 > 결론적으로 말해서 모든 Crawling, Scraping은 불법이 아니다. <br>
 > 하지만 대부분 불법이므로 주의 해야 한다 
 
+<br>
+
 ### 어떤 것이 합법인가? 
 
 #### Opt-in vs Opt-out 
@@ -62,13 +64,13 @@ Opt-out : 처음에 정보 제공자에 대해 동의를 얻지 않고 당사자
           정보 수집 중단을 하는 경우 (blacklist)
 ```
 
-<span style="color: skyblue; font-size: 20px">Crawling하는 입장에서는 Opt-out 방법으로 정보를 수집하는 경우이다</span><br>
+<span style="color: skyblue; font-size: 20px">Crawling하는 입장에서는 Opt-out 방법으로 정보를 수집한다</span><br>
 <span style="color: skyblue; font-size: 20px">따라서 해당 사이트에서 robots.txt에 명시적으로 거부하지 않은 경우, 메인페이지 하단에 crawling 금지 표시가 없는 경우만 정보 수집이 가능하다. </span><br>
 
 
 ![robots](https://user-images.githubusercontent.com/33630505/61589769-fe148c80-abe9-11e9-815c-b069edd7f602.png)
 
-
+<br>
 
 ## Data from Portal site(Web Data) 
 
@@ -80,6 +82,7 @@ Opt-out : 처음에 정보 제공자에 대해 동의를 얻지 않고 당사자
 ## Crawling부터 DB 저장까지 Flow 
 
 ![crawlingandscraping](https://user-images.githubusercontent.com/33630505/61589402-56489000-abe4-11e9-9e49-dbe35c4a7fad.jpg)
+사진 출처: 논문[RCrawler: An R package for parallel web crawling and scraping -Salim Khalil, Mohamed Fakir]  <br>
 <br>
 
 ```
