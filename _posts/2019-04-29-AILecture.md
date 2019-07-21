@@ -483,9 +483,14 @@ set(dir(list())) & set(dir(tuple()))
  'index'}
 ```
 
-### __missing__ & defaultdict 
+### __ missing__ & defaultdict 
 
-#### __missing__
+#### __ missing__
+
+> 보통 dictionary에 존재하지 않는 key값에 접근할 경우 KeyError가 발생한다 <br>
+> 그런데 missing 메소드를 재정의 해서 내가 원하는 return 값을 주면 에러가 발생하지 않는다 <br>
+> 즉, missing 메소드를 구현하면 KeyError가 나는 상황에서 missing 메소드를 호출하게 된다 <br> 
+
 ```python
 class MyDict(dict):
     def __missing__(self, key):
@@ -493,24 +498,43 @@ class MyDict(dict):
         return rv
 
 m = MyDict()
-m
-: {}
 
 type(m)
 : __main__.MyDict
 
-m.update({'x':1})
+m.update({'x':1})  # 해당 키가 있으면 value를 수정하고 없으면 추가한다
 m
 : {'x': 1}
 
-m.update({'x':2})
-: {'x': 2}
+m['y']
+: []
 
-m['y'].append(3)
-: {'x': 2, 'y': [3]}
+m
+: {'x': 1, 'y': []}
+
+m['y'].append(2)
+: {'x': 1, 'y': [2]}
+
+class MyDict2(dict):
+    def __missing__(self, key):
+        self[key] = rv = {}
+        return rv
+
+m2 = MyDict2({'a':1})
+
+m2['b']
+: {}
+
+m2.update({"c":[1,2,3]})
+m['b'].update({'x':1,"y":2})
+
+m
+: {'a': 1, 'b': {'x': 1, 'y': 2}, 'c': [1, 2, 3]}
 ```
 
 #### defaultdict
+
+> 없는 key값에 접근했을 때 에러가 나지 않고 default로 원하는 타입의 값 자동으로 할당해주는 dict type
 
 ```python
 from collections import defaultdict
@@ -526,9 +550,14 @@ m['x'].append(1)
 m
 : defaultdict(list, {'x': [1]})
 
-m['x'].append(2)
-m
-: defaultdict(list, {'x': [1, 2]})
+m['y']
+: defaultdict(list, {'x': [1], 'y': []})
+
+[m['y'].append(x) for x in range(1,11)]
+: [None, None, None, None, None, None, None, None, None, None]
+
+m 
+: defaultdict(list, {'x': [1], 'y': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]})
 ```
 
 출처: [tistory](https://greatkim91.tistory.com/189)<br>
