@@ -963,17 +963,6 @@ for index, value in enumerate(a):
 2 c
 3 d
 4 e
-
-for i, j in enumerate(*[''], 1):
-    print(i,j)
-:
-1 a
-2 b
-3 c
-4 d
-5 e
-6 f
-7 g 
 ```
 
 ### else문 3가지 쓰임 
