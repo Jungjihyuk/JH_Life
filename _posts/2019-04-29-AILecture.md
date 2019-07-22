@@ -3128,15 +3128,19 @@ special method : [slideshare](https://www.slideshare.net/dahlmoon/specialmethod-
 ```
 1. _* 
 - from module import *에 의해 포함되지 않는 변수명명법 
+
 2. __*__
 - magic or special method 명명법 
+
 3. __*
 - mangling
 - 클래스내에 __를 사용하여 변수명을 바꿔주는 방법 
 - 이때 외부에서 해당 변수에 접근을 하지 못하는 private 기능을 하는 것처럼 눈속임을 한다 
+
 4. _ 
 - 숫자에 쓰는 언더바 
 - ex) a = 100_000
+
 5. _ (이름이 중요하지 않지만 관례상 쓸때)
 
 for i,_,k in zip([1,2,3],[4,5,6],[7,8,9]):
@@ -3145,8 +3149,10 @@ for i,_,k in zip([1,2,3],[4,5,6],[7,8,9]):
 for i,_,_ in zip([1,2,3],[4,5,6],[7,8,9]):
     print(i,_,_)   
 # 주의, 맨 마지막에 쓴 값 출력 (할당하지 않으면)
+
 6. _method
 - private
+
 7. _  맨 마지막에 쓴 값 출력 (할당하지 않으면)
 a = 3
 a
@@ -3822,11 +3828,16 @@ a.ndim
 import numpy as np
 
 a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+a.dtype 
+: dtype('int32')
 a.strides
 : (12, 4)
 
 # 8bit = 1byte
-# 바이트 단위로 쪼개기 때문에 8로 나누어 주면 (3,1) 즉, 한 행에 3개 열로 구성되어 있다는 뜻 
+# dtype에서 int 32bit라고 나왔기 때문에 byte로 바꾸면 4byte가 되는데 
+# 데이터 하나당 4byte를 차지한다고 보면된다
+# 따라서 strides에서 맨 앞을 4byte로 나누어주면 그 갯수만큼 하나의 묶음으로 생각한다
+# 즉, 한 행이 3개 데이터로 구성 되어 있다는 뜻
 ```
 
 **stride만 바꾸어 shape 자유자재로 바꾸기**<br>
