@@ -3669,7 +3669,7 @@ Numpy 공식 문서: [docs](https://docs.scipy.org/doc/numpy/reference/?v=201905
  
 ```
 loop없이 벡터연산으로 속도 향상을 하는 방법 
-요즘은 cpu자체에서 vercotr processor를 지원 
+요즘은 cpu자체에서 vector processor를 지원 
 함수형 패러다임 + 선형대수 기법 
 ```
 
