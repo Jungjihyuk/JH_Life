@@ -36,7 +36,7 @@ Big Data라는 엄청난 데이터 속에서 사람의 인지 능력으로는 �
 ```
 1. 공공데이터(api, file)
 2. Portal site ( ex) google, naver, daum..)
-3. 그 외 Files
+3. 그 외 Files, Databases
 ```
 
 > 공공 데이터 api나 file 그리고 dataset(file)은 데이터를 수집하는 절차가 복잡하거나 수집해서 <br>
