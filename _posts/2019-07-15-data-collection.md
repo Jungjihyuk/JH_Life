@@ -531,11 +531,39 @@ for x in result:
 
 
 :
-National Flag: Area: 120,540 square kilometresPopulation: 22,912,177Iso: KPCountry: North KoreaCapital: PyongyangContinent: ASTld: .kpCurrency Code: KPWCurrency Name: WonPhone: 850Postal Code Format: ###-###Postal Code Regex: ^(\d{6})$Languages: ko-KPNeighbours: CN KR RU 
+National Flag: 
+Area: 120,540 square kilometres
+Population: 22,912,177
+Iso: KP
+Country: North Korea
+Capital: Pyongyang
+Continent: AS
+Tld: .kp
+Currency Code: KPW
+Currency Name: Won
+Phone: 850
+Postal Code Format: ###-###
+Postal Code Regex: ^(\d{6})$
+Languages: ko-KP
+Neighbours: CN KR RU 
 Edit
 
 
-National Flag: Area: 98,480 square kilometresPopulation: 48,422,644Iso: KRCountry: South KoreaCapital: SeoulContinent: ASTld: .krCurrency Code: KRWCurrency Name: WonPhone: 82Postal Code Format: SEOUL ###-###Postal Code Regex: ^(?:SEOUL)*(\d{6})$Languages: ko-KR,enNeighbours: KP 
+National Flag: 
+Area: 98,480 square kilometres
+Population: 48,422,644
+Iso: KR
+Country: South Korea
+Capital: Seoul
+Continent: AS
+Tld: .kr
+Currency Code: KRW
+Currency Name: Won
+Phone: 82
+Postal Code Format: SEOUL ###-###
+Postal Code Regex: ^(?:SEOUL)*(\d{6})$
+Languages: ko-KR,en
+Neighbours: KP 
 Edit
 
 driver.close() # 브라우저 창 닫기 
