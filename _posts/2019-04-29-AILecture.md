@@ -4048,7 +4048,37 @@ a
        [5, 6, 7, 8, 9]])
 # -1은 자동으로 알아서 하라는 뜻 / 행렬의 크기를 모를때 유용        
 ```
+<br>
 
+## reshape vs resize 
+
+```python 
+a=np.array([[0,1],[2,3]])
+
+# reshape 
+
+a. reshape(4,1)
+: array([[0],
+         [1],
+         [2],
+         [3]])
+	 
+a. reshape(1,4)
+: array([[0, 1, 2, 3]])
+
+# resize 
+
+np.resize(a,(2,3))
+: array([[0, 1, 2],
+         [3, 0, 1]])
+	 
+np.resize(a,(1,4))
+: array([[0, 1, 2, 3]])
+
+np.resize(a,(2,4))
+: array([[0, 1, 2, 3],
+         [0, 1, 2, 3]])
+```
 
 ## 데이터 형태 변환하기 
 
@@ -4583,7 +4613,7 @@ a[np.newaxis].shape
 : array([[1,2,3]]) # 가장 바깥 [] 소거하고 행갯수 세면 x축 데이터 갯수 
                    # 그 다음 안 [] 소거하고 행갯수 세면 y축 데이터 갯수 
   (1,3)
-a[:,np.newaxis] # y축 추가 열기준으로 묶기 
+a[:,np.newaxis] # y축 추가 열기준으로 묶기 (np.expand_dims(a, 1))
 a[:,np.newaxis].shape
 
 : array([[1],      # 가장 바깥 [] 소거하고 열갯수 세면 x축 데이터 갯수 
@@ -4592,13 +4622,41 @@ a[:,np.newaxis].shape
   (3,1)	
 ```
 
-<span style="background-color:red">행렬은 다른 행이여도 열의 갯수가 같아야 하는데 이런 경우도 가능한건가..?</span> <br>
+<span style="background-color:red">이 경우는 뭐지?</span> <br>
 
 ```python
 import numpy as np 
 a = np.array([[1,2],[4,5,6]])
 a
 : array([list([1, 2]), list([4, 5, 6])], dtype=object)
+
+a = np.arange(27).reshape(3,3,3)
+
+np.swapaxes(a, 0, 2)
+: array([[[ 0,  9, 18],
+          [ 3, 12, 21],
+          [ 6, 15, 24]],
+
+         [[ 1, 10, 19],
+          [ 4, 13, 22],
+          [ 7, 16, 25]],
+
+         [[ 2, 11, 20],
+          [ 5, 14, 23],
+          [ 8, 17, 26]]])
+
+np.moveaxis(a, 0, 2)
+: array([[[ 0,  9, 18],
+          [ 1, 10, 19],
+          [ 2, 11, 20]],
+
+         [[ 3, 12, 21],
+          [ 4, 13, 22],
+          [ 5, 14, 23]],
+
+         [[ 6, 15, 24],
+          [ 7, 16, 25],
+          [ 8, 17, 26]]])
 ```
 
 <span style="color:orange">3차원 : 행렬 중첩, 평면 겹쳐서 직육면체처럼 [] 3개 </span><br>
