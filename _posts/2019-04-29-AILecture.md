@@ -4073,9 +4073,6 @@ a.astype('bool')
 
 <br>
 
-### array vs ndarray
-
-
 
 ## array는 sequence type 
 
@@ -4116,6 +4113,61 @@ n[n>3]
 3. Fancy indexing 
 4. Masking 
 5. 조건문 (where)
+```
+
+### 예제 
+
+```python 
+import numpy as np
+
+a = np.arange(25).reshape(5,5)
+a 
+: array([[ 0,  1,  2,  3,  4],
+         [ 5,  6,  7,  8,  9],
+         [10, 11, 12, 13, 14],
+         [15, 16, 17, 18, 19],
+         [20, 21, 22, 23, 24]])  
+
+# 일반 indexing 
+
+for x in range(3,5):
+    for y in range(3,5):
+        print(a[x][y], end=" ")
+    print()
+: 18 19
+  23 24
+  
+# 콤마 
+
+a[3:,3:]
+: array([[18, 19],
+        [23, 24]])
+
+# Fancy indexing
+
+a[[3,4],3:]
+: array([[18, 19],
+         [23, 24]])
+	 
+# Masking 
+
+a[(a > 17) & (a < 20) + (a > 22)].reshape(2,2)
+: array([[18, 19],
+        [23, 24]])
+
+b = np.array([[False,False,False,False,False],
+              [False,False,False,False,False],
+              [False,False,False,False,False],
+              [False,False,False,True,True],
+              [False,False,False,True,True]])
+a[b].reshape(2,2)
+: array([[18, 19],
+        [23, 24]])
+
+# 조건문 
+a[np.where((a > 17) & (a < 20) + (a > 22))].reshape(2,2)
+: array([[18, 19],
+        [23, 24]])
 ```
 
 ### nditer 
@@ -4659,13 +4711,20 @@ np.save()
 ## linear algebra
 
 
-## view & copy 
-
-
-
 #### WhyPythonIsSlow + open_with 내용 복습 
 
 https://docs.scipy.org/doc/numpy/user/quickstart.html 복습 
+
+### 설명 보기 
+
+```python 
+import numpy as np
+
+np.lookfor('shape')
+: 설명 ~ 
+np.info('shape')
+: 설명 ~ 
+```
 
 **복습 시간** 
 {: .notice}
