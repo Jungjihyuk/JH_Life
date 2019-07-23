@@ -3631,16 +3631,8 @@ Computing Model
 
 <span style="background-color:rgb(56, 188, 182)">Numpy는 속도가 빠르고 사용하기가 쉽다! </span><br>
 Numpy는 벡터 연산, 행렬 연산을 효율적으로 쉽게 만들 수 있다<br>  
-Numpy는 속도 개선의 최적화를 하지 않아도 되기 때문에 AI시작시 python말고 Numpy를 한다 <br>
+Numpy는 속도 개선의 최적화를 하지 않아도 되기 때문에 AI에서 Numpy를 쓰는 것이다 <br>
 <br>
-추가적으로 <br>
-pandas, Keras => 100 % Numpy로 만들어짐 <br>
-Tensor => Numpy + GPU <br>
-matlab이 연산이 빠른 이유는 행렬 계산이 가능하기 때문 <br>
-=> 행렬계산은 대량 연산시 빠르다 
-
-
-Numpy 공식 문서: [docs](https://docs.scipy.org/doc/numpy/reference/?v=20190520142926)
 
 
 ## Numpy 
@@ -3650,25 +3642,29 @@ Numpy 공식 문서: [docs](https://docs.scipy.org/doc/numpy/reference/?v=201905
 
 **Numpy는 벡터 기반이다**
 
-- 0차 스칼라 
-- 1차 벡터 
-- 2차 행렬 
-- 3차 텐서 
+- 1차 Vector (Numpy에서 vector는 방향이 없다고 간주)
+- 2차 Matrics  
+- 3차 Tensor
 
 <br>
 
 **python 속도 개선을 위한 방법**
- 
+
+```
 1. Computing Power
 - GPU
 - Parallel Computing
+
 2. Compiler 
 - Cython
 - PyPy ....
+
 3. Library 
 - Numpy 
+
 4. Algorithm/ Data Structure 
- 
+```
+
 <br>
 
 ### Vectorization
@@ -3711,30 +3707,109 @@ type(a)
         [5, 6]]])
   numpy.ndarray
 ```
+<br>
+
+### Factory Method 
+
+> 객체를 만들어내는 부분을 서브 클래스로 위임해 캡슐화 하는 패턴 <br>
+> 타입에 따라 다르게 동작하고 싶을때 사용하는 패턴이다
+<br>
+
+```python
+import numpy as np
+
+np.array([1,2,3])
+: array([1, 2, 3])
+
+np.array((1,2,3))   # 메소드 방식(Factory Method)
+: np.array(['a', 1])
+
+np.ndarray(['a',1]) # 인스턴스 방식(Homogeneous한 타입의 mutable이기 때문에 타입이 다르면 에러가 난다)
+: TypeError 
+
+np.ndarray(shape=(2,2), dtype=float, order='F') # 인스턴스 방식은 랜덤으로 값이 채워진다 
+: array([[1.49769904e-311, 0.00000000e+000],
+       [0.00000000e+000, 5.02034658e+175]])       
+```
+<br>
+
+### Endianness 
+
+> 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법 <br>
+> 여기서 바이트를 배열하는 방법을 Byte order라고 한다
+
+![endian](https://user-images.githubusercontent.com/33630505/61672256-e510f600-ad25-11e9-8c01-b43f98be8de0.png)
+
+```python
+import numpy as np
+
+np.array(['a', 1]) # little-endian
+: array(['a', '1'], dtype='<U1')
+
+dt = np.dtype(">i4") # big-endian
+dt.byteorder
+: '>'
+
+a = np.array(['a', 1])
+a.flags
+: C_CONTIGUOUS : True  # C 저장 방식 
+  F_CONTIGUOUS : True  # Fortran 저장 방식 
+  OWNDATA : True
+  WRITEABLE : True
+  ALIGNED : True
+  WRITEBACKIFCOPY : False
+  UPDATEIFCOPY : False
+
+b = np.array([[1,2],[3,4]], order = "C")
+b.flags
+: C_CONTIGUOUS : True
+  F_CONTIGUOUS : False
+  OWNDATA : True
+  WRITEABLE : True
+  ALIGNED : True
+  WRITEBACKIFCOPY : False
+  UPDATEIFCOPY : False
+  
+c = np.array([[1,2],[3,4]], order = "C")
+c.flags
+: C_CONTIGUOUS : False
+  F_CONTIGUOUS : True
+  OWNDATA : True
+  WRITEABLE : True
+  ALIGNED : True
+  WRITEBACKIFCOPY : False
+  UPDATEIFCOPY : False
+```
+<br>
+
 
 ### 특수 행렬 만들기
 
 ```python
 import numpy as np
 
+# 영행렬 만들기 
 z = np.zeros([3,3])
 z
 : array([[0., 0., 0.],
        [0., 0., 0.],
        [0., 0., 0.]])
-       
+
+# 단위행렬(항등행렬) 만들기 
 y = np.eye(3)
 y
 : array([[1., 0., 0.],
        [0., 1., 0.],
        [0., 0., 1.]])
 
+# 전치행렬 만들기 
 t = np.array([[1,2,3],[4,5,6],[7,8,9]])
 t.T
 : array([[1, 4, 7],
        [2, 5, 8],
        [3, 6, 9]])
- 
+
+# 일행렬 만들기 
 o = np.ones((5,4))
 o
 : array([[1., 1., 1., 1.],
@@ -3742,32 +3817,93 @@ o
        [1., 1., 1., 1.],
        [1., 1., 1., 1.],
        [1., 1., 1., 1.]])
-       
+
+# 원하는 숫자로 행렬 채우기 
 f = np.full((3,3),3)
 f
 : array([[3, 3, 3],
        [3, 3, 3],
        [3, 3, 3]])
        
-       
+# 원하는 행렬 shape 복사해서 일행렬 만들기 
 l = np.ones_like(f)
 l
 : array([[1, 1, 1],
        [1, 1, 1],
        [1, 1, 1]])
+       
+# 대각행렬 만들기 
+
+np.diagonal([[1,2],[3,4]])
+: array([1, 4])
+
+# 상부 삼각행렬 
+
+np.triu([[1,2,3],[4,5,6],[7,8,9],[10,11,12]])
+: array([[1, 2, 3],
+       	[0, 5, 6],
+       	[0, 0, 9],
+       	[0, 0, 0]])
+
+# 하부 삼각행렬 
+
+np.tri(4)
+: array([[1., 0., 0., 0.],
+       	[1., 1., 0., 0.],
+       	[1., 1., 1., 0.],
+       	[1., 1., 1., 1.]])
+
+np.tril([[1,2,3],[4,5,6],[7,8,9],[10,11,12]], -1)
+: array([[ 0,  0,  0],
+       	[ 4,  0,  0],
+	[ 7,  8,  0],
+       	[10, 11, 12]])
+	
+np.linspace(0,30)
+: array([ 0.        ,  0.6122449 ,  1.2244898 ,  1.83673469,  2.44897959,
+          3.06122449,  3.67346939,  4.28571429,  4.89795918,  5.51020408,
+          6.12244898,  6.73469388,  7.34693878,  7.95918367,  8.57142857,
+          9.18367347,  9.79591837, 10.40816327, 11.02040816, 11.63265306,
+          12.24489796, 12.85714286, 13.46938776, 14.08163265, 14.69387755,
+          15.30612245, 15.91836735, 16.53061224, 17.14285714, 17.75510204,
+          18.36734694, 18.97959184, 19.59183673, 20.20408163, 20.81632653,
+          21.42857143, 22.04081633, 22.65306122, 23.26530612, 23.87755102,
+          24.48979592, 25.10204082, 25.71428571, 26.32653061, 26.93877551,
+          27.55102041, 28.16326531, 28.7755102 , 29.3877551 , 30.        ])
+
+np.logspace(1,100)
+: array([1.00000000e+001, 1.04811313e+003, 1.09854114e+005, 1.15139540e+007,
+         1.20679264e+009, 1.26485522e+011, 1.32571137e+013, 1.38949549e+015,
+         1.45634848e+017, 1.52641797e+019, 1.59985872e+021, 1.67683294e+023,
+         1.75751062e+025, 1.84206997e+027, 1.93069773e+029, 2.02358965e+031,
+         2.12095089e+033, 2.22299648e+035, 2.32995181e+037, 2.44205309e+039,
+         2.55954792e+041, 2.68269580e+043, 2.81176870e+045, 2.94705170e+047,
+         3.08884360e+049, 3.23745754e+051, 3.39322177e+053, 3.55648031e+055,
+         3.72759372e+057, 3.90693994e+059, 4.09491506e+061, 4.29193426e+063,
+         4.49843267e+065, 4.71486636e+067, 4.94171336e+069, 5.17947468e+071,
+         5.42867544e+073, 5.68986603e+075, 5.96362332e+077, 6.25055193e+079,
+         6.55128557e+081, 6.86648845e+083, 7.19685673e+085, 7.54312006e+087,
+         7.90604321e+089, 8.28642773e+091, 8.68511374e+093, 9.10298178e+095,
+         9.54095476e+097, 1.00000000e+100])
+
+# Random
+np.empty((3,3)) 
+: array([[0.00000000e+000, 0.00000000e+000, 0.00000000e+000],
+         [0.00000000e+000, 0.00000000e+000, 4.36754031e-321],
+         [8.70018274e-313, 6.79038653e-313, 1.24610994e-306]])
 ```
 
 **array** 는 몇차원 데이터인지 통칭하는 단어이다. 그리고 return 값에 array가 나오면 Numpy형태라는 뜻. 파이썬에서 사용하는 형태를 Numpy로 바꿔준다. 벡터를 만드는 방식이기도 하다 
 {: .notice}
 
 
-### 행렬 연산 함수 
+### 행렬 연산 
 
 ```python
 import numpy as np
 
 
-a = np.array([1,2,3,4,5])
+a = np.array([1,2,3,4,5]) # broadcasting
 a + 3 
 : array([4, 5, 6, 7, 8])
 
@@ -3784,6 +3920,12 @@ np.sum(t, axis = 1) # 행연산
 np.sum(t,axis=0) # 열연산
 :array([12, 15, 18])
 
+A = np.array([[1,2],[3,4]])
+B = np.array([[1,2],[3,4]])
+
+A @ B  # At sign 연산자 (행렬곱)
+: array([[ 7, 10],
+       [15, 22]])
 ```
 
 ### Python, Numpy 속도 비교
@@ -3944,8 +4086,6 @@ x = np.array([1,2])
 x[True,False]
 : array([], shape=(0, 2), dtype=int32)
 ```
-
-##### 자유자재로 indexing, slicing 연습하기  
 
 
 
