@@ -3737,6 +3737,22 @@ type(a)
         [3, 4],
         [5, 6]]])
   numpy.ndarray
+  
+a = np.arange(5,25).reshape(4,5)
+
+np.max(a)
+np.min(a)
+
+: 24
+  5 
+  
+np.argmax(a)
+np.argmin(a)  # Function 방식 
+: 19 
+  0 
+
+a.argmax()   # Method 방식 
+: 19 
 ```
 <br>
 
@@ -4057,6 +4073,9 @@ a.astype('bool')
 
 <br>
 
+### array vs ndarray
+
+
 
 ## array는 sequence type 
 
@@ -4087,7 +4106,7 @@ n[n>3]
 : array([4, 5, 6, 7, 8, 9])
 ```
 
-### array vs ndarray
+<br>
 
 ### Numpy Indexing 
 
@@ -4284,6 +4303,8 @@ np.sqrt((4,9))
 ### 배열 분할하기, 붙이기 
 
 ```python
+# split (분할하기) 
+
 a = np.arange(16).reshape(4,4)
 a
 : array([[ 0,  1,  2,  3],
@@ -4320,8 +4341,57 @@ np.vsplit(a, 2)
         [4, 5, 6, 7]]), 
    array([[ 8,  9, 10, 11],
         [12, 13, 14, 15]])]
+
+np.s_[a,b]
+: (array([0, 1, 2, 3, 4]), array([5, 6, 7, 8, 9]))
+
+[1,2,3,4,5][2:5]
+: [3, 4, 5]
+
+[1,2,3,4,5][slice(1,5)]
+: [2, 3, 4, 5]
+
+np.arange(10)[np.s_[2:5]]
+: array([2, 3, 4])
+
+# stack (붙이기)
+
+a = np.arange(5)
+b = np.arange(5, 10)
+
+np.stack((a,b), axis=1)
+: array([[0, 5],
+         [1, 6],
+         [2, 7],
+         [3, 8],
+         [4, 9]])
+
+np.stack((a,b), axis=0)
+: array([[0, 1, 2, 3, 4],
+         [5, 6, 7, 8, 9]])
+
+np.vstack((a,b))
+: array([[0, 1, 2, 3, 4],
+         [5, 6, 7, 8, 9]])
+	 
+np.hstack((a,b))
+: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+np.column_stack((a,b))   # np.c_[a,b]
+: array([[0, 5],
+         [1, 6],
+         [2, 7],
+         [3, 8],
+         [4, 9]])
+	 
+np.row_stack((a,b))      # np.r_[a,b]랑 같음 
+: array([[0, 1, 2, 3, 4],
+         [5, 6, 7, 8, 9]])
 ```
 
+
+
+<br>
 
 ### view & copy 
 
@@ -4353,6 +4423,8 @@ a
   array([[4, 2, 3],
        [4, 5, 6]])     
 ```
+
+<br>
 
 ### ravel & flatten 
 
@@ -4415,17 +4487,7 @@ d.shape
   (1, 2, 3)     ## 평면 한개
 ```
 
-### 행렬의 곱셈
-
-#### matrix product
-```python
-a = np.array([[1,1],[0,1]])
-b = np.array([[2,0],[3,4]])
-
-a@b
-: array([[5, 4],
-       [3, 4]])
-```
+<br>
 
 #### elementwise product 
 
@@ -4614,15 +4676,23 @@ https://docs.scipy.org/doc/numpy/user/quickstart.html 복습
 
 ## Pandas
 
-> Numpy 기반으로 만들어진 데이터 조작, 분석을 위한 프레임워크 
+> Numpy 기반으로 만들어진 데이터 조작, 분석을 위한 프레임워크 <br>
+> Data Wrangling Tool, 데이터를 불러와 합치고, 간단한 전처리하고, 기초통계 분석하는 프레임워크<br>
 
 
 <span style="color:orange">Pandas로 할 수 있는 2가지</span>
 ```
-1. 기초통계분석
+1. 기초통계분석 (EDA) 
 2. 전처리 
 - 반정형 데이터를 정형데이터로 바꿔준다 
 ```
+
+<br>
+
+**ETL vs Munging** ETL(Extract Transform Load)는 개발자 입장에서 하는 파이프라인이고 Munging은 통계분석가 입장에서 하는 파이프라인이라고 생각하면 된다.
+{: .notice}
+
+<br>
 
 ## 데이터 종류 
 
@@ -4851,8 +4921,8 @@ dtype: float64
 ## 행 뽑는 방법 
 
 ```
-1.loc
-2.iloc
+1.loc  # index 명으로 접근 
+2.iloc # index 숫자로 접근 
 ```
 
 ## 문제해결 그리고 예측 
@@ -4862,6 +4932,10 @@ dtype: float64
 
 ## Exploratory Data Analysis
 
+> 수집한 데이터가 들어왔을 때, 이를 다양한 각도에서 관찰하고 이해하는 과정. <br>
+> 한마디로 데이터를 분석하기 전에 그래프나 통계적인 방법으로 자료를 직관적으로 바라보는 과정이다. <br>
+
+<br>
 
 ### nan값 제거 
 ```python
@@ -4874,9 +4948,8 @@ data.iloc[4].dropna()
 
 <hr>
 
-##### indexing, slicing 연습 
-##### Numpy_exercises 연습하기 
-**복습 시간**
+
+**복습 시간**  2시간으로 추정 
 {: .notice}
 
 
