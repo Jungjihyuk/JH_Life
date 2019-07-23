@@ -4073,21 +4073,38 @@ n[1,:]
 
 n[n>3]
 : array([4, 5, 6, 7, 8, 9])
-
-
 ```
 
-##### 이해 못함 
+### array vs ndarray
 
-```python
-import numpy as np
+### Numpy Indexing 
 
-x = np.array([1,2])
-x[True,False]
-: array([], shape=(0, 2), dtype=int32)
+```
+1. 일반 indexing 
+2. 콤마 
+3. Fancy indexing 
+4. Masking 
+5. 조건문 (where)
 ```
 
+### nditer 
 
+```python 
+import numpy as np 
+
+a = np.nditer([1,2,3])
+next(a)
+: (array(1), array(2), array(3))
+
+b = np.nditer([[1,2],[3,4]])
+next(b)
+: (array(1), array(3))
+
+c = np.array([[1,2],[3,4]])
+d = np.nditer(c)
+next(d)
+: array(1)
+```
 
 **복습 시간** 17시 40분 ~ 19시 / 총 1시간 20분
 {: .notice}
@@ -4099,6 +4116,25 @@ x[True,False]
 
 ## Masking 
 
+> True, False를 활용해 인덱싱하는 방법 
+
+```python 
+import numpy as np
+
+a = np.arange(10)
+
+a > 3
+: array([False, False, False, False,  True,  True,  True,  True,  True,
+        True])
+a[a>3]
+: array([4, 5, 6, 7, 8, 9])
+
+a[(a > 3) & (a < 8)]
+: array([4, 5, 6, 7])
+
+a[[True, True, True, True, True, True, False, False, False, False]]
+: array([0, 1, 2, 3, 4, 5])
+```
 
 ## ix_ 
 
