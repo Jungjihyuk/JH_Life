@@ -3902,7 +3902,6 @@ np.empty((3,3))
 ```python
 import numpy as np
 
-
 a = np.array([1,2,3,4,5]) # broadcasting
 a + 3 
 : array([4, 5, 6, 7, 8])
@@ -4279,7 +4278,7 @@ a
        [ 8,  9, 10, 11],
        [12, 13, 14, 15]])
        
-np.hsplit(a,2), np.split(a,2,axis=1) # 수평축으로 분할(세로, 사실상 수직)
+np.hsplit(a,2) # 수평축으로 분할(세로, 사실상 수직) (np.split(a,2,axis=1))
 : [array([[ 0,  1],
         [ 4,  5],
         [ 8,  9],
@@ -4288,6 +4287,7 @@ np.hsplit(a,2), np.split(a,2,axis=1) # 수평축으로 분할(세로, 사실상 
         [ 6,  7],
         [10, 11],
         [14, 15]])]
+
 np.hsplit(a,(1,2))
 : [array([[ 0],
         [ 4],
@@ -4301,6 +4301,12 @@ np.hsplit(a,(1,2))
         [ 6,  7],
         [10, 11],
         [14, 15]])]
+
+np.vsplit(a, 2)
+: [array([[0, 1, 2, 3],
+        [4, 5, 6, 7]]), 
+   array([[ 8,  9, 10, 11],
+        [12, 13, 14, 15]])]
 ```
 
 
@@ -4633,7 +4639,7 @@ x[0]['name']  # dict의 key값으로 접근
 from collections import namedtuple
 
 x = namedtuple('Address',['name','age','weight'])
-a = x('jh',25,'73.0)
+a = x('jh',25,'73.0')
 
 a.name  # attribute
 a.age
@@ -6340,7 +6346,16 @@ data leakage현상을 방지할 수 있다.<br>
 - apply방식은 args=() 옵션으로 재활용 가능한 함수 방식을 사용할 수 있다
 ```
 
+<br>
+
 ## count vs size 
+
+```
+count는 미싱데이터를 포함하지 않고 
+size는 포함한다 
+```
+
+<br>
 
 ### count 
 
