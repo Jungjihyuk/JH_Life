@@ -5631,7 +5631,7 @@ import seaborn as sns
 
 tips = sns.load_dataset('tips')
 tips.pivot_table(index='smoker', columns = 'sex', aggfunc = np.sum, margins = True)
-# margin은 중간값을 보여줌 
+# margin은 부분합을 보여줌 
 
 :  	size	                tip	                total_bill
 sex	Male	Female	All	Male	Female	All	Male	Female	All
@@ -5878,7 +5878,7 @@ tips.groupby(['day','sex']).mean()[['tip','total_bill']].unstack(1).plot.bar(sta
 ### 그래프 커스터마이징 하기 
 
 ```python
-import matplotlibl.pyplot as plt 
+import matplotlib.pyplot as plt 
 
 # canvas, figure, axes는 생략하면 자동으로 생성해서 그래프를 그려준다 
 # 단 생략하지 않으면 커스텀 할 수 있다 
