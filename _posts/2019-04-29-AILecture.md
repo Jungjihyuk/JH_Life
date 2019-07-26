@@ -7878,6 +7878,12 @@ dt.feature_importances_
 
 ### RandomForest 
 
+> 랜덤포레스트는 분류, 회귀 분석 등에 사용되는 앙상블 학습 방법의 일종으로, <br>
+> 훈련 과정에서 구성한 다수의 결정 트리로부터 분류 또는 평균 예측치를 출력함으로써 동작한다.<br>
+> 성능이 좋고 overfitting이 잘 안일어난다. <br> 
+
+<br>
+
 ```python 
 from sklearn.ensemble import RandomForestClassifier
 
