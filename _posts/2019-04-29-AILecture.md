@@ -6706,6 +6706,12 @@ Generative & Discriminative: [naver blog](https://m.blog.naver.com/PostView.nhn?
 
 ## LogisticRegression을 제일처음에 하는 이유
 
+```
+LogisticRegression은 데이터가 선형분류로 성능이 좋은지 안좋은지를 보고 
+데이터가 선형 데이터인가 비선형 데이터인가 판별하는데 기준이 될 수 있기 때문에 시간 절약을 할 수 있다 
+
+그러나 보통 복잡한 
+```
 
 
 **복습시간**  18시 30분 ~ 22시 10분 / 총 3시간 40분 
