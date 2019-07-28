@@ -6669,6 +6669,11 @@ pd.qcut(x.z,2)
 <hr>
 #### SVM(Support Vector Machine)
 
+> SVM은 수학적으로 증명 가능하고 초평면을 경계로 분류하는 알고리즘 이라고 볼 수 있다 <br>
+> 선형, 비선형 둘다 성능 좋지만 최적화를 고려 안해 속도가 느리다는 단점이 있다 
+
+<br>
+
 ![svm](https://user-images.githubusercontent.com/33630505/59195422-e8617f80-8bc6-11e9-8f3e-e05d569ec4d9.JPG)
 
 <hr>
@@ -6708,11 +6713,17 @@ Generative & Discriminative: [naver blog](https://m.blog.naver.com/PostView.nhn?
 
 ```
 LogisticRegression은 데이터가 선형분류로 성능이 좋은지 안좋은지를 보고 
-데이터가 선형 데이터인가 비선형 데이터인가 판별하는데 기준이 될 수 있기 때문에 시간 절약을 할 수 있다 
+데이터가 선형 데이터인가 비선형 데이터인가 판별하는데 
+기준이 될 수 있기 때문에 시간 절약을 할 수 있다 
 
-그러나 보통 복잡한 
+선형분류와 비선형분류 알고리즘 둘다 성능이 비슷한 경우 선형데이터라고 간주하고 
+선형분류 알고리즘 위주로 학습시키는데 사용하고 
+
+선형분류 알고리즘의 성능이 현저하게 낮은 경우 비선형 데이터라고 간주하고 
+그때부터는 비선형 알고리즘 위주로 학습시키는데 사용하면 시간을 절약할 수 있다
 ```
 
+<br>
 
 **복습시간**  18시 30분 ~ 22시 10분 / 총 3시간 40분 
 {: .notice}
@@ -6835,7 +6846,7 @@ from sklearn.model_selection import GridSearchCV
 x_train, x_test, y_train, y_test = train_test_split(iris2.iloc[:,:-1], iris2.iloc[:,-1])
 para_grid = {'n_neighbors': range(2,21), 'weights':['uniform', 'distance']}
 gri = GridSearchCV(KNeighborsClassifier(), para_grid)
-gri.fit(x_train, y_train)
+gri.fit(x_train, y_train)  # cross validation이기 때문에 전체 데이터로 fit 시켜야함 
 gri.best_estimator_
 gri.best_params_
 gri.param_grid
