@@ -6347,23 +6347,24 @@ iris['species']
 
 knn.fit(iris_data, iris['species'])
 
-X_train, X_test, Y_train , Y_test = train_test_split(iris[iris.columns[:-1]], iris.species)
+# 관례상 행렬은 대문자, 벡터는 소문자로 표기 
+X_train, X_test, y_train , y_test = train_test_split(iris[iris.columns[:-1]], iris.species)
 len(X_train.index)
 len(X_test.index)
 : 112
   38    
 # 75 : 25 비율로 쪼갬 
 
-knn.fit(X_train, Y_train)
+knn.fit(X_train, y_train)
 knn.predict(X_test)
-Y_test.values
+y_test.values
 
 : array([2, 1, 2, 1, 2, 1, 0, 1, 2, 2, 1, 0, 0, 2, 2, 1, 2, 2, 0, 2, 2, 1,
        1, 0, 0, 2, 2, 0, 0, 2, 1, 2, 2, 2, 0, 0, 0, 1], dtype=int64)
   array([2, 1, 2, 1, 2, 1, 0, 1, 2, 2, 1, 0, 0, 2, 2, 1, 2, 2, 0, 2, 2, 1,
        1, 0, 0, 2, 2, 0, 0, 2, 1, 1, 2, 2, 0, 0, 0, 1], dtype=int64)     
        
-knn.predict(X_test) == Y_test.values       
+knn.predict(X_test) == y_test.values       
 : 
 array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
         True,  True,  True,  True,  True,  True,  True,  True,  True,
@@ -6371,7 +6372,7 @@ array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
         True,  True,  True,  True, False,  True,  True,  True,  True,
         True,  True])
 	
-confusion_matrix(Y_test, knn.predict(X_test))	
+confusion_matrix(y_test, knn.predict(X_test))	
 : 
 array([[10,  0,  0],
        [ 0, 10,  0],
