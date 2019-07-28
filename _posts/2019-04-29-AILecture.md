@@ -7955,6 +7955,9 @@ rf.feature_importances_
 ## 인공지능 발전에 기여한 인물들 
 
 ![ai_people_c](https://user-images.githubusercontent.com/33630505/59897521-f6659a80-9427-11e9-8ca8-af5bcb252ea1.jpg)
+<br>
+사진 출처: [brunch](https://brunch.co.kr/@hvnpoet/66#comment)<br>
+<br>
 
 ### Frank Rosenblatt's Perceptron 
 ```
