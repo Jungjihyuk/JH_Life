@@ -7977,13 +7977,14 @@ rf.feature_importances_
 이 Perceptron은 뉴런의 행동 방식을 모방하여 만들어졌습니다. 
 Single Perceptron은 입력값의 연산 결과가 1이면 activate되고 0이되면 deactivate하는 방식의 선형 모델입니다.
 이렇게 하면 OR ,AND 연산이 가능하지만 XOR 연산을 할 수 없는 문제가 발생합니다
-XOR 연산을 하기 위해서는 Perceptron을 하나 더 연결하여 
+XOR 연산을 하기 위해서는 Perceptron을 하나 더 연결하여 다층 퍼셉트론을 통해 해결 할 수 있습니다
 ```
 
 ![선형 모델](https://user-images.githubusercontent.com/33630505/59901536-87437280-9436-11e9-994f-3bbfb1015d34.JPG)
 
 ![xor](https://user-images.githubusercontent.com/33630505/59915021-a5b96600-9456-11e9-8752-c941d955ab8d.JPG)
 
+<br>
 
 ### Perceptron 학습 방법 
 
