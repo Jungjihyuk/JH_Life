@@ -3121,7 +3121,7 @@ with open('test.txt', 'r', encoding='utf-8') as f:
 **__all__** import할때 포함시키고 싶은 범위를 지정해주는 special method
 {: .notice}
 
-special method : [slideshare](https://www.slideshare.net/dahlmoon/specialmethod-20160403-70272494)<br>
+special method : [slideshare](https://www.slideshare.net/dahlmoon/specialmethod-20160403-70272494), &nbsp; [git blog](https://corikachu.github.io/articles/python/python-magic-method)<br>
 
 ## _ 7가지 활용 
 
