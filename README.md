@@ -24,7 +24,7 @@
 
 ## Change Preview 
 
-
+![myblog2](https://user-images.githubusercontent.com/33630505/62677258-a9924f00-b9e8-11e9-862e-f34f63738862.JPG)
 
 See a [live version of My blog](https://jungjihyuk.github.io/JH_Life) hosted on GitHub.
 
