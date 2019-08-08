@@ -22,6 +22,10 @@
 
 ![myblog](https://user-images.githubusercontent.com/33630505/51456614-b83d4f80-1d91-11e9-9ccd-48c60e66d3ba.JPG)
 
+## Change Preview 
+
+
+
 See a [live version of My blog](https://jungjihyuk.github.io/JH_Life) hosted on GitHub.
 
 ## Getting Started
