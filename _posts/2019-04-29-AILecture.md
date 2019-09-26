@@ -8072,13 +8072,15 @@ Adaline은 입력값의 결과가 예측값이 되고 활성함수(실제값-예
 
 ### Adaline과 Neuron 
 
-Adaline | Neuron 
---------|-------
- Input data | 시냅스를 통한 자극   
- Node  |  수상 돌기  
- Activation | 축삭 돌기 / 휴지 상태(-70mv) => 활동전위 (-55mv) 
- Hidden-layer | 뉴런 갯수 
- Output data | 신경전달물질 
+
+Adaline | Neuron
+Input Data | 타 뉴런들의 자극들
+Weight | 수상돌기
+Node | 세포체
+Activation Function | 축삭돌기(휴지 상태=>활동전위)
+Output Data | 축삭돌기 말단, 신경전달 물질
+
+<br>
 
 
 ### Paul Werbos's MLP
