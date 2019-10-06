@@ -1,11 +1,11 @@
 # Site
 title:              JH
-bio:                'We are what we believe we are'
+bio:                'I will devote myself to something that makes mylife more interesting'
 description:        "용인대학교 생명과학과/(복전)컴퓨터과학과 4학년 학생입니다."
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/logo.png'
-background:         'assets/img/hope.jpg'
+background:         'assets/img/her.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             용인시 처인구 능원리
 url:                https://jungjihyuk.github.io/JH_Life
