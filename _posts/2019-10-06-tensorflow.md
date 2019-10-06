@@ -1,6 +1,6 @@
 ---
 layout: post
-title: tensorflow를 활용한 신경망 구현하기 
+title: Tensorflow를 활용한 신경망 구현하기 
 excerpt: "기본적인 것부터 딥러닝 살펴보기"
 date: 2019-10-06
 tag: 
