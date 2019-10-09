@@ -26,6 +26,13 @@ tag:
 [Graphs 바로가기](#5th)
 ```
 <br> 
+
+[<span style="font-size: 15px; background: rgb(76, 217, 229); color: white">Intro</span>](#1st)
+[<span style="font-size: 15px; background: rgb(30, 219, 173); color: white">DataBase</span>](#2nd)
+[<span style="font-size: 15px; background: rgb(226, 71, 0); color: white">The Core</span>](#3rd)
+[<span style="font-size: 15px; background: rgb(71, 182, 127); color: white">Python</span>](#4th)
+[<span style="font-size: 15px; background: rgb(125, 73, 194); color: white">Graphs</span>](#5th)
+
 <hr> 
 <br>
 
