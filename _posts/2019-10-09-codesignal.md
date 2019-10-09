@@ -15,23 +15,19 @@ tag:
 
 ```
 1. Intro     => 문제해결 프로그래밍, 알고리즘 문제
-[Intro 바로가기](#1st) 
 2. DataBase  => SQL 문제
-[DataBase 바로가기](#2nd)
 3. The Core  => 아직 안풀어봄
-[The Core 바로가기](#3rd)
 4. Python    => Python 문법 문제
-[Python 바로가기](#4th)
 5. Graphs    => 아직 안풀어봄 
-[Graphs 바로가기](#5th)
 ```
 <br> 
 
-[<span style="font-size: 15px; background: rgb(76, 217, 229); color: white">Intro</span>](#1st)
-[<span style="font-size: 15px; background: rgb(30, 219, 173); color: white">DataBase</span>](#2nd)
-[<span style="font-size: 15px; background: rgb(226, 71, 0); color: white">The Core</span>](#3rd)
-[<span style="font-size: 15px; background: rgb(71, 182, 127); color: white">Python</span>](#4th)
-[<span style="font-size: 15px; background: rgb(125, 73, 194); color: white">Graphs</span>](#5th)
+<span style="font-size: 20px; background: rgb(36, 54, 76); color: white; padding: 2px;">Navigation</span> <br>
+[<span style="font-size: 18px; background: rgb(76, 217, 229); color: white; padding: 2px;">Intro</span>](#1st) &nbsp;
+[<span style="font-size: 18px; background: rgb(30, 219, 173); color: white; padding: 2px;">DataBase</span>](#2nd) &nbsp;
+[<span style="font-size: 18px; background: rgb(226, 71, 0); color: white; padding: 2px;">The Core</span>](#3rd) &nbsp;
+[<span style="font-size: 18px; background: rgb(71, 182, 127); color: white; padding: 2px;">Python</span>](#4th) &nbsp; 
+[<span style="font-size: 18px; background: rgb(125, 73, 194); color: white; padding: 2px;">Graphs</span>](#5th) &nbsp;
 
 <hr> 
 <br>
