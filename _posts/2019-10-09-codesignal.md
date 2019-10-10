@@ -228,7 +228,79 @@ int shapeArea(int n) {
 
 <hr>
 <a id = '2nd'></a>
-# DataBase
+# DataBase (MySQL 문법) 
+
+## MonthlyScholarships 
+
+> 1년치 장학금이 기제되어 있는 DB에서 각 id별로 매달 장학금을 계산해서 id와 scholarship을 조회하라 
+
+### Example 
+
+**Table**
+![scholarship](https://user-images.githubusercontent.com/33630505/66551079-b61a5b80-eb81-11e9-9d70-7809ae97b4bf.JPG)<br>
+**Result**
+![scholarship2](https://user-images.githubusercontent.com/33630505/66551431-6a1be680-eb82-11e9-8e17-f4f8c9c3985a.JPG)
+
+<br>
+
+### My Answer 
+```mysql
+CREATE PROCEDURE monthlyScholarships()
+BEGIN
+	SELECT id, scholarship/12 as scholarship FROM scholarships; 
+END
+```
+
+<br> 
+
+## ProjectsTeam 
+
+> 중복되는 이름은 제거하고 이름을 오름차순으로 정렬하여 조회하라 
+<br> 
+
+### Example
+
+**Table**
+![projectteam](https://user-images.githubusercontent.com/33630505/66551762-0f36bf00-eb83-11e9-893d-3c28854a652c.JPG)
+<br>
+
+**Result**
+![projectteam2](https://user-images.githubusercontent.com/33630505/66551799-21186200-eb83-11e9-80db-e9e6c7685b81.JPG)
+<br>
+
+### My Answer 
+```mysql
+CREATE PROCEDURE projectsTeam()
+BEGIN
+	SELECT DISTINCT name FROM projectLog ORDER BY name;
+END
+```
+<br>
+
+## AutomaticNotifications
+
+> role 칼럼의 admin, premium을 제외한 행의 email을 조회하라 
+
+<br> 
+
+### Example
+
+**Table**
+![automaticnotification](https://user-images.githubusercontent.com/33630505/66553990-165fcc00-eb87-11e9-9317-b25645d68d07.JPG)
+<br>
+
+**Result**
+![automaticnotification2](https://user-images.githubusercontent.com/33630505/66553992-165fcc00-eb87-11e9-90f4-5ccb532d1341.JPG)
+
+### MyAnswer 
+
+```mysql
+CREATE PROCEDURE automaticNotifications()
+    SELECT email
+    FROM users
+    WHERE role NOT IN ("admin", "premium")
+    ORDER BY email;
+```
 
 
 
