@@ -314,8 +314,95 @@ CREATE PROCEDURE automaticNotifications()
 <a id = '4th'></a>
 # Python
 
+## Collections Truthness 
 
+> Python에서 True와 False의 의미를 알 수 있는 문제 
 
+<br>
+
+### Example 
+
+```python
+xs = [()]
+res = [False] * 2 
+if xs:
+    res[0] = True 
+if xs[0]:
+    res[1] = True 
+```
+
+<br> 
+
+### My Answer 
+
+```python 
+xs = [()]
+res = [False] * 2 
+if xs:
+    res[0] = True 
+if xs[0]:
+    res[1] = False 
+```
+
+**xs 리스트는 첫번째 요소로 tuple을 갖기 때문에 존재론적 관점에서 True, 리스트의 첫번째 요소인 tuple의 첫번째 요소는 아무것도 없기 때문에 존재론적 관점에서 False이다**
+
+<br> 
+
+## Efficient Comparison 
+
+> 효과적인 비교 방법을 찾는 문제 
+
+<br> 
+### Example
+
+```python
+1. if L < x**y <=R:
+2. if x**y > L and x**y <=R:
+3. if x**y in range(L+1, R+1):
+```
+
+<br>
+
+### My Answer 
+
+```python
+def func1(x,y,L,R):
+    if L < x**y <=R:
+        return True
+    else: 
+        return False 
+	
+def func2(x,y,L,R):
+    if x**y > L and x**y <=R:
+        return True
+    else: 
+        return False 	
+
+def func3(x,y,L,R):
+    if x**y in range(L+1, R+1):
+        return True
+    else: 
+        return False 
+	
+%%timeit
+func1(2,3, 0,10)	
+
+: 480 ns ± 34.7 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+
+%%timeit
+func2(2,3, 0,10)
+
+: 763 ns ± 23.8 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+
+%%timeit
+func3(2,3, 0,10)
+
+: 806 ns ± 45.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+```
+
+**func1이 가장 빠르다**
+
+<br>
 
 <hr>
 <a id = '5th'></a>
