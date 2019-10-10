@@ -244,7 +244,7 @@ int shapeArea(int n) {
 <br>
 
 ### My Answer 
-```mysql
+```sql
 CREATE PROCEDURE monthlyScholarships()
 BEGIN
 	SELECT id, scholarship/12 as scholarship FROM scholarships; 
@@ -269,7 +269,7 @@ END
 <br>
 
 ### My Answer 
-```mysql
+```sql
 CREATE PROCEDURE projectsTeam()
 BEGIN
 	SELECT DISTINCT name FROM projectLog ORDER BY name;
@@ -294,7 +294,7 @@ END
 
 ### MyAnswer 
 
-```mysql
+```sql
 CREATE PROCEDURE automaticNotifications()
     SELECT email
     FROM users
