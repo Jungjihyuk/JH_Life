@@ -22,7 +22,7 @@ tag:
 
 # Back Propagation에 필요한 수식
 
-![solv](https://user-images.githubusercontent.com/33630505/66272387-19676d80-e8a4-11e9-99ca-9b0c80896086.png)
+![solv](https://user-images.githubusercontent.com/33630505/68084264-c5d24a80-fe76-11e9-90c4-c4261a664d51.png)
 
 <br>
 
