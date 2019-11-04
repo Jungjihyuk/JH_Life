@@ -11,6 +11,7 @@ tag:
 
 # Chater 2 "Perceptron" 
 
+<br>
 
 ## AND Gate Python으로 구현하기 
 
@@ -150,3 +151,76 @@ def xor(x1:int, x2:int)->int:
 xor(0,1)
 40.7 µs ± 4.55 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 ```
+<br>
+
+<hr>
+
+# Chapter 3 "신경망"
+
+<br>
+
+## 활성화 함수 
+
+> 신호의 총 합을 출력 신호로 변환하는 함수 
+
+<br> 
+
+### 단층 퍼셉트론에서 사용하는 Step Function 
+
+```python 
+import numpy as np 
+import matplotlib.pyplot as plt
+
+def step(x):
+    y = x > 0 
+    return y.astype(np.int)
+
+x = np.arange(-10, 10, 1) 
+y = step(x)
+plt.plot(x, y)
+plt.show()
+```
+
+![step](https://user-images.githubusercontent.com/33630505/68103497-6b8ac580-ff1a-11e9-9b10-7b83912d064f.JPG)
+<br>
+
+### Sigmoid Function 
+
+```python
+import numpy as np 
+import matplotlib.pyplot as plt
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+x = np.arange(-10, 10, 1) 
+y = sigmoid(x)
+plt.plot(x, y)
+plt.show()
+```
+![sigmoid](https://user-images.githubusercontent.com/33630505/68103521-79d8e180-ff1a-11e9-8aa6-cd8c23ec31c8.JPG)
+
+<br>
+
+### Relu Function 
+
+```python
+import numpy as np 
+import matplotlib.pyplot as plt
+
+def relu(x):
+    return np.maximum(0, x)
+
+x = np.arange(-10, 10, 1) 
+y = relu(x)
+plt.plot(x, y)
+plt.show()
+```
+![relu](https://user-images.githubusercontent.com/33630505/68103558-adb40700-ff1a-11e9-91ba-3e00f6e486d2.JPG)
+
+<br>
+
+
+## 선형 VS 비선형
+
+
