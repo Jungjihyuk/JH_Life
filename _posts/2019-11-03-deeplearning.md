@@ -265,6 +265,116 @@ y = f(f(f(x)))가 됩니다
 ```
 <br> 
 
+## 행렬 곱연산 VS dot VS matmul 
+
+**행렬 곱연산(Element wise)**
+```python 
+n = np.array([1,2])
+m = np.array([[[1,2],[3,4]]])
+
+n*m 
+: array([[[1, 4],
+        [3, 8]]])
+        
+m*n
+: array([list([1, 2, 3, 4, 5]), list([3, 4, 5, 6, 3, 4, 5, 6])],
+      dtype=object)
+      
+ 
+n = np.array([1,2])
+m = np.array([[1,2,3,4,5],[3,4,5,6]])
+
+n*m
+: array([list([1, 2, 3, 4, 5]), list([3, 4, 5, 6, 3, 4, 5, 6])],
+      dtype=object)
+      
+m*n
+: array([list([1, 2, 3, 4, 5]), list([3, 4, 5, 6, 3, 4, 5, 6])],
+      dtype=object)
+
+n = np.array([1,2])
+m = np.array([[[1,2,3],[3,4,5]]])
+
+n*m
+: ValueError: operands could not be broadcast together with shapes (2,) (1,2,3) 
+```
+<br>
+
+**dot(Element wise의 합)**
+```python
+import numpy as np
+
+g = np.array([[1,2],[1,2]])
+h = np.array([2,3])
+
+np.dot(g,h)
+: array([8, 8])
+
+g = np.array([[1],[2],[3]])
+h = np.array([1,2,3]).reshape(1,3)
+
+np.dot(g,h)
+: array([[1, 2, 3],
+       [2, 4, 6],
+       [3, 6, 9]])
+ 
+# 3차원부터 matmul과 차이난다 
+A = np.arange(24).reshape(2,3,4)
+B = np.arange(24).reshape(2,4,3)
+
+np.dot(A,B)
+: array([[[[  42,   48,   54],
+         [ 114,  120,  126]],
+
+        [[ 114,  136,  158],
+         [ 378,  400,  422]],
+
+        [[ 186,  224,  262],
+         [ 642,  680,  718]]],
+
+
+       [[[ 258,  312,  366],
+         [ 906,  960, 1014]],
+
+        [[ 330,  400,  470],
+         [1170, 1240, 1310]],
+
+        [[ 402,  488,  574],
+         [1434, 1520, 1606]]]])
+```
+<br>
+
+**matmul**
+```python
+g = np.array([[1,2],[1,2]])
+h = np.array([2,3])
+
+np.matmul(g,h)
+: array([8, 8])
+
+g = np.array([[1],[2],[3]])
+h = np.array([1,2,3]).reshape(1,3)
+
+np.matmul(g,h)
+: array([[1, 2, 3],
+       [2, 4, 6],
+       [3, 6, 9]])
+       
+# 3차원부터 dot과 차이가 난다 
+A = np.arange(24).reshape(2,3,4)
+B = np.arange(24).reshape(2,4,3)
+
+np.matmul(A,B)
+: 
+array([[[  42,   48,   54],
+        [ 114,  136,  158],
+        [ 186,  224,  262]],
+
+       [[ 906,  960, 1014],
+        [1170, 1240, 1310],
+        [1434, 1520, 1606]]])
+```
+<br>
 
 
 
