@@ -273,7 +273,7 @@ y = f(f(f(x)))가 됩니다
 
 
 <br>
-**행렬 곱연산(Element wise)**
+**행렬 곱연산(Element wise, 일반적인 행렬 곱셈과 다름)**
 
 ```python 
 n = np.array([1,2])
@@ -307,7 +307,7 @@ n*m
 ```
 <br>
 
-**dot(Element wise의 합)**
+**dot(Element wise의 합, 내적)**
 
 ```python
 import numpy as np
@@ -318,10 +318,10 @@ h = np.array([2,3])
 np.dot(g,h)
 : array([8, 8])
 
-g = np.array([[1],[2],[3]])
-h = np.array([1,2,3]).reshape(1,3)
+i = np.array([[1],[2],[3]])
+j = np.array([1,2,3]).reshape(1,3)
 
-np.dot(g,h)
+np.dot(i,j)
 : array([[1, 2, 3],
        [2, 4, 6],
        [3, 6, 9]])
@@ -352,7 +352,7 @@ np.dot(A,B)
 ```
 <br>
 
-**matmul**
+**matmul(@, 행렬 곱셈(matrix multiplication))**
 
 ```python
 g = np.array([[1,2],[1,2]])
@@ -361,10 +361,10 @@ h = np.array([2,3])
 np.matmul(g,h)
 : array([8, 8])
 
-g = np.array([[1],[2],[3]])
-h = np.array([1,2,3]).reshape(1,3)
+i = np.array([[1],[2],[3]])
+j = np.array([1,2,3]).reshape(1,3)
 
-np.matmul(g,h)
+np.matmul(i,j)
 : array([[1, 2, 3],
        [2, 4, 6],
        [3, 6, 9]])
@@ -374,8 +374,25 @@ A = np.arange(24).reshape(2,3,4)
 B = np.arange(24).reshape(2,4,3)
 
 np.matmul(A,B)
-: 
-array([[[  42,   48,   54],
+: array([[[  42,   48,   54],
+        [ 114,  136,  158],
+        [ 186,  224,  262]],
+
+       [[ 906,  960, 1014],
+        [1170, 1240, 1310],
+        [1434, 1520, 1606]]])
+
+        
+g @ h 
+: array([8,8])
+
+i @ j 
+: array([[1, 2, 3],
+       [2, 4, 6],
+       [3, 6, 9]])
+
+A @ B
+: array([[[  42,   48,   54],
         [ 114,  136,  158],
         [ 186,  224,  262]],
 
@@ -387,6 +404,21 @@ array([[[  42,   48,   54],
 
 **dot과 matmul** 
 {: .notice}
+
+
+## 내적(inner product) 
+
+> 방향이 있는 서로 다른 두 벡터가 있을 때 <br>
+> 한 벡터를 기준으로 같은 방향이 되도록 다른 한 벡터를 정사영시켜 <br>
+> 기준 벡터의 크기와 정사영시켜 생긴 벡터의 크기의 곱이다. <br>
+> 즉, 한쪽 방향으로의 크기의 곱! 
+<br>
+![innerproduct](https://user-images.githubusercontent.com/33630505/68277234-1d102f00-00b2-11ea-8704-d603090c1c6c.JPG)
+![innerproduct2](https://user-images.githubusercontent.com/33630505/68277266-2b5e4b00-00b2-11ea-9b1f-3b5ac13758e5.JPG)
+
+<span style="color: #fe8559; font-size: 30px">내적을 구하면 두 벡터의 방향이 얼마나 일치하는지 알 수 있다!</span><br>
+
+
 
 
 ## 다층 신경망 구현하기(3층 신경망 또는 2층 신경망)
