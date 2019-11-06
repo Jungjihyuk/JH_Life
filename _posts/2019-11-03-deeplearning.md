@@ -226,7 +226,9 @@ plt.show()
 > 중첩의 원리가 적용되면 선형! 적용되지 않으면 비선형! 
 
 <br>
+
 ### 입력값 각각을 함수에 대입한 결과의 합과 
+
 ```
 y = ax1 + bx2 일때 
 
@@ -242,6 +244,7 @@ y = y1 + y2
 <br>
 
 ### 입력값의 합을 함수에 대입한 결과는 서로 같다면 
+
 ```
 y = ax1  + bx2 일때
 
@@ -267,7 +270,9 @@ y = f(f(f(x)))가 됩니다
 
 ## 행렬 곱연산 VS dot VS matmul 
 
+
 **행렬 곱연산(Element wise)**
+
 ```python 
 n = np.array([1,2])
 m = np.array([[[1,2],[3,4]]])
@@ -301,6 +306,7 @@ n*m
 <br>
 
 **dot(Element wise의 합)**
+
 ```python
 import numpy as np
 
@@ -345,6 +351,7 @@ np.dot(A,B)
 <br>
 
 **matmul**
+
 ```python
 g = np.array([[1,2],[1,2]])
 h = np.array([2,3])
