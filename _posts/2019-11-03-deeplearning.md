@@ -532,7 +532,106 @@ def softmax(x):
 
 <br>
 
-### MINIST 예제를 통한 분류 
+### MNIST 데이터 셋으로 추론 처리 구현하기(분류)
+
+> test data로 이미 학습된 모델(pickle) 정확도 확인하기 (test data의 예측값과 test data의 실제값 비교) 
+
+```python 
+import pickle
+import numpy as np
+import sys, os
+sys.path.append(os.pardir) # 부모 디렉터리의 파일을 가져올 수 있도록 설정
+from dataset.mnist import load_mnist
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+def softmax(x):
+    op = np.max(x)  
+    x = x - op
+    exp = [np.exp(i) for i in x]
+    sum_exps = sum(exp)
+    return [j/sum_exps for j in exp]
+
+def get_data():
+    # flatten => 1차원 or 3차원 / normalize => 0 ~ 1 사이 정규화 할지 
+    (x_train, y_train), (x_test, y_test) = load_mnist(normalize=True, flatten=True, one_hot_label=False) 
+    return x_test, y_test
+
+def init_network():
+    with open("sample_weight.pkl", "rb") as f:
+        network = pickle.load(f)
+    return network
+
+def predict(network, x):
+    W1, W2, W3 = network['W1'], network['W2'], network['W3']
+    b1, b2, b3 = network['b1'], network['b2'], network['b3']
+    
+    L1 = np.dot(x, W1) + b1  
+    z1 = sigmoid(L1)
+    
+    L2 = np.dot(L1, W2) + b2
+    z2 = sigmoid(L2)
+    
+    L3 = np.dot(L2, W3) + b3 
+    y = softmax(L3)
+    
+    return y
+    
+x, y = get_data()
+network = init_network()
+
+accuracy_cnt = 0
+for i in range(len(x)):
+    t = predict(network, x[i])
+    p = np.argmax(t)
+    if (p == y[i]):
+        accuracy_cnt += 1
+print("Accuracy: " + str(float(accuracy_cnt) / len(x)))       
+```
+
+[MNIST 다운로드](https://github.com/oreilly-japan/deep-learning-from-scratch)
+
+<br>
+
+### 배치 (Batch)
+
+> 하나로 묶은 입력 데이터를 배치(Batch)라고 합니다. <br>
+<br> 
+
+**MNIST데이터는 숫자 이미지 데이터로 이미지 크기가 28 X 28 => 784라고 했을 때**
+```
+이미지 데이터 1장일 때 
+        Input       W1        W2         W3      Output
+형상   1 X 784  784 X 50   50 X 100   100 X 10   1 X 10
+
+이미지 데이터 100장일 때 
+        Input       W1        W2        W3      Output
+형상  100 X 784  784 X 50  50 X 100  100 X 10   100 X 10 
+```
+<br>
+
+**배치 처리의 장점** 1. numpy가 벡터연산을 효율적으로 처리하기 때문에 한번에 많은 데이터를 입력하더라도 빠른 시간에 처리할 수 있다. 2. 
+신경망에서 데이터 전송이 병목으로 작용하는 경우가 자주 있는데, 배치 처리를 함으로써 버스에 주는 부하를 줄일 수 있다.
+{: .notice}
+<br> 
+
+**배치 처리 구현 (위 MNIST 예제와 동일)**
+```python
+x, y = get_data()
+network = init_network()
+
+batch_size = 100
+accuracy_cnt = 0
+
+for i in range(0, len(x), batch_size):
+    x_batch = x[i:i+batch_size]
+    y_batch = predict(network, x_batch) 
+    p = np.argmax(y_batch, axis = 1) # axis = 1하는 이유는? 
+    accuracy_cnt += np.sum(p == y[i:i+batch_size])
+print("Accuracy: " + str(float(accuracy_cnt) / len(x))) 
+```
+
 
 
 ## 기계학습은 학습과 추론 두 단계를 거친다(backward propagation & forward propagation) 
