@@ -402,7 +402,7 @@ A @ B
 ```
 <br>
 
-**dot과 matmul** 
+**dot과 matmul** dot은 내적을, matmul은 행렬의 곱을 의미하는데 3차원, 3차원 연산부터 값이 서로 상의 하게 나온다. 내적의 의미는 서로 다른 두 벡터의 방향성을 알 수 있는 연산값이지만 행렬의 곱의 의미는 무엇일까..? 왜 3차원 부터 다른것일까? 아는 사람은 메일 주세요 ㅠ 
 {: .notice}
 
 
@@ -424,7 +424,9 @@ A @ B
 ## 다층 신경망 구현하기(3층 신경망 또는 2층 신경망)
 
 ![threelayer](https://user-images.githubusercontent.com/33630505/68211627-43cf5680-001b-11ea-80fe-1b7d59955ca9.JPG)
+<br>
 
+### version 1 
 ```python
 import numpy as np 
 
@@ -453,5 +455,87 @@ B3 = np.array([0.1, 0.2])
 A3 = np.dot(Z2, W3) + B3 
 Y = identity_function(A3)
 ```
+<br>
+
+### version 2
+```python
+import numpy as np 
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+def identity_function(x):
+    return x
+    
+def init_network():
+    network = { } 
+    network['W1'] = np.random.random((2, 3))
+    network['b1'] = np.random.random((1, 3))
+    network['W2'] = np.random.random((3, 2))
+    network['b2'] = np.random.random((2))
+    network['W3'] = np.random.random((2, 2))
+    network['b3'] = np.random.random((2))
+    
+    return network
+
+def forward(network, X):
+    W1, W2, W3 = network['W1'], network['W2'], network['W3']
+    b1, b2, b3 = network['b1'], network['b2'], network['b3']
+    
+    L1 = np.dot(X, W1) + b1  # hidden layer
+    z1 = sigmoid(L1)
+    
+    L2 = np.dot(L1, W2) + b2 # hidden layer
+    z2 = sigmoid(L2)
+    
+    L3 = np.dot(L2, W3) + b3 # output layer 
+    y = identity_function(L3)
+    
+    return y
+ 
+network = init_network()
+x = np.array([0.1, 0.5])
+y = forward(network, x)
+print(y) 
+```
+<br>
+
+## 출력층 설계하기 
+
+> 우선 학습의 결과값으로 유한개의 결과가 나오는가 무한개의 결과가 나오는가 판별해야 합니다 <br>
+> 유한개의 결과가 나온다면 분류 문제 (몇개로 분류되는지도 생각해봐야 함) <br>
+> 무한개의 결과가 나온다면 회귀 문제 <br>
+
+<span style="color: #fe8559; font-size: 30px">결과값을 달리 해야 하기 때문에 출력층에서 사용하는 활성화 함수도 분류 문제인지, 회귀 문제인지에 따라 달라져야 합니다.</span>
+
+<br>
+
+### 분류 
+
+> 이중 분류라면 step function이나 sigmoid 다중 분류라면 softmax (step, sigmoid, softmax이외에 다른 함수가 될 수도 있다)<br>
+> ex) 0 ~ 9사이의 숫자중 어느 하나를 분류해야하는 문제가 있다고 한다면 출력층의 노드의 수는 10개가 되고 <br>
+> 2개 이상의 분류이기 때문에 softmax같은 활성화 함수를 활용해 10개의 출력을 하되 마지막에는 가장 확률이 높은 값 하나만을 출력하면 된다
+
+<br>
+**step, sigmoid는 많이 다뤘으므로 softmax를 알아보자**
+```python
+def softmax(x):
+    op = np.max(x)  # 오버플로우가 발생 방지 
+    x = x - op
+    exp = [np.exp(i) for i in x]
+    sum_exps = sum(exp)
+    return [j/sum_exps for j in exp]
+```
+
+**softmax 계산시 오퍼플로우 문제** softmax에 709이상의 입력값을 대입하면 오버플로우 현상이 발생한다. 따라서 오버플로우를 방지하기 위해서 입력값중 가장 큰 값을 뽑아 대입하는 값에 각각을 빼주고 계산하게 되면 각각의 값에 전부 같은 값을 빼주었기 때문에 softmax의 결과는 달라지지 않고 출력됨을 확인할 수 있다. softmax는 발생확률 값을 리턴하기 때문에 출력값의 총 합이 1이되기만 하면 된다. 
+{: .notice}
+
+<br>
+
+### MINIST 예제를 통한 분류 
+
+
+## 기계학습은 학습과 추론 두 단계를 거친다(backward propagation & forward propagation) 
+
 
 
