@@ -511,6 +511,41 @@ print(y)
 
 <br>
 
+## 기계학습은 학습과 추론 두 단계를 거친다(backward propagation & forward propagation) 
+
+```
+추론 => 지금의 사고방식(가설함수, 모델)로 예측하는 것 
+학습 => 예측한 값과 현실의 답(실제값)의 차이를 줄여나가면서 
+        기존의 사고방식(가설함수의 가중치 및 하이퍼파라미터)을 업데이트
+        
+문제를 해결할 때 
+사람은 어떤 현상을 보고 패턴을 찾고, 문제에 대한 질문을 생각하고, 답을 찾으며 경험과 직관으로 답을 찾는 반면 
+기계는 어떤 현상을 인식하기 위해 데이터를 입력 받고, 패턴을 찾기 위해 데이터에서 중요한 데이터를 찾는 과정인 
+특징을 추출하고 그 특징의 패턴을 찾아 모델을 만듭니다.
+
+그런데 어떠한 데이터를 벡터로 변환해야 할때 
+변환을 위해 사용되는 특징은 여전히 사람이 설계해야 합니다. 
+
+따라서 문제에 따라서 사람이 적절한 특징을 생각해내야 합니다. 
+=> 문제를 해결하려는 도메인의 지식이 중요한 이유!
+```
+<br>
+
+## 사람 VS 기계학습 VS 딥러닝 
+
+> 딥러닝은 기계학습의 일종이지만 학습을 하는데 있어서 조금 차이를 보입니다. 
+
+<br>
+
+```
+ex) 숫자 5를 학습하는 법 
+
+사람 => 경험, 직관, 신념, 사고방식 등... => 숫자 5구나!? 
+기계학습 => 사람이 생각한 특징(전처리 등..) => SVM, KNN 등 알고리즘 사용 => 숫자 5구나!? 
+딥러닝 => 기계가 데이터를 통해 특징 추출까지 직접 함 => 숫자 5구나!? 
+```
+<br> 
+
 ### 분류 
 
 > 이중 분류라면 step function이나 sigmoid 다중 분류라면 softmax (step, sigmoid, softmax이외에 다른 함수가 될 수도 있다)<br>
@@ -595,6 +630,8 @@ print("Accuracy: " + str(float(accuracy_cnt) / len(x)))
 
 <br>
 
+### 회귀 
+
 ### 배치 (Batch)
 
 > 하나로 묶은 입력 데이터를 배치(Batch)라고 합니다. <br>
@@ -633,9 +670,47 @@ for i in range(0, len(x), batch_size):
 print("Accuracy: " + str(float(accuracy_cnt) / len(x))) 
 ```
 
+<br> 
+
+### Batch VS Mini Batch VS Stochastic Gradient Descent 
+
+```
+Batch는 여러 데이터를 한 묶음으로 하여 1 Iteration에 사용되는 data set의 모음 
+Mini Batch는 전체 데이터에서 특정 Batch Size로 나누어 학습시키는 방법 
+ - Batch보다 빠르고 SGD보다는 낮은 오차율을 갖는다 
+Stochastic Gradient Descent는 데이터를 한 개씩 뽑아서 처리하고 모든 데이터에 반복하는 방법이다. 
+```
+<br> 
+
+## 학습하기 
+
+### Lose Function(Cost Function) 
+
+> 신경망 학습에서는 현재 상태를 하나의 지표로 표현하고 <br>
+> 그 지표를 가장 좋게 만들어주는 가중치 매개 변수의 값을 탐색해나갑니다. <br>
+> 이때 현재 상태와 다음 상태를 비교하여 최적의 상태를 만들기 위한 수단으로 손실 함수를 사용하게 됩니다. 
+
+<br> 
+
+### Mean Squared Error(평균 제곱 오차) 
+
+```python 
+def mse(y, t):
+    return 0.5 * np.sum((y-t) **2) 
+```
+<br>
+
+### Cross Entropy Error(교차 엔트로피 오차) 
+
+```python
+def cee(y, t):
+    delta = 1e - 7
+    return -np.sum(t*np.log(y + delta))
+```
+
+<br>
 
 
-## 기계학습은 학습과 추론 두 단계를 거친다(backward propagation & forward propagation) 
 
 
 
