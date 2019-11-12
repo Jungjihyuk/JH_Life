@@ -689,6 +689,9 @@ Stochastic Gradient Descent는 데이터를 한 개씩 뽑아서 처리하고 �
 > 신경망 학습에서는 현재 상태를 하나의 지표로 표현하고 <br>
 > 그 지표를 가장 좋게 만들어주는 가중치 매개 변수의 값을 탐색해나갑니다. <br>
 > 이때 현재 상태와 다음 상태를 비교하여 최적의 상태를 만들기 위한 수단으로 손실 함수를 사용하게 됩니다. 
+<br>
+
+
 
 <br> 
 
@@ -704,8 +707,14 @@ def mse(y, t):
 
 ```python
 def cee(y, t):
-    delta = 1e - 7
+    delta = 1e-7
     return -np.sum(t*np.log(y + delta))
+    
+def cee(y, t):
+    delta = 1e-7
+    return -np.sum(t*np.log(y + delta) - (1-t)*np.log(1-y + delta))
+    
+# delta를 더하는 이유는 예측값이 0일 때 연산 결과가 -inf로 나오는 것을 방지하기위해 아주 작은 값을 더했습니다.    
 ```
 
 <br>
