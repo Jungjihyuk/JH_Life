@@ -766,3 +766,53 @@ np.float32(1e-50)
 **중앙 차분**
 ![중앙 차분](https://user-images.githubusercontent.com/33630505/68745459-18abbf00-063a-11ea-97df-e8ecf7a8e28d.JPG)
 <br> 
+
+
+**수치 미분의 예**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 중앙 차분 
+def numerical_diff(f, x):
+    h = 1e-4
+    return(f(x+h) - f(x-h)) / (2*h)
+
+# f(x) = 0.01x^2 + 0.1x 
+def func(x):
+    return 0.01*x**2 + 0.1*x
+
+# f(x), f(x)' 그래프 그리기 
+def func_draw(x1, y1,x2,y2):
+    plt.xlabel("x")
+    plt.ylabel("f(x)")
+    plt.plot(x1,y1, x2,y2, '-r')
+    plt.show()
+
+# f(x)' 기울기, y 절편 구하기    
+def gen(x,y,f):
+    grad = numerical_diff(f, x)
+    b = y - grad*x
+    return grad, b         
+    
+x = np.arange(0.0,20.0,0.1)
+y = func(x)
+
+# (x=5, y=0.75)
+function_1 = gen(5, func(5), func)[0]*x + gen(5, func(5), func)[1]
+
+# (x=10, y=2)
+function_2 = gen(10, func(10), func)[0]*x + gen(10, func(10), func1)[1]
+```
+<br>
+
+**func_draw(x, y, x, function_1)**
+![func1](https://user-images.githubusercontent.com/33630505/68746541-27937100-063c-11ea-9dba-b837df7a71c4.JPG)
+
+<br>
+
+**func_draw(x, y, x, function_2)**
+![func2](https://user-images.githubusercontent.com/33630505/68746563-3548f680-063c-11ea-8e37-232475752ad3.JPG)
+
+<br>
