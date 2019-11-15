@@ -9,7 +9,24 @@ tag:
 ---
 
 
-# Chater 2 "Perceptron" 
+# Index 
+
+```
+1. Chapter 2 "Perceptron"
+2. Chapter 3 "신경망"
+3. Chapter 4 "신경망 학습"
+```
+<br> 
+
+<span style="font-size: 20px; background: rgb(36, 54, 76); color: white; padding: 2px;">Navigation</span> <br>
+[<span style="font-size: 18px; background: rgb(76, 217, 229); color: white; padding: 2px;">Perceptron</span>](#1st) &nbsp;
+[<span style="font-size: 18px; background: rgb(30, 219, 173); color: white; padding: 2px;">신경망</span>](#2nd) &nbsp;
+[<span style="font-size: 18px; background: rgb(226, 71, 0); color: white; padding: 2px;">신경망 학습</span>](#3rd) &nbsp;
+
+<hr>
+
+<a id="1st"></a>
+# Chapter 2 "Perceptron" 
 
 <br>
 
@@ -155,6 +172,7 @@ xor(0,1)
 
 <hr>
 
+<a id="2nd"></a>
 # Chapter 3 "신경망"
 
 <br>
@@ -682,6 +700,7 @@ Stochastic Gradient Descent는 데이터를 한 개씩 뽑아서 처리하고 �
 ```
 <br> 
 
+<a id="3rd"></a>
 # Chapter 4 "신경망 학습"
 <br>
 ## 학습하기 
@@ -836,5 +855,6 @@ function_2 = gen(10, func(10), func)[0]*x + gen(10, func(10), func1)[1]
 : 가중치 매개변수의 값을 0에 가까워 지도록 갱신합니다. 
   그 기울기가 0에 가까워지면 정답 - 예측값이 작아짐을 의미하여 학습이 충분히 되었음을 의미합니다. 
 
-[4 단계] > 1~3 단계를 
+[4 단계] > 1~3 단계를 반복한다 
 ```
+
