@@ -404,6 +404,89 @@ func3(2,3, 0,10)
 
 <br>
 
+## Count Bits 
+
+> 숫자 n을 입력하면 bit수를 출력하는 함수
+
+<br> 
+### Example
+
+```python
+n = 50 
+countBits(n) = 6
+50(10진수) = 110010(2진수) => 6개 비트로 구성 
+```
+
+<br>
+
+### My Answer 
+
+```python 
+def countBits(n):
+    cnt = 1 
+    rest = 0 
+    while(n!=1):
+        rest = n/2
+        n = int(rest) 
+        cnt +=1
+    
+    return cnt
+```
+
+**함수가 잘 작동하고 정답처리가 되긴 했지만 자꾸 return문만 써서 간결하게 하라고 해서 다음 단계로 넘어가지 못했음..**
+
+<br>
+
+### Another Answer (Python) 
+```python
+def countBits(n):
+    return n.bit_length()
+```
+
+**저런 내장 함수가 있는지 몰랐네...**
+
+<br>
+
+## Modulus
+
+> 숫자 n이 정수형이면 return 1 아니면 return -1 
+
+<br> 
+### Example
+
+```python
+n = 15
+modulus(n) = 1 
+
+n = 23.12 
+modulus(n) = -1 
+```
+
+<br>
+
+### My Answer 
+
+```python 
+def modulus(n):
+    if isinstance(n, int):
+        return n % 2
+    else:
+        return -1
+```
+<br> 
+
+### Another Answer (Python) 
+```python
+def modulus(n):
+    if n==int(n) :
+        return n % 2
+    else:
+        return -1
+```
+
+<br>
+
+
 <hr>
 <a id = '5th'></a>
 # Graphs 
