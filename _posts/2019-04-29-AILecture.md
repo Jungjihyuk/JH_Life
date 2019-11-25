@@ -2258,10 +2258,11 @@ None == False
 
 ```python 
 class A:
-	x = 1
-	def a(self, y):
-		self.y = y 
-		return y
+    x = 1
+    def a(self, y):
+        self.y = y 
+	return y
+
 A.x      # 클래스로 클래스 변수 접근 
 a = A()  # 인스턴스 생성 
 a.x      # 인스턴스 a로 x(클래스 변수)접근 
@@ -2287,9 +2288,9 @@ dir(a)
   
   
 class B:
-	x = 2 
-	def b():
-		print('Access class')
+    x = 2 
+    def b():
+        print('Access class')
 
 B.b()
 b = B()
@@ -2299,9 +2300,10 @@ b.b()
   TypeError
 
 class B:
-	x = 2 
-	def b(self):
-		print('Access instacne')
+    x = 2 
+    def b(self):		
+    print('Access instacne')
+
 B.b()
 b = B()
 b.b()
@@ -2348,20 +2350,21 @@ a = A()  # 클래스를 호출함으로써 인스턴스 할당
 ### 예제로 살펴보기 
 ```python
 class A: 
-	a = 1                  # class variable, attribute
-	def __init__(self, y):
-		self.y = y     # instance variable, attribute 
+    a = 1                  # class variable, attribute
+    def __init__(self, y):
+	self.y = y     # instance variable, attribute 
 		
 
 # 접근 예제 
 
 class A: 
-	x = 1
-	y = 2 
-	def add(self, x, y):
-		sum = x + y 
-		self.sum = 20 
-		return sum 
+    x = 1
+    y = 2 
+    def add(self, x, y):
+        sum = x + y 
+	self.sum = 20 
+        return sum 
+
 a = A()
 aa = A()
 
@@ -2393,6 +2396,7 @@ class B:
         sum = x+y
         self.sum = 20
         return sum 
+
 b = B()
 b.sum(1,2)
 B.sum(b, 3, 4)
