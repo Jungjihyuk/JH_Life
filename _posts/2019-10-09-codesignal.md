@@ -486,6 +486,48 @@ def modulus(n):
 
 <br>
 
+## Base Conversion
+
+> n진법으로 표기된 String을 16진수로 변환하기 
+
+<br> 
+### Example
+
+```python
+n = '1302'
+x = 5 
+
+1302(5) => 202(10) => ca
+
+baseConversion('1302',5) = 'ca'
+```
+
+<br>
+
+### My Answer 
+
+```python
+def baseConversion(n:str, x:int)->int:
+    result = 0
+    for i, n in enumerate(n[::-1]):
+        result += int(n) * pow(x, i)
+    return hex(result)[2:]
+    
+def baseConversion(n, x):
+    return hex(int(n,x))[2:]        
+```
+
+**int 함수는 숫자를 넣었을 때 정수형으로 변환하지만, 문자열 형태의 숫자와 변환하고자 하는 진법의 수를 입력하면 원하는 진법을 변환해주기도 한다**
+
+<br> 
+
+### Another Answer (Python) 
+
+```python
+def baseConversion(n, x):
+    return format(int(n, x), 'x')
+```
+
 
 <hr>
 <a id = '5th'></a>
