@@ -491,6 +491,7 @@ def modulus(n):
 > n진법으로 표기된 String을 16진수로 변환하기 
 
 <br> 
+
 ### Example
 
 ```python
