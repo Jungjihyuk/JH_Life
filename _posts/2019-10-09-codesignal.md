@@ -583,6 +583,40 @@ listBeautifier2(a)
 **Slicing과 Unpacking으로 쉽게 풀 수 있다!**
 <br>
 
+## Fix Message 
+
+> 대소문자 고쳐주는 함수 (가장 앞 단어의 첫번째 철자를 대문자로 그리고 나머지는 소문자로) 
+
+<br> 
+
+### Example 
+
+```python
+message = "you'll NEVER believe what that 'FrIeNd' of mine did!!1"
+
+fixMessage(message) = "You'll never believe what that 'friend' of mine did!!1"
+```
+
+<br> 
+
+### My Answer 
+
+```python 
+def fixMessage(message):
+    return message.lower().capitalize()
+```
+
+<br> 
+
+
+### Another Answer 
+
+```python 
+def fixMessage(message):
+    return message.upper()[0] + message[1:].lower()
+```
+
+
 
 
 <a id = '5th'></a>
