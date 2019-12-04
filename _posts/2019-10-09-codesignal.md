@@ -529,7 +529,61 @@ def baseConversion(n, x):
     return format(int(n, x), 'x')
 ```
 
+<br>
 
-<hr>
+
+## ListBeautifier 
+
+> 어떠한 리스트가 들어와도 리스트의 맨 앞 요소와 맨 뒤 요소가 같거나 빈 리스트를 반환하도록 하는 함수 
+
+<br> 
+
+### Example
+
+```python
+a = [3, 4, 2, 4, 38, 4, 5, 3, 2]
+b = [1,4,-5]
+c = [1,2]
+
+listBeautifier(a) = [4, 28, 4]
+listBeatuifier(b) = [4]
+listBeatuifier(c) = []
+```
+
+<br>
+
+### My Answer 
+
+```python
+def listBeautifier1(a):
+    res = a[:]
+    while res and res[0] != res[-1]:
+    	res = res[1:-1]
+    return res
+
+def listBeautifier2(a):
+    res = a[:]
+    while res and res[0] != res[-1]:
+        a, *res, b = res  
+    return res
+
+%%timeit
+listBeautifier1(a)
+
+: 2.32 µs ± 193 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+
+%%timeit
+listBeautifier2(a)
+
+: 3.05 µs ± 237 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+
+# slicing이 아주 살짝 더 빠르다 
+```
+
+**Slicing과 Unpacking으로 쉽게 풀 수 있다!**
+<br>
+
+
+
 <a id = '5th'></a>
 # Graphs 
