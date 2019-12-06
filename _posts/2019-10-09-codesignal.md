@@ -616,7 +616,71 @@ def fixMessage(message):
     return message.upper()[0] + message[1:].lower()
 ```
 
+## Cat Walk 
 
+> 내가 자리를 비운 사이 고양이가 내 키보드 위에 올라가 스페이스바를 마구 눌러서 띄어쓰기 간격이 <br>
+> 너무 많이 벌어졌다. 늘어난 띄어쓰기 공간을 하나로 줄여라 (이런 말도 안되는..ㅎ) 
+
+<br> 
+
+### Example 
+
+```python
+line = "def      m   e  gaDifficu     ltFun        ction(x):"
+
+catwalk(line) = "def m e gaDifficu ltFun ction(x):"
+```
+
+<br>
+
+### My Answer 
+
+```python 
+1번 
+def catWalk(code):
+    a = ''
+    for i in code.rsplit():
+        a += i + ' '
+    return a.rstrip()  # rstrip 함수는 원래 값은 변하지 않고 함수 호출시에만 결과값 리턴 
+ 
+2번 
+from functools import reduce
+def catWalk(code):
+    return reduce(lambda x,y:x+' '+y, [i for i in code.rsplit()]) 
+```
+
+**내 머리속에서 이런 코드가 나오다니..ㅎ 근데 제출이 안되네 ㅠ**
+
+<br>
+
+### Another Answer 
+
+```python
+3번 
+def catWalk(code):
+    return " ".join(code.split())
+```
+**이런 쉬운 함수가 있었다니..ㅎ**
+
+<br>
+
+### 속도 차이 
+
+```
+%%timeit
+catWalk(line)
+
+# 1번 
+3.13 µs ± 205 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+
+# 2번
+4.51 µs ± 233 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+
+# 3번
+1.2 µs ± 39.3 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+
+# 결론: 만든게 젤 빠르다.. 
+```
 
 
 <a id = '5th'></a>
