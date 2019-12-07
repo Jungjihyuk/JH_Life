@@ -238,6 +238,31 @@ plt.show()
 
 <br>
 
+### Hyperbolic Tangent Function 
+
+![tanh](https://user-images.githubusercontent.com/33630505/70371772-c8630c80-191a-11ea-8ec7-8302070c9654.JPG)
+![tanh func](https://user-images.githubusercontent.com/33630505/70371778-d153de00-191a-11ea-8aed-cc8b1ef1e4ea.JPG)
+
+```python 
+import numpy as np 
+import matplotlib.pyplot as plt
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+def tanh(x):
+    return 2*sigmoid(2x) - 1
+
+x = np.arange(-10, 10, 0.1) 
+y = tanh(x)
+plt.plot(x, y)
+plt.show()
+```
+
+![tanh plot](https://user-images.githubusercontent.com/33630505/70371764-a9fd1100-191a-11ea-9f8e-ea7d37267f19.JPG)
+
+<br>
+
 
 ## 선형 VS 비선형
 
