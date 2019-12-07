@@ -251,7 +251,7 @@ def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
 def tanh(x):
-    return 2*sigmoid(2x) - 1
+    return 2*sigmoid(2*x) - 1
 
 x = np.arange(-10, 10, 0.1) 
 y = tanh(x)
