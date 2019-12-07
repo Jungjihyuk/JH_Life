@@ -240,8 +240,15 @@ plt.show()
 
 ### Hyperbolic Tangent Function 
 
+> sigmoid보다 output 값의 범위가 넓어 vanishing gradient 문제가 발생할 가능성이 있는 모델에서 사용한다.<br>
+> 하지만 여전히 층이 많이 깊어지면 vanishing gradient 문제를 피할 수는 없다. 
+<br>
+
 ![tanh](https://user-images.githubusercontent.com/33630505/70371772-c8630c80-191a-11ea-8ec7-8302070c9654.JPG)
 ![tanh func](https://user-images.githubusercontent.com/33630505/70371778-d153de00-191a-11ea-8aed-cc8b1ef1e4ea.JPG)
+
+[그림 출처](http://taewan.kim/post/tanh_diff/) 
+<br>
 
 ```python 
 import numpy as np 
