@@ -679,8 +679,54 @@ catWalk(line)
 # 3번
 1.2 µs ± 39.3 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 
-# 결론: 만든게 젤 빠르다.. 
+# 결론: 이미 만들어져 있는게 젤 빠르다.. 
 ```
+
+<br>
+
+## Convert Tabs
+
+> 문자열 안에 Tab(\t)이 들어 있다면 n번의 space로 변환하는 함수 
+
+
+<br>
+
+### Example
+
+```python
+code = "\t\t\t\t\t"
+convertTabs(code, 1) = "    "
+
+code = "def add(x, y)\f\treturn x + y"
+convertTabs(code, 4) = "def add(x, y)\f    return x + y"
+
+code = "    for x in range(20)"
+convertTabs(code, 100) = "    for x in range(20)"
+```
+
+<br>
+
+
+### My Answer 
+
+```python
+def convertTabs(code, x):
+    return code.replace('\t', ' '*x)
+```
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <a id = '5th'></a>
