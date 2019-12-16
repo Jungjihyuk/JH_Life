@@ -719,7 +719,7 @@ def convertTabs(code, x):
 
 ## Feedback Review
 
-> 
+> 원하는 크기 이하의 문자열 단위로 쪼개주는 함수 
 
 
 <br>
@@ -727,16 +727,25 @@ def convertTabs(code, x):
 ### Example
 
 ```python
+feedback = "This is an example feedback"
+size = 8
 
+feedbackReview(feedback, size) = ["This is", 
+                                  "an", 
+                                  "example", 
+                                  "feedback"]
 ```
 
 <br>
 
 
-### My Answer 
+### Another Answer
 
 ```python
+import textwrap
 
+def feedbackReview(feedback, size):
+    return textwrap.wrap(feedback, size)
 ```
 
 <br>
