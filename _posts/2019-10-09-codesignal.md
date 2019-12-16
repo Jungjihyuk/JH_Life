@@ -746,10 +746,14 @@ import textwrap
 
 def feedbackReview(feedback, size):
     return textwrap.wrap(feedback, size)
+    
+import re
+
+def feedbackReview(feedback, size):
+    return re.findall('(?:\s|^)(\S(?:.{0,%d}\S)?)(?=\s|$)' % (size-2),feedback)    
 ```
 
 <br>
-
 
 
 
