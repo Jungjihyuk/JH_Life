@@ -755,7 +755,65 @@ def feedbackReview(feedback, size):
 
 <br>
 
+## Is Word Palindrome
 
+> 회문인지 확인하는 함수, 앞으로 읽어도 뒤로 읽어도 같은지 확인하는 함수 
+
+
+<br>
+
+### Example
+
+```python
+word = "aibohphobia"
+isWordPalindrome(word) = true;
+
+word = "hehehehehe"
+isWordPalindrome(word) = false
+```
+
+<br>
+
+### My Answer 
+
+```python
+def isWordPalindrome(word):
+    return word == word[::-1]
+```
+
+<br>
+
+
+
+## 
+>
+
+
+<br>
+
+### Example
+
+```python
+
+```
+
+<br>
+
+### My Answer 
+
+```python
+
+```
+
+<br>
+
+
+### Another Answer
+
+```python
+```
+
+<br>
 
 
 
