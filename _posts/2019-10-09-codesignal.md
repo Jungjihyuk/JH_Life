@@ -785,8 +785,9 @@ def isWordPalindrome(word):
 
 
 
-## 
->
+## Permutation Cipher 
+
+> 이름은 순열암호화 인데 사실상 시저 암화랑 같음. 평문하고 키를 넘겨주면 시저암호 처럼 암호화 해주는 함수 
 
 
 <br>
@@ -794,7 +795,15 @@ def isWordPalindrome(word):
 ### Example
 
 ```python
+password = "iamthebest"
+key = "zabcdefghijklmnopqrstuvwxy"
 
+permutationCipher(password, key) = "hzlsgdadrs"
+
+abcdefghijklmnopqrstuvwxyz
+||  |  ||   |     || 
+vv  v  vv   v     vv
+zabcdefghijklmnopqrstuvwxy
 ```
 
 <br>
