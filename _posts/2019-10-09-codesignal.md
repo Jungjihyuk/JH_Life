@@ -811,7 +811,9 @@ zabcdefghijklmnopqrstuvwxy
 ### My Answer 
 
 ```python
-
+def permutationCipher(password, key):
+    table = str.maketrans("abcdefghijklmnopqrstuvwxyz", key)
+    return password.translate(table)
 ```
 
 <br>
@@ -820,6 +822,17 @@ zabcdefghijklmnopqrstuvwxy
 ### Another Answer
 
 ```python
+def permutationCipher(password, key):
+    table = {ord('a') + i : ord(k) for i, k in enumerate(key)}
+    return password.translate(table)
+    
+def permutationCipher(password, key):
+    table = ' '*97+key
+    return str(password).translate(table)
+
+def permutationCipher(password, key):
+    table = string.maketrans(string.lowercase, key)
+    return str(password).translate(table)
 ```
 
 <br>
