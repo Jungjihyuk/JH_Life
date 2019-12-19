@@ -837,10 +837,34 @@ def permutationCipher(password, key):
 
 <br>
 
+## Competitive Eating 
 
+> 설명 못하겠음... 예시 확인 ㄱㄱ 
 
+<br> 
 
+### Example 
+```python 
+t = 3.1415, width = 10, precision = 2,
 
+competitiveEating(t, width, precision) = "   3.14   "
+```
+
+<br> 
+
+### Another Answer 
+```python 
+def competitiveEating(t, width, precision):
+    return '{:^{}.{}f}'.format(t,width,precision)
+
+def competitiveEating(t, width, precision):
+    return "{0:.{1}f}".format(t,precision).center(width)
+
+def competitiveEating(t, width, precision):
+    return ('{:^{w}.{p}f}').format(t,w=width,p=precision)
+```
+
+<br> 
 
 
 
