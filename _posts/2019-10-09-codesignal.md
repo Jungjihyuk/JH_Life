@@ -866,6 +866,31 @@ def competitiveEating(t, width, precision):
 
 <br> 
 
+## 
+
+> 
+
+<br> 
+
+
+### Example 
+
+```python 
+```
+
+<br> 
+
+### My Answer 
+```python
+```
+
+<br> 
+
+### Another Answer 
+```python 
+``` 
+
+<br> 
 
 
 <a id = '5th'></a>
