@@ -866,9 +866,9 @@ def competitiveEating(t, width, precision):
 
 <br> 
 
-## 
+## Get Commit
 
-> 
+> 유저 이름과 0, ?, +, !가 포함된 암호화 commit 문자중 4가지 symbol을 제거한 문자열을 추출하라
 
 <br> 
 
@@ -876,18 +876,41 @@ def competitiveEating(t, width, precision):
 ### Example 
 
 ```python 
+commit = "0??+0+!!someCommIdhsSt"
+
+getCommit(commit) = "someCommIdhsSt"
 ```
 
 <br> 
 
 ### My Answer 
 ```python
+def getCommit(commit):
+    return commit.replace('0','').replace('?','').replace('!','').replace('+','')
 ```
+**너무 일차원적인 답변이지만 잘 된다..ㅎ**
 
 <br> 
 
 ### Another Answer 
 ```python 
+def getCommit(commit):
+    return commit.lstrip('0?+!')
+    
+def getCommit(commit):
+    return commit.strip('0?+!')    
+
+def getCommit(commit):
+    return "".join(filter(lambda x: x not in "0?+!", commit))
+
+def getCommit(commit):
+    return re.sub('[0?+!]', '', commit)
+
+def getCommit(commit):
+    return "".join([c for c in commit if c.islower() or c.isupper()])
+
+def getCommit(commit):
+    return re.match(r"^[0\?\+!]*(.*)$", commit).group(1)
 ``` 
 
 <br> 
