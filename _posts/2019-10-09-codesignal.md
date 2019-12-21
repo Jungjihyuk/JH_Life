@@ -915,6 +915,53 @@ def getCommit(commit):
 
 <br> 
 
+## Lists Concatenation  
+
+> 두 리스트를 연결하는 함수. 
+
+
+<br>
+
+### Example 
+
+```python
+lst1 = [2, 2, 1]
+lst2 = [10, 11]
+
+listsConcatenation(lst1, lst2) = [2, 2, 1, 10, 11]
+```
+
+<br>
+
+
+### My Answer 
+
+```python
+def listsConcatenation(lst1, lst2):
+    res = lst1
+    res.extend(lst2)
+    return res
+
+def listsConcatenation(lst1, lst2):
+    res = lst1
+    [res.append(i) for i in lst2]
+    return res
+```
+
+<br>
+
+### Another Answer 
+
+```python
+def listsConcatenation(lst1, lst2):
+    res = lst1
+    res += lst2
+    return res
+```
+
+<br>
+
+
 
 <a id = '5th'></a>
 # Graphs 
