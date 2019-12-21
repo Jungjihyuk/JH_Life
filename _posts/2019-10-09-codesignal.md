@@ -961,7 +961,42 @@ def listsConcatenation(lst1, lst2):
 
 <br>
 
+## Two Teams  
 
+> 리스트에 있는 요소에서 [홀수번째 요소 합 - 짝수번째 요소 합 구하는] 함수 
+
+
+<br>
+
+### Example 
+
+```python
+students = [1, 11, 13, 6,14]
+
+twoTeams(students) = 11 
+(1 + 13 + 14) - (11 + 6) = 11
+```
+
+<br>
+
+
+### My Answer 
+
+```python
+def twoTeams(students):
+    return sum(students[::2]) - sum(students[1::2])
+```
+
+<br>
+
+### Another Answer 
+
+```python
+def twoTeams(students):
+    return sum( (-1)**i*I for i,I in enumerate(students))
+```
+
+<br>
 
 <a id = '5th'></a>
 # Graphs 
