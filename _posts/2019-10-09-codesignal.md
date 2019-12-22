@@ -1064,6 +1064,31 @@ def printList(lst):
 
 <br> 
 
+## Repeat Char
+
+> 문자열과 숫자를 입력받아 입력받은 숫자만큼 반복하는 문자열을 반환하는 람다
+
+<br> 
+
+### Example 
+
+```python
+ch = '*' 
+n = 10 
+
+repeatChar(ch, n) = '**********'
+```
+
+<br> 
+
+### My Answer 
+
+```python
+repeatChar = lambda ch, n : ch *n
+```
+
+<br> 
+
 
 
 
