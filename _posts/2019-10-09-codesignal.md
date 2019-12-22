@@ -1027,7 +1027,42 @@ def removeTasks(k, toDo):
 <br> 
 
 
+## Print List
 
+> 설명은 패스 ~ 예시를 참고해주세요~ 
+
+<br> 
+
+### Example 
+
+```python
+lst = [1, 2, 3, 4, 5]
+
+printList(lst) = "This is your list: [1, 2, 3, 4, 5]"
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def printList(lst):
+    return 'This is your list: ' + str(lst)
+```
+
+<br> 
+
+### Another Answer 
+
+```python 
+def printList(lst):
+    return f'This is your list: {lst}'
+    
+def printList(lst):
+    return "This is your list: {}".format(lst)        
+```
+
+<br> 
 
 
 
