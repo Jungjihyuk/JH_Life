@@ -998,5 +998,39 @@ def twoTeams(students):
 
 <br>
 
+
+## Remove Tasks
+
+> 리스트에서 n번째 요소 제거한 리스트 반환하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+k = 3
+toDo = [1237, 2847, 27485, 2947, 1, 247, 374827, 22]
+
+removeTasks(k, toDo) = [1237, 2847, 2947, 1, 374827, 22]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def removeTasks(k, toDo):
+    del toDo[k-1::k]
+    return toDo
+```
+
+<br> 
+
+
+
+
+
+
+
 <a id = '5th'></a>
 # Graphs 
