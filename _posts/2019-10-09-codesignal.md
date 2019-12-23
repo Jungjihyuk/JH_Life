@@ -1089,7 +1089,50 @@ repeatChar = lambda ch, n : ch *n
 
 <br> 
 
+## Get Points
 
+> 채점 해주는 함수. n번째 문제가 맞으면 n점 획득, 틀리면 패널티 점수 차감.
+
+<br> 
+
+### Example 
+
+```python
+answer = [True, False, True, False, True, True]
+p = 3 
+
+getPoints(answer, p) = 12 => 1 -3 + 3 -3 + 5 + 6 
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def getPoints(answers, p):
+    questionPoints = lambda x,y : x+1 if(y==True) else -p
+
+    res = 0
+    for i, ans in enumerate(answers):
+        res += questionPoints(i, ans)
+    return res
+```
+
+<br> 
+
+### Another Answer 
+
+```python 
+def getPoints(answers, p):
+    questionPoints = lambda i,ans: [-p,i+1][ans]
+
+    res = 0
+    for i, ans in enumerate(answers):
+        res += questionPoints(i, ans)
+    return res
+```
+
+<br> 
 
 
 <a id = '5th'></a>
