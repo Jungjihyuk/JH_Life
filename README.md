@@ -2,7 +2,7 @@
   
 ## `I have renovated 'Moon Theme' as my style `
     
-######(If you like this theme or using it, please give a :star: for motivation.)
+###### (If you like this theme or using it, please give a :star: for motivation.)
 
 **[Moon](https://taylantatli.github.io/Moon)** is a minimal, one column jekyll theme.
 
