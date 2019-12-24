@@ -1134,6 +1134,38 @@ def getPoints(answers, p):
 
 <br> 
 
+## Sort Students 
+
+> 성씨를 기준으로 오름차순 정렬하는 함수. (단, 성이 같으면 이름으로)
+
+<br> 
+
+### Example 
+
+```python
+name = ["John Smith", "Jacky Mon Simonoff", "Lucy Smith", "Angela Zimonova"]
+
+sortStudents(name) = ['Jacky Mon Simonoff', 'John Smith', 'Lucy Smith', 'Angela Zimonova']
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def sortStudents(students):
+    # 특정한 데이터를 기준으로 정렬할 수 있도록 함수를 지정할 수 있다 
+    students.sort(key=lambda name: name.split(" ")[-1])
+    return students
+
+def sortStudents(students):
+    students.sort(key= lambda s : s[len(s)-(s[::-1]).find(" "):] )
+    return students
+```
+
+<br> 
+
+
 
 <a id = '5th'></a>
 # Graphs 
