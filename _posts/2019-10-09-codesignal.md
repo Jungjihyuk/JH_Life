@@ -1165,7 +1165,61 @@ def sortStudents(students):
 
 <br> 
 
+## Is Test Solvable
 
+> 리스트에 있는 숫자들을 다 더하는데, 각 숫자는 각 자리수의 합을 구한 후 더한다. <br>
+> 그리고 그 총합이 n으로 나누어지는지 확인해주는 함수를 만든다. 
+
+<br> 
+
+### Example 
+
+```python
+ids = [529665, 909767, 644200]
+k = 3 
+
+(5+2+9+6+6+5) + (9+0+9+7+6+7) + (6+4+4+2+0+0) = 87 
+87/3 = 0 
+=> True 
+```
+
+<br> 
+
+### My Answer 
+
+```python 
+def isTestSolvable(ids, k):
+    digitSum = lambda x : sum([int(i) for i in list(str(x))])
+
+    sm = 0
+    for questionId in ids:
+        sm += digitSum(questionId)
+    return sm % k == 0
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def isTestSolvable(ids, k):
+    digitSum = lambda x: x%10+digitSum(x//10) if x else 0
+
+    sm = 0
+    for questionId in ids:
+        sm += digitSum(questionId)
+    return sm % k == 0
+
+def isTestSolvable(ids, k):
+    digitSum = lambda r: sum(map(int,str(r)))
+
+    sm = 0
+    for questionId in ids:
+        sm += digitSum(questionId)
+    return sm % k == 0
+```
+
+<br> 
 
 <a id = '5th'></a>
 # Graphs 
