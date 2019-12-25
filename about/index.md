@@ -24,16 +24,10 @@ date: 2019-12-25
       </div>
       <div style="width: 100%; height: 200px; padding-top: 10px;">
         <h2 style="padding: 10px;">Skills</h2><br>
-        <p>
-          ■ Python 
-          ■ Tensorflow 
-          ■ Pandas 
-          ■ Numpy 
-          ■ HTML 
-          ■ CSS 
-          ■ Java 
-          ■ C
-          ■ JSP & Servlet 
+          <hr>
+        <p>  
+          ■ Python <br>
+          ■ Tensorflow <br>
         </p>
       </div>
     </div>
