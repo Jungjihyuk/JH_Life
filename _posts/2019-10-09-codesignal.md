@@ -1246,6 +1246,7 @@ createSpiralMatrix(n) = [[5, 4, 3],
 ### My Answer 
 
 ```python 
+# 1번 
 def createSpiralMatrix(n):
     dirs = [(-1, 0), (0, -1), (1, 0), (0, 1)]
     curDir = 0
@@ -1263,7 +1264,31 @@ def createSpiralMatrix(n):
         curPos = nextPos
 
     return res
+
+# 2번 
+import numpy as np 
+
+def createSpiralMatrix(n):
+    dirs = [(-1, 0), (0, -1), (1, 0), (0, 1)]
+    curDir = 0
+    curPos = (n - 1, n - 1)
+    res = np.zeros([n,n])
+
+    for i in range(1, n * n + 1):
+        res[curPos[0]][curPos[1]] = i
+        nextPos = curPos[0] + dirs[curDir][0], curPos[1] + dirs[curDir][1]
+        if not (0 <= nextPos[0] < n and
+                0 <= nextPos[1] < n and
+                res[nextPos[0]][nextPos[1]] == 0):
+            curDir = (curDir + 1) % 4
+            nextPos = curPos[0] + dirs[curDir][0], curPos[1] + dirs[curDir][1]
+        curPos = nextPos
+
+    return res    
 ```
+
+**2번도 가능. 그러나 해당 문제에서 numpy 사용 금지.**<br> 
+**1번에서 처음에 [[j for j in range(n)] for i in range(n)]를 했지만 계속 인덱스 오류가 남. (이유는 모르겠음..)**
 
 <br> 
 
