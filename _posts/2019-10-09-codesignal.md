@@ -1316,5 +1316,52 @@ def createSpiralMatrix(n):
 
 <br> 
 
+## Construct Shell 
+
+> 오른쪽으로 90도 회전한 산 모양 리스트를 반환하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+n = 3 
+
+constructShell(n) = [[0],
+                     [0, 0],
+                     [0, 0, 0],
+                     [0, 0],
+                     [0]]
+```
+
+<br> 
+
+
+### My Answer 
+
+```python
+def constructShell(n):
+    return [[0 for j in range(2*n-i)] if i > n else [0]*i  for i in range(1, 2*n)]
+```
+
+<br> 
+
+
+### Another Answer 
+
+```python
+def constructShell(n):
+    return [[0]*min(i,2*n-i) for i in range(1,2*n)]
+    
+def constructShell(n):
+    return [[0] * (i - 2 * max(0, i-n) ) for i in range(1, 2 * n)]
+
+def constructShell(n):
+    return [[0] * (n-abs(i)) for i in range(-n+1, n)]
+```
+
+<br> 
+
+
 <a id = '5th'></a>
 # Graphs 
