@@ -1362,6 +1362,47 @@ def constructShell(n):
 
 <br> 
 
+## Word Power 
+
+> 단어를 넣으면 알파벳 순서에 맞게 숫자로 치환하여 각각의 철자의 합을 구하는 함수. 
+
+<br> 
+
+### Example 
+
+```python
+word = 'hello'
+
+h => 8 e => 5 l => 12 o => 15 
+wordPower(word) = 8 + 5 + 12 + 12 + 15 = 52
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def wordPower(word):
+    num = {b: a+1 for a, b in enumerate('abcdefghijklmnopqrstuvwxyz')}
+    return sum([num[ch] for ch in word])
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def wordPower(word):
+    num = {c: ord(c) - 96 for c in word}
+    return sum([num[ch] for ch in word])
+
+def wordPower(word):
+    num = dict(zip('abcdefghijklmnopqrstuvwxyz', range(1, 27)))
+    return sum([num[ch] for ch in word])
+
+```
+
+<br> 
 
 <a id = '5th'></a>
 # Graphs 
