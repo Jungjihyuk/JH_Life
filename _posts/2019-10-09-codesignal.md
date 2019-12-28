@@ -1404,5 +1404,38 @@ def wordPower(word):
 
 <br> 
 
+## Cool Pairs 
+
+> 두 리스트의 요소간 결합으로 만들어지는 숫자 쌍이 (x,y)라 했을 때 (x*y)%(x+y)==0 인 쌍의 갯수를 반환하는 함수 <br>
+> 단, 숫자 쌍의 합이 같은 경우가 2개 이상일 때는 하나로 취급한다. 
+
+<br> 
+
+### Example 
+
+```python
+a = [4, 5, 6, 7, 8]
+b = [8, 9, 10, 11, 12]
+
+# (4,12), (6,12), (8,8)의 경우가 발생 
+# 그러나 합으로 봤을 때는 16, 18인 경우 두 가지!
+
+coolPairs(a,b) = 2
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def coolPairs(a, b):
+    uniqueSums = {(x+y) for x in a for y in b if (x*y)%(x+y)==0}
+    return len(uniqueSums)
+```
+
+<br> 
+
+
+
 <a id = '5th'></a>
 # Graphs 
