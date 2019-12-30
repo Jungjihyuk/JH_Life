@@ -1435,7 +1435,45 @@ def coolPairs(a, b):
 
 <br> 
 
+## Multiplication Table 
 
+> 숫자 n을 입력하면 NxN 행렬을 반환한다. (단, 1행은 1단 2행은 2단 ...n행은 n단의 숫자로 구성) 
+
+<br>
+
+### Example 
+
+```python
+n = 5 
+
+multiplicationTable(5) = [[1, 2, 3, 4, 5],
+			 [2, 4, 6, 8, 10],
+ 			 [3, 6, 9, 12, 15],
+			 [4, 8, 12, 16, 20],
+			 [5, 10, 15, 20, 25]]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def multiplicationTable(n):
+    return [[a for a in range(b,b*n+1,b)] for b in range(1,n+1)]
+```
+<br> 
+
+### Another Answer 
+
+```python
+def multiplicationTable(n):
+    return [range(i, n*i + 1, i) for i in xrange(1,1+n) ]
+
+def multiplicationTable(n):
+    return [[x*y for x in range(1,n+1)] for y in range(1,n+1)]
+```
+
+<br> 
 
 <a id = '5th'></a>
 # Graphs 
