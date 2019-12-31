@@ -1475,5 +1475,40 @@ def multiplicationTable(n):
 
 <br> 
 
+## Chess Teams 
+
+> 두 개의 리스트를 입력값으로 받으면 각각의 리스트에서 요소 하나씩 뽑아 리스트로 짝지어 리턴해주는 함수 
+
+<br> 
+
+### Example
+
+```python
+smarties = ["Jane", "Bob", "Peter"]
+cleveries = ["Oscar", "Lidia", "Ann"]
+
+chessTeams(smarties, cleveries) = [['Jane', 'Oscar'], ['Bob', 'Lidia'], ['Peter', 'Ann']]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+ def chessTeams(smarties, cleveries):
+    return list(map(lambda x, y : [x,y], smarties, cleveries))
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def chessTeams(smarties, cleveries):
+    return list(zip(smarties,cleveries))
+```
+
+<br> 
+
 <a id = '5th'></a>
 # Graphs 
