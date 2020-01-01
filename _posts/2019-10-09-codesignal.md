@@ -1510,5 +1510,34 @@ def chessTeams(smarties, cleveries):
 
 <br> 
 
+## College Courses 
+
+> 수강한 과목중에 빼야 하는 과목 이름의 길이만 알때 그 과목을 빼는 함수 
+
+<br> 
+
+### Example 
+
+```python
+n = 7 
+courses = ["Art", "Finance", "Business", "Speech", "History", "Writing", "Statistics"]
+
+collegeCourses(x, courses) = ["Art", "Business", "Speech", "Statistics"]
+```
+<br>
+
+### My Answer 
+
+```python
+def collegeCourses(x, courses):
+    def shouldConsider(course):
+        return len(course) != x
+
+    return list(filter(shouldConsider, courses))
+```
+
+<br> 
+
+
 <a id = '5th'></a>
 # Graphs 
