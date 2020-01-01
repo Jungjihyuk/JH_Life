@@ -1538,6 +1538,41 @@ def collegeCourses(x, courses):
 
 <br> 
 
+## Create Histograme
+
+> 요일마다 과제 수행정도를 보여주는 히스토그램을 만드는 함수.. (사실 그냥 별찍기)
+
+<br> 
+
+### Example 
+
+```python
+ch = '*'
+assignments = [12, 12, 14, 3, 12, 15, 14]
+
+createHistogram(ch, assignments) = ["************",
+                                    "************",
+                                    "**************",
+                                    "***",
+                                    "************",
+                                    "***************",
+                                    "**************"]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def createHistogram(ch, assignments):
+    return list(map(lambda x: ch*x, assignments))
+    
+def createHistogram(ch, assignments):
+    return [ch * x for x in assignments]
+```
+
+<br> 
+
 
 <a id = '5th'></a>
 # Graphs 
