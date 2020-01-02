@@ -1573,6 +1573,47 @@ def createHistogram(ch, assignments):
 
 <br> 
 
+## Least Common Denominator 
+
+> 최소공통분모 구하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+denominators = [2, 3, 4, 5, 6]
+
+leastCommonDenominator(denominators) = 60 
+
+# 풀이 
+
+2 x 3      4        5        6
+----- x  ----- x  ----- x  -----
+  1        2        1        6      => (2와 3의 최대공약수, 2x3과 4의 최대 공약수.....) 
+```
+
+<br> 
+
+
+### My Answer 
+
+```python
+from functools import reduce
+from fractions import gcd
+
+def leastCommonDenominator(denominators):
+    return reduce(lambda x,y : (x*y) / gcd(x,y), denominators)
+
+
+from fractions import gcd
+
+def leastCommonDenominator(denominators):
+    return functools.reduce(lambda x,y : (x*y) / gcd(x,y), denominators)    
+```
+
+<br> 
+
 
 <a id = '5th'></a>
 # Graphs 
