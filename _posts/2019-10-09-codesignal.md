@@ -1663,5 +1663,41 @@ def leastCommonDenominator(denominators):
    부여할 수 없는 type임으로 key로써 부적절한 type이라는 뜻이다.
 ```
 
+<br> 
+
+## Unique Characters 
+
+> 문장에서 사용된 Characters type 문자를 중복없이 순서대로 리스트에 나열하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+document = "Todd told Tom to trot to the timber"
+
+uniqueCharacters(document) = [' ', 'T', 'b', 'd', 'e', 'h', 'i', 'l', 'm', 'o', 'r', 't']
+
+' ' < 'T' => True 
+'T' < 't' => True 
+# 오름차순 정렬
+```
+
+<br> 
+
+### My Answer 
+
+```python
+# 오름차순일 때 
+def uniqueCharacters(document):
+    return sorted(list(set(document))) # sorted(set(document)) sorted 함수를 쓰면 리스트로 반환 
+
+# 내림차순일 때 
+def uniqueCharacters(document):
+    return sorted(list(set(document)), reverse=True)
+```
+
+<br> 
+
 <a id = '5th'></a>
 # Graphs 
