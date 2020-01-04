@@ -1699,5 +1699,57 @@ def uniqueCharacters(document):
 
 <br> 
 
+## Correct Scholarships 
+
+> 
+
+<br> 
+
+### Example 
+
+```python
+bestStudents = [3, 5]
+scholarships = [3, 5, 7]
+allStudents = [1, 2, 3, 4, 5, 6, 7]
+
+correctScholarships(bestStudents, scholarships, allStudents) = True
+
+bestStudents = [3]
+scholarships = [1, 3, 5]
+allStudents = [1, 2, 3]
+
+correctScholarships(bestStudents, scholarships, allStudents) = False
+
+bestStudents = [3, 5]
+scholarships = [3, 5]
+allStudents = [3, 5]
+
+correctScholarships(bestStudents, scholarships, allStudents) = False
+```
+
+<br> 
+
+### My Answer 
+
+```python
+# Hidden test 1개 빼고 전부 통과.. 
+def correctScholarships(bestStudents, scholarships, allStudents):
+    return set(bestStudents) | set(scholarships) != set(allStudents) and not ((set(bestStudents) | set(scholarships)) - set(allStudents)) 
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def correctScholarships(bestStudents, scholarships, allStudents):
+    return len(scholarships) < len(allStudents) and sum([x in allStudents for x in scholarships]) == len(scholarships) and sum([x in scholarships for x in bestStudents])==min(len(bestStudents), len(scholarships))
+    
+def correctScholarships(bestStudents, scholarships, allStudents):
+    return set(bestStudents) <= set(scholarships) < set(allStudents)    
+```
+
+<br> 
+
 <a id = '5th'></a>
 # Graphs 
