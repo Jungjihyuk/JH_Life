@@ -1751,5 +1751,38 @@ def correctScholarships(bestStudents, scholarships, allStudents):
 
 <br> 
 
+## Startup Name 
+
+> 스타트업 회사를 차린다고 가정할 때 인기있는 경쟁사의 회사 이름 3개 중 중요한 철자를 골라내는 함수 <br> 
+> 결국 3개 집합 전체에서 3개 집합의 대칭차집합을 뺀 부분을 골라내는 함수 
+
+<br> 
+
+
+### Example 
+
+```python
+companies = ["coolcompany", "nicecompany", "legendarycompany"]
+startupName(companies) = ['e', 'l']
+
+companies = ["nameone", "nametwo", "namethree"]   
+startupName(companies) = ['o', 't']
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def startupName(companies):
+    cmp1 = set(companies[0])
+    cmp2 = set(companies[1])
+    cmp3 = set(companies[2])
+    res = (set(companies[0]) | set(companies[1]) | set(companies[2])) - (set(companies[0])^set(companies[1])^set(companies[2]))
+    return list(sorted(list(res)))
+```
+
+<br> 
+
 <a id = '5th'></a>
 # Graphs 
