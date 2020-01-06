@@ -1831,8 +1831,10 @@ def wordsRecognition(word1, word2):
 
 <br> 
 
-> [!TIP]
-> list or set to string => join
+
+**Tip** list or set to string => join
+{: .notice}
+
 
 <br> 
 
