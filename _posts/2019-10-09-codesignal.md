@@ -1784,5 +1784,58 @@ def startupName(companies):
 
 <br> 
 
+## Words Recognition 
+
+> 두 단어에서 공통적인 알파벳을 뺀 나머지 부분을 추출하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+word1 = "program"
+word2 = "develop"
+
+wordsRecognition(word1, word2) = ['agmr', 'delv']
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def wordsRecognition(word1, word2):
+    def getIdentifier(w1, w2):
+        return ''.join(sorted((set(w1) ^ set(w2)) - set(w2)))
+
+    return [getIdentifier(word1, word2), getIdentifier(word2, word1)]
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def wordsRecognition(word1, word2):
+    def getIdentifier(w1, w2):
+        return ''.join(sorted(set(w1) - set(w2)))
+
+    return [getIdentifier(word1, word2), getIdentifier(word2, word1)]
+
+def wordsRecognition(word1, word2):
+    def getIdentifier(w1, w2):
+        return "".join(sorted(frozenset(w1)-frozenset(w2)))
+
+    return [getIdentifier(word1, word2), getIdentifier(word2, word1)]
+```
+
+<br> 
+
+> [!TIP]
+> list or set to string => join
+
+<br> 
+
+
 <a id = '5th'></a>
 # Graphs 
