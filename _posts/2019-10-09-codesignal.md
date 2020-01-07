@@ -1838,6 +1838,46 @@ def wordsRecognition(word1, word2):
 
 <br> 
 
+## Transpose Dictionary 
+
+> Dictionary형태의 데이터 타입의 키, 값이 "설명", "확장자 명"으로 되어 있는데 이를 "확장자 명", "설명"으로 <br>
+> 구성된 리스트로 바꿔주는 함수 
+
+<br> 
+
+### Example 
+
+```python
+scriptByExtension = {
+  "validate": "py",
+  "getLimits": "md",
+  "generateOutputs": "json"
+}
+
+transposeDictionary(scriptByExtension) = [["json","generateOutputs"], 
+                                          ["md","getLimits"], 
+ 					  ["py","validate"]]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def transposeDictionary(scriptByExtension):
+    return sorted([[y, x] for x, y in scriptByExtension.items()])
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def transposeDictionary(scriptByExtension):
+    return sorted(zip(scriptByExtension.values(), scriptByExtension.keys()))
+```
+
+<br> 
 
 <a id = '5th'></a>
 # Graphs 
