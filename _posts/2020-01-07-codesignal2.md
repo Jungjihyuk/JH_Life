@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CodeSignal Arcade 문제 풀이2
-date: 2019-10-09
+date: 2020-01-07
 excerpt: "Python, Database, 문제해결 프로그래밍"
 tag:
 - CodeSignal2
@@ -43,13 +43,13 @@ tag:
 <a id = '2nd'></a>
 # DataBase (MySQL 문법)
 
-
+<br>
 
 <hr>
 <a id = '3rd'></a>
 # The Core
 
-
+<br>
 
 <hr>
 <a id = '4th'></a>
