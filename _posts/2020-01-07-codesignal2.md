@@ -55,61 +55,6 @@ tag:
 <a id = '4th'></a>
 # Python
 
-## Dictionary Keys
-
-> Data Type Dictionary에서 key가 될 수 있는 types of objects는?
-
-<br>
-
-```
-키값은 변하면 안되므로 immutable objects이며 unique해야 한다.
-
-따라서 frozenset, tuple of immutable objects, integer가 키로써 적합하다.
-```
-
-**그런데 꼭 저 3가지 타입만 키로 가능한건 아니다**
-
-
-```
-# tuple of immutable
-#{(1,2):'1과 2'}
-
-# frozenset
-#{frozenset([1,2]):'1과 2'}
-#{frozenset((1,2)):'1과 2'}
-
-# integer
-#{1:'1과 2'}
-
-# tuple of mutable
-#{("1","2") : "1과 2"}
-
-##################
-
-# string
-#{'1과 2': '1과 2'}
-#{'1':'1과 2'}
-
-# bytes
-#{b'1':'1과 2'}
-
-###################
-
-# 안되는 것들
-#{[1,2],'1과 2'}
-#{['1','2'],'1과 2'}
-#{{1,2},'1과 2'}
-#{bytearray(b'1'):'1과 2'}
-
-=> TypeError: unhashable type: ~~~
-=> python에서 hashable은 lifetime 동안 변하지 않는 해시 값을 갖을 수 있는지 여부이다.
-   따라서 unhashable type은 해시값을 가질 수 없는 type이란 말이고 결국 유일한 키 값을
-   부여할 수 없는 type임으로 key로써 부적절한 type이라는 뜻이다.
-```
-
-
-
-<br>
 
 ## Unique Characters
 
@@ -147,7 +92,7 @@ def uniqueCharacters(document):
 
 ## Correct Scholarships
 
->
+> 예시 설명을 참고 해주세요.
 
 <br>
 
