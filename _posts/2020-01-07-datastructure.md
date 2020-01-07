@@ -1,13 +1,15 @@
-```
+---
 layout: post
 title: Stack, Queue, Deque 
-excerpt: 스택, 큐, 덱에 대해 알아보자 
+date: 2020-01-07
+excerpt: "스택, 큐, 덱에 대해 알아보자" 
 tag: 
 - 자료구조
 - stack
 - queue
 - deque
-```
+---
+
 
 
 # Stack 
