@@ -1879,5 +1879,73 @@ def transposeDictionary(scriptByExtension):
 
 <br> 
 
+## Doodled Password 
+
+> 비밀번호 낙서? / queue의 FIFO 특성을 deque로 구현하는 함수. / 인덱스 수 만큼 First out Last in(맨 앞 요소)를 반복한다 <br> 
+> 설명 잘 못하겠으니 밑에 예시를 참고해 주세요 
+<br> 
+
+### Example 
+
+```python
+digits = [1, 2, 3, 4, 5]
+
+doodledPassword(digits) = [[1, 2, 3, 4, 5], 
+			   [2, 3, 4, 5, 1], 
+			   [3, 4, 5, 1, 2],
+                           [4, 5, 1, 2, 3], 
+			   [5, 1, 2, 3, 4]]
+```
+<br> 
+
+### My Answer 
+
+```python
+from collections import deque
+
+def doodledPassword(digits):
+    n = len(digits)
+    res = [deque(digits) for _ in range(n)]
+    [[res[x].insert(len(res)-1, res[x].popleft()) for y in range(x)] for x in range(1, len(res))]
+    return [list(d) for d in res]
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+from collections import deque
+
+def doodledPassword(digits):
+    n = len(digits)
+    res = [deque(digits) for _ in range(n)]
+    map(lambda i: res[i].rotate(-i), range(n))
+    return [list(d) for d in res]
+
+
+from collections import deque
+
+def doodledPassword(digits):
+    n = len(digits)
+    res = [deque(digits) for _ in range(n)]
+    deque(map(lambda x,y: x.rotate(y), res, range(n,0,-1)), 0)
+    return [list(d) for d in res]
+
+from collections import deque
+
+def doodledPassword(digits):
+    n = len(digits)
+    res = [deque(digits) for _ in range(n)]
+    deque(map(lambda x: x[1].rotate(-x[0]), enumerate(res)), 0)
+    return [list(d) for d in res]
+```
+
+<br> 
+
+
+
+
+
 <a id = '5th'></a>
 # Graphs 
