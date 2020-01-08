@@ -335,6 +335,45 @@ def doodledPassword(digits):
 <br>
 
 
+## Frequency Analysis
+
+> 암호문으로 변경하는 encrypt 함수. 평문에서 가장 빈도수가 높은 문자로 치환한다. 
+
+<br>
+
+### Example
+
+```python
+encryptedText = "$~NmiNmim$/NVeirp@dlzrCCCCfFfQQQ"
+
+frequencyAnalysis(encryptedText) = 'C'
+```
+<br>
+
+### My Answer
+
+```python
+from collections import Counter
+
+def frequencyAnalysis(encryptedText):
+    return Counter(encryptedText).most_common(1)[0][0]
+    
+def frequencyAnalysis(encryptedText):
+    return list(set(encryptedText))[[encryptedText.count(x) for x in list(set(encryptedText))].index(max([encryptedText.count(x) for x in list(set(encryptedText))]))]    
+```
+
+<br>
+
+### Another Answer
+
+```python
+from collections import Counter
+
+def frequencyAnalysis(encryptedText):
+    return sorted(encryptedText, key=encryptedText.count, reverse=True)[0]
+```
+
+<br>
 
 
 
