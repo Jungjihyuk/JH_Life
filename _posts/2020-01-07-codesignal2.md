@@ -375,6 +375,45 @@ def frequencyAnalysis(encryptedText):
 
 <br>
 
+## Cyclic Name 
+
+> 문자열이 주어지면 원하는 길이로 문자열이 순환하는 문자열 반환하는 함수 
+
+<br>
+
+### Example 
+
+```python
+name = 'jihyuk'
+n = 12 
+
+cyclicName(name, n) = 'jihyukjihyuk'
+```
+
+<br>
+
+### My Answer 
+
+```python
+from itertools import cycle
+
+def cyclicName(name, n):
+    gen = (x for x in cycle(name))
+    res = [next(gen) for _ in range(n)]
+    return ''.join(res)
+   
+def cyclicName(name, n):
+    gen = cycle(name)
+    res = [next(gen) for _ in range(n)]
+    return ''.join(res)   
+```
+
+<br> 
+
+**cycle 함수로 만든 객체는 generator 이다**
+
+<br> 
+
 
 
 <a id = '5th'></a>
