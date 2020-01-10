@@ -414,6 +414,47 @@ def cyclicName(name, n):
 
 <br> 
 
+## Memory Pills 
+
+> 리스트의 요소중 길이가 짝수인 요소 다음부터 3개 요소를 추출하는 함수. 단, 추출된 요소가 3개 미만일 때 <br> 
+> 부족한 요소는 ""로 채운다. 
+
+<br> 
+
+### Example 
+
+```python
+pills = ["Notforgetan", "Antimoron", "Rememberin", "Bestmedicen", "Superpillsus"]
+
+=> 11 , 9 , 10 , 11 , 12
+# 따라서 10뒤부터 11, 12에 해당하는 요소와 ""를 반환하면 된다. 
+
+
+memoryPills(pills) = ["Bestmedicen", "Superpillsus", ""]
+```
+
+<br> 
+
+
+### Another Answer 
+
+```python 
+from itertools import dropwhile
+
+def memoryPills(pills):
+    gen = dropwhile(lambda x: len(x)%2!=0, pills + [""]*3)
+    next(gen)
+    return [next(gen) for _ in range(3)]
+    
+from itertools import dropwhile, cycle, chain
+
+def memoryPills(pills):
+    gen = chain(dropwhile(lambda x: len(x)%2 > 0,pills),cycle([""]))
+    next(gen)
+    return [next(gen) for _ in range(3)]    
+```
+
+<br> 
 
 
 <a id = '5th'></a>
