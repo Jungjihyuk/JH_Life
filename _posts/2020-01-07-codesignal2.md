@@ -496,6 +496,32 @@ def floatRange(start, stop, step):
 
 <br> 
 
+## Rock Paper Scissors 
+
+> N명의 사람이 있다고 했을 때 모든 사람이 모든 사람들과 2번씩 경기를 할 수 있도록 명단을 짜주는 함수 
+
+<br> 
+
+### Example 
+
+```python
+players = ["trainee", "warrior", "ninja"]
+
+rockPaperScissors(players) = 
+```
+
+<br> 
+
+### My Answer 
+
+```python
+from itertools import permutations
+
+def rockPaperScissors(players):
+    return sorted(list(permutations(players, 2))
+```
+
+<br>
 
 
 <a id = '5th'></a>
