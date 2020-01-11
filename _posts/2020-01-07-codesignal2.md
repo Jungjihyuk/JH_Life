@@ -456,6 +456,47 @@ def memoryPills(pills):
 
 <br> 
 
+## Float Range 
+
+> 시작, 끝, 간격을 입력값으로 주면(정수, 실수 둘다 가능) 시작부터 끝이전까지 간격을 순회로 하는 리스트를 반환하는 함수 
+
+<br> 
+
+### Example 
+
+```python 
+floatRange(-0.9, 0.45, 0.2) = [-0.9, -0.7, -0.5, -0.3, -0.1, 0.1, 0.3]
+```
+
+<br> 
+
+
+### My Answer 
+
+```python
+from itertools import takewhile, count
+
+def floatRange(start, stop, step):
+    gen = takewhile(lambda x: x < stop, count(start, step))
+    return list(gen)
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+from itertools import islice
+
+def floatRange(start, stop, step):
+    gen =islice(map(lambda x:float(x)/100000.0,list(range(int(start*100000),int(stop*100000),int(step*100000)))),int((stop-start)/step)+1) 
+    return list(gen)
+
+```
+
+<br> 
+
+
 
 <a id = '5th'></a>
 # Graphs
