@@ -20,6 +20,8 @@ tag:
 
 <br> 
 
+<center>![stack](https://user-images.githubusercontent.com/33630505/72219628-95e8a700-358b-11ea-8012-a0b97ef4321a.JPG)</center>
+
 <hr>
 
 # Queue
@@ -27,6 +29,10 @@ tag:
 > 한쪽 끝에서 원소를 넣고 반대쪽 끝에서 원소를 뺄 수 있는 자료구조이다. <br>
 > 티켓팅을 하거나 줄을 설때 일반적으로 먼저온사람이 먼저 작업을 처리하는데 이와 같은 방식이다. <br>
 > FIFO(First In First Out) 구조
+
+<br>
+
+<center>![queue](https://user-images.githubusercontent.com/33630505/72219629-95e8a700-358b-11ea-9298-f66c0e162e0a.JPG)</center>
 
 <hr> 
 
@@ -36,7 +42,8 @@ tag:
 
 <br> 
 
-
+<center>![deque](https://user-images.githubusercontent.com/33630505/72219630-96813d80-358b-11ea-95a2-4b41e4205696.JPG)
+</center>
 
 <hr>
 
