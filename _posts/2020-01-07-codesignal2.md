@@ -523,6 +523,46 @@ def rockPaperScissors(players):
 
 <br>
 
+## Kth Permutation
+
+> n개의 순열 조합 중 n번째 순열을 뽑는 함수 
+
+<br>
+
+### Example 
+
+```python
+numbers = [1, 2, 3, 4, 5]
+k = 4 
+
+kthPermutation(numbers, k) = [1, 2, 4, 5, 3]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+from itertools import permutations
+
+def kthPermutation(numbers, k):
+    return list(permutations(numbers, len(numbers)))[k-1]
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+from itertools import islice, permutations
+
+def kthPermutation(numbers, k):
+    return next(islice(permutations(numbers), k - 1, None)) # None대신 k도 가능 
+```
+
+<br>
+
+
 
 <a id = '5th'></a>
 # Graphs
