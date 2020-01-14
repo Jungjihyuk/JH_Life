@@ -562,6 +562,37 @@ def kthPermutation(numbers, k):
 
 <br>
 
+## Crazyball 
+
+> n개의 리스트에서 k개를 뽑아 조합하는 함수. (combination)
+
+<br> 
+
+### Example
+
+```python
+players = ["Ninja", "Warrior", "Trainee", "Newbie"]
+k = 3
+
+crazyball(players, k) = [['Ninja', 'Warrior', 'Trainee'],
+			 ['Ninja', 'Warrior', 'Newbie'],
+ 			 ['Ninja', 'Trainee', 'Newbie'],
+ 			 ['Warrior', 'Trainee', 'Newbie']]
+```
+
+<br>
+
+### My Answer 
+
+```python
+from itertools import combinations
+
+def crazyball(players, k):
+    return list(combinations(sorted(players), k))
+```
+
+<br>
+
 
 
 <a id = '5th'></a>
