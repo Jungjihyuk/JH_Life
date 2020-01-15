@@ -593,7 +593,47 @@ def crazyball(players, k):
 
 <br>
 
+## Twins Score
 
+> 두 개의 리스트를 입력값으로 받아 같은 인덱스끼리 합하여 하나의 리스트로 반환하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+b = [22, 13, 45, 32]
+m = [28, 41, 13, 32]
+
+twinsScore(b, m) = [50, 54, 58, 64]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+import numpy as np 
+def twinsScore(b, m):
+    return list(np.array(b)+np.array(m))
+
+def twinsScoer(b,m):
+    return [x[0]+x[1] for x in list(zip(b,m))]
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def twinsScore(b, m):
+    return map(sum, zip(b,m))
+
+def twinsScore(b, m):
+    return [u + v for u, v in zip(b, m)]
+```
+
+<br> 
 
 <a id = '5th'></a>
 # Graphs
