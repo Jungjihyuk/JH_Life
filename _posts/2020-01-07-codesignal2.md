@@ -635,5 +635,67 @@ def twinsScore(b, m):
 
 <br> 
 
+## Pressure Gauges 
+
+> 두 개의 리스트를 입력 받으면 각각의 인덱스에 맞게 짝지어 작은 값을 1행 리스트에 큰 값을 2행 리스트에 묶어 반환하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+morning = [3, 5, 2, 6]
+evening = [1, 6, 6, 6]
+
+pressureGauges(morning, evening) = [[1, 5, 2, 6], 
+ 				    [3, 6, 6, 6]]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def pressureGauges(morning, evening):
+    return [list(map(min, zip(morning,evening))), list(map(max, zip(morning,evening)))]
+
+def pressureGauges(morning, evening):
+    return [[min(x) for x in zip(morning, evening)], [max(x) for x in zip(morning, evening)]]
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def pressureGauges(morning, evening):
+    return list(zip(*map(sorted, zip(morning, evening))))
+
+def pressureGauges(morning, evening):
+    return [list(map(op, zip(morning, evening))) for op in [min, max]]    
+```
+
+<br>
+
+<span style="color: orange">zip과 *의 조합으로 여러개 리스트를 받을 때 각각의 인덱스에 해당하는 요소끼리 합칠 수 있다.</span><br> 
+
+```python
+a = [1,2,3,4]
+b = [1,2,3,4]
+c = [[1,2],[3,4],[5,6]]
+d = [[1,2,10],[3,4,11],[5,6,12]]
+
+list(zip(a,b))
+=> [(1, 1), (2, 2), (3, 3), (4, 4)]
+
+list(zip(*c))
+=> [(1, 3, 5), (2, 4, 6)]
+
+list(zip(*d))
+=> [(1, 3, 5), (2, 4, 6), (10, 11, 12)]
+```
+
+<br>
+
 <a id = '5th'></a>
 # Graphs
