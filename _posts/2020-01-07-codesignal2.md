@@ -697,5 +697,51 @@ list(zip(*d))
 
 <br>
 
+## Correct Lineup 
+
+> 짝수인 리스트를 입력 받으면 앞에서 부터 두 요소씩 짝을 지어 순서를 뒤 바꾸는 함수 
+
+<br> 
+
+### Example 
+
+```python
+athletes = [1, 2, 3, 4, 5, 6]
+
+correctLineup(athletes) = [2, 1, 4, 3, 6, 5]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def correctLineup(athletes):
+    return [a[b] for a in [[y,x] for x, y in zip(athletes[::2], athletes[1::2])] for b in range(2)]
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def correctLineup(athletes):
+    return [athletes[i^1] for i in range(len(athletes))]
+
+def correctLineup(athletes):
+    return [athletes[i+(-1)**i] for i in range(len(athletes))]
+    
+def correctLineup(athletes):
+    return [athletes[i+1] if i%2 == 0 else athletes[i-1] for i in range(0,len(athletes)) ]
+
+def correctLineup(athletes):
+    return list(sum(zip(athletes[1::2], athletes[0::2]), ()))
+ 
+def correctLineup(athletes):
+    return reduce(lambda x,y: x+y, zip(athletes[1::2], athletes[::2])) 
+```
+
+<br> 
+
 <a id = '5th'></a>
 # Graphs
