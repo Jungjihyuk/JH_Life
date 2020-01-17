@@ -794,5 +794,62 @@ def groupDating(male, female):
 
 <br> 
 
+
+## Fix Tree
+
+> 리스트를 입력 받으면 제대로된 트리 모양으로 바꿔주는 함수 
+
+<br>
+
+### Example 
+
+```python
+tree = ["      *  ", 
+ 	"    *    ", 
+ 	"***      ", 
+ 	"    *****", 
+ 	"  *******", 
+ 	"*********", 
+ 	" ***     "]
+
+fixTree(tree) = ["    *    ", 
+ 		 "    *    ", 
+ 		 "   ***   ", 
+ 		 "  *****  ", 
+ 		 " ******* ", 
+ 		 "*********", 
+ 		 "   ***   "]
+```
+
+<br>
+
+### My Answer 
+
+```python
+def fixTree(tree):
+    return [" "*int((len(x) - len(x.strip()))/2) + x.strip() + " "*int((len(x) - len(x.strip()))/2) for x in tree]
+```
+
+<br>
+
+### Another Answer 
+
+```python
+def fixTree(tree):
+    return [x.strip().center(len(x))for x in tree]
+
+def fixTree(tree):
+    return list(map(lambda s: s.strip().center(len(s)), tree))
+
+def fixTree(tree):
+    return map(lambda x: ' ' * (x.count(' ') / 2) + '*' * x.count('*') + ' ' * (x.count(' ') / 2), tree)
+```
+
+<br>
+
+**center라는 좋은 함수가 있었구만!** 
+
+<br> 
+
 <a id = '5th'></a>
 # Graphs
