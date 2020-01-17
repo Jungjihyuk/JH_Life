@@ -743,5 +743,56 @@ def correctLineup(athletes):
 
 <br> 
 
+## Group Dating 
+
+> 입력 받은 두 리스트에서 같은 인덱스의 값이 다를 경우 짝을 지어주는 함수 
+
+<br>
+
+### Example 
+
+```python
+male = [5, 28, 14, 99, 17]
+female = [5, 14, 28, 99, 16]
+
+groupDating(male, female) = [[28, 14, 17], [14, 28, 16]]
+
+male = [1,2,3,4]
+female = [1,2,3,4]
+
+groupDating(male, female) = [[],[]]
+
+male = [12]
+female = [43]
+
+groupDating(male, female) = [[12], [43]]
+```
+
+<br>
+
+### My Answer 
+
+```python
+def groupDating(male, female):
+    return [[],[]] if male==female else list(zip(*[[x[0],x[1]] for x in list(zip(male, female)) if x[0]!=x[1]])) 
+```
+
+<br>
+
+### Another Answer 
+
+```python
+def groupDating(male, female):
+    return [[x for x, y in zip(male, female) if x!=y], [y for x, y in zip(male, female) if x!=y]]
+
+def groupDating(male, female):
+    return zip(*[[m, f] for (m, f) in zip(male, female) if m != f])
+
+def groupDating(male, female):
+    return list(zip(*[x for x in list(zip(male,female)) if x[0]!=x[1]]))
+```
+
+<br> 
+
 <a id = '5th'></a>
 # Graphs
