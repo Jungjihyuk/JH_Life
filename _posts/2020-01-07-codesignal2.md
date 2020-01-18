@@ -851,5 +851,68 @@ def fixTree(tree):
 
 <br> 
 
+
+## Pref Sum
+
+> 리스트를 하나의 수열이라고 했을 때, 즉 점화식 또는 일반항 이라고 보고 이에대한 부분합을 구하는 함수 
+
+<br>
+
+### Example 
+
+```python
+a = [1, 2, 3]
+b = [1, 5, 10, -5]
+
+prefSum(a) = [1, 3, 6]
+prefSum(a) = [1, 6, 16, 11]
+```
+
+<br>
+
+### My Answer 
+
+```python
+# hidden test 1개 통과 못함... 뭘 못 통과한걸까!? 
+def prefSum(a):
+    return [sum([a[x] for x in range(y+1)]) for y in range(len(a))]
+    
+from functools import reduce
+def prefSum(a):
+    return [reduce(lambda x,y:x+y,a[:i]) for i in range(1,len(a)+1)]
+```
+
+<br>
+
+### Another Answer 
+
+
+```python
+from itertools import accumulate
+def prefSum(a):
+    return list(accumulate(a))
+
+from functools import reduce
+def prefSum(a):
+    return reduce(lambda x,y:x+[sum([y]+x[-1:])],a,[])
+
+from functools import reduce
+def prefSum(a):
+    return reduce(lambda p, n: p + [p[-1] + n], a, [0])[1:] 
+
+import numpy 
+def prefSum(a):
+    return numpy.cumsum(a) 
+
+def prefSum(a):
+    return list(__import__('itertools').accumulate(a)) # 요딴 방법으로도 가능하군! 
+```
+
+<br>
+
+**새로 알게된 것들: numpy의 cumsum , itertools의 accumlate**
+
+<br> 
+
 <a id = '5th'></a>
 # Graphs
