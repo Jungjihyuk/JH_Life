@@ -914,5 +914,53 @@ def prefSum(a):
 
 <br> 
 
+## Math Practice
+
+> 리스트를 입력값으로 받으면 더하고 곱하고를 반복하면서 하나의 값으로 만드는 함수. (자세한건 예시 확인) 
+
+<br>
+
+### Example 
+
+```python
+numbers = [1,2,3,4,5,6]
+
+mathPractice(numbers) = ((1 + 2)*3 + 4)*5 + 6 = 71
+
+numbers2 = [9, 19, 2, 2, 7, 3, 0, 0, 6, 11, 14, 18, 11, 7, 9, 6, 8, 4, 13, 11]
+
+mathPractice(numbers2) = 
+```
+
+<br>
+
+### My Answer 
+
+
+```python
+test5에서 통과하지 못함.. 이유는 리스트 인덱스 15번째에서 더해야 하는데 곱해서 중간에 값이 뻥튀기 됨.. 
+def mathPractice(numbers):
+    return reduce(lambda x,y: x*y if numbers.index(y)%2==0 else x+y, numbers)
+```
+
+<br>
+
+### Another Answer 
+
+```python
+def mathPractice(numbers):
+    return reduce(lambda x, (i,y): x+y if i%2 else x*y, enumerate(numbers), 1)
+
+def mathPractice(numbers):
+    return reduce(lambda z,(x,y):z*x+y, zip(numbers[::2],numbers[1::2]+[0]), 1)
+
+def mathPractice(numbers):
+    return functools.reduce(lambda s, a: s+numbers[a] if a%2==1 else s*numbers[a], range(1, len(numbers)), numbers[0])
+```
+
+<br>
+
+<br>
+
 <a id = '5th'></a>
 # Graphs
