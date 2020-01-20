@@ -929,7 +929,7 @@ mathPractice(numbers) = ((1 + 2)*3 + 4)*5 + 6 = 71
 
 numbers2 = [9, 19, 2, 2, 7, 3, 0, 0, 6, 11, 14, 18, 11, 7, 9, 6, 8, 4, 13, 11]
 
-mathPractice(numbers2) = 
+mathPractice(numbers2) = 1778151
 ```
 
 <br>
@@ -959,6 +959,40 @@ def mathPractice(numbers):
 ```
 
 <br>
+
+## Fibonacci List 
+
+> 피보나치 수열 응용 함수 
+
+<br> 
+
+### Example 
+
+```python
+n = 6 
+
+fibonacciList(n) = [[], 
+                    [0], 
+                    [0], 
+                    [0, 0], 
+                    [0, 0, 0], 
+                    [0, 0, 0, 0, 0]]
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def fibonacciList(n):
+    return [[0] * x for x in reduce(lambda a, b: a+[a[-2]+a[-1]], range(n-2), [0,1])]  
+    # [0,1] => 첫 항을 보여주고 타입을 설정하기 위한 부분 (빈 리스트를 넣어도 똑같이 작동한다)
+```
+<br> 
+
+**Fibonacci 관련 문제는 여러번 다양한 문제로 연습 해보자**
+
+
 
 <br>
 
