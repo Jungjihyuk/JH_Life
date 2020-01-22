@@ -992,6 +992,33 @@ def fibonacciList(n):
 
 **Fibonacci 관련 문제는 여러번 다양한 문제로 연습 해보자**
 
+## Primes Sum
+
+> 범위 안의 숫자 중에서 소수만 뽑아 더하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+a = 10 
+b = 20 
+
+primesSum(a,b) = 11 + 13 + 17 + 19 = 60 
+```
+
+<br>
+
+### My Answer 
+
+```python
+def primesSum(a, b):
+    return sum([sum([0 if y == 1 or 0 in [0 if y%x==0 else x for x in range(2, y-1)] else y]) for y in range(a,b+1)])
+```
+
+<br>
+
+
 
 
 <br>
