@@ -1018,6 +1018,24 @@ def primesSum(a, b):
 
 <br>
 
+### Another Answer 
+
+```python
+def primesSum(a, b):
+    return sum(filter(lambda x: all(x % i for i in range(2, int(x**0.5) + 1)), range(max(2, a), b+1)))
+
+import math 
+def primesSum(a, b):
+    return sum([n for n in range(a, b+1) if n > 1 and all([n % b for b in range(2, int(math.sqrt(n))+ 1)])])
+
+def primesSum(a, b):
+    return sum([x for x in range(max(a,2),b+1) if not 0 in [x%z for z in range(2, int(x**0.5+1))]])
+    
+def primesSum(a, b):
+    return sum([a for a in range(a, b+1) if not (a < 2 or any(a % x == 0 for x in range(2, int(a ** 0.5) + 1))) ])    
+```
+
+<br>
 
 
 
