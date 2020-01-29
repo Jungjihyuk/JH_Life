@@ -1037,6 +1037,35 @@ def primesSum(a, b):
 
 <br>
 
+## Fibonacci Generator 
+
+> 숫자 n을 입력하면 피보나치 수열에서 n번째 항까지 출력하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+n = 7
+
+fibonacciGenerator(n) = [0, 1, 1, 2, 3, 5, 8]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def fibonacciGenerator(n):
+    def fib():
+        last = (0, 1)
+        while True:
+            yield last[0]
+            last = last[0] + last[1], last[0]
+
+    gen = fib()
+    return [next(gen) for _ in range(n)]
+```
 
 
 <br>
