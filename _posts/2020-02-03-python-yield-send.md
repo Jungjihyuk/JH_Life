@@ -10,7 +10,7 @@ tag:
 - send
 ---
 
-<center> <span style="color: orange; font-size:15px">yield와 send</span></center>
+<center> <span style="color: orange; font-size:45px">Generator의 yield와 send에 대해 알아보자!</span></center>
 
 <br> 
 
