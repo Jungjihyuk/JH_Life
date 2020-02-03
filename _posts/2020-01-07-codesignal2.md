@@ -1070,5 +1070,82 @@ def fibonacciGenerator(n):
 
 <br>
 
+## Check Password 
+
+> 비밀번호를 몇번째 만에 성공하는지 확인하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+attempts = ["hello", "world", "I", "like", "coding"]
+password = "like"
+
+checkPassword(attempts, password) = 4
+
+attempts = ["hello", "world", "I", "like", "coding"]
+password = "qwerty123"
+
+checkPassword(attempts, password) = -1
+
+attempts = ["codesignal"]
+password = "codesignal"
+
+checkPassword(attempts, password) = 1
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+def checkPassword(attempts, password):
+    def check():
+        while True:
+            x = yield
+            yield x == password
+            
+    checker = check()
+    for i, attempt in enumerate(attempts):
+        next(checker)
+        if checker.send(attempt):
+            return i + 1
+    
+    return -1
+    
+def checkPassword(attempts, password):
+    def check():
+        while True:
+            yield (yield) == password
+            
+    checker = check()
+    for i, attempt in enumerate(attempts):
+        next(checker)
+        if checker.send(attempt):
+            return i + 1
+    
+    return -1
+    
+def checkPassword(attempts, password):
+    def check():
+        while True:
+            yield True if attempt==password else False
+            
+    checker = check()
+    for i, attempt in enumerate(attempts):
+        next(checker)
+        if checker.send(attempt):
+            return i + 1
+    
+    return -1    
+```
+
+<br> 
+
+
+
+<br>
+
 <a id = '5th'></a>
 # Graphs
