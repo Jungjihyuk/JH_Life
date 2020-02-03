@@ -16,11 +16,16 @@ tag:
 
 > Generator, Yield, Send가 도대체 뭐야? <br> 
 
-<center>우선 Generator는 iterator를 생성해주는 함수!</center><br>
-<center>그럼 iterator는 무엇이냐! iterator는 반복할 수 있는 객체의 요소를 리턴할 때 호출 한 시점에 값을 리턴하며 값을 지우고 그 상태를 유지해준다.</center><br>
+<br>
+
+<center>우선 Generator는 iterator를 생성해주는 함수!</center>
+<center>그럼 iterator는 무엇이냐! iterator는 반복할 수 있는 객체의 요소를 리턴할 때 호출 한 시점에 값을 리턴하며 값을 지우고 그 상태를 유지해준다.</center>
 <center>그러면 Yield는 무슨 관계가 있는데? yield는 generator를 만들때 함수 안에 yield를 삽입하면 yield를 만나는 순간 iterator 처럼 행동한다.</center>
 
 
+<br> 
+
+## Example 
 
 ```python
 def double(number):
