@@ -25,6 +25,24 @@ tag:
 
 <br> 
 
+> Generator 작동 순서 
+
+<br> 
+
+<span style="color: orange">Step 1: </span>Generator 메소드 호출<br>
+<span style="color: orange">Step 2: </span>yield까지 실행<br>
+<span style="color: orange">Step 3: </span>첫번째 yield에서 중단(suspend)<br>
+<span style="color: orange">Step 4: </span>호출자에게 expression_list 값을 반환(return)<br>
+<span style="color: orange">Step 5: </span>중단된 지점에서 모든 상태가 보존(지역 변수들의 현재 연결들, 명령 포인터, 내부 연산 스택, 모든 예외처리)<br>
+<span style="color: orange">Step 6: </span>1~5 step 반복<br>
+
+<br>
+
+**※ next함수 vs send함수** next함수를 통해 호출되면 return은 None, send함수를 통해 호출되면 return은 메소드로 전달된 값 
+{: .notice}
+
+<br> 
+
 ## Example 
 
 ```python
