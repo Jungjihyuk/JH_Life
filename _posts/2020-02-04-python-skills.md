@@ -21,7 +21,7 @@ tag:
 
 > URL에서 인코딩, 디코딩의 의미는 보안에서의 의미와 살짝 다르다. <br>
 > 인코딩 <br>
-> http://www.google.com/떡볶이 먹고싶다!!
+> http://www.google.com/떡볶이 먹고싶다!! <br> 
 > => http://www.google.com/search?sxsrf=ACYBGNTgapWszfC06soR1IlVyLsC2w_7EQ% <br>
 > 3A1580777854450&source=hp&ei=fsE4Xri1GdWRr7wPvM2UOA&q=떡볶이+먹고싶다!! <br>
 > 주소에 한글/공백/특수기호가 들어가면 안되기 때문에 가능하도록 변환하는 작업 <br>
@@ -44,7 +44,7 @@ green = my_values.get('green',[''])[0] or 0
 opacity = my_values.get('opacity',[''])[0] or 0
 ```
 
-**평가 =>** 이 표현식은 일기도 불편하고 필요한 작업을 수행하지도 못하는 좋지 못한 코딩
+**평가 =>** 이 표현식은 읽기도 불편하고 필요한 작업을 수행하지도 못하는 좋지 못한 코딩
 {: .notice}
 
 <br>
