@@ -18,7 +18,7 @@ tag:
 
 <br>
 
-<center>우선 Generator는 iterator를 생성해주는 함수!</center>
+<center>우선 Generator는 generator(iterator를 반환하기 위한 객체)를 생성해주는 함수!</center>
 <center>그럼 iterator는 무엇이냐! iterator는 반복할 수 있는 객체의 요소를 리턴할 때 호출 한 시점에 값을 리턴하며 값을 지우고 그 상태를 유지해준다.</center>
 <center>그러면 Yield는 무슨 관계가 있는데? yield는 generator를 만들때 함수 안에 yield를 삽입하면 yield를 만나는 순간 iterator 처럼 행동한다.</center>
 
@@ -29,12 +29,13 @@ tag:
 
 <br> 
 
-<span style="color: orange">Step 1: </span>Generator 메소드 호출<br>
-<span style="color: orange">Step 2: </span>yield까지 실행<br>
-<span style="color: orange">Step 3: </span>첫번째 yield에서 중단(suspend)<br>
-<span style="color: orange">Step 4: </span>호출자에게 expression_list 값을 반환(return)<br>
-<span style="color: orange">Step 5: </span>중단된 지점에서 모든 상태가 보존(지역 변수들의 현재 연결들, 명령 포인터, 내부 연산 스택, 모든 예외처리)<br>
-<span style="color: orange">Step 6: </span>1~5 step 반복<br>
+<span style="color: orange">Step 1: </span>Generator 메소드 호출 (Generator 객체 생성)<br>
+<span style="color: orange">Step 2: </span>생성된 generator를 next함수로 호출<br>
+<span style="color: orange">Step 3: </span>yield까지 실행<br>
+<span style="color: orange">Step 4: </span>첫번째 yield에서 중단(suspend)<br>
+<span style="color: orange">Step 5: </span>호출자에게 expression_list 값을 반환(return)<br>
+<span style="color: orange">Step 6: </span>중단된 지점에서 모든 상태가 보존(지역 변수들의 현재 연결들, 명령 포인터, 내부 연산 스택, 모든 예외처리)<br>
+<span style="color: orange">Step 7: </span>1~5 step 반복<br>
 
 <br>
 
@@ -42,6 +43,19 @@ tag:
 {: .notice}
 
 <br> 
+
+> Generator랑 Coroutine과의 관계는? 둘이 같은건가? 
+
+<br> 
+
+우선 컴퓨터 프로그램에서 routine이라는 말을 자주 찾아 볼 수 있는데, 이때의 routine은 "어떤 일을 담당하는 하나의 정리된 일" 이라고 한다.<br>
+프로그램은 여러가지 routine을 조합하여 만들어지며, main routine과 sub routine으로 나눌 수 있다. <br>
+main routine은 프로그램의 주요한 부분이고 전체의 개략적인 동작 절차를 표시하도록 만들어진다. <br> 
+sub routine은 사용빈도가 높고 자주 사용하는 부분을 
+
+<br> 
+
+
 
 ## Example 
 
