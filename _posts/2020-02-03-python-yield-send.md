@@ -51,10 +51,15 @@ tag:
 우선 컴퓨터 프로그램에서 routine이라는 말을 자주 찾아 볼 수 있는데, 이때의 routine은 "어떤 일을 담당하는 하나의 정리된 일" 이라고 한다.<br>
 프로그램은 여러가지 routine을 조합하여 만들어지며, main routine과 sub routine으로 나눌 수 있다. <br>
 main routine은 프로그램의 주요한 부분이고 전체의 개략적인 동작 절차를 표시하도록 만들어진다. <br> 
-sub routine은 사용빈도가 높고 자주 사용하는 부분을 
+sub routine은 사용빈도가 높고 자주 사용하는 부분을 모아 별도로 묶어 놓은 것으로 메인루틴을 보조한다. (메소로 묶음)<br> 
+(서브루틴을 사용하면 함수호출시에만 저장된 메모리로 이동하기 때문에 메모리를 효율적으로 사용할 수 있다) 
+이제 진짜로 알아보려고 했던 Co-routine은 sub-routine과 비슷하다. <br> 
+자주 쓰는 기능들을 별도의 공간에 모아 두었다는 점에서 서브루틴과 동일하지만, 코루틴은 yield까지 수행하고 상태를 중지한 후 
+메인루틴으로 돌아가 마치 동시에 실행되는 것처럼 작동한다. (co에서 볼 수 있듯 메인루틴과 협력관계임) 
+<span style="color:#f35952; font-size: 20px;">따라서 코루틴은 메인루틴에 종속적이지 않아 데이터를 주고 받을 수 있다! (이러한 특성때문에 send가 가능한 것임)</span>
+
 
 <br> 
-
 
 
 ## Example 
@@ -149,3 +154,9 @@ for x in range(4):
   True 
   None
 ```
+
+<br> 
+
+출처: [co-routine](https://blueshw.github.io/2016/01/25/python-co-routine-vs-sub-routine/), [co-routine2](https://m.blog.naver.com/PostView.nhn?blogId=pxkey&logNo=221296053953&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F) <br>
+[IT 용어](https://devbox.tistory.com/entry/IT%EC%9A%A9%EC%96%B4-%E3%84%B9)
+
