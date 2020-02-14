@@ -1143,7 +1143,97 @@ def checkPassword(attempts, password):
 
 <br> 
 
+## Super Prize 
 
+> n의 배수 번째 손님의 구매금액을 d로 나누었을 때 나누어 떨어지면 상금을 주는 알고리즘을 갖는 객체를 생성하시오 
+
+<br> 
+
+### Example 
+
+```python
+purchases: [41, 51, 91, 72, 71, 30, 28, 35, 55, 62, 65, 45, 100, 54, 83, 69, 66, 43]
+n: 2
+d: 5
+
+superPrize(purchases, n, d): [6, 8, 12]
+
+# 총 18명의 손님중 2n 즉 2, 4, 6, 8, 10, 12, 14, 16, 18번째 손님의 구매금액을 5로 나누었을 때 
+# 나누어 떨어지는 손님에게 상금을 지급한다. 
+
+purchases[1::2] = [51, 72, 30, 35, 62, 45, 54, 69, 43] 
+[x % 5 for x in purchases[1::2]] = [1, 2, 0, 0, 2, 0, 4, 4, 3]
+3, 4, 6번째가 나누어 떨어지고 인덱스가 절반으로 줄었으니까 
+6, 8, 12번째의 손님이 상금을 차지하게 된다.
+```
+
+<br> 
+
+### My Answer 
+
+```python
+class Prizes(object):
+    def __init__(self, purchases, n ,d):
+        self.purchases = purchases
+        self.n = n 
+        self.d = d
+        self.i = n - 1
+        
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        while self.i < len(self.purchases):
+            i = self.i 
+            self.i += self.n
+            if self.purchases[i] % self.d == 0:
+                return i + 1 
+        else:
+            raise StopIteration
+
+
+def superPrize(purchases, n, d):
+    return list(Prizes(purchases, n, d))
+```
+
+<br> 
+
+### Another Answer 
+
+```python
+class Prizes(object):
+    def __init__(self, p, n, d):
+        self.p = p
+        self.n = n
+        self.d = d
+    def __iter__(self):
+        for i, x in enumerate(self.p):
+            if i%self.n == self.n-1 and x%self.d == 0:
+                yield i+1
+
+def superPrize(purchases, n, d):
+    return list(Prizes(purchases, n, d))
+
+class Prizes(object):
+    def __init__(self,purchases,n,d):
+        self.winners = [(i+1)*n for i,x in enumerate(purchases[n-1::n]) if x%d == 0]
+        
+    def __iter__(self):
+        return iter(self.winners)
+        
+
+
+def superPrize(purchases, n, d):
+    return list(Prizes(purchases, n, d))
+
+class Prizes(object):
+    def __new__(_, p, n, d):
+        return [(i+1)*n for i, v in enumerate(p[n-1::n]) if v%d == 0]
+
+
+def superPrize(purchases, n, d):
+    return list(Prizes(purchases, n, d))
+```
 
 <br>
 
