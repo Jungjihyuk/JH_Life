@@ -159,5 +159,5 @@ for x in range(4):
 <br> 
 
 출처: [co-routine](https://blueshw.github.io/2016/01/25/python-co-routine-vs-sub-routine/), [co-routine2](https://m.blog.naver.com/PostView.nhn?blogId=pxkey&logNo=221296053953&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F) <br>
-&nbsp;&nbsp;&nbsp;&nbsp; [IT 용어](https://devbox.tistory.com/entry/IT%EC%9A%A9%EC%96%B4-%E3%84%B9)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [IT 용어](https://devbox.tistory.com/entry/IT%EC%9A%A9%EC%96%B4-%E3%84%B9)
 
