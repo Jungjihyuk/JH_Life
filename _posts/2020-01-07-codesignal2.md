@@ -1237,5 +1237,48 @@ def superPrize(purchases, n, d):
 
 <br>
 
+## Try Functions 
+
+> 하나의 값을 여러가지 함수로 평가한 결과 리스트를 반환하는 함수 
+
+<br> 
+
+### Example 
+
+```python
+functions = ["math.sin", "math.cos", "lambda x: x * 2", "lambda x: x ** 2"]
+x = 1 
+
+tryFunctions(x, functions) = [(0.8414709848078965, 0.5403023058681398, 2, 1)]
+```
+
+<br> 
+
+### My Answer 
+
+```python
+def tryFunctions(x, functions):
+    return list(zip(*[map(x, list([1])) for x in func])) 
+```
+
+**내가 만든 함수의 문제: ** 입력값으로 받는 함수리스트가 문자열로 구성되어 있으면 사용할 수 없다. 리스트 안에 있는 문자열을 함수 타입으로 만들고 싶었으나 함수 타입으로 만들어주는 최상위 클래스같은건 없기에 실패.. 
+{: .notice}
+
+<br> 
+
+### Another Answer 
+
+```python
+def tryFunctions(x, functions):
+    return [eval(f)(x) for f in functions)]
+```
+
+<span style='color:orange; font-weight:bold;'>eval 함수 언젠간 요긴하게 쓸거같았는데..! eval을 exec로 착각하는 바람에 결국 답을 봐버렸다.. </span>
+<br> 
+
+
+
+<br>
+
 <a id = '5th'></a>
 # Graphs
