@@ -1275,7 +1275,7 @@ def tryFunctions(x, functions):
 
 <span style='color:orange; font-weight:bold;'>eval 함수 언젠간 요긴하게 쓸거같았는데..! eval을 exec로 착각하는 바람에 결국 답을 봐버렸다.. </span>
 <br> 
-
+<br>
 
 
 ## Simple Composition & Functions Composition
