@@ -1275,6 +1275,74 @@ def tryFunctions(x, functions):
 
 <span style='color:orange; font-weight:bold;'>eval 함수 언젠간 요긴하게 쓸거같았는데..! eval을 exec로 착각하는 바람에 결국 답을 봐버렸다.. </span>
 <br> 
+<br>
+
+
+## Simple Composition & Functions Composition
+
+> 단일 합성함수의 연산 결과를 반환하는 함수 <br> 
+> n개 중첩 합성함수의 연산 결과를 반환하는 함수 
+
+
+<br> 
+
+### Example 
+
+```python
+# 단일 합성함수 
+
+f = "math.log10", g = "abs" , x = -100 
+
+simpleComposition(f, g, x) = math.log10(abs(-100)) = 2 
+
+# 중첩 합성함수 
+
+functions = ["abs", "math.sin", "lambda x: 3 * x / 2"]
+x = 3.1415
+
+functionsComposition(functions, x) = abs(math.sin(3*3.1415/2)) = 1 
+```
+
+<br> 
+
+### My Answer 
+
+```python
+# 단일 함성함수 
+def compose(f, g):
+    return lambda x : f(g(x))
+
+def simpleComposition(f, g, x):
+    return compose(eval(f), eval(g))(x)
+    
+def simpleComposition2(f, g, x):
+    return eval(f)(eval(g)(x))    
+
+# 중첩 합성함수
+from functools import reduce
+
+def compose(functions):
+    return reduce(lambda f,g : lambda x: f(g(x)), functions)
+
+def functionsComposition(functions, x):
+    return compose(map(eval, functions))(x)
+```
+
+
+<br> 
+
+### Another Answer 
+
+```python
+# 중첩 합성함수
+def compose(functions):
+    return functions[0] if len(functions) == 1 else compose([lambda x: functions[0](functions[1](x))] + functions[2:])
+
+def functionsComposition(functions, x):
+    return compose(map(eval, functions))(x)
+```
+
+<br> 
 
 
 
